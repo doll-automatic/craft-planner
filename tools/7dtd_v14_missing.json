@@ -1,0 +1,812 @@
+[
+  {
+    "game_id": "7daystodie",
+    "id": "acid_bottle",
+    "name": "酸入りボトル",
+    "type": "資源",
+    "facility": "探索",
+    "is_raw": true,
+    "used_as_in": true
+  },
+  {
+    "game_id": "7daystodie",
+    "id": "aloe_cream",
+    "name": "アロエクリーム",
+    "type": "医療",
+    "facility": "手荷物",
+    "is_raw": false,
+    "used_as_in": true
+  },
+  {
+    "game_id": "7daystodie",
+    "id": "aloe_leaf",
+    "name": "アロエの葉",
+    "type": "資源",
+    "facility": "採取",
+    "is_raw": true,
+    "used_as_in": true
+  },
+  {
+    "game_id": "7daystodie",
+    "id": "animal_fat",
+    "name": "動物の油脂",
+    "type": "資源",
+    "facility": "狩猟",
+    "is_raw": true,
+    "used_as_in": true
+  },
+  {
+    "game_id": "7daystodie",
+    "id": "bandage",
+    "name": "包帯",
+    "type": "医療",
+    "facility": "手荷物",
+    "is_raw": false,
+    "used_as_in": true
+  },
+  {
+    "game_id": "7daystodie",
+    "id": "battery",
+    "name": "バッテリー",
+    "type": "電気",
+    "facility": "作業台",
+    "is_raw": false,
+    "used_as_in": true
+  },
+  {
+    "game_id": "7daystodie",
+    "id": "beaker",
+    "name": "ビーカー",
+    "type": "資源",
+    "facility": "探索",
+    "is_raw": true,
+    "used_as_in": true
+  },
+  {
+    "game_id": "7daystodie",
+    "id": "beer",
+    "name": "ビール",
+    "type": "食料",
+    "facility": "化学実験ステーション",
+    "is_raw": false,
+    "used_as_in": true
+  },
+  {
+    "game_id": "7daystodie",
+    "id": "bicycle_chassis",
+    "name": "自転車のシャーシ",
+    "type": "車両",
+    "facility": "作業台",
+    "is_raw": false,
+    "used_as_in": true
+  },
+  {
+    "game_id": "7daystodie",
+    "id": "bicycle_handlebars",
+    "name": "自転車のハンドルバー",
+    "type": "車両",
+    "facility": "作業台",
+    "is_raw": false,
+    "used_as_in": true
+  },
+  {
+    "game_id": "7daystodie",
+    "id": "blood_bag",
+    "name": "血液バッグ",
+    "type": "資源",
+    "facility": "探索",
+    "is_raw": true,
+    "used_as_in": true
+  },
+  {
+    "game_id": "7daystodie",
+    "id": "blueberry",
+    "name": "ブルーベリー",
+    "type": "資源",
+    "facility": "農業",
+    "is_raw": true,
+    "used_as_in": true
+  },
+  {
+    "game_id": "7daystodie",
+    "id": "boiled_water",
+    "name": "茹でた水",
+    "type": "食料",
+    "facility": "焚き火",
+    "is_raw": false,
+    "used_as_in": true
+  },
+  {
+    "game_id": "7daystodie",
+    "id": "bone",
+    "name": "骨",
+    "type": "資源",
+    "facility": "狩猟",
+    "is_raw": true,
+    "used_as_in": true
+  },
+  {
+    "game_id": "7daystodie",
+    "id": "buckshot",
+    "name": "散弾薬莢",
+    "type": "弾薬",
+    "facility": "炉",
+    "is_raw": false,
+    "used_as_in": true
+  },
+  {
+    "game_id": "7daystodie",
+    "id": "bullet_casing",
+    "name": "薬莢",
+    "type": "弾薬",
+    "facility": "炉",
+    "is_raw": false,
+    "used_as_in": true
+  },
+  {
+    "game_id": "7daystodie",
+    "id": "bullet_tip",
+    "name": "弾頭",
+    "type": "弾薬",
+    "facility": "炉",
+    "is_raw": false,
+    "used_as_in": true
+  },
+  {
+    "game_id": "7daystodie",
+    "id": "cement",
+    "name": "セメント",
+    "type": "建築",
+    "facility": "炉",
+    "is_raw": false,
+    "used_as_in": true
+  },
+  {
+    "game_id": "7daystodie",
+    "id": "chrysanthemum",
+    "name": "菊",
+    "type": "資源",
+    "facility": "採取",
+    "is_raw": true,
+    "used_as_in": true
+  },
+  {
+    "game_id": "7daystodie",
+    "id": "clay_soil",
+    "name": "粘土の土",
+    "type": "資源",
+    "facility": "採掘",
+    "is_raw": true,
+    "used_as_in": true
+  },
+  {
+    "game_id": "7daystodie",
+    "id": "cloth_fragment",
+    "name": "布の切れ端",
+    "type": "資源",
+    "facility": "手荷物",
+    "is_raw": false,
+    "used_as_in": true
+  },
+  {
+    "game_id": "7daystodie",
+    "id": "coal",
+    "name": "石炭",
+    "type": "資源",
+    "facility": "採掘",
+    "is_raw": true,
+    "used_as_in": true
+  },
+  {
+    "game_id": "7daystodie",
+    "id": "cobblestone_rocks",
+    "name": "玉石岩",
+    "type": "建築",
+    "facility": "手荷物",
+    "is_raw": false,
+    "used_as_in": true
+  },
+  {
+    "game_id": "7daystodie",
+    "id": "coffee_beans",
+    "name": "コーヒー豆",
+    "type": "資源",
+    "facility": "農業",
+    "is_raw": true,
+    "used_as_in": true
+  },
+  {
+    "game_id": "7daystodie",
+    "id": "concrete_mix",
+    "name": "コンクリートミックス",
+    "type": "建築",
+    "facility": "セメントミキサー",
+    "is_raw": false,
+    "used_as_in": true
+  },
+  {
+    "game_id": "7daystodie",
+    "id": "cooking_pot",
+    "name": "調理鍋",
+    "type": "道具",
+    "facility": "炉",
+    "is_raw": false,
+    "used_as_in": true
+  },
+  {
+    "game_id": "7daystodie",
+    "id": "corn",
+    "name": "トウモロコシ",
+    "type": "資源",
+    "facility": "農業",
+    "is_raw": true,
+    "used_as_in": true
+  },
+  {
+    "game_id": "7daystodie",
+    "id": "cornmeal",
+    "name": "コーンミール",
+    "type": "食料",
+    "facility": "手荷物",
+    "is_raw": false,
+    "used_as_in": true
+  },
+  {
+    "game_id": "7daystodie",
+    "id": "cotton",
+    "name": "綿花",
+    "type": "資源",
+    "facility": "農業",
+    "is_raw": true,
+    "used_as_in": true
+  },
+  {
+    "game_id": "7daystodie",
+    "id": "crushed_sand",
+    "name": "砂",
+    "type": "資源",
+    "facility": "セメントミキサー",
+    "is_raw": false,
+    "used_as_in": true
+  },
+  {
+    "game_id": "7daystodie",
+    "id": "duct_tape",
+    "name": "ダクトテープ",
+    "type": "資源",
+    "facility": "手荷物",
+    "is_raw": false,
+    "used_as_in": true
+  },
+  {
+    "game_id": "7daystodie",
+    "id": "egg",
+    "name": "卵",
+    "type": "資源",
+    "facility": "探索",
+    "is_raw": true,
+    "used_as_in": true
+  },
+  {
+    "game_id": "7daystodie",
+    "id": "electrical_parts",
+    "name": "電気部品",
+    "type": "資源",
+    "facility": "解体",
+    "is_raw": true,
+    "used_as_in": true
+  },
+  {
+    "game_id": "7daystodie",
+    "id": "feather",
+    "name": "羽",
+    "type": "資源",
+    "facility": "採取",
+    "is_raw": true,
+    "used_as_in": true
+  },
+  {
+    "game_id": "7daystodie",
+    "id": "forged_iron",
+    "name": "鍛造鉄",
+    "type": "資源",
+    "facility": "炉",
+    "is_raw": false,
+    "used_as_in": true
+  },
+  {
+    "game_id": "7daystodie",
+    "id": "forged_steel",
+    "name": "鍛造鋼",
+    "type": "資源",
+    "facility": "炉",
+    "is_raw": false,
+    "used_as_in": true
+  },
+  {
+    "game_id": "7daystodie",
+    "id": "gas_can",
+    "name": "ガソリン缶",
+    "type": "資源",
+    "facility": "化学実験ステーション",
+    "is_raw": false,
+    "used_as_in": true
+  },
+  {
+    "game_id": "7daystodie",
+    "id": "glue",
+    "name": "接着剤",
+    "type": "資源",
+    "facility": "化学実験ステーション",
+    "is_raw": false,
+    "used_as_in": true
+  },
+  {
+    "game_id": "7daystodie",
+    "id": "goldenrod",
+    "name": "アキノキリンソウ",
+    "type": "資源",
+    "facility": "採取",
+    "is_raw": true,
+    "used_as_in": true
+  },
+  {
+    "game_id": "7daystodie",
+    "id": "grilled_meat",
+    "name": "焼いた肉",
+    "type": "食料",
+    "facility": "焚き火",
+    "is_raw": false,
+    "used_as_in": true
+  },
+  {
+    "game_id": "7daystodie",
+    "id": "gunpowder",
+    "name": "銃粉",
+    "type": "弾薬",
+    "facility": "化学実験ステーション",
+    "is_raw": false,
+    "used_as_in": true
+  },
+  {
+    "game_id": "7daystodie",
+    "id": "gyrocopter_accessories",
+    "name": "ジャイロコプターの付属品",
+    "type": "車両",
+    "facility": "作業台",
+    "is_raw": false,
+    "used_as_in": true
+  },
+  {
+    "game_id": "7daystodie",
+    "id": "gyrocopter_chassis",
+    "name": "ジャイロコプターのシャーシ",
+    "type": "車両",
+    "facility": "作業台",
+    "is_raw": false,
+    "used_as_in": true
+  },
+  {
+    "game_id": "7daystodie",
+    "id": "headlight",
+    "name": "ヘッドライト",
+    "type": "資源",
+    "facility": "解体",
+    "is_raw": true,
+    "used_as_in": true
+  },
+  {
+    "game_id": "7daystodie",
+    "id": "hops",
+    "name": "ホップ",
+    "type": "資源",
+    "facility": "農業",
+    "is_raw": true,
+    "used_as_in": true
+  },
+  {
+    "game_id": "7daystodie",
+    "id": "iron_arrowhead",
+    "name": "鉄矢尻",
+    "type": "弾薬",
+    "facility": "炉",
+    "is_raw": false,
+    "used_as_in": true
+  },
+  {
+    "game_id": "7daystodie",
+    "id": "leather",
+    "name": "レザー",
+    "type": "資源",
+    "facility": "狩猟",
+    "is_raw": true,
+    "used_as_in": true
+  },
+  {
+    "game_id": "7daystodie",
+    "id": "mechanical_parts",
+    "name": "機械部品",
+    "type": "資源",
+    "facility": "解体",
+    "is_raw": true,
+    "used_as_in": true
+  },
+  {
+    "game_id": "7daystodie",
+    "id": "minibike_chassis",
+    "name": "ミニバイクのシャーシ",
+    "type": "車両",
+    "facility": "作業台",
+    "is_raw": false,
+    "used_as_in": true
+  },
+  {
+    "game_id": "7daystodie",
+    "id": "minibike_handlebars",
+    "name": "ミニバイクのハンドルバー",
+    "type": "車両",
+    "facility": "作業台",
+    "is_raw": false,
+    "used_as_in": true
+  },
+  {
+    "game_id": "7daystodie",
+    "id": "motorcycle_chassis",
+    "name": "オートバイのシャーシ",
+    "type": "車両",
+    "facility": "作業台",
+    "is_raw": false,
+    "used_as_in": true
+  },
+  {
+    "game_id": "7daystodie",
+    "id": "motorcycle_handlebars",
+    "name": "オートバイのハンドルバー",
+    "type": "車両",
+    "facility": "作業台",
+    "is_raw": false,
+    "used_as_in": true
+  },
+  {
+    "game_id": "7daystodie",
+    "id": "murky_water",
+    "name": "濁った水",
+    "type": "資源",
+    "facility": "探索",
+    "is_raw": true,
+    "used_as_in": true
+  },
+  {
+    "game_id": "7daystodie",
+    "id": "mushrooms",
+    "name": "キノコ",
+    "type": "資源",
+    "facility": "農業",
+    "is_raw": true,
+    "used_as_in": true
+  },
+  {
+    "game_id": "7daystodie",
+    "id": "nails",
+    "name": "釘",
+    "type": "資源",
+    "facility": "炉",
+    "is_raw": false,
+    "used_as_in": true
+  },
+  {
+    "game_id": "7daystodie",
+    "id": "nitrate_powder",
+    "name": "硝酸塩粉末",
+    "type": "資源",
+    "facility": "採掘",
+    "is_raw": true,
+    "used_as_in": true
+  },
+  {
+    "game_id": "7daystodie",
+    "id": "oil",
+    "name": "オイル",
+    "type": "資源",
+    "facility": "化学実験ステーション",
+    "is_raw": false,
+    "used_as_in": true
+  },
+  {
+    "game_id": "7daystodie",
+    "id": "oil_shale",
+    "name": "オイルシェール",
+    "type": "資源",
+    "facility": "採掘",
+    "is_raw": true,
+    "used_as_in": true
+  },
+  {
+    "game_id": "7daystodie",
+    "id": "painkillers",
+    "name": "鎮痛剤",
+    "type": "医療",
+    "facility": "探索",
+    "is_raw": true,
+    "used_as_in": false
+  },
+  {
+    "game_id": "7daystodie",
+    "id": "paper",
+    "name": "紙",
+    "type": "資源",
+    "facility": "化学実験ステーション",
+    "is_raw": false,
+    "used_as_in": true
+  },
+  {
+    "game_id": "7daystodie",
+    "id": "plant_fibers",
+    "name": "植物繊維",
+    "type": "資源",
+    "facility": "採取",
+    "is_raw": true,
+    "used_as_in": true
+  },
+  {
+    "game_id": "7daystodie",
+    "id": "plastic_polymer",
+    "name": "プラスチックポリマー",
+    "type": "資源",
+    "facility": "解体",
+    "is_raw": true,
+    "used_as_in": true
+  },
+  {
+    "game_id": "7daystodie",
+    "id": "potato",
+    "name": "ジャガイモ",
+    "type": "資源",
+    "facility": "農業",
+    "is_raw": true,
+    "used_as_in": true
+  },
+  {
+    "game_id": "7daystodie",
+    "id": "raw_iron",
+    "name": "生鉄",
+    "type": "資源",
+    "facility": "採掘",
+    "is_raw": true,
+    "used_as_in": true
+  },
+  {
+    "game_id": "7daystodie",
+    "id": "raw_lead",
+    "name": "生鉛",
+    "type": "資源",
+    "facility": "採掘",
+    "is_raw": true,
+    "used_as_in": true
+  },
+  {
+    "game_id": "7daystodie",
+    "id": "raw_meat",
+    "name": "生肉",
+    "type": "資源",
+    "facility": "狩猟",
+    "is_raw": true,
+    "used_as_in": true
+  },
+  {
+    "game_id": "7daystodie",
+    "id": "rocket_casing",
+    "name": "ロケットケーシング",
+    "type": "弾薬",
+    "facility": "炉",
+    "is_raw": false,
+    "used_as_in": true
+  },
+  {
+    "game_id": "7daystodie",
+    "id": "rocket_tip",
+    "name": "ロケット弾頭",
+    "type": "弾薬",
+    "facility": "炉",
+    "is_raw": false,
+    "used_as_in": true
+  },
+  {
+    "game_id": "7daystodie",
+    "id": "rotting_flesh",
+    "name": "腐肉",
+    "type": "資源",
+    "facility": "探索",
+    "is_raw": true,
+    "used_as_in": true
+  },
+  {
+    "game_id": "7daystodie",
+    "id": "scrap_brass",
+    "name": "真鍮",
+    "type": "資源",
+    "facility": "探索",
+    "is_raw": true,
+    "used_as_in": true
+  },
+  {
+    "game_id": "7daystodie",
+    "id": "sewing_kit",
+    "name": "裁縫キット",
+    "type": "資源",
+    "facility": "探索",
+    "is_raw": true,
+    "used_as_in": true
+  },
+  {
+    "game_id": "7daystodie",
+    "id": "sham_sandwich",
+    "name": "古いシャムサンドイッチ",
+    "type": "資源",
+    "facility": "探索",
+    "is_raw": true,
+    "used_as_in": true
+  },
+  {
+    "game_id": "7daystodie",
+    "id": "short_iron_pipe",
+    "name": "鉄パイプ",
+    "type": "資源",
+    "facility": "炉",
+    "is_raw": false,
+    "used_as_in": true
+  },
+  {
+    "game_id": "7daystodie",
+    "id": "small_engine",
+    "name": "エンジン",
+    "type": "資源",
+    "facility": "解体",
+    "is_raw": true,
+    "used_as_in": true
+  },
+  {
+    "game_id": "7daystodie",
+    "id": "small_stone",
+    "name": "小さな石",
+    "type": "資源",
+    "facility": "採掘",
+    "is_raw": true,
+    "used_as_in": true
+  },
+  {
+    "game_id": "7daystodie",
+    "id": "spring",
+    "name": "ばね",
+    "type": "資源",
+    "facility": "解体",
+    "is_raw": true,
+    "used_as_in": true
+  },
+  {
+    "game_id": "7daystodie",
+    "id": "steel_arrowhead",
+    "name": "鋼鉄矢尻",
+    "type": "弾薬",
+    "facility": "炉",
+    "is_raw": false,
+    "used_as_in": true
+  },
+  {
+    "game_id": "7daystodie",
+    "id": "tool_parts_motorized",
+    "name": "動力ツールパーツ",
+    "type": "資源",
+    "facility": "解体",
+    "is_raw": true,
+    "used_as_in": true
+  },
+  {
+    "game_id": "7daystodie",
+    "id": "tool_parts_steel",
+    "name": "鉄鋼ツールパーツ",
+    "type": "資源",
+    "facility": "解体",
+    "is_raw": true,
+    "used_as_in": true
+  },
+  {
+    "game_id": "7daystodie",
+    "id": "truck_accessories",
+    "name": "4x4トラックの付属品",
+    "type": "車両",
+    "facility": "作業台",
+    "is_raw": false,
+    "used_as_in": true
+  },
+  {
+    "game_id": "7daystodie",
+    "id": "truck_chassis",
+    "name": "4x4トラックのシャーシ",
+    "type": "車両",
+    "facility": "作業台",
+    "is_raw": false,
+    "used_as_in": true
+  },
+  {
+    "game_id": "7daystodie",
+    "id": "vitamins",
+    "name": "ビタミン剤",
+    "type": "医療",
+    "facility": "探索",
+    "is_raw": true,
+    "used_as_in": false
+  },
+  {
+    "game_id": "7daystodie",
+    "id": "weapon_parts_handgun",
+    "name": "ハンドガンパーツ",
+    "type": "資源",
+    "facility": "解体",
+    "is_raw": true,
+    "used_as_in": true
+  },
+  {
+    "game_id": "7daystodie",
+    "id": "weapon_parts_machinegun",
+    "name": "マシンガンパーツ",
+    "type": "資源",
+    "facility": "解体",
+    "is_raw": true,
+    "used_as_in": true
+  },
+  {
+    "game_id": "7daystodie",
+    "id": "weapon_parts_rifle",
+    "name": "ライフルパーツ",
+    "type": "資源",
+    "facility": "解体",
+    "is_raw": true,
+    "used_as_in": true
+  },
+  {
+    "game_id": "7daystodie",
+    "id": "weapon_parts_rocket",
+    "name": "ロケットランチャーパーツ",
+    "type": "資源",
+    "facility": "解体",
+    "is_raw": true,
+    "used_as_in": true
+  },
+  {
+    "game_id": "7daystodie",
+    "id": "weapon_parts_shotgun",
+    "name": "ショットガンパーツ",
+    "type": "資源",
+    "facility": "解体",
+    "is_raw": true,
+    "used_as_in": true
+  },
+  {
+    "game_id": "7daystodie",
+    "id": "wheel",
+    "name": "車輪",
+    "type": "車両",
+    "facility": "作業台",
+    "is_raw": false,
+    "used_as_in": true
+  },
+  {
+    "game_id": "7daystodie",
+    "id": "wood",
+    "name": "木材",
+    "type": "資源",
+    "facility": "採取",
+    "is_raw": true,
+    "used_as_in": true
+  },
+  {
+    "game_id": "7daystodie",
+    "id": "wood_log",
+    "name": "丸太",
+    "type": "建築",
+    "facility": "手荷物",
+    "is_raw": false,
+    "used_as_in": true
+  }
+]

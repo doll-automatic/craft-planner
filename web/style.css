@@ -1,0 +1,417 @@
+:root {
+  color-scheme: light;
+  --ink: #1c2430;
+  --muted: #5c6b73;
+  --paper: #f3efe6;
+  --card: #fffdf8;
+  --line: #d9d1c3;
+  --teal: #0f5f5c;
+  --teal-dark: #0b4543;
+  --warn: #8a2e24;
+  --warn-bg: #f8e8e4;
+  --field: #ffffff;
+  --root-bg: #e7f3f2;
+  --node: #0f5f5c;
+  --node-ink: #ffffff;
+  --edge: #5c6b73;
+  --edge-label: #1c2430;
+  --node-card: #fffdf8;
+  --node-leaf: #d7ebe4;
+  --node-chip: #f3efe6;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --ink: #e7e2d6;
+  --muted: #b3aa9c;
+  --paper: #16181d;
+  --card: #22262e;
+  --line: #3c4450;
+  --teal: #5ecfc8;
+  --teal-dark: #9ee8e2;
+  --warn: #f0b0a8;
+  --warn-bg: #3a2420;
+  --field: #1b1e24;
+  --root-bg: #1c3331;
+  --node: #1a6e6a;
+  --node-ink: #f3fffe;
+  --edge: #9aa6ad;
+  --edge-label: #e7e2d6;
+  --node-card: #22262e;
+  --node-leaf: #1a3330;
+  --node-chip: #2a3338;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", "Yu Gothic UI", "Hiragino Sans", sans-serif;
+  color: var(--ink);
+  background: var(--paper);
+  line-height: 1.5;
+}
+
+.top, .controls, .errors, .columns, .notice, .warn, .placeholder, #cy {
+  width: min(1080px, calc(100% - 32px));
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.top {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 24px 0 8px;
+}
+
+.title-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+
+h1 {
+  margin: 0;
+  font-size: 1.6rem;
+  letter-spacing: 0.04em;
+}
+
+h2 { font-size: 1.05rem; margin: 0 0 8px; }
+
+.section-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 12px;
+  margin-bottom: 8px;
+}
+
+.section-head h2 { margin: 0; }
+
+.summary-mode {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 14px;
+}
+
+.summary-mode-option {
+  flex-direction: row;
+  align-items: center;
+  gap: 6px;
+  margin: 0;
+  color: var(--ink);
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.summary-mode-option input {
+  width: 1rem;
+  height: 1rem;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.lede, .placeholder {
+  margin: 4px 0 0;
+  color: var(--muted);
+  text-align: center;
+}
+
+.theme-toggle,
+.fullscreen-toggle {
+  min-height: 44px;
+  padding: 8px 14px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--field);
+  color: var(--ink);
+  font: inherit;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.theme-toggle {
+  margin-left: auto;
+}
+
+.fullscreen-toggle {
+  flex: 0 0 auto;
+}
+
+.panel-toolbar,
+.lists-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.panel-toolbar {
+  width: min(1080px, calc(100% - 32px));
+  margin: 12px auto 0;
+}
+
+.panel-toolbar .notice {
+  width: auto;
+  flex: 1 1 auto;
+  min-width: 0;
+  margin: 0;
+}
+
+.lists-toolbar {
+  grid-column: 1 / -1;
+}
+
+/* ブラウザ内最大化。通常時の幅・高さは上書きせず、このクラスが付いたときだけ広げる。 */
+.is-fullscreen {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1000;
+  margin: 0;
+  background: var(--paper);
+}
+
+#tree-panel.is-fullscreen {
+  display: flex;
+  flex-direction: column;
+  padding: 12px 16px 16px;
+  overflow: hidden;
+}
+
+#tree-panel.is-fullscreen .panel-toolbar {
+  width: 100%;
+  margin: 0;
+  flex: 0 0 auto;
+}
+
+#tree-panel.is-fullscreen #cy,
+#tree-panel.is-fullscreen #tree-placeholder {
+  width: 100%;
+  height: auto;
+  min-height: 0;
+  flex: 1 1 auto;
+  margin: 8px 0 0;
+}
+
+.columns.is-fullscreen {
+  padding: 16px;
+  overflow: auto;
+  align-content: start;
+}
+
+.columns.is-fullscreen .lists-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: var(--paper);
+  padding-bottom: 8px;
+}
+
+.controls {
+  display: grid;
+  grid-template-columns: 1.15fr 0.8fr 1fr 1.2fr 1fr;
+  gap: 12px;
+  padding: 12px 0;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+select, input {
+  min-height: 44px;
+  padding: 8px 10px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--field);
+  color: var(--ink);
+  font: inherit;
+}
+
+#cy {
+  height: 480px;
+  margin-top: 8px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--field);
+  position: relative;
+}
+
+.node-card-layer {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.node-card {
+  position: absolute;
+  left: 0;
+  top: 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 8px 10px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--node-card);
+  color: var(--ink);
+  transform-origin: top left;
+  overflow: hidden;
+}
+
+.node-card.leaf {
+  background: var(--node-leaf);
+}
+
+.node-card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  height: 22px;
+}
+
+.node-card-name {
+  min-width: 0;
+  font-size: 13px;
+  font-weight: 650;
+  line-height: 22px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.node-card-type {
+  flex: 0 0 auto;
+  max-width: 42%;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 22px;
+  text-align: right;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.node-card-rate {
+  height: 20px;
+  font-size: 12px;
+  line-height: 20px;
+  text-align: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.node-card-inputs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+
+.node-card-input {
+  box-sizing: border-box;
+  height: 26px;
+  padding: 0 6px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: var(--node-chip);
+  font-size: 11px;
+  line-height: 24px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* .placeholder の margin 短縮指定が左右 auto を 0 に戻すため、グラフ領域と同じ箱で明示する */
+#tree-placeholder {
+  height: 480px;
+  margin: 8px auto 0;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--field);
+  text-align: center;
+}
+
+#tree-placeholder:not([hidden]) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.notice, .warn, .errors {
+  margin-top: 12px;
+}
+
+.warn, .errors {
+  color: var(--warn);
+  background: var(--warn-bg);
+  border-radius: 8px;
+  padding: 10px 12px;
+}
+
+.errors p { margin: 4px 0; }
+
+.columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  padding: 20px 0 40px;
+}
+
+.columns ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  min-height: 120px;
+}
+
+.columns li {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--line);
+}
+
+.columns li.item-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.columns li.item-row > span {
+  min-width: 0;
+}
+
+.item-icon {
+  width: 28px;
+  height: 28px;
+  flex: 0 0 28px;
+  object-fit: contain;
+}
+
+.columns li:last-child { border-bottom: 0; }
+
+.columns li.root { background: var(--root-bg); font-weight: 650; }
+
+@media (max-width: 800px) {
+  .top { align-items: flex-start; }
+  .controls, .columns { grid-template-columns: 1fr; }
+  #cy, #tree-placeholder { height: 360px; }
+}

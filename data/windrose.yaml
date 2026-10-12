@@ -1,0 +1,1828 @@
+# Windrose（ウィンドローズ）のゲームデータ。
+# 海賊の黄金時代を舞台にしたオープンワールド・サバイバルクラフト『Windrose / ウィンドローズ』（開発: Kraken Express、発売: Pocketpair Publishing）に準拠。
+# 木材・建材加工、金属製錬、織物・革加工、道具・装備、銃火器・弾薬、艦砲・船体装備、船体建造、薬品・錬金術、食料を網羅。
+# レシピ時間（craft_time）はゲーム内レシピの秒数（0.1〜86400）。
+# 原材料（採取・伐採・採石・採掘・狩猟・交易など）は inputs: [] のレシピとして表現。
+# 先頭レシピ（Recipes[0]）固定で循環がないDAG構造。
+
+name: "Windrose / ウィンドローズ"
+
+items:
+  # ==========================================
+  # 資源（原材料: 採取・採掘・伐採・狩猟・交易）
+  # ==========================================
+  - id: wood
+    name: "木材"
+    type: "資源"
+    facility: "採取"
+    recipes:
+      - id: wood_r0
+        craft_time: 1.0
+        main_output: wood
+        inputs: []
+        outputs:
+          - { id: wood, qty: 1 }
+
+  - id: hardwood
+    name: "硬木"
+    type: "資源"
+    facility: "伐採"
+    recipes:
+      - id: hardwood_r0
+        craft_time: 1.0
+        main_output: hardwood
+        inputs: []
+        outputs:
+          - { id: hardwood, qty: 1 }
+
+  - id: tree_bark
+    name: "樹皮"
+    type: "資源"
+    facility: "採取"
+    recipes:
+      - id: tree_bark_r0
+        craft_time: 1.0
+        main_output: tree_bark
+        inputs: []
+        outputs:
+          - { id: tree_bark, qty: 1 }
+
+  - id: stone
+    name: "石"
+    type: "資源"
+    facility: "採石"
+    recipes:
+      - id: stone_r0
+        craft_time: 1.0
+        main_output: stone
+        inputs: []
+        outputs:
+          - { id: stone, qty: 1 }
+
+  - id: clay
+    name: "粘土"
+    type: "資源"
+    facility: "採掘"
+    recipes:
+      - id: clay_r0
+        craft_time: 1.0
+        main_output: clay
+        inputs: []
+        outputs:
+          - { id: clay, qty: 1 }
+
+  - id: copper_ore
+    name: "銅鉱石"
+    type: "資源"
+    facility: "採掘"
+    recipes:
+      - id: copper_ore_r0
+        craft_time: 1.0
+        main_output: copper_ore
+        inputs: []
+        outputs:
+          - { id: copper_ore, qty: 1 }
+
+  - id: foothills_iron_ore
+    name: "フットヒル鉄鉱石"
+    type: "資源"
+    facility: "採掘"
+    recipes:
+      - id: foothills_iron_ore_r0
+        craft_time: 1.0
+        main_output: foothills_iron_ore
+        inputs: []
+        outputs:
+          - { id: foothills_iron_ore, qty: 1 }
+
+  - id: mire_metal_ore
+    name: "湿地金属鉱石"
+    type: "資源"
+    facility: "採掘"
+    recipes:
+      - id: mire_metal_ore_r0
+        craft_time: 1.0
+        main_output: mire_metal_ore
+        inputs: []
+        outputs:
+          - { id: mire_metal_ore, qty: 1 }
+
+  - id: sulfur
+    name: "硫黄"
+    type: "資源"
+    facility: "採掘"
+    recipes:
+      - id: sulfur_r0
+        craft_time: 1.0
+        main_output: sulfur
+        inputs: []
+        outputs:
+          - { id: sulfur, qty: 1 }
+
+  - id: plant_fiber
+    name: "植物繊維"
+    type: "資源"
+    facility: "採取"
+    recipes:
+      - id: plant_fiber_r0
+        craft_time: 1.0
+        main_output: plant_fiber
+        inputs: []
+        outputs:
+          - { id: plant_fiber, qty: 1 }
+
+  - id: flax_fiber
+    name: "亜麻繊維"
+    type: "資源"
+    facility: "採取"
+    recipes:
+      - id: flax_fiber_r0
+        craft_time: 1.0
+        main_output: flax_fiber
+        inputs: []
+        outputs:
+          - { id: flax_fiber, qty: 1 }
+
+  - id: rough_hide
+    name: "粗皮"
+    type: "資源"
+    facility: "狩猟"
+    recipes:
+      - id: rough_hide_r0
+        craft_time: 1.0
+        main_output: rough_hide
+        inputs: []
+        outputs:
+          - { id: rough_hide, qty: 1 }
+
+  - id: crocodile_hide
+    name: "ワニ革の断片"
+    type: "資源"
+    facility: "狩猟"
+    recipes:
+      - id: crocodile_hide_r0
+        craft_time: 1.0
+        main_output: crocodile_hide
+        inputs: []
+        outputs:
+          - { id: crocodile_hide, qty: 1 }
+
+  - id: tar
+    name: "タール"
+    type: "資源"
+    facility: "採取"
+    recipes:
+      - id: tar_r0
+        craft_time: 1.0
+        main_output: tar
+        inputs: []
+        outputs:
+          - { id: tar, qty: 1 }
+
+  - id: feather
+    name: "羽毛"
+    type: "資源"
+    facility: "採取"
+    recipes:
+      - id: feather_r0
+        craft_time: 1.0
+        main_output: feather
+        inputs: []
+        outputs:
+          - { id: feather, qty: 1 }
+
+  - id: meat
+    name: "肉"
+    type: "資源"
+    facility: "狩猟"
+    recipes:
+      - id: meat_r0
+        craft_time: 1.0
+        main_output: meat
+        inputs: []
+        outputs:
+          - { id: meat, qty: 1 }
+
+  - id: dodo_egg
+    name: "ドードーの卵"
+    type: "資源"
+    facility: "採取"
+    recipes:
+      - id: dodo_egg_r0
+        craft_time: 1.0
+        main_output: dodo_egg
+        inputs: []
+        outputs:
+          - { id: dodo_egg, qty: 1 }
+
+  - id: crab_meat
+    name: "カニの肉"
+    type: "資源"
+    facility: "採取"
+    recipes:
+      - id: crab_meat_r0
+        craft_time: 1.0
+        main_output: crab_meat
+        inputs: []
+        outputs:
+          - { id: crab_meat, qty: 1 }
+
+  - id: beans
+    name: "インゲン豆"
+    type: "資源"
+    facility: "農業"
+    recipes:
+      - id: beans_r0
+        craft_time: 1.0
+        main_output: beans
+        inputs: []
+        outputs:
+          - { id: beans, qty: 1 }
+
+  - id: cayenne_pepper
+    name: "カイエンペッパー"
+    type: "資源"
+    facility: "採取"
+    recipes:
+      - id: cayenne_pepper_r0
+        craft_time: 1.0
+        main_output: cayenne_pepper
+        inputs: []
+        outputs:
+          - { id: cayenne_pepper, qty: 1 }
+
+  - id: corn
+    name: "トウモロコシ"
+    type: "資源"
+    facility: "農業"
+    recipes:
+      - id: corn_r0
+        craft_time: 1.0
+        main_output: corn
+        inputs: []
+        outputs:
+          - { id: corn, qty: 1 }
+
+  - id: healing_herbs
+    name: "薬草"
+    type: "資源"
+    facility: "採取"
+    recipes:
+      - id: healing_herbs_r0
+        craft_time: 1.0
+        main_output: healing_herbs
+        inputs: []
+        outputs:
+          - { id: healing_herbs, qty: 1 }
+
+  - id: misty_orchid
+    name: "霧の蘭"
+    type: "資源"
+    facility: "採取"
+    recipes:
+      - id: misty_orchid_r0
+        craft_time: 1.0
+        main_output: misty_orchid
+        inputs: []
+        outputs:
+          - { id: misty_orchid, qty: 1 }
+
+  - id: undead_essence
+    name: "不死のエッセンス"
+    type: "資源"
+    facility: "戦利品"
+    recipes:
+      - id: undead_essence_r0
+        craft_time: 1.0
+        main_output: undead_essence
+        inputs: []
+        outputs:
+          - { id: undead_essence, qty: 1 }
+
+  - id: rum_bottle
+    name: "ラム酒のボトル"
+    type: "資源"
+    facility: "交易・略奪"
+    recipes:
+      - id: rum_bottle_r0
+        craft_time: 1.0
+        main_output: rum_bottle
+        inputs: []
+        outputs:
+          - { id: rum_bottle, qty: 1 }
+
+  - id: shipwrights_tools
+    name: "船大工の道具"
+    type: "資源"
+    facility: "交易"
+    recipes:
+      - id: shipwrights_tools_r0
+        craft_time: 1.0
+        main_output: shipwrights_tools
+        inputs: []
+        outputs:
+          - { id: shipwrights_tools, qty: 1 }
+
+  - id: smithing_flux
+    name: "鍛冶屋の溶剤"
+    type: "資源"
+    facility: "交易"
+    recipes:
+      - id: smithing_flux_r0
+        craft_time: 1.0
+        main_output: smithing_flux
+        inputs: []
+        outputs:
+          - { id: smithing_flux, qty: 1 }
+
+  - id: masters_tools
+    name: "名工の道具"
+    type: "資源"
+    facility: "交易"
+    recipes:
+      - id: masters_tools_r0
+        craft_time: 1.0
+        main_output: masters_tools
+        inputs: []
+        outputs:
+          - { id: masters_tools, qty: 1 }
+
+  - id: sewing_tools
+    name: "裁縫道具"
+    type: "資源"
+    facility: "交易"
+    recipes:
+      - id: sewing_tools_r0
+        craft_time: 1.0
+        main_output: sewing_tools
+        inputs: []
+        outputs:
+          - { id: sewing_tools, qty: 1 }
+
+  - id: wheat
+    name: "小麦"
+    type: "資源"
+    facility: "農業"
+    recipes:
+      - id: wheat_r0
+        craft_time: 1.0
+        main_output: wheat
+        inputs: []
+        outputs:
+          - { id: wheat, qty: 1 }
+
+  - id: fresh_water
+    name: "清水"
+    type: "資源"
+    facility: "採取"
+    recipes:
+      - id: fresh_water_r0
+        craft_time: 1.0
+        main_output: fresh_water
+        inputs: []
+        outputs:
+          - { id: fresh_water, qty: 1 }
+
+  - id: raw_fish
+    name: "生魚"
+    type: "資源"
+    facility: "採取"
+    recipes:
+      - id: raw_fish_r0
+        craft_time: 1.0
+        main_output: raw_fish
+        inputs: []
+        outputs:
+          - { id: raw_fish, qty: 1 }
+
+  # ==========================================
+  # 中間素材 (Refined & Processed Materials)
+  # ==========================================
+  - id: charcoal
+    name: "木炭"
+    type: "中間素材"
+    facility: "炭焼き窯"
+    recipes:
+      - id: charcoal_r0
+        craft_time: 30.0
+        main_output: charcoal
+        inputs:
+          - { id: wood, qty: 1 }
+        outputs:
+          - { id: charcoal, qty: 1 }
+          - { id: ash, qty: 1 }
+      - id: charcoal_r1
+        craft_time: 45.0
+        main_output: charcoal
+        inputs:
+          - { id: hardwood, qty: 1 }
+        outputs:
+          - { id: charcoal, qty: 2 }
+          - { id: ash, qty: 1 }
+
+  - id: ash
+    name: "灰"
+    type: "中間素材"
+    facility: "石臼"
+    recipes:
+      - id: ash_r0
+        craft_time: 10.0
+        main_output: ash
+        inputs:
+          - { id: charcoal, qty: 2 }
+        outputs:
+          - { id: ash, qty: 6 }
+
+  - id: wooden_plank
+    name: "木の板"
+    type: "中間素材"
+    facility: "作業台"
+    recipes:
+      - id: wooden_plank_r0
+        craft_time: 5.0
+        main_output: wooden_plank
+        inputs:
+          - { id: wood, qty: 2 }
+        outputs:
+          - { id: wooden_plank, qty: 1 }
+
+  - id: timber
+    name: "木材梁"
+    type: "中間素材"
+    facility: "作業台"
+    recipes:
+      - id: timber_r0
+        craft_time: 10.0
+        main_output: timber
+        inputs:
+          - { id: hardwood, qty: 3 }
+        outputs:
+          - { id: timber, qty: 1 }
+
+  - id: tarred_planks
+    name: "タール塗りの板"
+    type: "中間素材"
+    facility: "作業台"
+    recipes:
+      - id: tarred_planks_r0
+        craft_time: 15.0
+        main_output: tarred_planks
+        inputs:
+          - { id: wooden_plank, qty: 2 }
+          - { id: tar, qty: 2 }
+        outputs:
+          - { id: tarred_planks, qty: 2 }
+
+  - id: rope
+    name: "ロープ"
+    type: "中間素材"
+    facility: "作業台"
+    recipes:
+      - id: rope_r0
+        craft_time: 3.0
+        main_output: rope
+        inputs:
+          - { id: plant_fiber, qty: 3 }
+        outputs:
+          - { id: rope, qty: 1 }
+
+  - id: coarse_fabric
+    name: "粗い布"
+    type: "中間素材"
+    facility: "作業台"
+    recipes:
+      - id: coarse_fabric_r0
+        craft_time: 5.0
+        main_output: coarse_fabric
+        inputs:
+          - { id: plant_fiber, qty: 3 }
+        outputs:
+          - { id: coarse_fabric, qty: 1 }
+
+  - id: linen_fabric
+    name: "リネン布"
+    type: "中間素材"
+    facility: "糸車"
+    recipes:
+      - id: linen_fabric_r0
+        craft_time: 10.0
+        main_output: linen_fabric
+        inputs:
+          - { id: flax_fiber, qty: 3 }
+        outputs:
+          - { id: linen_fabric, qty: 1 }
+
+  - id: tarred_fabric
+    name: "タール塗りの布"
+    type: "中間素材"
+    facility: "なめし台"
+    recipes:
+      - id: tarred_fabric_r0
+        craft_time: 45.0
+        main_output: tarred_fabric
+        inputs:
+          - { id: linen_fabric, qty: 1 }
+          - { id: tar, qty: 1 }
+        outputs:
+          - { id: tarred_fabric, qty: 1 }
+
+  - id: copper_ingot
+    name: "銅のインゴット"
+    type: "中間素材"
+    facility: "製錬炉"
+    recipes:
+      - id: copper_ingot_r0
+        craft_time: 30.0
+        main_output: copper_ingot
+        inputs:
+          - { id: copper_ore, qty: 4 }
+          - { id: charcoal, qty: 1 }
+        outputs:
+          - { id: copper_ingot, qty: 1 }
+
+  - id: foothills_iron_ingot
+    name: "フットヒル鉄のインゴット"
+    type: "中間素材"
+    facility: "製錬炉"
+    recipes:
+      - id: foothills_iron_ingot_r0
+        craft_time: 30.0
+        main_output: foothills_iron_ingot
+        inputs:
+          - { id: foothills_iron_ore, qty: 3 }
+          - { id: charcoal, qty: 1 }
+        outputs:
+          - { id: foothills_iron_ingot, qty: 1 }
+
+  - id: mire_metal_ingot
+    name: "湿地金属のインゴット"
+    type: "中間素材"
+    facility: "大型製錬炉"
+    recipes:
+      - id: mire_metal_ingot_r0
+        craft_time: 30.0
+        main_output: mire_metal_ingot
+        inputs:
+          - { id: mire_metal_ore, qty: 3 }
+          - { id: charcoal, qty: 1 }
+        outputs:
+          - { id: mire_metal_ingot, qty: 1 }
+
+  - id: copper_nails
+    name: "銅の釘"
+    type: "中間素材"
+    facility: "作業台"
+    recipes:
+      - id: copper_nails_r0
+        craft_time: 2.0
+        main_output: copper_nails
+        inputs:
+          - { id: copper_ingot, qty: 1 }
+        outputs:
+          - { id: copper_nails, qty: 5 }
+
+  - id: iron_nails
+    name: "鉄の釘"
+    type: "中間素材"
+    facility: "作業台"
+    recipes:
+      - id: iron_nails_r0
+        craft_time: 2.0
+        main_output: iron_nails
+        inputs:
+          - { id: foothills_iron_ingot, qty: 1 }
+        outputs:
+          - { id: iron_nails, qty: 10 }
+
+  - id: clay_pot
+    name: "粘土の壺"
+    type: "中間素材"
+    facility: "作業台"
+    recipes:
+      - id: clay_pot_r0
+        craft_time: 10.0
+        main_output: clay_pot
+        inputs:
+          - { id: clay, qty: 6 }
+        outputs:
+          - { id: clay_pot, qty: 1 }
+
+  - id: clay_bottle
+    name: "粘土の小瓶"
+    type: "中間素材"
+    facility: "錬金術台"
+    recipes:
+      - id: clay_bottle_r0
+        craft_time: 5.0
+        main_output: clay_bottle
+        inputs:
+          - { id: clay, qty: 1 }
+        outputs:
+          - { id: clay_bottle, qty: 1 }
+
+  - id: copper_pot
+    name: "銅の鍋"
+    type: "中間素材"
+    facility: "作業台"
+    recipes:
+      - id: copper_pot_r0
+        craft_time: 15.0
+        main_output: copper_pot
+        inputs:
+          - { id: copper_ingot, qty: 5 }
+        outputs:
+          - { id: copper_pot, qty: 1 }
+
+  - id: tannin
+    name: "タンニン"
+    type: "中間素材"
+    facility: "錬金術台"
+    recipes:
+      - id: tannin_r0
+        craft_time: 10.0
+        main_output: tannin
+        inputs:
+          - { id: clay_bottle, qty: 1 }
+          - { id: tree_bark, qty: 2 }
+        outputs:
+          - { id: tannin, qty: 1 }
+
+  - id: tanned_leather
+    name: "鞣し革"
+    type: "中間素材"
+    facility: "なめし台"
+    recipes:
+      - id: tanned_leather_r0
+        craft_time: 45.0
+        main_output: tanned_leather
+        inputs:
+          - { id: rough_hide, qty: 3 }
+          - { id: tannin, qty: 1 }
+        outputs:
+          - { id: tanned_leather, qty: 1 }
+
+  - id: elastic_leather
+    name: "弾性革"
+    type: "中間素材"
+    facility: "なめし台"
+    recipes:
+      - id: elastic_leather_r0
+        craft_time: 20.0
+        main_output: elastic_leather
+        inputs:
+          - { id: rough_hide, qty: 3 }
+        outputs:
+          - { id: elastic_leather, qty: 1 }
+
+  - id: millstone_parts
+    name: "石臼の部品"
+    type: "中間素材"
+    facility: "作業台"
+    recipes:
+      - id: millstone_parts_r0
+        craft_time: 10.0
+        main_output: millstone_parts
+        inputs:
+          - { id: stone, qty: 15 }
+        outputs:
+          - { id: millstone_parts, qty: 1 }
+
+  - id: homemade_gunpowder
+    name: "自家製火薬"
+    type: "中間素材"
+    facility: "石臼"
+    recipes:
+      - id: homemade_gunpowder_r0
+        craft_time: 15.0
+        main_output: homemade_gunpowder
+        inputs:
+          - { id: ash, qty: 20 }
+          - { id: sulfur, qty: 10 }
+        outputs:
+          - { id: homemade_gunpowder, qty: 10 }
+
+  - id: alchemical_base
+    name: "錬金薬のベース"
+    type: "中間素材"
+    facility: "錬金術台"
+    recipes:
+      - id: alchemical_base_r0
+        craft_time: 10.0
+        main_output: alchemical_base
+        inputs:
+          - { id: clay_bottle, qty: 1 }
+          - { id: misty_orchid, qty: 1 }
+        outputs:
+          - { id: alchemical_base, qty: 1 }
+
+  - id: flour
+    name: "小麦粉"
+    type: "中間素材"
+    facility: "石臼"
+    recipes:
+      - id: flour_r0
+        craft_time: 5.0
+        main_output: flour
+        inputs:
+          - { id: wheat, qty: 2 }
+        outputs:
+          - { id: flour, qty: 1 }
+
+  - id: heavy_canvas
+    name: "厚手の帆布"
+    type: "中間素材"
+    facility: "作業台"
+    recipes:
+      - id: heavy_canvas_r0
+        craft_time: 10.0
+        main_output: heavy_canvas
+        inputs:
+          - { id: coarse_fabric, qty: 3 }
+          - { id: rope, qty: 2 }
+        outputs:
+          - { id: heavy_canvas, qty: 1 }
+
+  - id: reinforced_plank
+    name: "強化厚板"
+    type: "中間素材"
+    facility: "作業台"
+    recipes:
+      - id: reinforced_plank_r0
+        craft_time: 15.0
+        main_output: reinforced_plank
+        inputs:
+          - { id: hardwood, qty: 2 }
+          - { id: copper_nails, qty: 4 }
+          - { id: tar, qty: 1 }
+        outputs:
+          - { id: reinforced_plank, qty: 1 }
+
+  - id: iron_armor_plating
+    name: "鉄製装甲板"
+    type: "中間素材"
+    facility: "作業台"
+    recipes:
+      - id: iron_armor_plating_r0
+        craft_time: 20.0
+        main_output: iron_armor_plating
+        inputs:
+          - { id: foothills_iron_ingot, qty: 3 }
+          - { id: copper_nails, qty: 2 }
+        outputs:
+          - { id: iron_armor_plating, qty: 1 }
+
+  - id: copper_armor_plating
+    name: "銅製装甲板"
+    type: "中間素材"
+    facility: "作業台"
+    recipes:
+      - id: copper_armor_plating_r0
+        craft_time: 15.0
+        main_output: copper_armor_plating
+        inputs:
+          - { id: copper_ingot, qty: 4 }
+          - { id: copper_nails, qty: 2 }
+        outputs:
+          - { id: copper_armor_plating, qty: 1 }
+
+  # ==========================================
+  # 道具・設備・収納 (Tools & Gear)
+  # ==========================================
+  - id: stone_pickaxe
+    name: "石のピッケル"
+    type: "道具"
+    facility: "作業台"
+    recipes:
+      - id: stone_pickaxe_r0
+        craft_time: 5.0
+        main_output: stone_pickaxe
+        inputs:
+          - { id: stone, qty: 3 }
+          - { id: wood, qty: 3 }
+        outputs:
+          - { id: stone_pickaxe, qty: 1 }
+
+  - id: stone_axe
+    name: "石の斧"
+    type: "道具"
+    facility: "作業台"
+    recipes:
+      - id: stone_axe_r0
+        craft_time: 5.0
+        main_output: stone_axe
+        inputs:
+          - { id: stone, qty: 3 }
+          - { id: wood, qty: 3 }
+        outputs:
+          - { id: stone_axe, qty: 1 }
+
+  - id: copper_pickaxe
+    name: "銅のピッケル"
+    type: "道具"
+    facility: "作業台"
+    recipes:
+      - id: copper_pickaxe_r0
+        craft_time: 10.0
+        main_output: copper_pickaxe
+        inputs:
+          - { id: copper_ingot, qty: 5 }
+          - { id: wood, qty: 5 }
+        outputs:
+          - { id: copper_pickaxe, qty: 1 }
+
+  - id: copper_axe
+    name: "銅の斧"
+    type: "道具"
+    facility: "作業台"
+    recipes:
+      - id: copper_axe_r0
+        craft_time: 10.0
+        main_output: copper_axe
+        inputs:
+          - { id: copper_ingot, qty: 5 }
+          - { id: wood, qty: 5 }
+        outputs:
+          - { id: copper_axe, qty: 1 }
+
+  - id: iron_pickaxe
+    name: "鉄のピッケル"
+    type: "道具"
+    facility: "作業台"
+    recipes:
+      - id: iron_pickaxe_r0
+        craft_time: 15.0
+        main_output: iron_pickaxe
+        inputs:
+          - { id: foothills_iron_ingot, qty: 5 }
+          - { id: wood, qty: 5 }
+        outputs:
+          - { id: iron_pickaxe, qty: 1 }
+
+  - id: iron_axe
+    name: "鉄の斧"
+    type: "道具"
+    facility: "作業台"
+    recipes:
+      - id: iron_axe_r0
+        craft_time: 15.0
+        main_output: iron_axe
+        inputs:
+          - { id: foothills_iron_ingot, qty: 5 }
+          - { id: wood, qty: 5 }
+        outputs:
+          - { id: iron_axe, qty: 1 }
+
+  - id: shovel
+    name: "シャベル"
+    type: "道具"
+    facility: "作業台"
+    recipes:
+      - id: shovel_r0
+        craft_time: 8.0
+        main_output: shovel
+        inputs:
+          - { id: copper_ingot, qty: 3 }
+          - { id: wood, qty: 10 }
+        outputs:
+          - { id: shovel, qty: 1 }
+
+  - id: simple_fishing_rod
+    name: "簡易釣竿"
+    type: "道具"
+    facility: "作業台"
+    recipes:
+      - id: simple_fishing_rod_r0
+        craft_time: 10.0
+        main_output: simple_fishing_rod
+        inputs:
+          - { id: hardwood, qty: 5 }
+          - { id: rope, qty: 3 }
+          - { id: foothills_iron_ingot, qty: 2 }
+        outputs:
+          - { id: simple_fishing_rod, qty: 1 }
+
+  - id: anvil
+    name: "金床"
+    type: "道具"
+    facility: "作業台"
+    recipes:
+      - id: anvil_r0
+        craft_time: 30.0
+        main_output: anvil
+        inputs:
+          - { id: foothills_iron_ingot, qty: 30 }
+        outputs:
+          - { id: anvil, qty: 1 }
+
+  - id: torn_sailcloth_bag
+    name: "破れた帆布の袋"
+    type: "道具"
+    facility: "作業台"
+    recipes:
+      - id: torn_sailcloth_bag_r0
+        craft_time: 10.0
+        main_output: torn_sailcloth_bag
+        inputs:
+          - { id: coarse_fabric, qty: 2 }
+          - { id: rope, qty: 1 }
+        outputs:
+          - { id: torn_sailcloth_bag, qty: 1 }
+
+  - id: sailor_backpack
+    name: "水夫のバックパック"
+    type: "道具"
+    facility: "作業台"
+    recipes:
+      - id: sailor_backpack_r0
+        craft_time: 20.0
+        main_output: sailor_backpack
+        inputs:
+          - { id: torn_sailcloth_bag, qty: 1 }
+          - { id: rough_hide, qty: 5 }
+          - { id: copper_ingot, qty: 2 }
+        outputs:
+          - { id: sailor_backpack, qty: 1 }
+
+  - id: bosun_backpack
+    name: "甲板長のバックパック"
+    type: "道具"
+    facility: "作業台"
+    recipes:
+      - id: bosun_backpack_r0
+        craft_time: 30.0
+        main_output: bosun_backpack
+        inputs:
+          - { id: sailor_backpack, qty: 1 }
+          - { id: tanned_leather, qty: 5 }
+          - { id: foothills_iron_ingot, qty: 2 }
+        outputs:
+          - { id: bosun_backpack, qty: 1 }
+
+  - id: repair_kit
+    name: "修理キット"
+    type: "道具"
+    facility: "作業台"
+    recipes:
+      - id: repair_kit_r0
+        craft_time: 5.0
+        main_output: repair_kit
+        inputs:
+          - { id: wood, qty: 10 }
+        outputs:
+          - { id: repair_kit, qty: 1 }
+
+  - id: combat_repair_kit
+    name: "戦闘修理キット"
+    type: "道具"
+    facility: "造船所の作業場"
+    recipes:
+      - id: combat_repair_kit_r0
+        craft_time: 15.0
+        main_output: combat_repair_kit
+        inputs:
+          - { id: wooden_plank, qty: 3 }
+          - { id: rum_bottle, qty: 1 }
+          - { id: iron_nails, qty: 1 }
+        outputs:
+          - { id: combat_repair_kit, qty: 1 }
+
+  - id: master_combat_repair_kit
+    name: "上級戦闘修理キット"
+    type: "道具"
+    facility: "造船所の作業場"
+    recipes:
+      - id: master_combat_repair_kit_r0
+        craft_time: 30.0
+        main_output: master_combat_repair_kit
+        inputs:
+          - { id: timber, qty: 2 }
+          - { id: rum_bottle, qty: 5 }
+          - { id: iron_nails, qty: 3 }
+        outputs:
+          - { id: master_combat_repair_kit, qty: 1 }
+
+  - id: empty_lamp
+    name: "空のランプ"
+    type: "道具"
+    facility: "作業台"
+    recipes:
+      - id: empty_lamp_r0
+        craft_time: 10.0
+        main_output: empty_lamp
+        inputs:
+          - { id: copper_ingot, qty: 4 }
+          - { id: rope, qty: 1 }
+        outputs:
+          - { id: empty_lamp, qty: 1 }
+
+  - id: fast_travel_bell
+    name: "ファストトラベルベル"
+    type: "道具"
+    facility: "作業台"
+    recipes:
+      - id: fast_travel_bell_r0
+        craft_time: 20.0
+        main_output: fast_travel_bell
+        inputs:
+          - { id: copper_ingot, qty: 10 }
+          - { id: rope, qty: 3 }
+        outputs:
+          - { id: fast_travel_bell, qty: 1 }
+
+  # ==========================================
+  # 武器 (Weapons)
+  # ==========================================
+  - id: saber
+    name: "サーベル"
+    type: "武器"
+    facility: "武器鍛冶作業場"
+    recipes:
+      - id: saber_r0
+        craft_time: 15.0
+        main_output: saber
+        inputs:
+          - { id: copper_ingot, qty: 3 }
+          - { id: rough_hide, qty: 2 }
+          - { id: wood, qty: 5 }
+        outputs:
+          - { id: saber, qty: 1 }
+
+  - id: rapier
+    name: "レイピア"
+    type: "武器"
+    facility: "武器鍛冶作業場"
+    recipes:
+      - id: rapier_r0
+        craft_time: 20.0
+        main_output: rapier
+        inputs:
+          - { id: foothills_iron_ingot, qty: 4 }
+          - { id: rough_hide, qty: 2 }
+          - { id: hardwood, qty: 4 }
+        outputs:
+          - { id: rapier, qty: 1 }
+
+  - id: smasher
+    name: "スマッシャー"
+    type: "武器"
+    facility: "武器鍛冶作業場"
+    recipes:
+      - id: smasher_r0
+        craft_time: 15.0
+        main_output: smasher
+        inputs:
+          - { id: wood, qty: 10 }
+          - { id: copper_ingot, qty: 5 }
+        outputs:
+          - { id: smasher, qty: 1 }
+
+  - id: two_handed_sword
+    name: "両手剣"
+    type: "武器"
+    facility: "武器鍛冶作業場"
+    recipes:
+      - id: two_handed_sword_r0
+        craft_time: 25.0
+        main_output: two_handed_sword
+        inputs:
+          - { id: copper_ingot, qty: 10 }
+          - { id: rough_hide, qty: 2 }
+        outputs:
+          - { id: two_handed_sword, qty: 1 }
+
+  - id: pistol
+    name: "ピストル"
+    type: "武器"
+    facility: "武器鍛冶作業場"
+    recipes:
+      - id: pistol_r0
+        craft_time: 20.0
+        main_output: pistol
+        inputs:
+          - { id: wood, qty: 10 }
+          - { id: copper_ingot, qty: 5 }
+        outputs:
+          - { id: pistol, qty: 1 }
+
+  - id: blunderbuss
+    name: "ラッパ銃"
+    type: "武器"
+    facility: "武器鍛冶作業場"
+    recipes:
+      - id: blunderbuss_r0
+        craft_time: 25.0
+        main_output: blunderbuss
+        inputs:
+          - { id: wood, qty: 10 }
+          - { id: copper_ingot, qty: 5 }
+        outputs:
+          - { id: blunderbuss, qty: 1 }
+
+  - id: musket
+    name: "マスケット銃"
+    type: "武器"
+    facility: "武器鍛冶作業場"
+    recipes:
+      - id: musket_r0
+        craft_time: 30.0
+        main_output: musket
+        inputs:
+          - { id: hardwood, qty: 10 }
+          - { id: foothills_iron_ingot, qty: 5 }
+          - { id: smithing_flux, qty: 2 }
+        outputs:
+          - { id: musket, qty: 1 }
+
+  - id: flintlock_carbine
+    name: "フリントロック・カービン"
+    type: "武器"
+    facility: "武器鍛冶作業場"
+    recipes:
+      - id: flintlock_carbine_r0
+        craft_time: 25.0
+        main_output: flintlock_carbine
+        inputs:
+          - { id: hardwood, qty: 3 }
+          - { id: foothills_iron_ingot, qty: 4 }
+          - { id: smithing_flux, qty: 2 }
+        outputs:
+          - { id: flintlock_carbine, qty: 1 }
+
+  - id: boarding_axe
+    name: "移乗用手斧"
+    type: "武器"
+    facility: "武器鍛冶作業場"
+    recipes:
+      - id: boarding_axe_r0
+        craft_time: 15.0
+        main_output: boarding_axe
+        inputs:
+          - { id: hardwood, qty: 2 }
+          - { id: foothills_iron_ingot, qty: 3 }
+          - { id: rough_hide, qty: 2 }
+        outputs:
+          - { id: boarding_axe, qty: 1 }
+
+  - id: pirate_cutlass
+    name: "海賊のカトラス"
+    type: "武器"
+    facility: "武器鍛冶作業場"
+    recipes:
+      - id: pirate_cutlass_r0
+        craft_time: 20.0
+        main_output: pirate_cutlass
+        inputs:
+          - { id: foothills_iron_ingot, qty: 4 }
+          - { id: rough_hide, qty: 2 }
+          - { id: smithing_flux, qty: 1 }
+        outputs:
+          - { id: pirate_cutlass, qty: 1 }
+
+  # ==========================================
+  # 弾薬 (Ammunition)
+  # ==========================================
+  - id: stone_bullet
+    name: "石の弾丸"
+    type: "弾薬"
+    facility: "作業台"
+    recipes:
+      - id: stone_bullet_r0
+        craft_time: 2.0
+        main_output: stone_bullet
+        inputs:
+          - { id: stone, qty: 3 }
+        outputs:
+          - { id: stone_bullet, qty: 5 }
+
+  - id: copper_bullet
+    name: "銅の弾丸"
+    type: "弾薬"
+    facility: "作業台"
+    recipes:
+      - id: copper_bullet_r0
+        craft_time: 3.0
+        main_output: copper_bullet
+        inputs:
+          - { id: copper_ingot, qty: 1 }
+          - { id: homemade_gunpowder, qty: 1 }
+        outputs:
+          - { id: copper_bullet, qty: 5 }
+
+  - id: iron_bullet
+    name: "鉄の弾丸"
+    type: "弾薬"
+    facility: "作業台"
+    recipes:
+      - id: iron_bullet_r0
+        craft_time: 3.0
+        main_output: iron_bullet
+        inputs:
+          - { id: foothills_iron_ingot, qty: 1 }
+          - { id: homemade_gunpowder, qty: 2 }
+        outputs:
+          - { id: iron_bullet, qty: 5 }
+
+  - id: grapeshot
+    name: "ぶどう弾"
+    type: "弾薬"
+    facility: "作業台"
+    recipes:
+      - id: grapeshot_r0
+        craft_time: 10.0
+        main_output: grapeshot
+        inputs:
+          - { id: foothills_iron_ingot, qty: 2 }
+          - { id: homemade_gunpowder, qty: 2 }
+          - { id: coarse_fabric, qty: 1 }
+        outputs:
+          - { id: grapeshot, qty: 3 }
+
+  - id: chain_shot
+    name: "鎖弾"
+    type: "弾薬"
+    facility: "作業台"
+    recipes:
+      - id: chain_shot_r0
+        craft_time: 10.0
+        main_output: chain_shot
+        inputs:
+          - { id: foothills_iron_ingot, qty: 3 }
+          - { id: homemade_gunpowder, qty: 2 }
+        outputs:
+          - { id: chain_shot, qty: 2 }
+
+  - id: incendiary_shot
+    name: "火炎弾"
+    type: "弾薬"
+    facility: "作業台"
+    recipes:
+      - id: incendiary_shot_r0
+        craft_time: 12.0
+        main_output: incendiary_shot
+        inputs:
+          - { id: foothills_iron_ingot, qty: 2 }
+          - { id: homemade_gunpowder, qty: 2 }
+          - { id: tar, qty: 2 }
+        outputs:
+          - { id: incendiary_shot, qty: 2 }
+
+  # ==========================================
+  # 艦砲・船用装備 (Ship Equipment)
+  # ==========================================
+  - id: cannon_12_pounder
+    name: "12ポンド砲"
+    type: "艦砲・船装備"
+    facility: "造船所の作業場"
+    recipes:
+      - id: cannon_12_pounder_r0
+        craft_time: 30.0
+        main_output: cannon_12_pounder
+        inputs:
+          - { id: copper_ingot, qty: 10 }
+          - { id: wood, qty: 10 }
+        outputs:
+          - { id: cannon_12_pounder, qty: 1 }
+
+  - id: cannon_24_pounder
+    name: "24ポンド砲"
+    type: "艦砲・船装備"
+    facility: "造船所の作業場"
+    recipes:
+      - id: cannon_24_pounder_r0
+        craft_time: 45.0
+        main_output: cannon_24_pounder
+        inputs:
+          - { id: foothills_iron_ingot, qty: 15 }
+          - { id: timber, qty: 6 }
+          - { id: shipwrights_tools, qty: 3 }
+        outputs:
+          - { id: cannon_24_pounder, qty: 1 }
+
+  - id: cannon_36_pounder
+    name: "36ポンド砲"
+    type: "艦砲・船装備"
+    facility: "造船所の作業場"
+    recipes:
+      - id: cannon_36_pounder_r0
+        craft_time: 60.0
+        main_output: cannon_36_pounder
+        inputs:
+          - { id: mire_metal_ingot, qty: 20 }
+          - { id: tarred_planks, qty: 10 }
+          - { id: shipwrights_tools, qty: 5 }
+        outputs:
+          - { id: cannon_36_pounder, qty: 1 }
+
+  - id: hull_bracing
+    name: "船体補強材"
+    type: "艦砲・船装備"
+    facility: "造船所の作業場"
+    recipes:
+      - id: hull_bracing_r0
+        craft_time: 20.0
+        main_output: hull_bracing
+        inputs:
+          - { id: wooden_plank, qty: 10 }
+          - { id: copper_ingot, qty: 5 }
+          - { id: copper_nails, qty: 5 }
+        outputs:
+          - { id: hull_bracing, qty: 1 }
+
+  - id: boarding_party_gear
+    name: "移乗部隊の装備"
+    type: "艦砲・船装備"
+    facility: "造船所の作業場"
+    recipes:
+      - id: boarding_party_gear_r0
+        craft_time: 25.0
+        main_output: boarding_party_gear
+        inputs:
+          - { id: copper_ingot, qty: 7 }
+          - { id: rough_hide, qty: 7 }
+          - { id: coarse_fabric, qty: 7 }
+        outputs:
+          - { id: boarding_party_gear, qty: 1 }
+
+  - id: iron_anchor
+    name: "鉄の錨"
+    type: "艦砲・船装備"
+    facility: "造船所の作業場"
+    recipes:
+      - id: iron_anchor_r0
+        craft_time: 30.0
+        main_output: iron_anchor
+        inputs:
+          - { id: foothills_iron_ingot, qty: 8 }
+          - { id: rope, qty: 5 }
+        outputs:
+          - { id: iron_anchor, qty: 1 }
+
+  - id: lateen_sail
+    name: "大三角帆"
+    type: "艦砲・船装備"
+    facility: "造船所の作業場"
+    recipes:
+      - id: lateen_sail_r0
+        craft_time: 40.0
+        main_output: lateen_sail
+        inputs:
+          - { id: heavy_canvas, qty: 4 }
+          - { id: rope, qty: 6 }
+          - { id: hardwood, qty: 4 }
+        outputs:
+          - { id: lateen_sail, qty: 1 }
+
+  - id: reinforced_hull_plating
+    name: "強化船体装甲板"
+    type: "艦砲・船装備"
+    facility: "造船所の作業場"
+    recipes:
+      - id: reinforced_hull_plating_r0
+        craft_time: 35.0
+        main_output: reinforced_hull_plating
+        inputs:
+          - { id: iron_armor_plating, qty: 4 }
+          - { id: copper_nails, qty: 10 }
+          - { id: tar, qty: 2 }
+        outputs:
+          - { id: reinforced_hull_plating, qty: 1 }
+
+  - id: crows_nest
+    name: "見張り台"
+    type: "艦砲・船装備"
+    facility: "造船所の作業場"
+    recipes:
+      - id: crows_nest_r0
+        craft_time: 30.0
+        main_output: crows_nest
+        inputs:
+          - { id: hardwood, qty: 6 }
+          - { id: rope, qty: 4 }
+          - { id: copper_nails, qty: 8 }
+        outputs:
+          - { id: crows_nest, qty: 1 }
+
+  - id: ship_capstan
+    name: "キャプスタン揚錨機"
+    type: "艦砲・船装備"
+    facility: "造船所の作業場"
+    recipes:
+      - id: ship_capstan_r0
+        craft_time: 30.0
+        main_output: ship_capstan
+        inputs:
+          - { id: hardwood, qty: 8 }
+          - { id: foothills_iron_ingot, qty: 4 }
+          - { id: rope, qty: 6 }
+        outputs:
+          - { id: ship_capstan, qty: 1 }
+
+  # ==========================================
+  # 船 (Ships)
+  # ==========================================
+  - id: ketch
+    name: "ケッチ"
+    type: "船"
+    facility: "船台・ドック"
+    recipes:
+      - id: ketch_r0
+        craft_time: 60.0
+        main_output: ketch
+        inputs:
+          - { id: copper_nails, qty: 100 }
+          - { id: wood, qty: 150 }
+          - { id: coarse_fabric, qty: 40 }
+          - { id: rope, qty: 30 }
+        outputs:
+          - { id: ketch, qty: 1 }
+
+  - id: brig
+    name: "ブリッグ"
+    type: "船"
+    facility: "船台・ドック"
+    recipes:
+      - id: brig_r0
+        craft_time: 120.0
+        main_output: brig
+        inputs:
+          - { id: wooden_plank, qty: 200 }
+          - { id: copper_nails, qty: 200 }
+          - { id: coarse_fabric, qty: 120 }
+          - { id: copper_ingot, qty: 80 }
+          - { id: timber, qty: 40 }
+          - { id: linen_fabric, qty: 40 }
+          - { id: rope, qty: 40 }
+          - { id: shipwrights_tools, qty: 30 }
+        outputs:
+          - { id: brig, qty: 1 }
+
+  - id: frigate
+    name: "フリゲート"
+    type: "船"
+    facility: "船台・ドック"
+    recipes:
+      - id: frigate_r0
+        craft_time: 240.0
+        main_output: frigate
+        inputs:
+          - { id: wooden_plank, qty: 320 }
+          - { id: iron_nails, qty: 300 }
+          - { id: linen_fabric, qty: 240 }
+          - { id: timber, qty: 160 }
+          - { id: foothills_iron_ingot, qty: 120 }
+          - { id: tarred_planks, qty: 80 }
+          - { id: tarred_fabric, qty: 80 }
+          - { id: rope, qty: 80 }
+          - { id: shipwrights_tools, qty: 50 }
+        outputs:
+          - { id: frigate, qty: 1 }
+
+  # ==========================================
+  # 防具 (Armor)
+  # ==========================================
+  - id: conquistadors_helmet
+    name: "コンキスタドールの兜"
+    type: "防具"
+    facility: "防具作業場"
+    recipes:
+      - id: conquistadors_helmet_r0
+        craft_time: 15.0
+        main_output: conquistadors_helmet
+        inputs:
+          - { id: copper_ingot, qty: 3 }
+          - { id: coarse_fabric, qty: 2 }
+        outputs:
+          - { id: conquistadors_helmet, qty: 1 }
+
+  - id: conquistadors_cuirass
+    name: "コンキスタドールの胸当て"
+    type: "防具"
+    facility: "防具作業場"
+    recipes:
+      - id: conquistadors_cuirass_r0
+        craft_time: 25.0
+        main_output: conquistadors_cuirass
+        inputs:
+          - { id: copper_ingot, qty: 4 }
+          - { id: coarse_fabric, qty: 2 }
+        outputs:
+          - { id: conquistadors_cuirass, qty: 1 }
+
+  - id: conquistadors_gloves
+    name: "コンキスタドールの手袋"
+    type: "防具"
+    facility: "防具作業場"
+    recipes:
+      - id: conquistadors_gloves_r0
+        craft_time: 10.0
+        main_output: conquistadors_gloves
+        inputs:
+          - { id: copper_ingot, qty: 2 }
+          - { id: coarse_fabric, qty: 2 }
+        outputs:
+          - { id: conquistadors_gloves, qty: 1 }
+
+  - id: conquistadors_pants
+    name: "コンキスタドールのズボン"
+    type: "防具"
+    facility: "防具作業場"
+    recipes:
+      - id: conquistadors_pants_r0
+        craft_time: 20.0
+        main_output: conquistadors_pants
+        inputs:
+          - { id: copper_ingot, qty: 3 }
+          - { id: coarse_fabric, qty: 2 }
+        outputs:
+          - { id: conquistadors_pants, qty: 1 }
+
+  - id: conquistadors_boots
+    name: "コンキスタドールのブーツ"
+    type: "防具"
+    facility: "防具作業場"
+    recipes:
+      - id: conquistadors_boots_r0
+        craft_time: 15.0
+        main_output: conquistadors_boots
+        inputs:
+          - { id: copper_ingot, qty: 2 }
+          - { id: coarse_fabric, qty: 2 }
+        outputs:
+          - { id: conquistadors_boots, qty: 1 }
+
+  - id: flibustiers_hat
+    name: "フリバスターの帽子"
+    type: "防具"
+    facility: "防具作業場"
+    recipes:
+      - id: flibustiers_hat_r0
+        craft_time: 15.0
+        main_output: flibustiers_hat
+        inputs:
+          - { id: tanned_leather, qty: 2 }
+          - { id: coarse_fabric, qty: 2 }
+        outputs:
+          - { id: flibustiers_hat, qty: 1 }
+
+  - id: flibustiers_jacket
+    name: "フリバスターのジャケット"
+    type: "防具"
+    facility: "防具作業場"
+    recipes:
+      - id: flibustiers_jacket_r0
+        craft_time: 25.0
+        main_output: flibustiers_jacket
+        inputs:
+          - { id: tanned_leather, qty: 4 }
+          - { id: linen_fabric, qty: 2 }
+        outputs:
+          - { id: flibustiers_jacket, qty: 1 }
+
+  - id: flibustiers_pants
+    name: "フリバスターのズボン"
+    type: "防具"
+    facility: "防具作業場"
+    recipes:
+      - id: flibustiers_pants_r0
+        craft_time: 20.0
+        main_output: flibustiers_pants
+        inputs:
+          - { id: tanned_leather, qty: 3 }
+          - { id: linen_fabric, qty: 2 }
+        outputs:
+          - { id: flibustiers_pants, qty: 1 }
+
+  - id: flibustiers_boots
+    name: "フリバスターのブーツ"
+    type: "防具"
+    facility: "防具作業場"
+    recipes:
+      - id: flibustiers_boots_r0
+        craft_time: 15.0
+        main_output: flibustiers_boots
+        inputs:
+          - { id: rough_hide, qty: 2 }
+          - { id: coarse_fabric, qty: 2 }
+        outputs:
+          - { id: flibustiers_boots, qty: 1 }
+
+  - id: pirate_captains_coat
+    name: "海賊船長のコート"
+    type: "防具"
+    facility: "防具作業場"
+    recipes:
+      - id: pirate_captains_coat_r0
+        craft_time: 30.0
+        main_output: pirate_captains_coat
+        inputs:
+          - { id: coarse_fabric, qty: 8 }
+          - { id: rough_hide, qty: 4 }
+          - { id: copper_ingot, qty: 2 }
+        outputs:
+          - { id: pirate_captains_coat, qty: 1 }
+
+  - id: pirate_tricorne
+    name: "海賊の三角帽子"
+    type: "防具"
+    facility: "防具作業場"
+    recipes:
+      - id: pirate_tricorne_r0
+        craft_time: 20.0
+        main_output: pirate_tricorne
+        inputs:
+          - { id: coarse_fabric, qty: 4 }
+          - { id: rough_hide, qty: 2 }
+          - { id: feather, qty: 2 }
+        outputs:
+          - { id: pirate_tricorne, qty: 1 }
+
+  - id: reinforced_leather_boots
+    name: "強化革ブーツ"
+    type: "防具"
+    facility: "防具作業場"
+    recipes:
+      - id: reinforced_leather_boots_r0
+        craft_time: 20.0
+        main_output: reinforced_leather_boots
+        inputs:
+          - { id: rough_hide, qty: 4 }
+          - { id: copper_ingot, qty: 2 }
+        outputs:
+          - { id: reinforced_leather_boots, qty: 1 }
+
+  # ==========================================
+  # 薬品・秘薬 (Potions & Elixirs)
+  # ==========================================
+  - id: bandage
+    name: "包帯"
+    type: "薬品"
+    facility: "作業台"
+    recipes:
+      - id: bandage_r0
+        craft_time: 3.0
+        main_output: bandage
+        inputs:
+          - { id: coarse_fabric, qty: 1 }
+        outputs:
+          - { id: bandage, qty: 1 }
+
+  - id: minor_healing_potion
+    name: "下級回復ポーション"
+    type: "薬品"
+    facility: "錬金術台"
+    recipes:
+      - id: minor_healing_potion_r0
+        craft_time: 10.0
+        main_output: minor_healing_potion
+        inputs:
+          - { id: alchemical_base, qty: 1 }
+        outputs:
+          - { id: minor_healing_potion, qty: 1 }
+
+  - id: healing_potion
+    name: "回復ポーション"
+    type: "薬品"
+    facility: "錬金術台"
+    recipes:
+      - id: healing_potion_r0
+        craft_time: 15.0
+        main_output: healing_potion
+        inputs:
+          - { id: alchemical_base, qty: 1 }
+          - { id: healing_herbs, qty: 3 }
+        outputs:
+          - { id: healing_potion, qty: 1 }
+
+  - id: homeward_journey
+    name: "帰還の秘薬"
+    type: "薬品"
+    facility: "錬金術台"
+    recipes:
+      - id: homeward_journey_r0
+        craft_time: 30.0
+        main_output: homeward_journey
+        inputs:
+          - { id: alchemical_base, qty: 3 }
+          - { id: rum_bottle, qty: 1 }
+          - { id: feather, qty: 5 }
+          - { id: undead_essence, qty: 1 }
+        outputs:
+          - { id: homeward_journey, qty: 1 }
+
+  - id: deadeye_grog
+    name: "デッドアイ・グロッグ酒"
+    type: "薬品"
+    facility: "錬金術台"
+    recipes:
+      - id: deadeye_grog_r0
+        craft_time: 20.0
+        main_output: deadeye_grog
+        inputs:
+          - { id: rum_bottle, qty: 4 }
+          - { id: cayenne_pepper, qty: 3 }
+        outputs:
+          - { id: deadeye_grog, qty: 1 }
+
+  - id: medicinal_grog
+    name: "薬効グロッグ酒"
+    type: "薬品"
+    facility: "錬金術台"
+    recipes:
+      - id: medicinal_grog_r0
+        craft_time: 20.0
+        main_output: medicinal_grog
+        inputs:
+          - { id: rum_bottle, qty: 2 }
+          - { id: fresh_water, qty: 2 }
+          - { id: healing_herbs, qty: 3 }
+        outputs:
+          - { id: medicinal_grog, qty: 1 }
+
+  # ==========================================
+  # 食料 (Food)
+  # ==========================================
+  - id: boiled_crab
+    name: "茹でガニ"
+    type: "食料"
+    facility: "料理焚き火"
+    recipes:
+      - id: boiled_crab_r0
+        craft_time: 10.0
+        main_output: boiled_crab
+        inputs:
+          - { id: crab_meat, qty: 1 }
+        outputs:
+          - { id: boiled_crab, qty: 1 }
+
+  - id: bacon_and_eggs
+    name: "ベーコンエッグ"
+    type: "食料"
+    facility: "料理焚き火"
+    recipes:
+      - id: bacon_and_eggs_r0
+        craft_time: 15.0
+        main_output: bacon_and_eggs
+        inputs:
+          - { id: meat, qty: 1 }
+          - { id: dodo_egg, qty: 1 }
+        outputs:
+          - { id: bacon_and_eggs, qty: 1 }
+
+  - id: bean_soup
+    name: "豆のスープ"
+    type: "食料"
+    facility: "料理焚き火"
+    recipes:
+      - id: bean_soup_r0
+        craft_time: 20.0
+        main_output: bean_soup
+        inputs:
+          - { id: beans, qty: 1 }
+          - { id: cayenne_pepper, qty: 1 }
+          - { id: meat, qty: 1 }
+        outputs:
+          - { id: bean_soup, qty: 1 }
+
+  - id: sailors_stew
+    name: "船乗りシチュー"
+    type: "食料"
+    facility: "料理焚き火"
+    recipes:
+      - id: sailors_stew_r0
+        craft_time: 25.0
+        main_output: sailors_stew
+        inputs:
+          - { id: meat, qty: 1 }
+          - { id: raw_fish, qty: 1 }
+          - { id: beans, qty: 1 }
+          - { id: fresh_water, qty: 1 }
+        outputs:
+          - { id: sailors_stew, qty: 1 }
+
+  - id: hardtack_biscuit
+    name: "航海用ビスケット"
+    type: "食料"
+    facility: "料理焚き火"
+    recipes:
+      - id: hardtack_biscuit_r0
+        craft_time: 15.0
+        main_output: hardtack_biscuit
+        inputs:
+          - { id: flour, qty: 2 }
+          - { id: fresh_water, qty: 1 }
+        outputs:
+          - { id: hardtack_biscuit, qty: 1 }
+
+  - id: grilled_fish
+    name: "焼き魚"
+    type: "食料"
+    facility: "料理焚き火"
+    recipes:
+      - id: grilled_fish_r0
+        craft_time: 12.0
+        main_output: grilled_fish
+        inputs:
+          - { id: raw_fish, qty: 1 }
+          - { id: cayenne_pepper, qty: 1 }
+        outputs:
+          - { id: grilled_fish, qty: 1 }

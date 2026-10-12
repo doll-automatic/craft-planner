@@ -1,0 +1,3110 @@
+# パルワールドの素材データ。paldb.cc の日本語ページ（取得日 2026-10-11）の基本レシピ。
+# 同じアイテムに設計図レシピが複数ある場合は、作業量が一番小さいもの（技術解放時の基本レシピ）だけを入れている。
+# 生産時間は作業適性 Lv.4、作業台の速度補正なしの秒数。炉は火おこし、作業台は手作業など、その作業の Lv.4。
+# 生産施設は、そのアイテムを作れる最も初期の設備名。採取だけの素材は、説明文に合わせて伐採・採石・採掘・採取としている。
+# 採取だけの素材（木材、石、鉱石など）は作業量がデータにないので、生産時間 1 秒・産出 1 の原材料にしている。
+# パルジウムの欠片の先頭レシピは粉砕機（石 5 個）、繊維の先頭レシピは粉砕機（木材 1 個から 2 個）である。
+# ツリー計算は各アイテムの先頭レシピだけを使う。
+# 種別は paldb.cc の Type（ゲーム内分類の日本語表記）に合わせる。
+name: "パルワールド"
+
+items:
+  # ===========================================================================
+  # 採取・採掘原材料
+  # ===========================================================================
+  - id: ancient_civilization_core
+    name: "古代文明のコア"
+    type: "素材"
+    facility: "採取"
+    recipes:
+      - id: ancient_civilization_core_r0
+        craft_time: 1
+        main_output: ancient_civilization_core
+        inputs: []
+        outputs:
+          - { id: ancient_civilization_core, qty: 1 }
+
+  - id: ancient_civilization_parts
+    name: "古代文明の部品"
+    type: "素材"
+    facility: "採取"
+    recipes:
+      - id: ancient_civilization_parts_r0
+        craft_time: 1
+        main_output: ancient_civilization_parts
+        inputs: []
+        outputs:
+          - { id: ancient_civilization_parts, qty: 1 }
+
+  - id: aquatic_pal_fluids
+    name: "水棲パルの粘液"
+    type: "素材"
+    facility: "採取"
+    recipes:
+      - id: aquatic_pal_fluids_r0
+        craft_time: 1
+        main_output: aquatic_pal_fluids
+        inputs: []
+        outputs:
+          - { id: aquatic_pal_fluids, qty: 1 }
+
+  - id: bone
+    name: "骨"
+    type: "素材"
+    facility: "採取"
+    recipes:
+      - id: bone_r0
+        craft_time: 1
+        main_output: bone
+        inputs: []
+        outputs:
+          - { id: bone, qty: 1 }
+
+  - id: chromite
+    name: "クロマイト"
+    type: "素材"
+    facility: "採掘"
+    recipes:
+      - id: chromite_r0
+        craft_time: 1
+        main_output: chromite
+        inputs: []
+        outputs:
+          - { id: chromite, qty: 1 }
+
+  - id: coal
+    name: "石炭"
+    type: "素材"
+    facility: "採掘"
+    recipes:
+      - id: coal_r0
+        craft_time: 1
+        main_output: coal
+        inputs: []
+        outputs:
+          - { id: coal, qty: 1 }
+
+  - id: coralum_ore
+    name: "コラルム鉱石"
+    type: "素材"
+    facility: "採掘"
+    recipes:
+      - id: coralum_ore_r0
+        craft_time: 1
+        main_output: coralum_ore
+        inputs: []
+        outputs:
+          - { id: coralum_ore, qty: 1 }
+
+  - id: crude_oil
+    name: "原油"
+    type: "素材"
+    facility: "採取"
+    recipes:
+      - id: crude_oil_r0
+        craft_time: 1
+        main_output: crude_oil
+        inputs: []
+        outputs:
+          - { id: crude_oil, qty: 1 }
+
+  - id: electric_organ
+    name: "発電器官"
+    type: "素材"
+    facility: "採取"
+    recipes:
+      - id: electric_organ_r0
+        craft_time: 1
+        main_output: electric_organ
+        inputs: []
+        outputs:
+          - { id: electric_organ, qty: 1 }
+
+  - id: flame_organ
+    name: "発火器官"
+    type: "素材"
+    facility: "採取"
+    recipes:
+      - id: flame_organ_r0
+        craft_time: 1
+        main_output: flame_organ
+        inputs: []
+        outputs:
+          - { id: flame_organ, qty: 1 }
+
+  - id: hardwood
+    name: "硬い木材"
+    type: "素材"
+    facility: "採取"
+    recipes:
+      - id: hardwood_r0
+        craft_time: 1
+        main_output: hardwood
+        inputs: []
+        outputs:
+          - { id: hardwood, qty: 1 }
+
+  - id: hexolite_quartz
+    name: "ヘクソクォーツ"
+    type: "素材"
+    facility: "採掘"
+    recipes:
+      - id: hexolite_quartz_r0
+        craft_time: 1
+        main_output: hexolite_quartz
+        inputs: []
+        outputs:
+          - { id: hexolite_quartz, qty: 1 }
+
+  - id: high_quality_pal_oil
+    name: "上質なパルオイル"
+    type: "素材"
+    facility: "採取"
+    recipes:
+      - id: high_quality_pal_oil_r0
+        craft_time: 1
+        main_output: high_quality_pal_oil
+        inputs: []
+        outputs:
+          - { id: high_quality_pal_oil, qty: 1 }
+
+  - id: horn
+    name: "角"
+    type: "素材"
+    facility: "採取"
+    recipes:
+      - id: horn_r0
+        craft_time: 1
+        main_output: horn
+        inputs: []
+        outputs:
+          - { id: horn, qty: 1 }
+
+  - id: ice_organ
+    name: "氷結器官"
+    type: "素材"
+    facility: "採取"
+    recipes:
+      - id: ice_organ_r0
+        craft_time: 1
+        main_output: ice_organ
+        inputs: []
+        outputs:
+          - { id: ice_organ, qty: 1 }
+
+  - id: leather
+    name: "革"
+    type: "素材"
+    facility: "採取"
+    recipes:
+      - id: leather_r0
+        craft_time: 1
+        main_output: leather
+        inputs: []
+        outputs:
+          - { id: leather, qty: 1 }
+
+  - id: lifmunk_leaf
+    name: "ナエモチの葉っぱ"
+    type: "素材"
+    facility: "採取"
+    recipes:
+      - id: lifmunk_leaf_r0
+        craft_time: 1
+        main_output: lifmunk_leaf
+        inputs: []
+        outputs:
+          - { id: lifmunk_leaf, qty: 1 }
+
+  - id: meteorite_fragment
+    name: "隕石の欠片"
+    type: "素材"
+    facility: "採掘"
+    recipes:
+      - id: meteorite_fragment_r0
+        craft_time: 1
+        main_output: meteorite_fragment
+        inputs: []
+        outputs:
+          - { id: meteorite_fragment, qty: 1 }
+
+  - id: mythical_wood
+    name: "神秘の木材"
+    type: "素材"
+    facility: "採取"
+    recipes:
+      - id: mythical_wood_r0
+        craft_time: 1
+        main_output: mythical_wood
+        inputs: []
+        outputs:
+          - { id: mythical_wood, qty: 1 }
+
+  - id: ore
+    name: "金属鉱石"
+    type: "素材"
+    facility: "採掘"
+    recipes:
+      - id: ore_r0
+        craft_time: 1
+        main_output: ore
+        inputs: []
+        outputs:
+          - { id: ore, qty: 1 }
+
+  - id: paloxite
+    name: "パルキサイト"
+    type: "素材"
+    facility: "採掘"
+    recipes:
+      - id: paloxite_r0
+        craft_time: 1
+        main_output: paloxite
+        inputs: []
+        outputs:
+          - { id: paloxite, qty: 1 }
+
+  - id: pure_quartz
+    name: "ピュアクォーツ"
+    type: "素材"
+    facility: "採掘"
+    recipes:
+      - id: pure_quartz_r0
+        craft_time: 1
+        main_output: pure_quartz
+        inputs: []
+        outputs:
+          - { id: pure_quartz, qty: 1 }
+
+  - id: soralite
+    name: "ソルライト"
+    type: "素材"
+    facility: "採掘"
+    recipes:
+      - id: soralite_r0
+        craft_time: 1
+        main_output: soralite
+        inputs: []
+        outputs:
+          - { id: soralite, qty: 1 }
+
+  - id: stone
+    name: "石"
+    type: "素材"
+    facility: "採掘"
+    recipes:
+      - id: stone_r0
+        craft_time: 1
+        main_output: stone
+        inputs: []
+        outputs:
+          - { id: stone, qty: 1 }
+
+  - id: sulfur
+    name: "硫黄"
+    type: "素材"
+    facility: "採取"
+    recipes:
+      - id: sulfur_r0
+        craft_time: 1
+        main_output: sulfur
+        inputs: []
+        outputs:
+          - { id: sulfur, qty: 1 }
+
+  - id: venom_gland
+    name: "毒腺"
+    type: "素材"
+    facility: "採取"
+    recipes:
+      - id: venom_gland_r0
+        craft_time: 1
+        main_output: venom_gland
+        inputs: []
+        outputs:
+          - { id: venom_gland, qty: 1 }
+
+  - id: wood
+    name: "木材"
+    type: "素材"
+    facility: "伐採"
+    recipes:
+      - id: wood_r0
+        craft_time: 1
+        main_output: wood
+        inputs: []
+        outputs:
+          - { id: wood, qty: 1 }
+
+  - id: wool
+    name: "羊毛"
+    type: "素材"
+    facility: "採取"
+    recipes:
+      - id: wool_r0
+        craft_time: 1
+        main_output: wool
+        inputs: []
+        outputs:
+          - { id: wool, qty: 1 }
+
+  - id: beautiful_flower
+    name: "きれいな花"
+    type: "素材"
+    facility: "採取"
+    recipes:
+      - id: beautiful_flower_r0
+        craft_time: 1
+        main_output: beautiful_flower
+        inputs: []
+        outputs:
+          - { id: beautiful_flower, qty: 1 }
+
+  - id: carrot
+    name: "にんじん"
+    type: "食料"
+    facility: "農園"
+    recipes:
+      - id: carrot_r0
+        craft_time: 1
+        main_output: carrot
+        inputs: []
+        outputs:
+          - { id: carrot, qty: 1 }
+
+  - id: cave_mushroom
+    name: "洞窟キノコ"
+    type: "素材"
+    facility: "採取"
+    recipes:
+      - id: cave_mushroom_r0
+        craft_time: 1
+        main_output: cave_mushroom
+        inputs: []
+        outputs:
+          - { id: cave_mushroom, qty: 1 }
+
+  - id: chikipi_poultry
+    name: "タマコッコの鶏肉"
+    type: "食料"
+    facility: "採取"
+    recipes:
+      - id: chikipi_poultry_r0
+        craft_time: 1
+        main_output: chikipi_poultry
+        inputs: []
+        outputs:
+          - { id: chikipi_poultry, qty: 1 }
+
+  - id: dark_fragment
+    name: "闇の欠片"
+    type: "素材"
+    facility: "採掘"
+    recipes:
+      - id: dark_fragment_r0
+        craft_time: 1
+        main_output: dark_fragment
+        inputs: []
+        outputs:
+          - { id: dark_fragment, qty: 1 }
+
+  - id: egg
+    name: "卵"
+    type: "食料"
+    facility: "牧場"
+    recipes:
+      - id: egg_r0
+        craft_time: 1
+        main_output: egg
+        inputs: []
+        outputs:
+          - { id: egg, qty: 1 }
+
+  - id: eikthyrdeer_venison
+    name: "ツノガミの鹿肉"
+    type: "食料"
+    facility: "採取"
+    recipes:
+      - id: eikthyrdeer_venison_r0
+        craft_time: 1
+        main_output: eikthyrdeer_venison
+        inputs: []
+        outputs:
+          - { id: eikthyrdeer_venison, qty: 1 }
+
+  - id: honey
+    name: "ハチミツ"
+    type: "食料"
+    facility: "牧場"
+    recipes:
+      - id: honey_r0
+        craft_time: 1
+        main_output: honey
+        inputs: []
+        outputs:
+          - { id: honey, qty: 1 }
+
+  - id: lamball_mutton
+    name: "モコロンの羊肉"
+    type: "食料"
+    facility: "採取"
+    recipes:
+      - id: lamball_mutton_r0
+        craft_time: 1
+        main_output: lamball_mutton
+        inputs: []
+        outputs:
+          - { id: lamball_mutton, qty: 1 }
+
+  - id: lettuce
+    name: "レタス"
+    type: "食料"
+    facility: "農園"
+    recipes:
+      - id: lettuce_r0
+        craft_time: 1
+        main_output: lettuce
+        inputs: []
+        outputs:
+          - { id: lettuce, qty: 1 }
+
+  - id: milk
+    name: "ミルク"
+    type: "食料"
+    facility: "牧場"
+    recipes:
+      - id: milk_r0
+        craft_time: 1
+        main_output: milk
+        inputs: []
+        outputs:
+          - { id: milk, qty: 1 }
+
+  - id: mozarina_meat
+    name: "ミルカルビの牛肉"
+    type: "食料"
+    facility: "採取"
+    recipes:
+      - id: mozarina_meat_r0
+        craft_time: 1
+        main_output: mozarina_meat
+        inputs: []
+        outputs:
+          - { id: mozarina_meat, qty: 1 }
+
+  - id: mushroom
+    name: "キノコ"
+    type: "食料"
+    facility: "採取"
+    recipes:
+      - id: mushroom_r0
+        craft_time: 1
+        main_output: mushroom
+        inputs: []
+        outputs:
+          - { id: mushroom, qty: 1 }
+
+  - id: onion
+    name: "たまねぎ"
+    type: "食料"
+    facility: "農園"
+    recipes:
+      - id: onion_r0
+        craft_time: 1
+        main_output: onion
+        inputs: []
+        outputs:
+          - { id: onion, qty: 1 }
+
+  - id: potato
+    name: "じゃがいも"
+    type: "食料"
+    facility: "農園"
+    recipes:
+      - id: potato_r0
+        craft_time: 1
+        main_output: potato
+        inputs: []
+        outputs:
+          - { id: potato, qty: 1 }
+
+  - id: red_berries
+    name: "赤いベリー"
+    type: "食料"
+    facility: "農園"
+    recipes:
+      - id: red_berries_r0
+        craft_time: 1
+        main_output: red_berries
+        inputs: []
+        outputs:
+          - { id: red_berries, qty: 1 }
+
+  - id: reindrix_venison
+    name: "ツララジカの鹿肉"
+    type: "食料"
+    facility: "採取"
+    recipes:
+      - id: reindrix_venison_r0
+        craft_time: 1
+        main_output: reindrix_venison
+        inputs: []
+        outputs:
+          - { id: reindrix_venison, qty: 1 }
+
+  - id: rushoar_pork
+    name: "イノボウの猪肉"
+    type: "食料"
+    facility: "採取"
+    recipes:
+      - id: rushoar_pork_r0
+        craft_time: 1
+        main_output: rushoar_pork
+        inputs: []
+        outputs:
+          - { id: rushoar_pork, qty: 1 }
+
+  - id: tomato
+    name: "トマト"
+    type: "食料"
+    facility: "農園"
+    recipes:
+      - id: tomato_r0
+        craft_time: 1
+        main_output: tomato
+        inputs: []
+        outputs:
+          - { id: tomato, qty: 1 }
+
+  - id: wheat
+    name: "小麦"
+    type: "素材"
+    facility: "農園"
+    recipes:
+      - id: wheat_r0
+        craft_time: 1
+        main_output: wheat
+        inputs: []
+        outputs:
+          - { id: wheat, qty: 1 }
+
+  # ===========================================================================
+  # 消耗品
+  # ===========================================================================
+  - id: world_tree_holy_water
+    name: "世界樹の聖水"
+    type: "消耗品"
+    facility: "採取"
+    recipes:
+      - id: world_tree_holy_water_r0
+        craft_time: 1
+        main_output: world_tree_holy_water
+        inputs: []
+        outputs:
+          - { id: world_tree_holy_water, qty: 1 }
+
+  # ===========================================================================
+  # 中間素材
+  # ===========================================================================
+  - id: bio_battery
+    name: "バイオバッテリー"
+    type: "素材"
+    facility: "作業ライン工場Ⅱ"
+    recipes:
+      - id: bio_battery_r0
+        craft_time: 83
+        main_output: bio_battery
+        inputs:
+          - { id: electric_organ, qty: 1 }
+          - { id: refined_ingot, qty: 1 }
+          - { id: carbon_fiber, qty: 1 }
+        outputs:
+          - { id: bio_battery, qty: 1 }
+
+  - id: carbon_fiber
+    name: "カーボン繊維"
+    type: "素材"
+    facility: "作業ライン工場"
+    recipes:
+      - id: carbon_fiber_r0
+        craft_time: 42
+        main_output: carbon_fiber
+        inputs:
+          - { id: coal, qty: 2 }
+          - { id: flame_organ, qty: 1 }
+        outputs:
+          - { id: carbon_fiber, qty: 1 }
+
+  - id: cement
+    name: "セメント"
+    type: "素材"
+    facility: "上質な作業台"
+    recipes:
+      - id: cement_r0
+        craft_time: 125
+        main_output: cement
+        inputs:
+          - { id: stone, qty: 20 }
+          - { id: bone, qty: 1 }
+          - { id: aquatic_pal_fluids, qty: 1 }
+        outputs:
+          - { id: cement, qty: 10 }
+
+  - id: charcoal
+    name: "木炭"
+    type: "素材"
+    facility: "原始的な炉"
+    recipes:
+      - id: charcoal_r0
+        craft_time: 5
+        main_output: charcoal
+        inputs:
+          - { id: wood, qty: 2 }
+        outputs:
+          - { id: charcoal, qty: 1 }
+
+  - id: circuit_board
+    name: "電子基板"
+    type: "素材"
+    facility: "作業ライン工場"
+    recipes:
+      - id: circuit_board_r0
+        craft_time: 125
+        main_output: circuit_board
+        inputs:
+          - { id: pure_quartz, qty: 2 }
+          - { id: polymer, qty: 1 }
+        outputs:
+          - { id: circuit_board, qty: 1 }
+
+  - id: cloth
+    name: "布"
+    type: "素材"
+    facility: "上質な作業台"
+    recipes:
+      - id: cloth_r0
+        craft_time: 3
+        main_output: cloth
+        inputs:
+          - { id: wool, qty: 2 }
+        outputs:
+          - { id: cloth, qty: 1 }
+
+  - id: computer
+    name: "コンピューター"
+    type: "素材"
+    facility: "作業ライン工場Ⅱ"
+    recipes:
+      - id: computer_r0
+        craft_time: 1041
+        main_output: computer
+        inputs:
+          - { id: circuit_board, qty: 2 }
+          - { id: plasteel, qty: 3 }
+          - { id: bio_battery, qty: 2 }
+          - { id: carbon_fiber, qty: 2 }
+        outputs:
+          - { id: computer, qty: 1 }
+
+  - id: coralum_ingot
+    name: "コラルムインゴット"
+    type: "素材"
+    facility: "巨大な炉"
+    recipes:
+      - id: coralum_ingot_r0
+        craft_time: 2083
+        main_output: coralum_ingot
+        inputs:
+          - { id: coralum_ore, qty: 2 }
+          - { id: coal, qty: 5 }
+        outputs:
+          - { id: coralum_ingot, qty: 1 }
+
+  - id: corrosive_solvent
+    name: "腐食溶剤"
+    type: "素材"
+    facility: "作業ライン工場"
+    recipes:
+      - id: corrosive_solvent_r0
+        craft_time: 62
+        main_output: corrosive_solvent
+        inputs:
+          - { id: venom_gland, qty: 1 }
+          - { id: sulfur, qty: 1 }
+        outputs:
+          - { id: corrosive_solvent, qty: 1 }
+
+  - id: cryogenic_coolant
+    name: "極低温冷却媒体"
+    type: "素材"
+    facility: "上質な作業台"
+    recipes:
+      - id: cryogenic_coolant_r0
+        craft_time: 42
+        main_output: cryogenic_coolant
+        inputs:
+          - { id: aquatic_pal_fluids, qty: 1 }
+          - { id: ice_organ, qty: 1 }
+        outputs:
+          - { id: cryogenic_coolant, qty: 1 }
+
+  - id: fiber
+    name: "繊維"
+    type: "素材"
+    facility: "粉砕機"
+    recipes:
+      - id: fiber_r0
+        craft_time: 3
+        main_output: fiber
+        inputs:
+          - { id: wood, qty: 1 }
+        outputs:
+          - { id: fiber, qty: 2 }
+
+  - id: gunpowder
+    name: "火薬"
+    type: "素材"
+    facility: "上質な作業台"
+    recipes:
+      - id: gunpowder_r0
+        craft_time: 13
+        main_output: gunpowder
+        inputs:
+          - { id: charcoal, qty: 2 }
+          - { id: sulfur, qty: 1 }
+        outputs:
+          - { id: gunpowder, qty: 1 }
+
+  - id: hexolite
+    name: "ヘクソライト"
+    type: "素材"
+    facility: "巨大な炉"
+    recipes:
+      - id: hexolite_r0
+        craft_time: 2083
+        main_output: hexolite
+        inputs:
+          - { id: chromite, qty: 1 }
+          - { id: hexolite_quartz, qty: 1 }
+        outputs:
+          - { id: hexolite, qty: 1 }
+
+  - id: high_quality_cloth
+    name: "上質な布"
+    type: "素材"
+    facility: "上質な作業台"
+    recipes:
+      - id: high_quality_cloth_r0
+        craft_time: 11
+        main_output: high_quality_cloth
+        inputs:
+          - { id: wool, qty: 10 }
+          - { id: leather, qty: 1 }
+        outputs:
+          - { id: high_quality_cloth, qty: 1 }
+
+  - id: high_quality_wooden_board
+    name: "上質な木板"
+    type: "素材"
+    facility: "作業ライン工場Ⅱ"
+    recipes:
+      - id: high_quality_wooden_board_r0
+        craft_time: 62
+        main_output: high_quality_wooden_board
+        inputs:
+          - { id: hardwood, qty: 10 }
+          - { id: wood, qty: 10 }
+          - { id: high_quality_cloth, qty: 2 }
+        outputs:
+          - { id: high_quality_wooden_board, qty: 1 }
+
+  - id: ingot
+    name: "金属インゴット"
+    type: "素材"
+    facility: "原始的な炉"
+    recipes:
+      - id: ingot_r0
+        craft_time: 5
+        main_output: ingot
+        inputs:
+          - { id: ore, qty: 2 }
+        outputs:
+          - { id: ingot, qty: 1 }
+
+  - id: nail
+    name: "釘"
+    type: "素材"
+    facility: "上質な作業台"
+    recipes:
+      - id: nail_r0
+        craft_time: 7
+        main_output: nail
+        inputs:
+          - { id: ingot, qty: 1 }
+        outputs:
+          - { id: nail, qty: 5 }
+
+  - id: pal_metal_ingot
+    name: "パルメタルインゴット"
+    type: "素材"
+    facility: "電気炉"
+    recipes:
+      - id: pal_metal_ingot_r0
+        craft_time: 208
+        main_output: pal_metal_ingot
+        inputs:
+          - { id: ore, qty: 4 }
+          - { id: pure_quartz, qty: 1 }
+          - { id: paldium_fragment, qty: 2 }
+        outputs:
+          - { id: pal_metal_ingot, qty: 1 }
+
+  - id: paldium_fragment
+    name: "パルジウムの欠片"
+    type: "素材"
+    facility: "粉砕機"
+    recipes:
+      - id: paldium_fragment_r0
+        craft_time: 5
+        main_output: paldium_fragment
+        inputs:
+          - { id: stone, qty: 5 }
+        outputs:
+          - { id: paldium_fragment, qty: 1 }
+
+  - id: paloxite_ingot
+    name: "パルキサイトインゴット"
+    type: "素材"
+    facility: "古代文明の炉"
+    recipes:
+      - id: paloxite_ingot_r0
+        craft_time: 4166
+        main_output: paloxite_ingot
+        inputs:
+          - { id: soralite, qty: 1 }
+          - { id: paloxite, qty: 2 }
+          - { id: world_tree_holy_water, qty: 1 }
+        outputs:
+          - { id: paloxite_ingot, qty: 1 }
+
+  - id: plasteel
+    name: "プラスチール"
+    type: "素材"
+    facility: "電気炉"
+    recipes:
+      - id: plasteel_r0
+        craft_time: 833
+        main_output: plasteel
+        inputs:
+          - { id: crude_oil, qty: 2 }
+          - { id: ore, qty: 5 }
+        outputs:
+          - { id: plasteel, qty: 1 }
+
+  - id: polymer
+    name: "ポリマー"
+    type: "素材"
+    facility: "作業ライン工場"
+    recipes:
+      - id: polymer_r0
+        craft_time: 42
+        main_output: polymer
+        inputs:
+          - { id: high_quality_pal_oil, qty: 2 }
+          - { id: sulfur, qty: 1 }
+        outputs:
+          - { id: polymer, qty: 1 }
+
+  - id: refined_ingot
+    name: "精錬金属インゴット"
+    type: "素材"
+    facility: "改善された炉"
+    recipes:
+      - id: refined_ingot_r0
+        craft_time: 30
+        main_output: refined_ingot
+        inputs:
+          - { id: ore, qty: 2 }
+          - { id: coal, qty: 2 }
+        outputs:
+          - { id: refined_ingot, qty: 1 }
+
+  - id: soralite_ingot
+    name: "ソルライトインゴット"
+    type: "素材"
+    facility: "古代文明の炉"
+    recipes:
+      - id: soralite_ingot_r0
+        craft_time: 2916
+        main_output: soralite_ingot
+        inputs:
+          - { id: soralite, qty: 2 }
+          - { id: pure_quartz, qty: 2 }
+        outputs:
+          - { id: soralite_ingot, qty: 1 }
+
+  - id: wooden_board
+    name: "木板"
+    type: "素材"
+    facility: "上質な作業台"
+    recipes:
+      - id: wooden_board_r0
+        craft_time: 5
+        main_output: wooden_board
+        inputs:
+          - { id: wood, qty: 10 }
+          - { id: fiber, qty: 5 }
+          - { id: nail, qty: 1 }
+        outputs:
+          - { id: wooden_board, qty: 1 }
+
+  - id: ai_core
+    name: "AIコア"
+    type: "素材"
+    facility: "作業ライン工場Ⅱ"
+    recipes:
+      - id: ai_core_r0
+        craft_time: 20833
+        main_output: ai_core
+        inputs:
+          - { id: computer, qty: 5 }
+          - { id: soralite_ingot, qty: 10 }
+          - { id: thermal_core, qty: 2 }
+          - { id: ancient_civilization_core, qty: 1 }
+        outputs:
+          - { id: ai_core, qty: 1 }
+
+  - id: flour
+    name: "小麦粉"
+    type: "素材"
+    facility: "製粉機"
+    recipes:
+      - id: flour_r0
+        craft_time: 4
+        main_output: flour
+        inputs:
+          - { id: wheat, qty: 3 }
+        outputs:
+          - { id: flour, qty: 1 }
+
+  - id: thermal_core
+    name: "超高熱コア"
+    type: "素材"
+    facility: "作業ライン工場Ⅱ"
+    recipes:
+      - id: thermal_core_r0
+        craft_time: 2083
+        main_output: thermal_core
+        inputs:
+          - { id: flame_organ, qty: 4 }
+          - { id: coal, qty: 8 }
+          - { id: corrosive_solvent, qty: 2 }
+          - { id: hexolite, qty: 2 }
+        outputs:
+          - { id: thermal_core, qty: 1 }
+
+  # ===========================================================================
+  # スフィア
+  # ===========================================================================
+  - id: ancient_sphere
+    name: "エンシェントスフィア"
+    type: "スフィア"
+    facility: "古代文明の作業台"
+    recipes:
+      - id: ancient_sphere_r0
+        craft_time: 4166
+        main_output: ancient_sphere
+        inputs:
+          - { id: paldium_fragment, qty: 30 }
+          - { id: paloxite_ingot, qty: 6 }
+          - { id: mythical_wood, qty: 3 }
+        outputs:
+          - { id: ancient_sphere, qty: 1 }
+
+  - id: exotic_sphere
+    name: "インフィニティスフィア"
+    type: "スフィア"
+    facility: "高度文明のスフィア工場"
+    recipes:
+      - id: exotic_sphere_r0
+        craft_time: 1250
+        main_output: exotic_sphere
+        inputs:
+          - { id: paldium_fragment, qty: 15 }
+          - { id: plasteel, qty: 1 }
+          - { id: hardwood, qty: 10 }
+          - { id: hexolite, qty: 1 }
+        outputs:
+          - { id: exotic_sphere, qty: 1 }
+
+  - id: giga_sphere
+    name: "ギガスフィア"
+    type: "スフィア"
+    facility: "スフィア製作台"
+    recipes:
+      - id: giga_sphere_r0
+        craft_time: 11
+        main_output: giga_sphere
+        inputs:
+          - { id: paldium_fragment, qty: 2 }
+          - { id: ingot, qty: 2 }
+          - { id: wood, qty: 5 }
+          - { id: stone, qty: 5 }
+        outputs:
+          - { id: giga_sphere, qty: 1 }
+
+  - id: hyper_sphere
+    name: "テラスフィア"
+    type: "スフィア"
+    facility: "スフィアライン工場"
+    recipes:
+      - id: hyper_sphere_r0
+        craft_time: 25
+        main_output: hyper_sphere
+        inputs:
+          - { id: paldium_fragment, qty: 3 }
+          - { id: ingot, qty: 3 }
+          - { id: wood, qty: 8 }
+          - { id: stone, qty: 8 }
+        outputs:
+          - { id: hyper_sphere, qty: 1 }
+
+  - id: legendary_sphere
+    name: "レジェンドスフィア"
+    type: "スフィア"
+    facility: "スフィアライン工場Ⅱ"
+    recipes:
+      - id: legendary_sphere_r0
+        craft_time: 208
+        main_output: legendary_sphere
+        inputs:
+          - { id: paldium_fragment, qty: 5 }
+          - { id: pal_metal_ingot, qty: 3 }
+          - { id: hardwood, qty: 3 }
+          - { id: stone, qty: 20 }
+        outputs:
+          - { id: legendary_sphere, qty: 1 }
+
+  - id: mega_sphere
+    name: "メガスフィア"
+    type: "スフィア"
+    facility: "スフィア製作台"
+    recipes:
+      - id: mega_sphere_r0
+        craft_time: 7
+        main_output: mega_sphere
+        inputs:
+          - { id: paldium_fragment, qty: 1 }
+          - { id: ingot, qty: 1 }
+          - { id: wood, qty: 3 }
+          - { id: stone, qty: 3 }
+        outputs:
+          - { id: mega_sphere, qty: 1 }
+
+  - id: pal_sphere
+    name: "パルスフィア"
+    type: "スフィア"
+    facility: "スフィア製作台"
+    recipes:
+      - id: pal_sphere_r0
+        craft_time: 2
+        main_output: pal_sphere
+        inputs:
+          - { id: paldium_fragment, qty: 1 }
+        outputs:
+          - { id: pal_sphere, qty: 1 }
+
+  - id: sol_sphere
+    name: "ソルスフィア"
+    type: "スフィア"
+    facility: "古代文明の作業台"
+    recipes:
+      - id: sol_sphere_r0
+        craft_time: 2500
+        main_output: sol_sphere
+        inputs:
+          - { id: paldium_fragment, qty: 30 }
+          - { id: soralite_ingot, qty: 2 }
+          - { id: hardwood, qty: 10 }
+        outputs:
+          - { id: sol_sphere, qty: 1 }
+
+  - id: ultimate_sphere
+    name: "アルティメットスフィア"
+    type: "スフィア"
+    facility: "スフィアライン工場Ⅱ"
+    recipes:
+      - id: ultimate_sphere_r0
+        craft_time: 625
+        main_output: ultimate_sphere
+        inputs:
+          - { id: paldium_fragment, qty: 10 }
+          - { id: pal_metal_ingot, qty: 5 }
+          - { id: hardwood, qty: 10 }
+          - { id: plasteel, qty: 1 }
+        outputs:
+          - { id: ultimate_sphere, qty: 1 }
+
+  - id: ultra_sphere
+    name: "ウルトラスフィア"
+    type: "スフィア"
+    facility: "スフィアライン工場Ⅱ"
+    recipes:
+      - id: ultra_sphere_r0
+        craft_time: 83
+        main_output: ultra_sphere
+        inputs:
+          - { id: paldium_fragment, qty: 5 }
+          - { id: refined_ingot, qty: 3 }
+          - { id: wood, qty: 10 }
+          - { id: stone, qty: 10 }
+        outputs:
+          - { id: ultra_sphere, qty: 1 }
+
+  # ===========================================================================
+  # 弾薬
+  # ===========================================================================
+  - id: arrow
+    name: "矢"
+    type: "弾薬"
+    facility: "原始的な作業台"
+    recipes:
+      - id: arrow_r0
+        craft_time: 4
+        main_output: arrow
+        inputs:
+          - { id: wood, qty: 2 }
+          - { id: stone, qty: 2 }
+        outputs:
+          - { id: arrow, qty: 10 }
+
+  - id: assault_rifle_ammo
+    name: "アサルトライフルの弾"
+    type: "弾薬"
+    facility: "武器ライン工場"
+    recipes:
+      - id: assault_rifle_ammo_r0
+        craft_time: 167
+        main_output: assault_rifle_ammo
+        inputs:
+          - { id: refined_ingot, qty: 1 }
+          - { id: gunpowder, qty: 2 }
+        outputs:
+          - { id: assault_rifle_ammo, qty: 20 }
+
+  - id: coarse_ammo
+    name: "粗悪な弾薬"
+    type: "弾薬"
+    facility: "武器製作台"
+    recipes:
+      - id: coarse_ammo_r0
+        craft_time: 167
+        main_output: coarse_ammo
+        inputs:
+          - { id: ingot, qty: 1 }
+          - { id: gunpowder, qty: 1 }
+        outputs:
+          - { id: coarse_ammo, qty: 20 }
+
+  - id: energy_cartridge
+    name: "エネルギーカートリッジ"
+    type: "弾薬"
+    facility: "武器ライン工場Ⅱ"
+    recipes:
+      - id: energy_cartridge_r0
+        craft_time: 833
+        main_output: energy_cartridge
+        inputs:
+          - { id: bio_battery, qty: 1 }
+          - { id: pal_metal_ingot, qty: 2 }
+        outputs:
+          - { id: energy_cartridge, qty: 20 }
+
+  - id: fire_arrow
+    name: "火矢"
+    type: "弾薬"
+    facility: "原始的な作業台"
+    recipes:
+      - id: fire_arrow_r0
+        craft_time: 17
+        main_output: fire_arrow
+        inputs:
+          - { id: wood, qty: 2 }
+          - { id: stone, qty: 2 }
+          - { id: flame_organ, qty: 1 }
+        outputs:
+          - { id: fire_arrow, qty: 10 }
+
+  - id: flamethrower_fuel
+    name: "火炎放射器燃料"
+    type: "弾薬"
+    facility: "武器ライン工場Ⅱ"
+    recipes:
+      - id: flamethrower_fuel_r0
+        craft_time: 417
+        main_output: flamethrower_fuel
+        inputs:
+          - { id: crude_oil, qty: 2 }
+          - { id: refined_ingot, qty: 1 }
+        outputs:
+          - { id: flamethrower_fuel, qty: 10 }
+
+  - id: gatling_gun_ammo
+    name: "ガトリング弾"
+    type: "弾薬"
+    facility: "武器ライン工場Ⅱ"
+    recipes:
+      - id: gatling_gun_ammo_r0
+        craft_time: 417
+        main_output: gatling_gun_ammo
+        inputs:
+          - { id: pal_metal_ingot, qty: 1 }
+          - { id: gunpowder, qty: 3 }
+        outputs:
+          - { id: gatling_gun_ammo, qty: 50 }
+
+  - id: grenade_ammo
+    name: "グレネード弾"
+    type: "弾薬"
+    facility: "武器ライン工場Ⅱ"
+    recipes:
+      - id: grenade_ammo_r0
+        craft_time: 417
+        main_output: grenade_ammo
+        inputs:
+          - { id: pal_metal_ingot, qty: 2 }
+          - { id: fiber, qty: 20 }
+          - { id: gunpowder, qty: 3 }
+        outputs:
+          - { id: grenade_ammo, qty: 10 }
+
+  - id: handgun_ammo
+    name: "ハンドガンの弾"
+    type: "弾薬"
+    facility: "武器製作台"
+    recipes:
+      - id: handgun_ammo_r0
+        craft_time: 167
+        main_output: handgun_ammo
+        inputs:
+          - { id: ingot, qty: 1 }
+          - { id: gunpowder, qty: 1 }
+        outputs:
+          - { id: handgun_ammo, qty: 20 }
+
+  - id: missile_ammo
+    name: "ミサイル弾"
+    type: "弾薬"
+    facility: "武器ライン工場Ⅱ"
+    recipes:
+      - id: missile_ammo_r0
+        craft_time: 833
+        main_output: missile_ammo
+        inputs:
+          - { id: pal_metal_ingot, qty: 3 }
+          - { id: crude_oil, qty: 1 }
+          - { id: computer, qty: 1 }
+        outputs:
+          - { id: missile_ammo, qty: 10 }
+
+  - id: plasma_cartridge
+    name: "プラズマカートリッジ"
+    type: "弾薬"
+    facility: "武器ライン工場Ⅱ"
+    recipes:
+      - id: plasma_cartridge_r0
+        craft_time: 833
+        main_output: plasma_cartridge
+        inputs:
+          - { id: thermal_core, qty: 1 }
+          - { id: hexolite, qty: 2 }
+        outputs:
+          - { id: plasma_cartridge, qty: 10 }
+
+  - id: poison_arrow
+    name: "毒矢"
+    type: "弾薬"
+    facility: "原始的な作業台"
+    recipes:
+      - id: poison_arrow_r0
+        craft_time: 17
+        main_output: poison_arrow
+        inputs:
+          - { id: wood, qty: 2 }
+          - { id: stone, qty: 2 }
+          - { id: venom_gland, qty: 1 }
+        outputs:
+          - { id: poison_arrow, qty: 10 }
+
+  - id: rifle_ammo
+    name: "ライフルの弾"
+    type: "弾薬"
+    facility: "武器製作台"
+    recipes:
+      - id: rifle_ammo_r0
+        craft_time: 167
+        main_output: rifle_ammo
+        inputs:
+          - { id: refined_ingot, qty: 2 }
+          - { id: gunpowder, qty: 2 }
+        outputs:
+          - { id: rifle_ammo, qty: 10 }
+
+  - id: rocket_ammo
+    name: "ロケット弾"
+    type: "弾薬"
+    facility: "武器ライン工場Ⅱ"
+    recipes:
+      - id: rocket_ammo_r0
+        craft_time: 208
+        main_output: rocket_ammo
+        inputs:
+          - { id: hexolite, qty: 3 }
+          - { id: thermal_core, qty: 1 }
+        outputs:
+          - { id: rocket_ammo, qty: 10 }
+
+  - id: shotgun_ammo
+    name: "ショットガンの弾"
+    type: "弾薬"
+    facility: "武器製作台"
+    recipes:
+      - id: shotgun_ammo_r0
+        craft_time: 208
+        main_output: shotgun_ammo
+        inputs:
+          - { id: refined_ingot, qty: 2 }
+          - { id: gunpowder, qty: 3 }
+        outputs:
+          - { id: shotgun_ammo, qty: 10 }
+
+  # ===========================================================================
+  # 武器
+  # ===========================================================================
+  - id: assault_rifle
+    name: "アサルトライフル"
+    type: "武器"
+    facility: "武器ライン工場"
+    recipes:
+      - id: assault_rifle_r0
+        craft_time: 416
+        main_output: assault_rifle
+        inputs:
+          - { id: refined_ingot, qty: 40 }
+          - { id: polymer, qty: 10 }
+          - { id: carbon_fiber, qty: 10 }
+        outputs:
+          - { id: assault_rifle, qty: 1 }
+
+  - id: bat
+    name: "バット"
+    type: "武器"
+    facility: "原始的な作業台"
+    recipes:
+      - id: bat_r0
+        craft_time: 8
+        main_output: bat
+        inputs:
+          - { id: wood, qty: 30 }
+          - { id: stone, qty: 10 }
+        outputs:
+          - { id: bat, qty: 1 }
+
+  - id: crossbow
+    name: "クロスボウ"
+    type: "武器"
+    facility: "上質な作業台"
+    recipes:
+      - id: crossbow_r0
+        craft_time: 63
+        main_output: crossbow
+        inputs:
+          - { id: wood, qty: 50 }
+          - { id: stone, qty: 40 }
+          - { id: ingot, qty: 10 }
+          - { id: nail, qty: 2 }
+        outputs:
+          - { id: crossbow, qty: 1 }
+
+  - id: double_barreled_shotgun
+    name: "ダブルバレルショットガン（二連散弾銃）"
+    type: "武器"
+    facility: "武器製作台"
+    recipes:
+      - id: double_barreled_shotgun_r0
+        craft_time: 333
+        main_output: double_barreled_shotgun
+        inputs:
+          - { id: refined_ingot, qty: 30 }
+          - { id: polymer, qty: 7 }
+          - { id: hardwood, qty: 25 }
+        outputs:
+          - { id: double_barreled_shotgun, qty: 1 }
+
+  - id: fire_bow
+    name: "火の弓"
+    type: "武器"
+    facility: "原始的な作業台"
+    recipes:
+      - id: fire_bow_r0
+        craft_time: 21
+        main_output: fire_bow
+        inputs:
+          - { id: wood, qty: 40 }
+          - { id: stone, qty: 8 }
+          - { id: fiber, qty: 20 }
+          - { id: flame_organ, qty: 2 }
+        outputs:
+          - { id: fire_bow, qty: 1 }
+
+  - id: fire_crossbow
+    name: "火矢のクロスボウ（火のクロスボウ）"
+    type: "武器"
+    facility: "上質な作業台"
+    recipes:
+      - id: fire_crossbow_r0
+        craft_time: 104
+        main_output: fire_crossbow
+        inputs:
+          - { id: wood, qty: 50 }
+          - { id: stone, qty: 50 }
+          - { id: ingot, qty: 15 }
+          - { id: nail, qty: 3 }
+          - { id: flame_organ, qty: 5 }
+        outputs:
+          - { id: fire_crossbow, qty: 1 }
+
+  - id: flamethrower
+    name: "火炎放射器"
+    type: "武器"
+    facility: "武器ライン工場Ⅱ"
+    recipes:
+      - id: flamethrower_r0
+        craft_time: 1042
+        main_output: flamethrower
+        inputs:
+          - { id: pal_metal_ingot, qty: 40 }
+          - { id: plasteel, qty: 30 }
+          - { id: cryogenic_coolant, qty: 13 }
+          - { id: flame_organ, qty: 30 }
+        outputs:
+          - { id: flamethrower, qty: 1 }
+
+  - id: gatling_gun
+    name: "ガトリングガン"
+    type: "武器"
+    facility: "武器ライン工場Ⅱ"
+    recipes:
+      - id: gatling_gun_r0
+        craft_time: 3333
+        main_output: gatling_gun
+        inputs:
+          - { id: pal_metal_ingot, qty: 150 }
+          - { id: plasteel, qty: 70 }
+          - { id: carbon_fiber, qty: 70 }
+        outputs:
+          - { id: gatling_gun, qty: 1 }
+
+  - id: grenade_launcher
+    name: "グレネードランチャー"
+    type: "武器"
+    facility: "武器ライン工場Ⅱ"
+    recipes:
+      - id: grenade_launcher_r0
+        craft_time: 1667
+        main_output: grenade_launcher
+        inputs:
+          - { id: pal_metal_ingot, qty: 75 }
+          - { id: plasteel, qty: 60 }
+          - { id: carbon_fiber, qty: 15 }
+        outputs:
+          - { id: grenade_launcher, qty: 1 }
+
+  - id: handgun
+    name: "ハンドガン"
+    type: "武器"
+    facility: "武器製作台"
+    recipes:
+      - id: handgun_r0
+        craft_time: 208
+        main_output: handgun
+        inputs:
+          - { id: ingot, qty: 50 }
+          - { id: high_quality_pal_oil, qty: 15 }
+        outputs:
+          - { id: handgun, qty: 1 }
+
+  - id: laser_rifle
+    name: "レーザーライフル"
+    type: "武器"
+    facility: "武器ライン工場Ⅱ"
+    recipes:
+      - id: laser_rifle_r0
+        craft_time: 1250
+        main_output: laser_rifle
+        inputs:
+          - { id: pal_metal_ingot, qty: 50 }
+          - { id: plasteel, qty: 40 }
+          - { id: bio_battery, qty: 5 }
+          - { id: computer, qty: 3 }
+        outputs:
+          - { id: laser_rifle, qty: 1 }
+
+  - id: lilys_spear
+    name: "リリィの槍"
+    type: "武器"
+    facility: "古代文明の作業台"
+    recipes:
+      - id: lilys_spear_r0
+        craft_time: 1250
+        main_output: lilys_spear
+        inputs:
+          - { id: paldium_fragment, qty: 20 }
+          - { id: refined_ingot, qty: 30 }
+          - { id: high_quality_cloth, qty: 20 }
+          - { id: high_quality_wooden_board, qty: 3 }
+        outputs:
+          - { id: lilys_spear, qty: 1 }
+
+  - id: makeshift_handgun
+    name: "ジャンクハンドガン"
+    type: "武器"
+    facility: "武器製作台"
+    recipes:
+      - id: makeshift_handgun_r0
+        craft_time: 166
+        main_output: makeshift_handgun
+        inputs:
+          - { id: ingot, qty: 35 }
+          - { id: high_quality_pal_oil, qty: 10 }
+          - { id: fiber, qty: 30 }
+        outputs:
+          - { id: makeshift_handgun, qty: 1 }
+
+  - id: metal_axe
+    name: "金属の斧"
+    type: "武器"
+    facility: "上質な作業台"
+    recipes:
+      - id: metal_axe_r0
+        craft_time: 21
+        main_output: metal_axe
+        inputs:
+          - { id: stone, qty: 15 }
+          - { id: wood, qty: 20 }
+          - { id: ingot, qty: 15 }
+        outputs:
+          - { id: metal_axe, qty: 1 }
+
+  - id: metal_pickaxe
+    name: "金属のつるはし"
+    type: "武器"
+    facility: "上質な作業台"
+    recipes:
+      - id: metal_pickaxe_r0
+        craft_time: 21
+        main_output: metal_pickaxe
+        inputs:
+          - { id: stone, qty: 15 }
+          - { id: wood, qty: 20 }
+          - { id: ingot, qty: 15 }
+        outputs:
+          - { id: metal_pickaxe, qty: 1 }
+
+  - id: metal_spear
+    name: "金属の槍"
+    type: "武器"
+    facility: "上質な作業台"
+    recipes:
+      - id: metal_spear_r0
+        craft_time: 42
+        main_output: metal_spear
+        inputs:
+          - { id: wood, qty: 27 }
+          - { id: stone, qty: 12 }
+          - { id: ingot, qty: 10 }
+        outputs:
+          - { id: metal_spear, qty: 1 }
+
+  - id: musket
+    name: "マスケット銃"
+    type: "武器"
+    facility: "武器製作台"
+    recipes:
+      - id: musket_r0
+        craft_time: 146
+        main_output: musket
+        inputs:
+          - { id: ingot, qty: 25 }
+          - { id: high_quality_pal_oil, qty: 5 }
+          - { id: wooden_board, qty: 3 }
+        outputs:
+          - { id: musket, qty: 1 }
+
+  - id: old_bow
+    name: "古びた弓"
+    type: "武器"
+    facility: "原始的な作業台"
+    recipes:
+      - id: old_bow_r0
+        craft_time: 8
+        main_output: old_bow
+        inputs:
+          - { id: wood, qty: 30 }
+          - { id: stone, qty: 5 }
+          - { id: fiber, qty: 15 }
+        outputs:
+          - { id: old_bow, qty: 1 }
+
+  - id: poison_bow
+    name: "毒の弓"
+    type: "武器"
+    facility: "原始的な作業台"
+    recipes:
+      - id: poison_bow_r0
+        craft_time: 21
+        main_output: poison_bow
+        inputs:
+          - { id: wood, qty: 40 }
+          - { id: stone, qty: 8 }
+          - { id: fiber, qty: 20 }
+          - { id: venom_gland, qty: 2 }
+        outputs:
+          - { id: poison_bow, qty: 1 }
+
+  - id: poison_crossbow
+    name: "毒矢のクロスボウ（毒のクロスボウ）"
+    type: "武器"
+    facility: "上質な作業台"
+    recipes:
+      - id: poison_crossbow_r0
+        craft_time: 104
+        main_output: poison_crossbow
+        inputs:
+          - { id: wood, qty: 50 }
+          - { id: stone, qty: 50 }
+          - { id: ingot, qty: 15 }
+          - { id: nail, qty: 3 }
+          - { id: venom_gland, qty: 5 }
+        outputs:
+          - { id: poison_crossbow, qty: 1 }
+
+  - id: pump_action_shotgun
+    name: "ポンプ式ショットガン（ポンプアクションショットガン）"
+    type: "武器"
+    facility: "武器ライン工場"
+    recipes:
+      - id: pump_action_shotgun_r0
+        craft_time: 500
+        main_output: pump_action_shotgun
+        inputs:
+          - { id: refined_ingot, qty: 30 }
+          - { id: polymer, qty: 20 }
+          - { id: carbon_fiber, qty: 10 }
+        outputs:
+          - { id: pump_action_shotgun, qty: 1 }
+
+  - id: refined_metal_spear
+    name: "精錬金属の槍"
+    type: "武器"
+    facility: "上質な作業台"
+    recipes:
+      - id: refined_metal_spear_r0
+        craft_time: 417
+        main_output: refined_metal_spear
+        inputs:
+          - { id: wood, qty: 36 }
+          - { id: stone, qty: 18 }
+          - { id: refined_ingot, qty: 10 }
+        outputs:
+          - { id: refined_metal_spear, qty: 1 }
+
+  - id: rocket_launcher
+    name: "ロケットランチャー"
+    type: "武器"
+    facility: "武器ライン工場Ⅱ"
+    recipes:
+      - id: rocket_launcher_r0
+        craft_time: 1250
+        main_output: rocket_launcher
+        inputs:
+          - { id: coralum_ingot, qty: 75 }
+          - { id: polymer, qty: 30 }
+          - { id: carbon_fiber, qty: 25 }
+          - { id: computer, qty: 10 }
+        outputs:
+          - { id: rocket_launcher, qty: 1 }
+
+  - id: semi_auto_rifle
+    name: "セミオートライフル"
+    type: "武器"
+    facility: "武器ライン工場"
+    recipes:
+      - id: semi_auto_rifle_r0
+        craft_time: 375
+        main_output: semi_auto_rifle
+        inputs:
+          - { id: refined_ingot, qty: 35 }
+          - { id: polymer, qty: 10 }
+        outputs:
+          - { id: semi_auto_rifle, qty: 1 }
+
+  - id: stun_baton
+    name: "スタンバトン"
+    type: "武器"
+    facility: "武器製作台"
+    recipes:
+      - id: stun_baton_r0
+        craft_time: 125
+        main_output: stun_baton
+        inputs:
+          - { id: ingot, qty: 20 }
+          - { id: electric_organ, qty: 20 }
+        outputs:
+          - { id: stun_baton, qty: 1 }
+
+  - id: sword
+    name: "剣"
+    type: "武器"
+    facility: "武器製作台"
+    recipes:
+      - id: sword_r0
+        craft_time: 208
+        main_output: sword
+        inputs:
+          - { id: ingot, qty: 30 }
+          - { id: wooden_board, qty: 2 }
+          - { id: stone, qty: 20 }
+        outputs:
+          - { id: sword, qty: 1 }
+
+  - id: three_shot_bow
+    name: "三連弓"
+    type: "武器"
+    facility: "上質な作業台"
+    recipes:
+      - id: three_shot_bow_r0
+        craft_time: 33
+        main_output: three_shot_bow
+        inputs:
+          - { id: wood, qty: 50 }
+          - { id: stone, qty: 12 }
+          - { id: fiber, qty: 30 }
+        outputs:
+          - { id: three_shot_bow, qty: 1 }
+
+  # ===========================================================================
+  # 防具
+  # ===========================================================================
+  - id: cloth_outfit
+    name: "布の服"
+    type: "防具"
+    facility: "原始的な作業台"
+    recipes:
+      - id: cloth_outfit_r0
+        craft_time: 8
+        main_output: cloth_outfit
+        inputs:
+          - { id: cloth, qty: 2 }
+          - { id: fiber, qty: 7 }
+        outputs:
+          - { id: cloth_outfit, qty: 1 }
+
+  - id: cold_resistant_metal_armor
+    name: "耐寒金属アーマー"
+    type: "防具"
+    facility: "上質な作業台"
+    recipes:
+      - id: cold_resistant_metal_armor_r0
+        craft_time: 167
+        main_output: cold_resistant_metal_armor
+        inputs:
+          - { id: ingot, qty: 40 }
+          - { id: leather, qty: 13 }
+          - { id: cloth, qty: 8 }
+          - { id: ice_organ, qty: 8 }
+        outputs:
+          - { id: cold_resistant_metal_armor, qty: 1 }
+
+  - id: cold_resistant_pal_metal_armor
+    name: "耐寒パルメタルアーマー"
+    type: "防具"
+    facility: "作業ライン工場Ⅱ"
+    recipes:
+      - id: cold_resistant_pal_metal_armor_r0
+        craft_time: 833
+        main_output: cold_resistant_pal_metal_armor
+        inputs:
+          - { id: pal_metal_ingot, qty: 30 }
+          - { id: leather, qty: 30 }
+          - { id: high_quality_cloth, qty: 3 }
+          - { id: cryogenic_coolant, qty: 5 }
+        outputs:
+          - { id: cold_resistant_pal_metal_armor, qty: 1 }
+
+  - id: cold_resistant_pelt_armor
+    name: "耐寒毛皮アーマー（寒冷地仕様の毛皮アーマー）"
+    type: "防具"
+    facility: "上質な作業台"
+    recipes:
+      - id: cold_resistant_pelt_armor_r0
+        craft_time: 42
+        main_output: cold_resistant_pelt_armor
+        inputs:
+          - { id: leather, qty: 15 }
+          - { id: ice_organ, qty: 4 }
+          - { id: ingot, qty: 10 }
+        outputs:
+          - { id: cold_resistant_pelt_armor, qty: 1 }
+
+  - id: cold_resistant_plasteel_armor
+    name: "耐寒プラスチールアーマー"
+    type: "防具"
+    facility: "作業ライン工場Ⅱ"
+    recipes:
+      - id: cold_resistant_plasteel_armor_r0
+        craft_time: 1667
+        main_output: cold_resistant_plasteel_armor
+        inputs:
+          - { id: plasteel, qty: 30 }
+          - { id: pal_metal_ingot, qty: 30 }
+          - { id: high_quality_cloth, qty: 5 }
+          - { id: cryogenic_coolant, qty: 10 }
+        outputs:
+          - { id: cold_resistant_plasteel_armor, qty: 1 }
+
+  - id: cold_resistant_refined_metal_armor
+    name: "耐寒精錬金属アーマー"
+    type: "防具"
+    facility: "作業ライン工場"
+    recipes:
+      - id: cold_resistant_refined_metal_armor_r0
+        craft_time: 292
+        main_output: cold_resistant_refined_metal_armor
+        inputs:
+          - { id: refined_ingot, qty: 40 }
+          - { id: leather, qty: 20 }
+          - { id: high_quality_cloth, qty: 2 }
+          - { id: cryogenic_coolant, qty: 4 }
+        outputs:
+          - { id: cold_resistant_refined_metal_armor, qty: 1 }
+
+  - id: common_shield
+    name: "ノーマルシールド"
+    type: "防具"
+    facility: "原始的な作業台"
+    recipes:
+      - id: common_shield_r0
+        craft_time: 13
+        main_output: common_shield
+        inputs:
+          - { id: paldium_fragment, qty: 10 }
+          - { id: wood, qty: 20 }
+          - { id: stone, qty: 20 }
+          - { id: fiber, qty: 10 }
+        outputs:
+          - { id: common_shield, qty: 1 }
+
+  - id: feathered_hair_band
+    name: "羽根の髪飾り"
+    type: "防具"
+    facility: "原始的な作業台"
+    recipes:
+      - id: feathered_hair_band_r0
+        craft_time: 13
+        main_output: feathered_hair_band
+        inputs:
+          - { id: fiber, qty: 10 }
+          - { id: leather, qty: 1 }
+        outputs:
+          - { id: feathered_hair_band, qty: 1 }
+
+  - id: giga_shield
+    name: "ギガシールド"
+    type: "防具"
+    facility: "上質な作業台"
+    recipes:
+      - id: giga_shield_r0
+        craft_time: 167
+        main_output: giga_shield
+        inputs:
+          - { id: ancient_civilization_parts, qty: 10 }
+          - { id: paldium_fragment, qty: 50 }
+          - { id: ingot, qty: 20 }
+        outputs:
+          - { id: giga_shield, qty: 1 }
+
+  - id: heat_resistant_metal_armor
+    name: "耐熱金属アーマー"
+    type: "防具"
+    facility: "上質な作業台"
+    recipes:
+      - id: heat_resistant_metal_armor_r0
+        craft_time: 167
+        main_output: heat_resistant_metal_armor
+        inputs:
+          - { id: ingot, qty: 40 }
+          - { id: leather, qty: 13 }
+          - { id: cloth, qty: 8 }
+          - { id: flame_organ, qty: 8 }
+        outputs:
+          - { id: heat_resistant_metal_armor, qty: 1 }
+
+  - id: heat_resistant_pal_metal_armor
+    name: "耐熱パルメタルアーマー"
+    type: "防具"
+    facility: "作業ライン工場Ⅱ"
+    recipes:
+      - id: heat_resistant_pal_metal_armor_r0
+        craft_time: 833
+        main_output: heat_resistant_pal_metal_armor
+        inputs:
+          - { id: pal_metal_ingot, qty: 30 }
+          - { id: leather, qty: 30 }
+          - { id: high_quality_cloth, qty: 3 }
+          - { id: flame_organ, qty: 16 }
+        outputs:
+          - { id: heat_resistant_pal_metal_armor, qty: 1 }
+
+  - id: heat_resistant_pelt_armor
+    name: "耐熱毛皮アーマー（熱帯仕様の毛皮アーマー）"
+    type: "防具"
+    facility: "上質な作業台"
+    recipes:
+      - id: heat_resistant_pelt_armor_r0
+        craft_time: 42
+        main_output: heat_resistant_pelt_armor
+        inputs:
+          - { id: leather, qty: 15 }
+          - { id: flame_organ, qty: 4 }
+          - { id: ingot, qty: 10 }
+        outputs:
+          - { id: heat_resistant_pelt_armor, qty: 1 }
+
+  - id: heat_resistant_plasteel_armor
+    name: "耐熱プラスチールアーマー"
+    type: "防具"
+    facility: "作業ライン工場Ⅱ"
+    recipes:
+      - id: heat_resistant_plasteel_armor_r0
+        craft_time: 1667
+        main_output: heat_resistant_plasteel_armor
+        inputs:
+          - { id: plasteel, qty: 30 }
+          - { id: pal_metal_ingot, qty: 30 }
+          - { id: high_quality_cloth, qty: 5 }
+          - { id: flame_organ, qty: 20 }
+        outputs:
+          - { id: heat_resistant_plasteel_armor, qty: 1 }
+
+  - id: heat_resistant_refined_metal_armor
+    name: "耐熱精錬金属アーマー"
+    type: "防具"
+    facility: "作業ライン工場"
+    recipes:
+      - id: heat_resistant_refined_metal_armor_r0
+        craft_time: 292
+        main_output: heat_resistant_refined_metal_armor
+        inputs:
+          - { id: refined_ingot, qty: 40 }
+          - { id: leather, qty: 20 }
+          - { id: high_quality_cloth, qty: 2 }
+          - { id: flame_organ, qty: 12 }
+        outputs:
+          - { id: heat_resistant_refined_metal_armor, qty: 1 }
+
+  - id: hyper_shield
+    name: "テラシールド"
+    type: "防具"
+    facility: "作業ライン工場"
+    recipes:
+      - id: hyper_shield_r0
+        craft_time: 625
+        main_output: hyper_shield
+        inputs:
+          - { id: ancient_civilization_parts, qty: 20 }
+          - { id: paldium_fragment, qty: 100 }
+          - { id: ingot, qty: 30 }
+        outputs:
+          - { id: hyper_shield, qty: 1 }
+
+  - id: mega_shield
+    name: "メガシールド"
+    type: "防具"
+    facility: "上質な作業台"
+    recipes:
+      - id: mega_shield_r0
+        craft_time: 42
+        main_output: mega_shield
+        inputs:
+          - { id: ancient_civilization_parts, qty: 5 }
+          - { id: paldium_fragment, qty: 30 }
+          - { id: ingot, qty: 10 }
+        outputs:
+          - { id: mega_shield, qty: 1 }
+
+  - id: metal_armor
+    name: "金属アーマー"
+    type: "防具"
+    facility: "上質な作業台"
+    recipes:
+      - id: metal_armor_r0
+        craft_time: 83
+        main_output: metal_armor
+        inputs:
+          - { id: ingot, qty: 30 }
+          - { id: leather, qty: 10 }
+          - { id: cloth, qty: 5 }
+        outputs:
+          - { id: metal_armor, qty: 1 }
+
+  - id: metal_helm
+    name: "金属ヘルム"
+    type: "防具"
+    facility: "上質な作業台"
+    recipes:
+      - id: metal_helm_r0
+        craft_time: 63
+        main_output: metal_helm
+        inputs:
+          - { id: ingot, qty: 20 }
+          - { id: paldium_fragment, qty: 10 }
+        outputs:
+          - { id: metal_helm, qty: 1 }
+
+  - id: pal_metal_armor
+    name: "パルメタルアーマー"
+    type: "防具"
+    facility: "作業ライン工場Ⅱ"
+    recipes:
+      - id: pal_metal_armor_r0
+        craft_time: 625
+        main_output: pal_metal_armor
+        inputs:
+          - { id: pal_metal_ingot, qty: 20 }
+          - { id: leather, qty: 20 }
+          - { id: high_quality_cloth, qty: 2 }
+        outputs:
+          - { id: pal_metal_armor, qty: 1 }
+
+  - id: pal_metal_helm
+    name: "パルメタルヘルム"
+    type: "防具"
+    facility: "作業ライン工場Ⅱ"
+    recipes:
+      - id: pal_metal_helm_r0
+        craft_time: 500
+        main_output: pal_metal_helm
+        inputs:
+          - { id: pal_metal_ingot, qty: 20 }
+          - { id: paldium_fragment, qty: 20 }
+        outputs:
+          - { id: pal_metal_helm, qty: 1 }
+
+  - id: pelt_armor
+    name: "毛皮アーマー"
+    type: "防具"
+    facility: "上質な作業台"
+    recipes:
+      - id: pelt_armor_r0
+        craft_time: 21
+        main_output: pelt_armor
+        inputs:
+          - { id: leather, qty: 10 }
+          - { id: ingot, qty: 10 }
+          - { id: fiber, qty: 20 }
+        outputs:
+          - { id: pelt_armor, qty: 1 }
+
+  - id: plasteel_armor
+    name: "プラスチールアーマー"
+    type: "防具"
+    facility: "作業ライン工場Ⅱ"
+    recipes:
+      - id: plasteel_armor_r0
+        craft_time: 1250
+        main_output: plasteel_armor
+        inputs:
+          - { id: plasteel, qty: 30 }
+          - { id: pal_metal_ingot, qty: 30 }
+          - { id: high_quality_cloth, qty: 5 }
+        outputs:
+          - { id: plasteel_armor, qty: 1 }
+
+  - id: plasteel_helm
+    name: "プラスチールヘルム"
+    type: "防具"
+    facility: "作業ライン工場Ⅱ"
+    recipes:
+      - id: plasteel_helm_r0
+        craft_time: 833
+        main_output: plasteel_helm
+        inputs:
+          - { id: plasteel, qty: 20 }
+          - { id: pal_metal_ingot, qty: 25 }
+        outputs:
+          - { id: plasteel_helm, qty: 1 }
+
+  - id: refined_metal_armor
+    name: "精錬金属アーマー"
+    type: "防具"
+    facility: "作業ライン工場"
+    recipes:
+      - id: refined_metal_armor_r0
+        craft_time: 208
+        main_output: refined_metal_armor
+        inputs:
+          - { id: refined_ingot, qty: 30 }
+          - { id: leather, qty: 15 }
+          - { id: high_quality_cloth, qty: 1 }
+        outputs:
+          - { id: refined_metal_armor, qty: 1 }
+
+  - id: refined_metal_helm
+    name: "精錬金属ヘルム"
+    type: "防具"
+    facility: "作業ライン工場"
+    recipes:
+      - id: refined_metal_helm_r0
+        craft_time: 167
+        main_output: refined_metal_helm
+        inputs:
+          - { id: refined_ingot, qty: 20 }
+          - { id: paldium_fragment, qty: 15 }
+        outputs:
+          - { id: refined_metal_helm, qty: 1 }
+
+  - id: tropical_outfit
+    name: "熱帯地の民族服"
+    type: "防具"
+    facility: "原始的な作業台"
+    recipes:
+      - id: tropical_outfit_r0
+        craft_time: 17
+        main_output: tropical_outfit
+        inputs:
+          - { id: cloth, qty: 3 }
+          - { id: flame_organ, qty: 2 }
+        outputs:
+          - { id: tropical_outfit, qty: 1 }
+
+  - id: tundra_outfit
+    name: "寒冷地の民族服"
+    type: "防具"
+    facility: "原始的な作業台"
+    recipes:
+      - id: tundra_outfit_r0
+        craft_time: 17
+        main_output: tundra_outfit
+        inputs:
+          - { id: cloth, qty: 3 }
+          - { id: ice_organ, qty: 2 }
+        outputs:
+          - { id: tundra_outfit, qty: 1 }
+
+  - id: ultra_shield
+    name: "ウルトラシールド"
+    type: "防具"
+    facility: "作業ライン工場Ⅱ"
+    recipes:
+      - id: ultra_shield_r0
+        craft_time: 2500
+        main_output: ultra_shield
+        inputs:
+          - { id: ancient_civilization_parts, qty: 30 }
+          - { id: paldium_fragment, qty: 150 }
+          - { id: plasteel, qty: 50 }
+          - { id: bio_battery, qty: 10 }
+          - { id: ancient_civilization_core, qty: 30 }
+        outputs:
+          - { id: ultra_shield, qty: 1 }
+
+  # ===========================================================================
+  # アクセサリ
+  # ===========================================================================
+  - id: attack_pendant
+    name: "攻撃のペンダント"
+    type: "アクセサリ"
+    facility: "古代文明の作業台"
+    recipes:
+      - id: attack_pendant_r0
+        craft_time: 208
+        main_output: attack_pendant
+        inputs:
+          - { id: ingot, qty: 25 }
+          - { id: horn, qty: 20 }
+          - { id: paldium_fragment, qty: 25 }
+          - { id: ancient_civilization_parts, qty: 2 }
+        outputs:
+          - { id: attack_pendant, qty: 1 }
+
+  - id: cold_resistant_undershirt
+    name: "防寒アンダーウェア（耐寒アンダーウェア）"
+    type: "アクセサリ"
+    facility: "上質な作業台"
+    recipes:
+      - id: cold_resistant_undershirt_r0
+        craft_time: 125
+        main_output: cold_resistant_undershirt
+        inputs:
+          - { id: wool, qty: 20 }
+          - { id: ice_organ, qty: 15 }
+          - { id: leather, qty: 25 }
+          - { id: cloth, qty: 10 }
+        outputs:
+          - { id: cold_resistant_undershirt, qty: 1 }
+
+  - id: defense_pendant
+    name: "防御のペンダント"
+    type: "アクセサリ"
+    facility: "古代文明の作業台"
+    recipes:
+      - id: defense_pendant_r0
+        craft_time: 208
+        main_output: defense_pendant
+        inputs:
+          - { id: ingot, qty: 30 }
+          - { id: ore, qty: 20 }
+          - { id: paldium_fragment, qty: 25 }
+          - { id: ancient_civilization_parts, qty: 2 }
+        outputs:
+          - { id: defense_pendant, qty: 1 }
+
+  - id: heat_resistant_undershirt
+    name: "耐熱アンダーウェア"
+    type: "アクセサリ"
+    facility: "上質な作業台"
+    recipes:
+      - id: heat_resistant_undershirt_r0
+        craft_time: 125
+        main_output: heat_resistant_undershirt
+        inputs:
+          - { id: wool, qty: 20 }
+          - { id: flame_organ, qty: 15 }
+          - { id: leather, qty: 25 }
+          - { id: fiber, qty: 35 }
+        outputs:
+          - { id: heat_resistant_undershirt, qty: 1 }
+
+  - id: life_pendant
+    name: "生命のペンダント（ライフのペンダント）"
+    type: "アクセサリ"
+    facility: "古代文明の作業台"
+    recipes:
+      - id: life_pendant_r0
+        craft_time: 208
+        main_output: life_pendant
+        inputs:
+          - { id: ingot, qty: 25 }
+          - { id: bone, qty: 20 }
+          - { id: paldium_fragment, qty: 25 }
+          - { id: ancient_civilization_parts, qty: 2 }
+        outputs:
+          - { id: life_pendant, qty: 1 }
+
+  - id: ring_of_aqua_resistance
+    name: "水封じの指輪（水の指輪）"
+    type: "アクセサリ"
+    facility: "古代文明の作業台"
+    recipes:
+      - id: ring_of_aqua_resistance_r0
+        craft_time: 63
+        main_output: ring_of_aqua_resistance
+        inputs:
+          - { id: ingot, qty: 20 }
+          - { id: bone, qty: 20 }
+          - { id: aquatic_pal_fluids, qty: 30 }
+          - { id: paldium_fragment, qty: 30 }
+        outputs:
+          - { id: ring_of_aqua_resistance, qty: 1 }
+
+  - id: ring_of_dark_resistance
+    name: "闇封じの指輪（闇の指輪）"
+    type: "アクセサリ"
+    facility: "古代文明の作業台"
+    recipes:
+      - id: ring_of_dark_resistance_r0
+        craft_time: 63
+        main_output: ring_of_dark_resistance
+        inputs:
+          - { id: ingot, qty: 20 }
+          - { id: bone, qty: 20 }
+          - { id: venom_gland, qty: 10 }
+          - { id: paldium_fragment, qty: 30 }
+        outputs:
+          - { id: ring_of_dark_resistance, qty: 1 }
+
+  - id: ring_of_dragon_resistance
+    name: "竜封じの指輪（竜の指輪）"
+    type: "アクセサリ"
+    facility: "古代文明の作業台"
+    recipes:
+      - id: ring_of_dragon_resistance_r0
+        craft_time: 63
+        main_output: ring_of_dragon_resistance
+        inputs:
+          - { id: ingot, qty: 20 }
+          - { id: bone, qty: 20 }
+          - { id: pure_quartz, qty: 20 }
+          - { id: paldium_fragment, qty: 30 }
+        outputs:
+          - { id: ring_of_dragon_resistance, qty: 1 }
+
+  - id: ring_of_earth_resistance
+    name: "地封じの指輪（土の指輪）"
+    type: "アクセサリ"
+    facility: "古代文明の作業台"
+    recipes:
+      - id: ring_of_earth_resistance_r0
+        craft_time: 63
+        main_output: ring_of_earth_resistance
+        inputs:
+          - { id: ingot, qty: 20 }
+          - { id: bone, qty: 20 }
+          - { id: meteorite_fragment, qty: 10 }
+          - { id: paldium_fragment, qty: 30 }
+        outputs:
+          - { id: ring_of_earth_resistance, qty: 1 }
+
+  - id: ring_of_flame_resistance
+    name: "炎封じの指輪（火の指輪）"
+    type: "アクセサリ"
+    facility: "古代文明の作業台"
+    recipes:
+      - id: ring_of_flame_resistance_r0
+        craft_time: 63
+        main_output: ring_of_flame_resistance
+        inputs:
+          - { id: ingot, qty: 20 }
+          - { id: bone, qty: 20 }
+          - { id: flame_organ, qty: 15 }
+          - { id: paldium_fragment, qty: 30 }
+        outputs:
+          - { id: ring_of_flame_resistance, qty: 1 }
+
+  - id: ring_of_grass_resistance
+    name: "草封じの指輪（草の指輪）"
+    type: "アクセサリ"
+    facility: "古代文明の作業台"
+    recipes:
+      - id: ring_of_grass_resistance_r0
+        craft_time: 63
+        main_output: ring_of_grass_resistance
+        inputs:
+          - { id: ingot, qty: 20 }
+          - { id: bone, qty: 20 }
+          - { id: lifmunk_leaf, qty: 5 }
+          - { id: paldium_fragment, qty: 30 }
+        outputs:
+          - { id: ring_of_grass_resistance, qty: 1 }
+
+  - id: ring_of_ice_resistance
+    name: "氷封じの指輪（氷の指輪）"
+    type: "アクセサリ"
+    facility: "古代文明の作業台"
+    recipes:
+      - id: ring_of_ice_resistance_r0
+        craft_time: 63
+        main_output: ring_of_ice_resistance
+        inputs:
+          - { id: ingot, qty: 20 }
+          - { id: bone, qty: 20 }
+          - { id: ice_organ, qty: 15 }
+          - { id: paldium_fragment, qty: 30 }
+        outputs:
+          - { id: ring_of_ice_resistance, qty: 1 }
+
+  - id: ring_of_lightning_resistance
+    name: "雷封じの指輪（雷の指輪）"
+    type: "アクセサリ"
+    facility: "古代文明の作業台"
+    recipes:
+      - id: ring_of_lightning_resistance_r0
+        craft_time: 63
+        main_output: ring_of_lightning_resistance
+        inputs:
+          - { id: ingot, qty: 20 }
+          - { id: bone, qty: 20 }
+          - { id: electric_organ, qty: 10 }
+          - { id: paldium_fragment, qty: 30 }
+        outputs:
+          - { id: ring_of_lightning_resistance, qty: 1 }
+
+  - id: ring_of_mercy
+    name: "手加減の指輪"
+    type: "アクセサリ"
+    facility: "古代文明の作業台"
+    recipes:
+      - id: ring_of_mercy_r0
+        craft_time: 125
+        main_output: ring_of_mercy
+        inputs:
+          - { id: ingot, qty: 30 }
+          - { id: paldium_fragment, qty: 20 }
+          - { id: ancient_civilization_parts, qty: 5 }
+        outputs:
+          - { id: ring_of_mercy, qty: 1 }
+
+  - id: ring_of_normal_resistance
+    name: "無封じの指輪（無の指輪）"
+    type: "アクセサリ"
+    facility: "古代文明の作業台"
+    recipes:
+      - id: ring_of_normal_resistance_r0
+        craft_time: 63
+        main_output: ring_of_normal_resistance
+        inputs:
+          - { id: ingot, qty: 20 }
+          - { id: bone, qty: 20 }
+          - { id: cement, qty: 15 }
+          - { id: paldium_fragment, qty: 30 }
+        outputs:
+          - { id: ring_of_normal_resistance, qty: 1 }
+
+  - id: thermal_undershirt
+    name: "耐熱防寒アンダーウェア（耐熱耐寒アンダーウェア）"
+    type: "アクセサリ"
+    facility: "作業ライン工場"
+    recipes:
+      - id: thermal_undershirt_r0
+        craft_time: 417
+        main_output: thermal_undershirt
+        inputs:
+          - { id: high_quality_cloth, qty: 40 }
+          - { id: flame_organ, qty: 20 }
+          - { id: ice_organ, qty: 20 }
+          - { id: polymer, qty: 20 }
+        outputs:
+          - { id: thermal_undershirt, qty: 1 }
+
+  - id: work_speed_pendant
+    name: "勤労のペンダント（作業速度のお守り）"
+    type: "アクセサリ"
+    facility: "古代文明の作業台"
+    recipes:
+      - id: work_speed_pendant_r0
+        craft_time: 125
+        main_output: work_speed_pendant
+        inputs:
+          - { id: ingot, qty: 25 }
+          - { id: leather, qty: 20 }
+          - { id: paldium_fragment, qty: 25 }
+          - { id: ancient_civilization_parts, qty: 2 }
+        outputs:
+          - { id: work_speed_pendant, qty: 1 }
+
+  # ===========================================================================
+  # 食料
+  # ===========================================================================
+  - id: baked_berries
+    name: "焼きベリー"
+    type: "食料"
+    facility: "キャンプファイア"
+    recipes:
+      - id: baked_berries_r0
+        craft_time: 2
+        main_output: baked_berries
+        inputs:
+          - { id: red_berries, qty: 1 }
+        outputs:
+          - { id: baked_berries, qty: 1 }
+
+  - id: baked_mushroom
+    name: "焼きキノコ"
+    type: "食料"
+    facility: "キャンプファイア"
+    recipes:
+      - id: baked_mushroom_r0
+        craft_time: 2
+        main_output: baked_mushroom
+        inputs:
+          - { id: mushroom, qty: 1 }
+        outputs:
+          - { id: baked_mushroom, qty: 1 }
+
+  - id: bread
+    name: "パン"
+    type: "食料"
+    facility: "キャンプファイア"
+    recipes:
+      - id: bread_r0
+        craft_time: 8
+        main_output: bread
+        inputs:
+          - { id: flour, qty: 1 }
+        outputs:
+          - { id: bread, qty: 1 }
+
+  - id: cake
+    name: "ケーキ"
+    type: "食料"
+    facility: "調理鍋"
+    recipes:
+      - id: cake_r0
+        craft_time: 833
+        main_output: cake
+        inputs:
+          - { id: flour, qty: 5 }
+          - { id: red_berries, qty: 8 }
+          - { id: milk, qty: 7 }
+          - { id: egg, qty: 8 }
+          - { id: honey, qty: 2 }
+        outputs:
+          - { id: cake, qty: 1 }
+
+  - id: carbonara
+    name: "カルボナーラ"
+    type: "食料"
+    facility: "調理鍋"
+    recipes:
+      - id: carbonara_r0
+        craft_time: 125
+        main_output: carbonara
+        inputs:
+          - { id: flour, qty: 1 }
+          - { id: egg, qty: 2 }
+          - { id: milk, qty: 2 }
+        outputs:
+          - { id: carbonara, qty: 1 }
+
+  - id: chikipi_saute
+    name: "タマコッコのチキンソテー"
+    type: "食料"
+    facility: "調理鍋"
+    recipes:
+      - id: chikipi_saute_r0
+        craft_time: 29
+        main_output: chikipi_saute
+        inputs:
+          - { id: chikipi_poultry, qty: 1 }
+          - { id: red_berries, qty: 2 }
+        outputs:
+          - { id: chikipi_saute, qty: 1 }
+
+  - id: chikipi_yakitori
+    name: "タマコッコの焼き鳥"
+    type: "食料"
+    facility: "キャンプファイア"
+    recipes:
+      - id: chikipi_yakitori_r0
+        craft_time: 2
+        main_output: chikipi_yakitori
+        inputs:
+          - { id: chikipi_poultry, qty: 1 }
+        outputs:
+          - { id: chikipi_yakitori, qty: 1 }
+
+  - id: eikthyrdeer_roast
+    name: "ツノガミのロースト"
+    type: "食料"
+    facility: "調理鍋"
+    recipes:
+      - id: eikthyrdeer_roast_r0
+        craft_time: 13
+        main_output: eikthyrdeer_roast
+        inputs:
+          - { id: eikthyrdeer_venison, qty: 1 }
+        outputs:
+          - { id: eikthyrdeer_roast, qty: 1 }
+
+  - id: french_fries
+    name: "フライドポテト"
+    type: "食料"
+    facility: "調理鍋"
+    recipes:
+      - id: french_fries_r0
+        craft_time: 29
+        main_output: french_fries
+        inputs:
+          - { id: potato, qty: 2 }
+          - { id: high_quality_pal_oil, qty: 1 }
+        outputs:
+          - { id: french_fries, qty: 1 }
+
+  - id: fried_egg
+    name: "目玉焼き"
+    type: "食料"
+    facility: "キャンプファイア"
+    recipes:
+      - id: fried_egg_r0
+        craft_time: 2
+        main_output: fried_egg
+        inputs:
+          - { id: egg, qty: 1 }
+        outputs:
+          - { id: fried_egg, qty: 1 }
+
+  - id: herb_roasted_lamball
+    name: "モコロンの香草焼き"
+    type: "食料"
+    facility: "調理鍋"
+    recipes:
+      - id: herb_roasted_lamball_r0
+        craft_time: 29
+        main_output: herb_roasted_lamball
+        inputs:
+          - { id: lamball_mutton, qty: 1 }
+          - { id: red_berries, qty: 2 }
+        outputs:
+          - { id: herb_roasted_lamball, qty: 1 }
+
+  - id: hot_milk
+    name: "ホットミルク"
+    type: "食料"
+    facility: "キャンプファイア"
+    recipes:
+      - id: hot_milk_r0
+        craft_time: 4
+        main_output: hot_milk
+        inputs:
+          - { id: milk, qty: 1 }
+        outputs:
+          - { id: hot_milk, qty: 1 }
+
+  - id: jam_filled_bun
+    name: "ジャムパン"
+    type: "食料"
+    facility: "調理鍋"
+    recipes:
+      - id: jam_filled_bun_r0
+        craft_time: 21
+        main_output: jam_filled_bun
+        inputs:
+          - { id: flour, qty: 1 }
+          - { id: red_berries, qty: 2 }
+        outputs:
+          - { id: jam_filled_bun, qty: 1 }
+
+  - id: lamball_mutton_kebab
+    name: "モコロンのラムケバブ"
+    type: "食料"
+    facility: "キャンプファイア"
+    recipes:
+      - id: lamball_mutton_kebab_r0
+        craft_time: 2
+        main_output: lamball_mutton_kebab
+        inputs:
+          - { id: lamball_mutton, qty: 1 }
+        outputs:
+          - { id: lamball_mutton_kebab, qty: 1 }
+
+  - id: marinated_mushrooms
+    name: "キノコのマリネ"
+    type: "食料"
+    facility: "調理鍋"
+    recipes:
+      - id: marinated_mushrooms_r0
+        craft_time: 21
+        main_output: marinated_mushrooms
+        inputs:
+          - { id: mushroom, qty: 1 }
+          - { id: red_berries, qty: 2 }
+        outputs:
+          - { id: marinated_mushrooms, qty: 1 }
+
+  - id: mozarina_cheeseburger
+    name: "ミルカルビのチーズバーガー"
+    type: "食料"
+    facility: "調理鍋"
+    recipes:
+      - id: mozarina_cheeseburger_r0
+        craft_time: 133
+        main_output: mozarina_cheeseburger
+        inputs:
+          - { id: mozarina_meat, qty: 2 }
+          - { id: flour, qty: 1 }
+          - { id: tomato, qty: 2 }
+          - { id: milk, qty: 2 }
+        outputs:
+          - { id: mozarina_cheeseburger, qty: 1 }
+
+  - id: mozarina_steak
+    name: "ミルカルビステーキ"
+    type: "食料"
+    facility: "調理鍋"
+    recipes:
+      - id: mozarina_steak_r0
+        craft_time: 13
+        main_output: mozarina_steak
+        inputs:
+          - { id: mozarina_meat, qty: 1 }
+        outputs:
+          - { id: mozarina_steak, qty: 1 }
+
+  - id: omelet
+    name: "オムレツ"
+    type: "食料"
+    facility: "調理鍋"
+    recipes:
+      - id: omelet_r0
+        craft_time: 25
+        main_output: omelet
+        inputs:
+          - { id: tomato, qty: 1 }
+          - { id: egg, qty: 2 }
+        outputs:
+          - { id: omelet, qty: 1 }
+
+  - id: pancake
+    name: "パンケーキ"
+    type: "食料"
+    facility: "調理鍋"
+    recipes:
+      - id: pancake_r0
+        craft_time: 33
+        main_output: pancake
+        inputs:
+          - { id: flour, qty: 1 }
+          - { id: milk, qty: 1 }
+        outputs:
+          - { id: pancake, qty: 1 }
+
+  - id: pizza
+    name: "ピザ"
+    type: "食料"
+    facility: "調理鍋"
+    recipes:
+      - id: pizza_r0
+        craft_time: 133
+        main_output: pizza
+        inputs:
+          - { id: flour, qty: 1 }
+          - { id: red_berries, qty: 2 }
+          - { id: tomato, qty: 2 }
+          - { id: milk, qty: 2 }
+        outputs:
+          - { id: pizza, qty: 1 }
+
+  - id: reindrix_roast
+    name: "ツララジカのロースト"
+    type: "食料"
+    facility: "調理鍋"
+    recipes:
+      - id: reindrix_roast_r0
+        craft_time: 42
+        main_output: reindrix_roast
+        inputs:
+          - { id: reindrix_venison, qty: 1 }
+        outputs:
+          - { id: reindrix_roast, qty: 1 }
+
+  - id: rushoar_roast
+    name: "イノボウの丸焼き"
+    type: "食料"
+    facility: "調理鍋"
+    recipes:
+      - id: rushoar_roast_r0
+        craft_time: 13
+        main_output: rushoar_roast
+        inputs:
+          - { id: rushoar_pork, qty: 1 }
+        outputs:
+          - { id: rushoar_roast, qty: 1 }
+
+  - id: salad
+    name: "サラダ"
+    type: "食料"
+    facility: "調理鍋"
+    recipes:
+      - id: salad_r0
+        craft_time: 17
+        main_output: salad
+        inputs:
+          - { id: lettuce, qty: 2 }
+          - { id: tomato, qty: 2 }
+        outputs:
+          - { id: salad, qty: 1 }
+
+  # ===========================================================================
+  # パルギア（重要品）
+  # ===========================================================================
+  - id: beakon_saddle
+    name: "ライバードのサドル"
+    type: "重要品"
+    facility: "パルギア製作台"
+    recipes:
+      - id: beakon_saddle_r0
+        craft_time: 83
+        main_output: beakon_saddle
+        inputs:
+          - { id: leather, qty: 20 }
+          - { id: cloth, qty: 10 }
+          - { id: ingot, qty: 20 }
+          - { id: electric_organ, qty: 20 }
+          - { id: paldium_fragment, qty: 25 }
+        outputs:
+          - { id: beakon_saddle, qty: 1 }
+
+  - id: chillet_saddle
+    name: "オコチョのサドル"
+    type: "重要品"
+    facility: "パルギア製作台"
+    recipes:
+      - id: chillet_saddle_r0
+        craft_time: 63
+        main_output: chillet_saddle
+        inputs:
+          - { id: leather, qty: 10 }
+          - { id: fiber, qty: 20 }
+          - { id: cloth, qty: 5 }
+          - { id: paldium_fragment, qty: 20 }
+        outputs:
+          - { id: chillet_saddle, qty: 1 }
+
+  - id: direhowl_saddle
+    name: "ガウルフのサドル付きハーネス"
+    type: "重要品"
+    facility: "パルギア製作台"
+    recipes:
+      - id: direhowl_saddle_r0
+        craft_time: 42
+        main_output: direhowl_saddle
+        inputs:
+          - { id: leather, qty: 10 }
+          - { id: wood, qty: 20 }
+          - { id: fiber, qty: 15 }
+          - { id: paldium_fragment, qty: 10 }
+        outputs:
+          - { id: direhowl_saddle, qty: 1 }
+
+  - id: eikthyrdeer_saddle
+    name: "ツノガミのサドル"
+    type: "重要品"
+    facility: "パルギア製作台"
+    recipes:
+      - id: eikthyrdeer_saddle_r0
+        craft_time: 83
+        main_output: eikthyrdeer_saddle
+        inputs:
+          - { id: leather, qty: 5 }
+          - { id: fiber, qty: 20 }
+          - { id: ingot, qty: 10 }
+          - { id: horn, qty: 3 }
+          - { id: paldium_fragment, qty: 15 }
+        outputs:
+          - { id: eikthyrdeer_saddle, qty: 1 }
+
+  - id: faleris_saddle
+    name: "ホルスのサドル"
+    type: "重要品"
+    facility: "パルギア製作台"
+    recipes:
+      - id: faleris_saddle_r0
+        craft_time: 125
+        main_output: faleris_saddle
+        inputs:
+          - { id: leather, qty: 30 }
+          - { id: high_quality_cloth, qty: 10 }
+          - { id: hexolite, qty: 5 }
+          - { id: flame_organ, qty: 25 }
+          - { id: paldium_fragment, qty: 30 }
+        outputs:
+          - { id: faleris_saddle, qty: 1 }
+
+  - id: fenglope_saddle
+    name: "ムラクモのサドル"
+    type: "重要品"
+    facility: "パルギア製作台"
+    recipes:
+      - id: fenglope_saddle_r0
+        craft_time: 167
+        main_output: fenglope_saddle
+        inputs:
+          - { id: leather, qty: 30 }
+          - { id: fiber, qty: 30 }
+          - { id: ingot, qty: 20 }
+          - { id: cloth, qty: 20 }
+          - { id: paldium_fragment, qty: 40 }
+        outputs:
+          - { id: fenglope_saddle, qty: 1 }
+
+  - id: foxparks_harness
+    name: "キツネビのハーネス"
+    type: "重要品"
+    facility: "パルギア製作台"
+    recipes:
+      - id: foxparks_harness_r0
+        craft_time: 21
+        main_output: foxparks_harness
+        inputs:
+          - { id: leather, qty: 3 }
+          - { id: flame_organ, qty: 5 }
+          - { id: paldium_fragment, qty: 5 }
+        outputs:
+          - { id: foxparks_harness, qty: 1 }
+
+  - id: frostallion_saddle
+    name: "グレイシャルのサドル"
+    type: "重要品"
+    facility: "パルギア製作台"
+    recipes:
+      - id: frostallion_saddle_r0
+        craft_time: 625
+        main_output: frostallion_saddle
+        inputs:
+          - { id: leather, qty: 36 }
+          - { id: coralum_ingot, qty: 36 }
+          - { id: ice_organ, qty: 60 }
+          - { id: paldium_fragment, qty: 80 }
+        outputs:
+          - { id: frostallion_saddle, qty: 1 }
+
+  - id: jetragon_missile_launcher
+    name: "ジェッドランのミサイルランチャー"
+    type: "重要品"
+    facility: "パルギア製作台"
+    recipes:
+      - id: jetragon_missile_launcher_r0
+        craft_time: 2083
+        main_output: jetragon_missile_launcher
+        inputs:
+          - { id: leather, qty: 70 }
+          - { id: soralite_ingot, qty: 48 }
+          - { id: ai_core, qty: 12 }
+          - { id: paldium_fragment, qty: 210 }
+        outputs:
+          - { id: jetragon_missile_launcher, qty: 1 }
+
+  - id: melpaca_saddle
+    name: "メルパカのサドル"
+    type: "重要品"
+    facility: "パルギア製作台"
+    recipes:
+      - id: melpaca_saddle_r0
+        craft_time: 25
+        main_output: melpaca_saddle
+        inputs:
+          - { id: leather, qty: 3 }
+          - { id: wool, qty: 5 }
+          - { id: paldium_fragment, qty: 5 }
+        outputs:
+          - { id: melpaca_saddle, qty: 1 }
+
+  - id: mossanda_grenade_launcher
+    name: "ササゾーのグレネードランチャー"
+    type: "重要品"
+    facility: "パルギア製作台"
+    recipes:
+      - id: mossanda_grenade_launcher_r0
+        craft_time: 417
+        main_output: mossanda_grenade_launcher
+        inputs:
+          - { id: ingot, qty: 50 }
+          - { id: high_quality_pal_oil, qty: 20 }
+          - { id: paldium_fragment, qty: 40 }
+        outputs:
+          - { id: mossanda_grenade_launcher, qty: 1 }
+
+  - id: necromus_saddle
+    name: "ベイントールのサドル"
+    type: "重要品"
+    facility: "パルギア製作台"
+    recipes:
+      - id: necromus_saddle_r0
+        craft_time: 833
+        main_output: necromus_saddle
+        inputs:
+          - { id: leather, qty: 36 }
+          - { id: hexolite, qty: 24 }
+          - { id: pal_metal_ingot, qty: 36 }
+          - { id: paldium_fragment, qty: 102 }
+        outputs:
+          - { id: necromus_saddle, qty: 1 }
+
+  - id: nitewing_saddle
+    name: "ホークウィンのサドル"
+    type: "重要品"
+    facility: "パルギア製作台"
+    recipes:
+      - id: nitewing_saddle_r0
+        craft_time: 125
+        main_output: nitewing_saddle
+        inputs:
+          - { id: leather, qty: 20 }
+          - { id: cloth, qty: 10 }
+          - { id: ingot, qty: 15 }
+          - { id: fiber, qty: 20 }
+          - { id: paldium_fragment, qty: 20 }
+        outputs:
+          - { id: nitewing_saddle, qty: 1 }
+
+  - id: paladius_saddle
+    name: "セイントールのサドル"
+    type: "重要品"
+    facility: "パルギア製作台"
+    recipes:
+      - id: paladius_saddle_r0
+        craft_time: 833
+        main_output: paladius_saddle
+        inputs:
+          - { id: leather, qty: 36 }
+          - { id: hexolite, qty: 24 }
+          - { id: pal_metal_ingot, qty: 36 }
+          - { id: paldium_fragment, qty: 102 }
+        outputs:
+          - { id: paladius_saddle, qty: 1 }
+
+  - id: ragnahawk_saddle
+    name: "イグニクスのサドル"
+    type: "重要品"
+    facility: "パルギア製作台"
+    recipes:
+      - id: ragnahawk_saddle_r0
+        craft_time: 83
+        main_output: ragnahawk_saddle
+        inputs:
+          - { id: leather, qty: 25 }
+          - { id: cloth, qty: 10 }
+          - { id: ingot, qty: 20 }
+          - { id: flame_organ, qty: 20 }
+          - { id: paldium_fragment, qty: 25 }
+        outputs:
+          - { id: ragnahawk_saddle, qty: 1 }
+
+  - id: relaxaurus_missile_launcher
+    name: "ペコドンのミサイルランチャー"
+    type: "重要品"
+    facility: "パルギア製作台"
+    recipes:
+      - id: relaxaurus_missile_launcher_r0
+        craft_time: 833
+        main_output: relaxaurus_missile_launcher
+        inputs:
+          - { id: refined_ingot, qty: 100 }
+          - { id: polymer, qty: 35 }
+          - { id: ingot, qty: 100 }
+          - { id: paldium_fragment, qty: 85 }
+        outputs:
+          - { id: relaxaurus_missile_launcher, qty: 1 }
+
+  - id: rushoar_saddle
+    name: "イノボウのサドル"
+    type: "重要品"
+    facility: "パルギア製作台"
+    recipes:
+      - id: rushoar_saddle_r0
+        craft_time: 33
+        main_output: rushoar_saddle
+        inputs:
+          - { id: leather, qty: 3 }
+          - { id: stone, qty: 10 }
+          - { id: paldium_fragment, qty: 5 }
+        outputs:
+          - { id: rushoar_saddle, qty: 1 }
+
+  - id: vanwyrm_saddle
+    name: "カバネドリのサドル"
+    type: "重要品"
+    facility: "パルギア製作台"
+    recipes:
+      - id: vanwyrm_saddle_r0
+        craft_time: 83
+        main_output: vanwyrm_saddle
+        inputs:
+          - { id: leather, qty: 20 }
+          - { id: flame_organ, qty: 10 }
+          - { id: ingot, qty: 15 }
+          - { id: fiber, qty: 30 }
+          - { id: paldium_fragment, qty: 20 }
+        outputs:
+          - { id: vanwyrm_saddle, qty: 1 }

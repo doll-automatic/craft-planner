@@ -1,0 +1,155 @@
+[
+  {
+    "game_id": "timberborn",
+    "id": "algae",
+    "name": "藻類",
+    "type": "食料",
+    "facility": "水耕栽培所",
+    "is_raw": false,
+    "used_as_in": true
+  },
+  {
+    "game_id": "timberborn",
+    "id": "badwater",
+    "name": "汚水",
+    "type": "水",
+    "facility": "汚水ポンプ",
+    "is_raw": true,
+    "used_as_in": true
+  },
+  {
+    "game_id": "timberborn",
+    "id": "bot_head",
+    "name": "ボットの頭",
+    "type": "ボット",
+    "facility": "ボット部品工場",
+    "is_raw": false,
+    "used_as_in": true
+  },
+  {
+    "game_id": "timberborn",
+    "id": "canola_oil",
+    "name": "キャノーラ油",
+    "type": "食料",
+    "facility": "搾油機",
+    "is_raw": false,
+    "used_as_in": true
+  },
+  {
+    "game_id": "timberborn",
+    "id": "canola_seeds",
+    "name": "キャノーラ種子",
+    "type": "食料",
+    "facility": "農場",
+    "is_raw": true,
+    "used_as_in": true
+  },
+  {
+    "game_id": "timberborn",
+    "id": "cassava",
+    "name": "キャッサバ",
+    "type": "食料",
+    "facility": "農場",
+    "is_raw": true,
+    "used_as_in": true
+  },
+  {
+    "game_id": "timberborn",
+    "id": "coffee_beans",
+    "name": "コーヒー豆",
+    "type": "食料",
+    "facility": "採集者の基点",
+    "is_raw": true,
+    "used_as_in": true
+  },
+  {
+    "game_id": "timberborn",
+    "id": "corn",
+    "name": "トウモロコシ",
+    "type": "食料",
+    "facility": "農場",
+    "is_raw": true,
+    "used_as_in": true
+  },
+  {
+    "game_id": "timberborn",
+    "id": "eggplant",
+    "name": "ナス",
+    "type": "食料",
+    "facility": "農場",
+    "is_raw": true,
+    "used_as_in": true
+  },
+  {
+    "game_id": "timberborn",
+    "id": "extract",
+    "name": "精製物",
+    "type": "材料",
+    "facility": "遠心分離機",
+    "is_raw": false,
+    "used_as_in": true
+  },
+  {
+    "game_id": "timberborn",
+    "id": "kohlrabi",
+    "name": "コールラビ",
+    "type": "食料",
+    "facility": "農場",
+    "is_raw": true,
+    "used_as_in": false
+  },
+  {
+    "game_id": "timberborn",
+    "id": "mangrove_fruit",
+    "name": "マングローブの実",
+    "type": "食料",
+    "facility": "採集者の基点",
+    "is_raw": true,
+    "used_as_in": false
+  },
+  {
+    "game_id": "timberborn",
+    "id": "metal_block",
+    "name": "金属ブロック",
+    "type": "金属",
+    "facility": "精錬所",
+    "is_raw": false,
+    "used_as_in": true
+  },
+  {
+    "game_id": "timberborn",
+    "id": "mushroom",
+    "name": "キノコ",
+    "type": "食料",
+    "facility": "水耕栽培所",
+    "is_raw": false,
+    "used_as_in": true
+  },
+  {
+    "game_id": "timberborn",
+    "id": "plank",
+    "name": "板",
+    "type": "木材",
+    "facility": "製材所",
+    "is_raw": false,
+    "used_as_in": true
+  },
+  {
+    "game_id": "timberborn",
+    "id": "science_point",
+    "name": "科学ポイント",
+    "type": "科学",
+    "facility": "発明家",
+    "is_raw": true,
+    "used_as_in": false
+  },
+  {
+    "game_id": "timberborn",
+    "id": "soybean",
+    "name": "大豆",
+    "type": "食料",
+    "facility": "農場",
+    "is_raw": true,
+    "used_as_in": true
+  }
+]

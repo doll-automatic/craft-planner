@@ -1,0 +1,47 @@
+[
+  {
+    "game_id": "corekeeper",
+    "id": "ancient_gem",
+    "name": "古代の宝石",
+    "type": "素材",
+    "facility": "採取",
+    "is_raw": true,
+    "used_as_in": true
+  },
+  {
+    "game_id": "corekeeper",
+    "id": "blade_chipping",
+    "name": "刃の欠片",
+    "type": "素材",
+    "facility": "採取",
+    "is_raw": true,
+    "used_as_in": true
+  },
+  {
+    "game_id": "corekeeper",
+    "id": "bug_plate",
+    "name": "おだんご虫プレート",
+    "type": "素材",
+    "facility": "採取",
+    "is_raw": true,
+    "used_as_in": true
+  },
+  {
+    "game_id": "corekeeper",
+    "id": "coral_plank",
+    "name": "コーラルウッドの厚板",
+    "type": "中間素材",
+    "facility": "テーブルソー",
+    "is_raw": false,
+    "used_as_in": true
+  },
+  {
+    "game_id": "corekeeper",
+    "id": "passage_statue",
+    "name": "亀裂の像",
+    "type": "設備",
+    "facility": "遺跡",
+    "is_raw": true,
+    "used_as_in": false
+  }
+]

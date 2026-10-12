@@ -1,0 +1,20 @@
+[
+  {
+    "game_id": "palworld",
+    "id": "lifmunk_leaf",
+    "name": "ナエモチの葉っぱ",
+    "type": "素材",
+    "facility": "採取",
+    "is_raw": true,
+    "used_as_in": true
+  },
+  {
+    "game_id": "palworld",
+    "id": "mozarina_meat",
+    "name": "ミルカルビの牛肉",
+    "type": "食料",
+    "facility": "採取",
+    "is_raw": true,
+    "used_as_in": true
+  }
+]

@@ -1,0 +1,2216 @@
+# Core Keeper (1.0 正式リリース版) の生産・クラフトデータ。
+# 公式日本語ローカライズのアイテム名・施設名・カテゴリを基準に作成。
+# ツリー計算は各アイテムの先頭レシピを使用する。
+# 原材料（採取・採掘・ドロップ）は inputs が空のレシピとして表現。
+name: "Core Keeper"
+
+items:
+  # ===========================================================================
+  # 素材 (原材料)
+  # ===========================================================================
+  - id: wood
+    name: "木材"
+    type: "素材"
+    facility: "採取"
+    recipes:
+      - id: wood_r0
+        craft_time: 1.0
+        main_output: wood
+        inputs: []
+        outputs:
+          - { id: wood, qty: 1 }
+
+  - id: coral_wood
+    name: "コーラルウッド"
+    type: "素材"
+    facility: "採取"
+    recipes:
+      - id: coral_wood_r0
+        craft_time: 1.0
+        main_output: coral_wood
+        inputs: []
+        outputs:
+          - { id: coral_wood, qty: 1 }
+
+  - id: gleam_wood
+    name: "光の木材"
+    type: "素材"
+    facility: "採取"
+    recipes:
+      - id: gleam_wood_r0
+        craft_time: 1.0
+        main_output: gleam_wood
+        inputs: []
+        outputs:
+          - { id: gleam_wood, qty: 1 }
+
+  - id: dirt_block
+    name: "土のブロック"
+    type: "素材"
+    facility: "採掘"
+    recipes:
+      - id: dirt_block_r0
+        craft_time: 1.0
+        main_output: dirt_block
+        inputs: []
+        outputs:
+          - { id: dirt_block, qty: 1 }
+
+  - id: sand_block
+    name: "砂の塊"
+    type: "素材"
+    facility: "採掘"
+    recipes:
+      - id: sand_block_r0
+        craft_time: 1.0
+        main_output: sand_block
+        inputs: []
+        outputs:
+          - { id: sand_block, qty: 1 }
+
+  - id: copper_ore
+    name: "銅の鉱石"
+    type: "素材"
+    facility: "採掘"
+    recipes:
+      - id: copper_ore_r0
+        craft_time: 1.0
+        main_output: copper_ore
+        inputs: []
+        outputs:
+          - { id: copper_ore, qty: 1 }
+
+  - id: tin_ore
+    name: "スズの鉱石"
+    type: "素材"
+    facility: "採掘"
+    recipes:
+      - id: tin_ore_r0
+        craft_time: 1.0
+        main_output: tin_ore
+        inputs: []
+        outputs:
+          - { id: tin_ore, qty: 1 }
+
+  - id: iron_ore
+    name: "鉄の鉱石"
+    type: "素材"
+    facility: "採掘"
+    recipes:
+      - id: iron_ore_r0
+        craft_time: 1.0
+        main_output: iron_ore
+        inputs: []
+        outputs:
+          - { id: iron_ore, qty: 1 }
+
+  - id: gold_ore
+    name: "金の鉱石"
+    type: "素材"
+    facility: "採掘"
+    recipes:
+      - id: gold_ore_r0
+        craft_time: 1.0
+        main_output: gold_ore
+        inputs: []
+        outputs:
+          - { id: gold_ore, qty: 1 }
+
+  - id: scarlet_ore
+    name: "真紅石の鉱石"
+    type: "素材"
+    facility: "採掘"
+    recipes:
+      - id: scarlet_ore_r0
+        craft_time: 1.0
+        main_output: scarlet_ore
+        inputs: []
+        outputs:
+          - { id: scarlet_ore, qty: 1 }
+
+  - id: octarine_ore
+    name: "オクタリンの鉱石"
+    type: "素材"
+    facility: "採掘"
+    recipes:
+      - id: octarine_ore_r0
+        craft_time: 1.0
+        main_output: octarine_ore
+        inputs: []
+        outputs:
+          - { id: octarine_ore, qty: 1 }
+
+  - id: galaxite_ore
+    name: "ガラクサイトの鉱石"
+    type: "素材"
+    facility: "採掘"
+    recipes:
+      - id: galaxite_ore_r0
+        craft_time: 1.0
+        main_output: galaxite_ore
+        inputs: []
+        outputs:
+          - { id: galaxite_ore, qty: 1 }
+
+  - id: solarite_ore
+    name: "ソラライトの鉱石"
+    type: "素材"
+    facility: "採掘"
+    recipes:
+      - id: solarite_ore_r0
+        craft_time: 1.0
+        main_output: solarite_ore
+        inputs: []
+        outputs:
+          - { id: solarite_ore, qty: 1 }
+
+  - id: pandorium_ore
+    name: "パンドリウムの鉱石"
+    type: "素材"
+    facility: "採掘"
+    recipes:
+      - id: pandorium_ore_r0
+        craft_time: 1.0
+        main_output: pandorium_ore
+        inputs: []
+        outputs:
+          - { id: pandorium_ore, qty: 1 }
+
+  - id: slime
+    name: "スライム"
+    type: "素材"
+    facility: "採取"
+    recipes:
+      - id: slime_r0
+        craft_time: 1.0
+        main_output: slime
+        inputs: []
+        outputs:
+          - { id: slime, qty: 1 }
+
+  - id: poison_slime
+    name: "毒のスライム"
+    type: "素材"
+    facility: "採取"
+    recipes:
+      - id: poison_slime_r0
+        craft_time: 1.0
+        main_output: poison_slime
+        inputs: []
+        outputs:
+          - { id: poison_slime, qty: 1 }
+
+  - id: fiber
+    name: "繊維"
+    type: "素材"
+    facility: "採取"
+    recipes:
+      - id: fiber_r0
+        craft_time: 1.0
+        main_output: fiber
+        inputs: []
+        outputs:
+          - { id: fiber, qty: 1 }
+
+  - id: wool
+    name: "羊毛"
+    type: "素材"
+    facility: "採取"
+    recipes:
+      - id: wool_r0
+        craft_time: 1.0
+        main_output: wool
+        inputs: []
+        outputs:
+          - { id: wool, qty: 1 }
+
+  - id: bug_plate
+    name: "おだんご虫プレート"
+    type: "素材"
+    facility: "採取"
+    recipes:
+      - id: bug_plate_r0
+        craft_time: 1.0
+        main_output: bug_plate
+        inputs: []
+        outputs:
+          - { id: bug_plate, qty: 1 }
+
+  - id: cytoplasm
+    name: "細胞質"
+    type: "素材"
+    facility: "採取"
+    recipes:
+      - id: cytoplasm_r0
+        craft_time: 1.0
+        main_output: cytoplasm
+        inputs: []
+        outputs:
+          - { id: cytoplasm, qty: 1 }
+
+  - id: ancient_gem
+    name: "古代の宝石"
+    type: "素材"
+    facility: "採取"
+    recipes:
+      - id: ancient_gem_r0
+        craft_time: 1.0
+        main_output: ancient_gem
+        inputs: []
+        outputs:
+          - { id: ancient_gem, qty: 1 }
+
+  - id: mechanical_part
+    name: "機械の部品"
+    type: "素材"
+    facility: "採取"
+    recipes:
+      - id: mechanical_part_r0
+        craft_time: 1.0
+        main_output: mechanical_part
+        inputs: []
+        outputs:
+          - { id: mechanical_part, qty: 1 }
+
+  - id: ancient_feather
+    name: "古代の羽"
+    type: "素材"
+    facility: "採取"
+    recipes:
+      - id: ancient_feather_r0
+        craft_time: 1.0
+        main_output: ancient_feather
+        inputs: []
+        outputs:
+          - { id: ancient_feather, qty: 1 }
+
+  - id: scarab_wing_cover
+    name: "スカラベのウィングカバー"
+    type: "素材"
+    facility: "採取"
+    recipes:
+      - id: scarab_wing_cover_r0
+        craft_time: 1.0
+        main_output: scarab_wing_cover
+        inputs: []
+        outputs:
+          - { id: scarab_wing_cover, qty: 1 }
+
+  - id: heart_berry
+    name: "ハートベリー"
+    type: "素材"
+    facility: "採取"
+    recipes:
+      - id: heart_berry_r0
+        craft_time: 1.0
+        main_output: heart_berry
+        inputs: []
+        outputs:
+          - { id: heart_berry, qty: 1 }
+
+  - id: bomb_pepper
+    name: "爆弾ピーマン"
+    type: "素材"
+    facility: "採取"
+    recipes:
+      - id: bomb_pepper_r0
+        craft_time: 1.0
+        main_output: bomb_pepper
+        inputs: []
+        outputs:
+          - { id: bomb_pepper, qty: 1 }
+
+  - id: mushroom
+    name: "キノコ"
+    type: "素材"
+    facility: "採取"
+    recipes:
+      - id: mushroom_r0
+        craft_time: 1.0
+        main_output: mushroom
+        inputs: []
+        outputs:
+          - { id: mushroom, qty: 1 }
+
+  - id: glow_tulip
+    name: "発光チューリップ"
+    type: "素材"
+    facility: "採取"
+    recipes:
+      - id: glow_tulip_r0
+        craft_time: 1.0
+        main_output: glow_tulip
+        inputs: []
+        outputs:
+          - { id: glow_tulip, qty: 1 }
+
+  - id: carrock
+    name: "キャロック"
+    type: "素材"
+    facility: "採取"
+    recipes:
+      - id: carrock_r0
+        craft_time: 1.0
+        main_output: carrock
+        inputs: []
+        outputs:
+          - { id: carrock, qty: 1 }
+
+  - id: bloat_oat
+    name: "ブロートオーツ"
+    type: "素材"
+    facility: "採取"
+    recipes:
+      - id: bloat_oat_r0
+        craft_time: 1.0
+        main_output: bloat_oat
+        inputs: []
+        outputs:
+          - { id: bloat_oat, qty: 1 }
+
+  - id: orange_cave_guppy
+    name: "オレンジケイブグッピー"
+    type: "素材"
+    facility: "採取"
+    recipes:
+      - id: orange_cave_guppy_r0
+        craft_time: 1.0
+        main_output: orange_cave_guppy
+        inputs: []
+        outputs:
+          - { id: orange_cave_guppy, qty: 1 }
+
+  - id: rune_parchment
+    name: "ルーンの羊皮紙"
+    type: "素材"
+    facility: "採取"
+    recipes:
+      - id: rune_parchment_r0
+        craft_time: 1.0
+        main_output: rune_parchment
+        inputs: []
+        outputs:
+          - { id: rune_parchment, qty: 1 }
+
+  - id: broken_handle
+    name: "折れた柄"
+    type: "素材"
+    facility: "採取"
+    recipes:
+      - id: broken_handle_r0
+        craft_time: 1.0
+        main_output: broken_handle
+        inputs: []
+        outputs:
+          - { id: broken_handle, qty: 1 }
+
+  - id: blade_chipping
+    name: "刃の欠片"
+    type: "素材"
+    facility: "採取"
+    recipes:
+      - id: blade_chipping_r0
+        craft_time: 1.0
+        main_output: blade_chipping
+        inputs: []
+        outputs:
+          - { id: blade_chipping, qty: 1 }
+
+  - id: clear_gemstone
+    name: "透明な宝石"
+    type: "素材"
+    facility: "採取"
+    recipes:
+      - id: clear_gemstone_r0
+        craft_time: 1.0
+        main_output: clear_gemstone
+        inputs: []
+        outputs:
+          - { id: clear_gemstone, qty: 1 }
+
+  - id: glyph_parchment
+    name: "グリフの羊皮紙"
+    type: "素材"
+    facility: "採取"
+    recipes:
+      - id: glyph_parchment_r0
+        craft_time: 1.0
+        main_output: glyph_parchment
+        inputs: []
+        outputs:
+          - { id: glyph_parchment, qty: 1 }
+
+  - id: channeling_gemstone
+    name: "チャネリングの宝石"
+    type: "素材"
+    facility: "採取"
+    recipes:
+      - id: channeling_gemstone_r0
+        craft_time: 1.0
+        main_output: channeling_gemstone
+        inputs: []
+        outputs:
+          - { id: channeling_gemstone, qty: 1 }
+
+  - id: fractured_limbs
+    name: "ひび割れた弓部"
+    type: "素材"
+    facility: "採取"
+    recipes:
+      - id: fractured_limbs_r0
+        craft_time: 1.0
+        main_output: fractured_limbs
+        inputs: []
+        outputs:
+          - { id: fractured_limbs, qty: 1 }
+
+  - id: energy_string
+    name: "エネルギーの弦"
+    type: "素材"
+    facility: "採取"
+    recipes:
+      - id: energy_string_r0
+        craft_time: 1.0
+        main_output: energy_string
+        inputs: []
+        outputs:
+          - { id: energy_string, qty: 1 }
+
+  # ===========================================================================
+  # 中間素材 (インゴット・厚板・ガラス等)
+  # ===========================================================================
+  - id: copper_bar
+    name: "銅のインゴット"
+    type: "中間素材"
+    facility: "かまど"
+    recipes:
+      - id: copper_bar_r0
+        craft_time: 7.0
+        main_output: copper_bar
+        inputs:
+          - { id: copper_ore, qty: 1 }
+        outputs:
+          - { id: copper_bar, qty: 1 }
+
+  - id: tin_bar
+    name: "スズのインゴット"
+    type: "中間素材"
+    facility: "かまど"
+    recipes:
+      - id: tin_bar_r0
+        craft_time: 12.0
+        main_output: tin_bar
+        inputs:
+          - { id: tin_ore, qty: 1 }
+        outputs:
+          - { id: tin_bar, qty: 1 }
+
+  - id: iron_bar
+    name: "鉄のインゴット"
+    type: "中間素材"
+    facility: "かまど"
+    recipes:
+      - id: iron_bar_r0
+        craft_time: 17.0
+        main_output: iron_bar
+        inputs:
+          - { id: iron_ore, qty: 1 }
+        outputs:
+          - { id: iron_bar, qty: 1 }
+
+  - id: gold_bar
+    name: "金のインゴット"
+    type: "中間素材"
+    facility: "溶鉱炉"
+    recipes:
+      - id: gold_bar_r0
+        craft_time: 22.0
+        main_output: gold_bar
+        inputs:
+          - { id: gold_ore, qty: 1 }
+        outputs:
+          - { id: gold_bar, qty: 1 }
+
+  - id: scarlet_bar
+    name: "真紅石のインゴット"
+    type: "中間素材"
+    facility: "溶鉱炉"
+    recipes:
+      - id: scarlet_bar_r0
+        craft_time: 27.0
+        main_output: scarlet_bar
+        inputs:
+          - { id: scarlet_ore, qty: 1 }
+        outputs:
+          - { id: scarlet_bar, qty: 1 }
+
+  - id: octarine_bar
+    name: "オクタリンのインゴット"
+    type: "中間素材"
+    facility: "溶鉱炉"
+    recipes:
+      - id: octarine_bar_r0
+        craft_time: 27.0
+        main_output: octarine_bar
+        inputs:
+          - { id: octarine_ore, qty: 1 }
+        outputs:
+          - { id: octarine_bar, qty: 1 }
+
+  - id: galaxite_bar
+    name: "ガラクサイトのインゴット"
+    type: "中間素材"
+    facility: "憤怒の鍛冶場"
+    recipes:
+      - id: galaxite_bar_r0
+        craft_time: 27.0
+        main_output: galaxite_bar
+        inputs:
+          - { id: galaxite_ore, qty: 1 }
+        outputs:
+          - { id: galaxite_bar, qty: 1 }
+
+  - id: solarite_bar
+    name: "ソラライトのインゴット"
+    type: "中間素材"
+    facility: "憤怒の鍛冶場"
+    recipes:
+      - id: solarite_bar_r0
+        craft_time: 27.0
+        main_output: solarite_bar
+        inputs:
+          - { id: solarite_ore, qty: 1 }
+        outputs:
+          - { id: solarite_bar, qty: 1 }
+
+  - id: pandorium_bar
+    name: "パンドリウムのインゴット"
+    type: "中間素材"
+    facility: "憤怒の鍛冶場"
+    recipes:
+      - id: pandorium_bar_r0
+        craft_time: 27.0
+        main_output: pandorium_bar
+        inputs:
+          - { id: pandorium_ore, qty: 1 }
+        outputs:
+          - { id: pandorium_bar, qty: 1 }
+
+  - id: plank
+    name: "厚板"
+    type: "中間素材"
+    facility: "テーブルソー"
+    recipes:
+      - id: plank_r0
+        craft_time: 10.0
+        main_output: plank
+        inputs:
+          - { id: wood, qty: 1 }
+        outputs:
+          - { id: plank, qty: 1 }
+
+  - id: coral_plank
+    name: "コーラルウッドの厚板"
+    type: "中間素材"
+    facility: "テーブルソー"
+    recipes:
+      - id: coral_plank_r0
+        craft_time: 10.0
+        main_output: coral_plank
+        inputs:
+          - { id: coral_wood, qty: 1 }
+        outputs:
+          - { id: coral_plank, qty: 1 }
+
+  - id: gleam_plank
+    name: "光り木の厚板"
+    type: "中間素材"
+    facility: "テーブルソー"
+    recipes:
+      - id: gleam_plank_r0
+        craft_time: 10.0
+        main_output: gleam_plank
+        inputs:
+          - { id: gleam_wood, qty: 1 }
+        outputs:
+          - { id: gleam_plank, qty: 1 }
+
+  - id: glass_piece
+    name: "ガラスの部品"
+    type: "中間素材"
+    facility: "ガラスの溶鉱炉"
+    recipes:
+      - id: glass_piece_r0
+        craft_time: 2.0
+        main_output: glass_piece
+        inputs:
+          - { id: sand_block, qty: 1 }
+        outputs:
+          - { id: glass_piece, qty: 1 }
+
+  # ===========================================================================
+  # 設備 (作業台・炉・加工台・金床等)
+  # ===========================================================================
+  - id: basic_workbench
+    name: "基本の作業台"
+    type: "設備"
+    facility: "手作り"
+    recipes:
+      - id: basic_workbench_r0
+        craft_time: 2.0
+        main_output: basic_workbench
+        inputs:
+          - { id: wood, qty: 8 }
+        outputs:
+          - { id: basic_workbench, qty: 1 }
+
+  - id: copper_workbench
+    name: "銅の作業台"
+    type: "設備"
+    facility: "基本の作業台"
+    recipes:
+      - id: copper_workbench_r0
+        craft_time: 4.0
+        main_output: copper_workbench
+        inputs:
+          - { id: wood, qty: 8 }
+          - { id: copper_bar, qty: 6 }
+        outputs:
+          - { id: copper_workbench, qty: 1 }
+
+  - id: tin_workbench
+    name: "スズの作業台"
+    type: "設備"
+    facility: "銅の作業台"
+    recipes:
+      - id: tin_workbench_r0
+        craft_time: 4.0
+        main_output: tin_workbench
+        inputs:
+          - { id: wood, qty: 10 }
+          - { id: copper_bar, qty: 6 }
+          - { id: tin_bar, qty: 10 }
+        outputs:
+          - { id: tin_workbench, qty: 1 }
+
+  - id: iron_workbench
+    name: "鉄の作業台"
+    type: "設備"
+    facility: "スズの作業台"
+    recipes:
+      - id: iron_workbench_r0
+        craft_time: 4.0
+        main_output: iron_workbench
+        inputs:
+          - { id: plank, qty: 10 }
+          - { id: tin_bar, qty: 10 }
+          - { id: iron_bar, qty: 15 }
+        outputs:
+          - { id: iron_workbench, qty: 1 }
+
+  - id: scarlet_workbench
+    name: "真紅石の作業台"
+    type: "設備"
+    facility: "鉄の作業台"
+    recipes:
+      - id: scarlet_workbench_r0
+        craft_time: 4.0
+        main_output: scarlet_workbench
+        inputs:
+          - { id: tin_bar, qty: 10 }
+          - { id: iron_bar, qty: 15 }
+          - { id: scarlet_bar, qty: 20 }
+        outputs:
+          - { id: scarlet_workbench, qty: 1 }
+
+  - id: octarine_workbench
+    name: "オクタリンの作業台"
+    type: "設備"
+    facility: "真紅石の作業台"
+    recipes:
+      - id: octarine_workbench_r0
+        craft_time: 4.0
+        main_output: octarine_workbench
+        inputs:
+          - { id: coral_plank, qty: 50 }
+          - { id: scarlet_bar, qty: 20 }
+          - { id: octarine_bar, qty: 30 }
+        outputs:
+          - { id: octarine_workbench, qty: 1 }
+
+  - id: galaxite_workbench
+    name: "ガラクサイトの作業台"
+    type: "設備"
+    facility: "オクタリンの作業台"
+    recipes:
+      - id: galaxite_workbench_r0
+        craft_time: 4.0
+        main_output: galaxite_workbench
+        inputs:
+          - { id: coral_plank, qty: 70 }
+          - { id: octarine_bar, qty: 30 }
+          - { id: galaxite_bar, qty: 40 }
+        outputs:
+          - { id: galaxite_workbench, qty: 1 }
+
+  - id: solarite_workbench
+    name: "ソラライトの作業台"
+    type: "設備"
+    facility: "ガラクサイトの作業台"
+    recipes:
+      - id: solarite_workbench_r0
+        craft_time: 4.0
+        main_output: solarite_workbench
+        inputs:
+          - { id: gleam_wood, qty: 70 }
+          - { id: galaxite_bar, qty: 30 }
+          - { id: solarite_bar, qty: 40 }
+        outputs:
+          - { id: solarite_workbench, qty: 1 }
+
+  - id: furnace
+    name: "かまど"
+    type: "設備"
+    facility: "基本の作業台"
+    recipes:
+      - id: furnace_r0
+        craft_time: 2.0
+        main_output: furnace
+        inputs:
+          - { id: dirt_block, qty: 20 }
+        outputs:
+          - { id: furnace, qty: 1 }
+
+  - id: glass_smelter
+    name: "ガラスの溶鉱炉"
+    type: "設備"
+    facility: "銅の作業台"
+    recipes:
+      - id: glass_smelter_r0
+        craft_time: 2.0
+        main_output: glass_smelter
+        inputs:
+          - { id: copper_bar, qty: 5 }
+        outputs:
+          - { id: glass_smelter, qty: 1 }
+
+  - id: smelter_kiln
+    name: "溶鉱炉"
+    type: "設備"
+    facility: "鉄の作業台"
+    recipes:
+      - id: smelter_kiln_r0
+        craft_time: 2.0
+        main_output: smelter_kiln
+        inputs:
+          - { id: tin_bar, qty: 5 }
+          - { id: iron_bar, qty: 5 }
+        outputs:
+          - { id: smelter_kiln, qty: 1 }
+
+  - id: fury_forge
+    name: "憤怒の鍛冶場"
+    type: "設備"
+    facility: "オクタリンの作業台"
+    recipes:
+      - id: fury_forge_r0
+        craft_time: 2.0
+        main_output: fury_forge
+        inputs:
+          - { id: octarine_bar, qty: 30 }
+          - { id: scarlet_bar, qty: 15 }
+        outputs:
+          - { id: fury_forge, qty: 1 }
+
+  - id: table_saw
+    name: "テーブルソー"
+    type: "設備"
+    facility: "スズの作業台"
+    recipes:
+      - id: table_saw_r0
+        craft_time: 2.0
+        main_output: table_saw
+        inputs:
+          - { id: wood, qty: 8 }
+          - { id: copper_bar, qty: 5 }
+          - { id: iron_bar, qty: 5 }
+        outputs:
+          - { id: table_saw, qty: 1 }
+
+  - id: cooking_pot
+    name: "調理なべ"
+    type: "設備"
+    facility: "基本の作業台"
+    recipes:
+      - id: cooking_pot_r0
+        craft_time: 2.0
+        main_output: cooking_pot
+        inputs:
+          - { id: wood, qty: 2 }
+          - { id: copper_bar, qty: 4 }
+        outputs:
+          - { id: cooking_pot, qty: 1 }
+
+  - id: electronics_table
+    name: "電気台"
+    type: "設備"
+    facility: "銅の作業台"
+    recipes:
+      - id: electronics_table_r0
+        craft_time: 4.0
+        main_output: electronics_table
+        inputs:
+          - { id: wood, qty: 8 }
+          - { id: copper_bar, qty: 8 }
+        outputs:
+          - { id: electronics_table, qty: 1 }
+
+  - id: alchemy_table
+    name: "錬金台"
+    type: "設備"
+    facility: "スズの作業台"
+    recipes:
+      - id: alchemy_table_r0
+        craft_time: 2.0
+        main_output: alchemy_table
+        inputs:
+          - { id: wood, qty: 8 }
+          - { id: slime, qty: 8 }
+          - { id: tin_bar, qty: 5 }
+        outputs:
+          - { id: alchemy_table, qty: 1 }
+
+  - id: automation_table
+    name: "自動作業台"
+    type: "設備"
+    facility: "スズの作業台"
+    recipes:
+      - id: automation_table_r0
+        craft_time: 4.0
+        main_output: automation_table
+        inputs:
+          - { id: copper_bar, qty: 5 }
+          - { id: tin_bar, qty: 8 }
+        outputs:
+          - { id: automation_table, qty: 1 }
+
+  - id: advanced_automation_table
+    name: "上級自動作業台"
+    type: "設備"
+    facility: "オクタリンの作業台"
+    recipes:
+      - id: advanced_automation_table_r0
+        craft_time: 4.0
+        main_output: advanced_automation_table
+        inputs:
+          - { id: octarine_bar, qty: 20 }
+          - { id: scarlet_bar, qty: 15 }
+        outputs:
+          - { id: advanced_automation_table, qty: 1 }
+
+  - id: lab_table
+    name: "実験台"
+    type: "設備"
+    facility: "真紅石の作業台"
+    recipes:
+      - id: lab_table_r0
+        craft_time: 2.0
+        main_output: lab_table
+        inputs:
+          - { id: plank, qty: 15 }
+          - { id: scarlet_bar, qty: 10 }
+        outputs:
+          - { id: lab_table, qty: 1 }
+
+  - id: copper_anvil
+    name: "銅の金床"
+    type: "設備"
+    facility: "銅の作業台"
+    recipes:
+      - id: copper_anvil_r0
+        craft_time: 2.0
+        main_output: copper_anvil
+        inputs:
+          - { id: copper_bar, qty: 5 }
+        outputs:
+          - { id: copper_anvil, qty: 1 }
+
+  - id: tin_anvil
+    name: "スズの金床"
+    type: "設備"
+    facility: "スズの作業台"
+    recipes:
+      - id: tin_anvil_r0
+        craft_time: 2.0
+        main_output: tin_anvil
+        inputs:
+          - { id: tin_bar, qty: 8 }
+        outputs:
+          - { id: tin_anvil, qty: 1 }
+
+  - id: iron_anvil
+    name: "鉄の金床"
+    type: "設備"
+    facility: "鉄の作業台"
+    recipes:
+      - id: iron_anvil_r0
+        craft_time: 2.0
+        main_output: iron_anvil
+        inputs:
+          - { id: iron_bar, qty: 10 }
+        outputs:
+          - { id: iron_anvil, qty: 1 }
+
+  - id: scarlet_anvil
+    name: "真紅石の金床"
+    type: "設備"
+    facility: "真紅石の作業台"
+    recipes:
+      - id: scarlet_anvil_r0
+        craft_time: 2.0
+        main_output: scarlet_anvil
+        inputs:
+          - { id: scarlet_bar, qty: 15 }
+        outputs:
+          - { id: scarlet_anvil, qty: 1 }
+
+  - id: octarine_anvil
+    name: "オクタリンの金床"
+    type: "設備"
+    facility: "オクタリンの作業台"
+    recipes:
+      - id: octarine_anvil_r0
+        craft_time: 2.0
+        main_output: octarine_anvil
+        inputs:
+          - { id: octarine_bar, qty: 15 }
+        outputs:
+          - { id: octarine_anvil, qty: 1 }
+
+  - id: galaxite_anvil
+    name: "ガラクサイトの金床"
+    type: "設備"
+    facility: "ガラクサイトの作業台"
+    recipes:
+      - id: galaxite_anvil_r0
+        craft_time: 2.0
+        main_output: galaxite_anvil
+        inputs:
+          - { id: galaxite_bar, qty: 25 }
+        outputs:
+          - { id: galaxite_anvil, qty: 1 }
+
+  - id: solarite_anvil
+    name: "ソラライトの金床"
+    type: "設備"
+    facility: "ソラライトの作業台"
+    recipes:
+      - id: solarite_anvil_r0
+        craft_time: 2.0
+        main_output: solarite_anvil
+        inputs:
+          - { id: solarite_bar, qty: 25 }
+        outputs:
+          - { id: solarite_anvil, qty: 1 }
+
+  - id: jewelry_workbench
+    name: "宝飾品作業台"
+    type: "設備"
+    facility: "鉄の作業台"
+    recipes:
+      - id: jewelry_workbench_r0
+        craft_time: 2.0
+        main_output: jewelry_workbench
+        inputs:
+          - { id: plank, qty: 8 }
+          - { id: iron_bar, qty: 8 }
+          - { id: gold_bar, qty: 4 }
+        outputs:
+          - { id: jewelry_workbench, qty: 1 }
+
+  - id: advanced_jewelry_workbench
+    name: "熟練の宝飾品作業台"
+    type: "設備"
+    facility: "オクタリンの作業台"
+    recipes:
+      - id: advanced_jewelry_workbench_r0
+        craft_time: 2.0
+        main_output: advanced_jewelry_workbench
+        inputs:
+          - { id: coral_plank, qty: 30 }
+          - { id: octarine_bar, qty: 15 }
+          - { id: gold_bar, qty: 10 }
+        outputs:
+          - { id: advanced_jewelry_workbench, qty: 1 }
+
+  - id: ancient_hologram_pod
+    name: "古代のホログラムポッド"
+    type: "設備"
+    facility: "幼虫ハイヴボス像"
+    recipes:
+      - id: ancient_hologram_pod_r0
+        craft_time: 1.0
+        main_output: ancient_hologram_pod
+        inputs:
+          - { id: ancient_gem, qty: 5 }
+          - { id: mechanical_part, qty: 5 }
+        outputs:
+          - { id: ancient_hologram_pod, qty: 1 }
+
+  - id: passage_statue
+    name: "亀裂の像"
+    type: "設備"
+    facility: "遺跡"
+    recipes:
+      - id: passage_statue_r0
+        craft_time: 1.0
+        main_output: passage_statue
+        inputs: []
+        outputs:
+          - { id: passage_statue, qty: 1 }
+
+  # ===========================================================================
+  # 自動化 (電力・輸送・採掘機械)
+  # ===========================================================================
+  - id: electricity_generator
+    name: "発電機"
+    type: "自動化"
+    facility: "電気台"
+    recipes:
+      - id: electricity_generator_r0
+        craft_time: 3.0
+        main_output: electricity_generator
+        inputs:
+          - { id: copper_bar, qty: 10 }
+        outputs:
+          - { id: electricity_generator, qty: 1 }
+
+  - id: underground_electricity_generator
+    name: "埋め込み発電機"
+    type: "自動化"
+    facility: "電気台"
+    recipes:
+      - id: underground_electricity_generator_r0
+        craft_time: 3.0
+        main_output: underground_electricity_generator
+        inputs:
+          - { id: iron_bar, qty: 10 }
+          - { id: copper_bar, qty: 4 }
+        outputs:
+          - { id: underground_electricity_generator, qty: 1 }
+
+  - id: electrical_wire
+    name: "電線"
+    type: "自動化"
+    facility: "電気台"
+    recipes:
+      - id: electrical_wire_r0
+        craft_time: 0.5
+        main_output: electrical_wire
+        inputs:
+          - { id: copper_bar, qty: 1 }
+        outputs:
+          - { id: electrical_wire, qty: 1 }
+
+  - id: conveyor_belt
+    name: "ベルトコンベア"
+    type: "自動化"
+    facility: "自動作業台"
+    recipes:
+      - id: conveyor_belt_r0
+        craft_time: 2.0
+        main_output: conveyor_belt
+        inputs:
+          - { id: tin_bar, qty: 2 }
+        outputs:
+          - { id: conveyor_belt, qty: 1 }
+
+  - id: robot_arm
+    name: "ロボットアーム"
+    type: "自動化"
+    facility: "自動作業台"
+    recipes:
+      - id: robot_arm_r0
+        craft_time: 2.0
+        main_output: robot_arm
+        inputs:
+          - { id: iron_bar, qty: 5 }
+          - { id: scarlet_bar, qty: 5 }
+        outputs:
+          - { id: robot_arm, qty: 1 }
+
+  - id: drill
+    name: "ドリル"
+    type: "自動化"
+    facility: "自動作業台"
+    recipes:
+      - id: drill_r0
+        craft_time: 2.0
+        main_output: drill
+        inputs:
+          - { id: iron_bar, qty: 10 }
+          - { id: scarlet_bar, qty: 10 }
+        outputs:
+          - { id: drill, qty: 1 }
+
+  - id: sprinkler
+    name: "スプリンクラー"
+    type: "自動化"
+    facility: "自動作業台"
+    recipes:
+      - id: sprinkler_r0
+        craft_time: 0.5
+        main_output: sprinkler
+        inputs:
+          - { id: iron_bar, qty: 8 }
+          - { id: scarlet_bar, qty: 8 }
+        outputs:
+          - { id: sprinkler, qty: 1 }
+
+  # ===========================================================================
+  # 道具 (ツルハシ・ランタン等)
+  # ===========================================================================
+  - id: wood_pickaxe
+    name: "木のツルハシ"
+    type: "道具"
+    facility: "手作り"
+    recipes:
+      - id: wood_pickaxe_r0
+        craft_time: 1.0
+        main_output: wood_pickaxe
+        inputs:
+          - { id: wood, qty: 4 }
+        outputs:
+          - { id: wood_pickaxe, qty: 1 }
+
+  - id: copper_pickaxe
+    name: "銅のツルハシ"
+    type: "道具"
+    facility: "銅の作業台"
+    recipes:
+      - id: copper_pickaxe_r0
+        craft_time: 2.0
+        main_output: copper_pickaxe
+        inputs:
+          - { id: wood, qty: 4 }
+          - { id: copper_bar, qty: 2 }
+        outputs:
+          - { id: copper_pickaxe, qty: 1 }
+
+  - id: tin_pickaxe
+    name: "スズのツルハシ"
+    type: "道具"
+    facility: "スズの作業台"
+    recipes:
+      - id: tin_pickaxe_r0
+        craft_time: 2.0
+        main_output: tin_pickaxe
+        inputs:
+          - { id: wood, qty: 4 }
+          - { id: tin_bar, qty: 3 }
+        outputs:
+          - { id: tin_pickaxe, qty: 1 }
+
+  - id: iron_pickaxe
+    name: "鉄のツルハシ"
+    type: "道具"
+    facility: "鉄の作業台"
+    recipes:
+      - id: iron_pickaxe_r0
+        craft_time: 2.0
+        main_output: iron_pickaxe
+        inputs:
+          - { id: wood, qty: 4 }
+          - { id: iron_bar, qty: 4 }
+          - { id: gold_bar, qty: 1 }
+        outputs:
+          - { id: iron_pickaxe, qty: 1 }
+
+  - id: scarlet_pickaxe
+    name: "真紅石のツルハシ"
+    type: "道具"
+    facility: "真紅石の作業台"
+    recipes:
+      - id: scarlet_pickaxe_r0
+        craft_time: 2.0
+        main_output: scarlet_pickaxe
+        inputs:
+          - { id: tin_bar, qty: 4 }
+          - { id: scarlet_bar, qty: 6 }
+        outputs:
+          - { id: scarlet_pickaxe, qty: 1 }
+
+  - id: octarine_pickaxe
+    name: "オクタリンのツルハシ"
+    type: "道具"
+    facility: "オクタリンの作業台"
+    recipes:
+      - id: octarine_pickaxe_r0
+        craft_time: 1.0
+        main_output: octarine_pickaxe
+        inputs:
+          - { id: coral_wood, qty: 10 }
+          - { id: octarine_bar, qty: 12 }
+        outputs:
+          - { id: octarine_pickaxe, qty: 1 }
+
+  - id: galaxite_pickaxe
+    name: "ガラクサイトのツルハシ"
+    type: "道具"
+    facility: "ガラクサイトの作業台"
+    recipes:
+      - id: galaxite_pickaxe_r0
+        craft_time: 1.0
+        main_output: galaxite_pickaxe
+        inputs:
+          - { id: coral_plank, qty: 20 }
+          - { id: galaxite_bar, qty: 20 }
+        outputs:
+          - { id: galaxite_pickaxe, qty: 1 }
+
+  - id: solarite_pickaxe
+    name: "ソラライトのツルハシ"
+    type: "道具"
+    facility: "ソラライトの作業台"
+    recipes:
+      - id: solarite_pickaxe_r0
+        craft_time: 1.0
+        main_output: solarite_pickaxe
+        inputs:
+          - { id: gleam_wood, qty: 20 }
+          - { id: solarite_bar, qty: 20 }
+        outputs:
+          - { id: solarite_pickaxe, qty: 1 }
+
+  - id: orb_lantern
+    name: "オーブランタン"
+    type: "道具"
+    facility: "真紅石の作業台"
+    recipes:
+      - id: orb_lantern_r0
+        craft_time: 1.0
+        main_output: orb_lantern
+        inputs:
+          - { id: scarlet_bar, qty: 8 }
+          - { id: slime, qty: 8 }
+        outputs:
+          - { id: orb_lantern, qty: 1 }
+
+  - id: pandorium_pickaxe
+    name: "パンドリウムのツルハシ"
+    type: "道具"
+    facility: "亀裂の像"
+    recipes:
+      - id: pandorium_pickaxe_r0
+        craft_time: 1.0
+        main_output: pandorium_pickaxe
+        inputs:
+          - { id: pandorium_bar, qty: 20 }
+          - { id: solarite_bar, qty: 10 }
+          - { id: gleam_wood, qty: 15 }
+        outputs:
+          - { id: pandorium_pickaxe, qty: 1 }
+
+  # ===========================================================================
+  # 武器 (剣・クロスボウ)
+  # ===========================================================================
+  - id: wood_sword
+    name: "木の剣"
+    type: "武器"
+    facility: "基本の作業台"
+    recipes:
+      - id: wood_sword_r0
+        craft_time: 1.0
+        main_output: wood_sword
+        inputs:
+          - { id: wood, qty: 5 }
+        outputs:
+          - { id: wood_sword, qty: 1 }
+
+  - id: copper_sword
+    name: "銅の剣"
+    type: "武器"
+    facility: "銅の金床"
+    recipes:
+      - id: copper_sword_r0
+        craft_time: 1.0
+        main_output: copper_sword
+        inputs:
+          - { id: copper_bar, qty: 5 }
+        outputs:
+          - { id: copper_sword, qty: 1 }
+
+  - id: tin_sword
+    name: "スズの剣"
+    type: "武器"
+    facility: "スズの金床"
+    recipes:
+      - id: tin_sword_r0
+        craft_time: 1.0
+        main_output: tin_sword
+        inputs:
+          - { id: tin_bar, qty: 7 }
+        outputs:
+          - { id: tin_sword, qty: 1 }
+
+  - id: iron_sword
+    name: "鉄の剣"
+    type: "武器"
+    facility: "鉄の金床"
+    recipes:
+      - id: iron_sword_r0
+        craft_time: 1.0
+        main_output: iron_sword
+        inputs:
+          - { id: iron_bar, qty: 8 }
+          - { id: gold_bar, qty: 1 }
+        outputs:
+          - { id: iron_sword, qty: 1 }
+
+  - id: scarlet_sword
+    name: "真紅石の剣"
+    type: "武器"
+    facility: "真紅石の金床"
+    recipes:
+      - id: scarlet_sword_r0
+        craft_time: 1.0
+        main_output: scarlet_sword
+        inputs:
+          - { id: iron_bar, qty: 4 }
+          - { id: scarlet_bar, qty: 10 }
+        outputs:
+          - { id: scarlet_sword, qty: 1 }
+
+  - id: octarine_sword
+    name: "オクタリンの剣"
+    type: "武器"
+    facility: "オクタリンの金床"
+    recipes:
+      - id: octarine_sword_r0
+        craft_time: 1.0
+        main_output: octarine_sword
+        inputs:
+          - { id: octarine_bar, qty: 16 }
+        outputs:
+          - { id: octarine_sword, qty: 1 }
+
+  - id: galaxite_sword
+    name: "ガラクサイトの剣"
+    type: "武器"
+    facility: "ガラクサイトの金床"
+    recipes:
+      - id: galaxite_sword_r0
+        craft_time: 1.0
+        main_output: galaxite_sword
+        inputs:
+          - { id: galaxite_bar, qty: 24 }
+        outputs:
+          - { id: galaxite_sword, qty: 1 }
+
+  - id: solarite_sword
+    name: "ソラライトの剣"
+    type: "武器"
+    facility: "ソラライトの金床"
+    recipes:
+      - id: solarite_sword_r0
+        craft_time: 1.0
+        main_output: solarite_sword
+        inputs:
+          - { id: solarite_bar, qty: 24 }
+        outputs:
+          - { id: solarite_sword, qty: 1 }
+
+  - id: scarlet_crossbow
+    name: "真紅石のクロスボウ"
+    type: "武器"
+    facility: "真紅石の金床"
+    recipes:
+      - id: scarlet_crossbow_r0
+        craft_time: 1.0
+        main_output: scarlet_crossbow
+        inputs:
+          - { id: plank, qty: 8 }
+          - { id: scarlet_bar, qty: 12 }
+        outputs:
+          - { id: scarlet_crossbow, qty: 1 }
+
+  - id: solarite_crossbow
+    name: "ソラライトのクロスボウ"
+    type: "武器"
+    facility: "ソラライトの金床"
+    recipes:
+      - id: solarite_crossbow_r0
+        craft_time: 1.0
+        main_output: solarite_crossbow
+        inputs:
+          - { id: solarite_bar, qty: 20 }
+          - { id: gleam_wood, qty: 15 }
+        outputs:
+          - { id: solarite_crossbow, qty: 1 }
+
+  - id: pandorium_sword
+    name: "パンドリウムの剣"
+    type: "武器"
+    facility: "亀裂の像"
+    recipes:
+      - id: pandorium_sword_r0
+        craft_time: 1.0
+        main_output: pandorium_sword
+        inputs:
+          - { id: pandorium_bar, qty: 20 }
+          - { id: solarite_bar, qty: 8 }
+          - { id: gleam_wood, qty: 10 }
+        outputs:
+          - { id: pandorium_sword, qty: 1 }
+
+  - id: rune_song
+    name: "ルーンの歌"
+    type: "武器"
+    facility: "古代のホログラムポッド"
+    recipes:
+      - id: rune_song_r0
+        craft_time: 1.0
+        main_output: rune_song
+        inputs:
+          - { id: rune_parchment, qty: 1 }
+          - { id: broken_handle, qty: 1 }
+          - { id: blade_chipping, qty: 1 }
+          - { id: clear_gemstone, qty: 1 }
+          - { id: iron_bar, qty: 50 }
+          - { id: ancient_gem, qty: 10 }
+        outputs:
+          - { id: rune_song, qty: 1 }
+
+  - id: phantom_spark
+    name: "ファントムスパーク"
+    type: "武器"
+    facility: "古代のホログラムポッド"
+    recipes:
+      - id: phantom_spark_r0
+        craft_time: 1.0
+        main_output: phantom_spark
+        inputs:
+          - { id: glyph_parchment, qty: 1 }
+          - { id: channeling_gemstone, qty: 1 }
+          - { id: fractured_limbs, qty: 1 }
+          - { id: energy_string, qty: 1 }
+          - { id: octarine_bar, qty: 50 }
+          - { id: ancient_gem, qty: 10 }
+        outputs:
+          - { id: phantom_spark, qty: 1 }
+
+  - id: fireball_staff
+    name: "火の玉の杖"
+    type: "武器"
+    facility: "実験台"
+    recipes:
+      - id: fireball_staff_r0
+        craft_time: 1.0
+        main_output: fireball_staff
+        inputs:
+          - { id: iron_bar, qty: 10 }
+          - { id: ancient_gem, qty: 1 }
+        outputs:
+          - { id: fireball_staff, qty: 1 }
+
+  - id: arcane_staff
+    name: "秘術の杖"
+    type: "武器"
+    facility: "実験台"
+    recipes:
+      - id: arcane_staff_r0
+        craft_time: 1.0
+        main_output: arcane_staff
+        inputs:
+          - { id: scarlet_bar, qty: 15 }
+          - { id: ancient_gem, qty: 3 }
+          - { id: gold_bar, qty: 5 }
+        outputs:
+          - { id: arcane_staff, qty: 1 }
+
+  - id: channeling_staff
+    name: "チャネリングスタッフ"
+    type: "武器"
+    facility: "オクタリンの金床"
+    recipes:
+      - id: channeling_staff_r0
+        craft_time: 1.0
+        main_output: channeling_staff
+        inputs:
+          - { id: octarine_bar, qty: 18 }
+          - { id: ancient_gem, qty: 5 }
+        outputs:
+          - { id: channeling_staff, qty: 1 }
+
+  - id: tome_of_the_dead
+    name: "死者のトーム"
+    type: "武器"
+    facility: "実験台"
+    recipes:
+      - id: tome_of_the_dead_r0
+        craft_time: 1.0
+        main_output: tome_of_the_dead
+        inputs:
+          - { id: scarlet_bar, qty: 12 }
+          - { id: slime, qty: 15 }
+          - { id: ancient_gem, qty: 3 }
+        outputs:
+          - { id: tome_of_the_dead, qty: 1 }
+
+  - id: tome_of_the_deep
+    name: "深淵のトーム"
+    type: "武器"
+    facility: "オクタリンの金床"
+    recipes:
+      - id: tome_of_the_deep_r0
+        craft_time: 1.0
+        main_output: tome_of_the_deep
+        inputs:
+          - { id: octarine_bar, qty: 15 }
+          - { id: coral_plank, qty: 10 }
+          - { id: ancient_gem, qty: 3 }
+        outputs:
+          - { id: tome_of_the_deep, qty: 1 }
+
+  # ===========================================================================
+  # 防具 (兜・胸当て・盾)
+  # ===========================================================================
+  - id: wood_chest
+    name: "木の胸当て"
+    type: "防具"
+    facility: "基本の作業台"
+    recipes:
+      - id: wood_chest_r0
+        craft_time: 1.0
+        main_output: wood_chest
+        inputs:
+          - { id: wood, qty: 6 }
+        outputs:
+          - { id: wood_chest, qty: 1 }
+
+  - id: copper_chest
+    name: "銅の胸当て"
+    type: "防具"
+    facility: "銅の金床"
+    recipes:
+      - id: copper_chest_r0
+        craft_time: 1.0
+        main_output: copper_chest
+        inputs:
+          - { id: copper_bar, qty: 8 }
+        outputs:
+          - { id: copper_chest, qty: 1 }
+
+  - id: bronze_chest
+    name: "青銅の胸当て"
+    type: "防具"
+    facility: "スズの金床"
+    recipes:
+      - id: bronze_chest_r0
+        craft_time: 1.0
+        main_output: bronze_chest
+        inputs:
+          - { id: tin_bar, qty: 6 }
+          - { id: copper_bar, qty: 6 }
+          - { id: fiber, qty: 4 }
+        outputs:
+          - { id: bronze_chest, qty: 1 }
+
+  - id: iron_helm
+    name: "鉄の兜"
+    type: "防具"
+    facility: "鉄の金床"
+    recipes:
+      - id: iron_helm_r0
+        craft_time: 1.0
+        main_output: iron_helm
+        inputs:
+          - { id: iron_bar, qty: 10 }
+          - { id: gold_bar, qty: 1 }
+          - { id: fiber, qty: 5 }
+        outputs:
+          - { id: iron_helm, qty: 1 }
+
+  - id: iron_chest
+    name: "鉄の胸当て"
+    type: "防具"
+    facility: "鉄の金床"
+    recipes:
+      - id: iron_chest_r0
+        craft_time: 1.0
+        main_output: iron_chest
+        inputs:
+          - { id: iron_bar, qty: 15 }
+          - { id: gold_bar, qty: 3 }
+          - { id: fiber, qty: 6 }
+        outputs:
+          - { id: iron_chest, qty: 1 }
+
+  - id: iron_shield
+    name: "鉄の盾"
+    type: "防具"
+    facility: "鉄の金床"
+    recipes:
+      - id: iron_shield_r0
+        craft_time: 1.0
+        main_output: iron_shield
+        inputs:
+          - { id: iron_bar, qty: 6 }
+          - { id: gold_bar, qty: 1 }
+        outputs:
+          - { id: iron_shield, qty: 1 }
+
+  - id: scarlet_helm
+    name: "真紅石の兜"
+    type: "防具"
+    facility: "真紅石の金床"
+    recipes:
+      - id: scarlet_helm_r0
+        craft_time: 1.0
+        main_output: scarlet_helm
+        inputs:
+          - { id: scarlet_bar, qty: 13 }
+          - { id: iron_bar, qty: 2 }
+          - { id: wool, qty: 3 }
+        outputs:
+          - { id: scarlet_helm, qty: 1 }
+
+  - id: scarlet_chest
+    name: "真紅石の胸当て"
+    type: "防具"
+    facility: "真紅石の金床"
+    recipes:
+      - id: scarlet_chest_r0
+        craft_time: 1.0
+        main_output: scarlet_chest
+        inputs:
+          - { id: scarlet_bar, qty: 18 }
+          - { id: iron_bar, qty: 3 }
+          - { id: wool, qty: 5 }
+        outputs:
+          - { id: scarlet_chest, qty: 1 }
+
+  - id: octarine_chest
+    name: "オクタリンの胸当て"
+    type: "防具"
+    facility: "オクタリンの金床"
+    recipes:
+      - id: octarine_chest_r0
+        craft_time: 1.0
+        main_output: octarine_chest
+        inputs:
+          - { id: octarine_bar, qty: 25 }
+        outputs:
+          - { id: octarine_chest, qty: 1 }
+
+  - id: galaxite_helm
+    name: "ガラクサイトの兜"
+    type: "防具"
+    facility: "ガラクサイトの金床"
+    recipes:
+      - id: galaxite_helm_r0
+        craft_time: 1.0
+        main_output: galaxite_helm
+        inputs:
+          - { id: galaxite_bar, qty: 26 }
+          - { id: octarine_bar, qty: 8 }
+          - { id: bug_plate, qty: 3 }
+        outputs:
+          - { id: galaxite_helm, qty: 1 }
+
+  - id: galaxite_chest
+    name: "ガラクサイトの胴鎧"
+    type: "防具"
+    facility: "ガラクサイトの金床"
+    recipes:
+      - id: galaxite_chest_r0
+        craft_time: 1.0
+        main_output: galaxite_chest
+        inputs:
+          - { id: galaxite_bar, qty: 36 }
+          - { id: octarine_bar, qty: 10 }
+          - { id: bug_plate, qty: 5 }
+        outputs:
+          - { id: galaxite_chest, qty: 1 }
+
+  - id: solarite_helm
+    name: "ソラライトのバーブート"
+    type: "防具"
+    facility: "ソラライトの金床"
+    recipes:
+      - id: solarite_helm_r0
+        craft_time: 1.0
+        main_output: solarite_helm
+        inputs:
+          - { id: solarite_bar, qty: 25 }
+          - { id: gold_bar, qty: 8 }
+          - { id: bug_plate, qty: 5 }
+        outputs:
+          - { id: solarite_helm, qty: 1 }
+
+  - id: solarite_chest
+    name: "ソラライトの胸当て"
+    type: "防具"
+    facility: "ソラライトの金床"
+    recipes:
+      - id: solarite_chest_r0
+        craft_time: 1.0
+        main_output: solarite_chest
+        inputs:
+          - { id: solarite_bar, qty: 35 }
+          - { id: gold_bar, qty: 12 }
+          - { id: bug_plate, qty: 7 }
+        outputs:
+          - { id: solarite_chest, qty: 1 }
+
+  - id: pandorium_helm
+    name: "パンドリウムの兜"
+    type: "防具"
+    facility: "亀裂の像"
+    recipes:
+      - id: pandorium_helm_r0
+        craft_time: 1.0
+        main_output: pandorium_helm
+        inputs:
+          - { id: pandorium_bar, qty: 20 }
+          - { id: solarite_bar, qty: 8 }
+          - { id: cytoplasm, qty: 10 }
+        outputs:
+          - { id: pandorium_helm, qty: 1 }
+
+  - id: pandorium_chest
+    name: "パンドリウムの胸当てとブレイサー"
+    type: "防具"
+    facility: "亀裂の像"
+    recipes:
+      - id: pandorium_chest_r0
+        craft_time: 1.0
+        main_output: pandorium_chest
+        inputs:
+          - { id: pandorium_bar, qty: 30 }
+          - { id: solarite_bar, qty: 12 }
+          - { id: cytoplasm, qty: 15 }
+        outputs:
+          - { id: pandorium_chest, qty: 1 }
+
+  - id: octarine_helm
+    name: "オクタリンの兜"
+    type: "防具"
+    facility: "オクタリンの金床"
+    recipes:
+      - id: octarine_helm_r0
+        craft_time: 1.0
+        main_output: octarine_helm
+        inputs:
+          - { id: octarine_bar, qty: 20 }
+        outputs:
+          - { id: octarine_helm, qty: 1 }
+
+  - id: octarine_pants
+    name: "オクタリンのズボン"
+    type: "防具"
+    facility: "オクタリンの金床"
+    recipes:
+      - id: octarine_pants_r0
+        craft_time: 1.0
+        main_output: octarine_pants
+        inputs:
+          - { id: octarine_bar, qty: 20 }
+        outputs:
+          - { id: octarine_pants, qty: 1 }
+
+  - id: galaxite_pants
+    name: "ガラクサイトのズボン"
+    type: "防具"
+    facility: "ガラクサイトの金床"
+    recipes:
+      - id: galaxite_pants_r0
+        craft_time: 1.0
+        main_output: galaxite_pants
+        inputs:
+          - { id: galaxite_bar, qty: 30 }
+          - { id: octarine_bar, qty: 8 }
+          - { id: bug_plate, qty: 4 }
+        outputs:
+          - { id: galaxite_pants, qty: 1 }
+
+  - id: solarite_pants
+    name: "ソラライトのすね当て"
+    type: "防具"
+    facility: "ソラライトの金床"
+    recipes:
+      - id: solarite_pants_r0
+        craft_time: 1.0
+        main_output: solarite_pants
+        inputs:
+          - { id: solarite_bar, qty: 30 }
+          - { id: galaxite_bar, qty: 10 }
+        outputs:
+          - { id: solarite_pants, qty: 1 }
+
+  - id: pandorium_pants
+    name: "パンドリウムのズボン"
+    type: "防具"
+    facility: "亀裂の像"
+    recipes:
+      - id: pandorium_pants_r0
+        craft_time: 1.0
+        main_output: pandorium_pants
+        inputs:
+          - { id: pandorium_bar, qty: 25 }
+          - { id: solarite_bar, qty: 10 }
+          - { id: cytoplasm, qty: 12 }
+        outputs:
+          - { id: pandorium_pants, qty: 1 }
+
+  # ===========================================================================
+  # アクセサリ (ネックレス・リング)
+  # ===========================================================================
+  - id: copper_cross_necklace
+    name: "銅の十字架ネックレス"
+    type: "アクセサリ"
+    facility: "宝飾品作業台"
+    recipes:
+      - id: copper_cross_necklace_r0
+        craft_time: 1.0
+        main_output: copper_cross_necklace
+        inputs:
+          - { id: copper_bar, qty: 10 }
+        outputs:
+          - { id: copper_cross_necklace, qty: 1 }
+
+  - id: gold_crystal_necklace
+    name: "金結晶ネックレス"
+    type: "アクセサリ"
+    facility: "宝飾品作業台"
+    recipes:
+      - id: gold_crystal_necklace_r0
+        craft_time: 1.0
+        main_output: gold_crystal_necklace
+        inputs:
+          - { id: gold_bar, qty: 10 }
+          - { id: ancient_gem, qty: 1 }
+        outputs:
+          - { id: gold_crystal_necklace, qty: 1 }
+
+  - id: gold_crystal_ring
+    name: "上質な金結晶リング"
+    type: "アクセサリ"
+    facility: "宝飾品作業台"
+    recipes:
+      - id: gold_crystal_ring_r0
+        craft_time: 1.0
+        main_output: gold_crystal_ring
+        inputs:
+          - { id: gold_bar, qty: 8 }
+          - { id: ancient_gem, qty: 1 }
+        outputs:
+          - { id: gold_crystal_ring, qty: 1 }
+
+  - id: octarine_ring
+    name: "上質なオクタリンリング"
+    type: "アクセサリ"
+    facility: "熟練の宝飾品作業台"
+    recipes:
+      - id: octarine_ring_r0
+        craft_time: 1.0
+        main_output: octarine_ring
+        inputs:
+          - { id: octarine_bar, qty: 20 }
+          - { id: ancient_gem, qty: 5 }
+        outputs:
+          - { id: octarine_ring, qty: 1 }
+
+  # ===========================================================================
+  # ポーション・爆発物
+  # ===========================================================================
+  - id: healing_potion
+    name: "回復ポーション"
+    type: "ポーション"
+    facility: "錬金台"
+    recipes:
+      - id: healing_potion_r0
+        craft_time: 1.0
+        main_output: healing_potion
+        inputs:
+          - { id: slime, qty: 3 }
+          - { id: heart_berry, qty: 3 }
+        outputs:
+          - { id: healing_potion, qty: 1 }
+
+  - id: greater_healing_potion
+    name: "大回復ポーション"
+    type: "ポーション"
+    facility: "実験台"
+    recipes:
+      - id: greater_healing_potion_r0
+        craft_time: 1.0
+        main_output: greater_healing_potion
+        inputs:
+          - { id: poison_slime, qty: 3 }
+          - { id: heart_berry, qty: 5 }
+        outputs:
+          - { id: greater_healing_potion, qty: 1 }
+
+  - id: keen_potion
+    name: "鋭敏ポーション"
+    type: "ポーション"
+    facility: "錬金台"
+    recipes:
+      - id: keen_potion_r0
+        craft_time: 1.0
+        main_output: keen_potion
+        inputs:
+          - { id: slime, qty: 3 }
+          - { id: mushroom, qty: 3 }
+        outputs:
+          - { id: keen_potion, qty: 1 }
+
+  - id: crude_bomb
+    name: "粗雑な爆弾"
+    type: "ポーション"
+    facility: "錬金台"
+    recipes:
+      - id: crude_bomb_r0
+        craft_time: 1.0
+        main_output: crude_bomb
+        inputs:
+          - { id: bomb_pepper, qty: 1 }
+          - { id: slime, qty: 1 }
+        outputs:
+          - { id: crude_bomb, qty: 1 }
+
+  - id: bomb
+    name: "爆弾"
+    type: "ポーション"
+    facility: "錬金台"
+    recipes:
+      - id: bomb_r0
+        craft_time: 1.0
+        main_output: bomb
+        inputs:
+          - { id: bomb_pepper, qty: 3 }
+          - { id: slime, qty: 2 }
+        outputs:
+          - { id: bomb, qty: 1 }
+
+  - id: large_bomb
+    name: "大きな爆弾"
+    type: "ポーション"
+    facility: "錬金台"
+    recipes:
+      - id: large_bomb_r0
+        craft_time: 1.0
+        main_output: large_bomb
+        inputs:
+          - { id: bomb_pepper, qty: 5 }
+          - { id: poison_slime, qty: 3 }
+        outputs:
+          - { id: large_bomb, qty: 1 }
+
+  - id: guardian_potion
+    name: "守護のポーション"
+    type: "ポーション"
+    facility: "実験台"
+    recipes:
+      - id: guardian_potion_r0
+        craft_time: 1.0
+        main_output: guardian_potion
+        inputs:
+          - { id: poison_slime, qty: 3 }
+          - { id: carrock, qty: 5 }
+        outputs:
+          - { id: guardian_potion, qty: 1 }
+
+  - id: enraging_potion
+    name: "激怒のポーション"
+    type: "ポーション"
+    facility: "実験台"
+    recipes:
+      - id: enraging_potion_r0
+        craft_time: 1.0
+        main_output: enraging_potion
+        inputs:
+          - { id: poison_slime, qty: 3 }
+          - { id: bomb_pepper, qty: 5 }
+        outputs:
+          - { id: enraging_potion, qty: 1 }
+
+  - id: super_healing_potion
+    name: "特大回復ポーション"
+    type: "ポーション"
+    facility: "実験台"
+    recipes:
+      - id: super_healing_potion_r0
+        craft_time: 1.0
+        main_output: super_healing_potion
+        inputs:
+          - { id: ancient_gem, qty: 1 }
+          - { id: heart_berry, qty: 10 }
+          - { id: cytoplasm, qty: 2 }
+        outputs:
+          - { id: super_healing_potion, qty: 1 }
+
+  # ===========================================================================
+  # 料理 (調理用鍋)
+  # ===========================================================================
+  - id: heart_berry_muffin
+    name: "ハートベリーマフィン"
+    type: "料理"
+    facility: "調理用鍋"
+    recipes:
+      - id: heart_berry_muffin_r0
+        craft_time: 20.0
+        main_output: heart_berry_muffin
+        inputs:
+          - { id: heart_berry, qty: 1 }
+          - { id: bloat_oat, qty: 1 }
+        outputs:
+          - { id: heart_berry_muffin, qty: 1 }
+
+  - id: spicy_chewy_wrap
+    name: "スパイシーチューウィーラップ"
+    type: "料理"
+    facility: "調理用鍋"
+    recipes:
+      - id: spicy_chewy_wrap_r0
+        craft_time: 20.0
+        main_output: spicy_chewy_wrap
+        inputs:
+          - { id: bomb_pepper, qty: 1 }
+          - { id: heart_berry, qty: 1 }
+        outputs:
+          - { id: spicy_chewy_wrap, qty: 1 }
+
+  - id: crispy_carrock
+    name: "サクサクキャロック"
+    type: "料理"
+    facility: "調理用鍋"
+    recipes:
+      - id: crispy_carrock_r0
+        craft_time: 20.0
+        main_output: crispy_carrock
+        inputs:
+          - { id: carrock, qty: 2 }
+        outputs:
+          - { id: crispy_carrock, qty: 1 }
+
+  - id: glowing_tulip_salad
+    name: "発光チューリップサラダ"
+    type: "料理"
+    facility: "調理用鍋"
+    recipes:
+      - id: glowing_tulip_salad_r0
+        craft_time: 20.0
+        main_output: glowing_tulip_salad
+        inputs:
+          - { id: glow_tulip, qty: 1 }
+          - { id: heart_berry, qty: 1 }
+        outputs:
+          - { id: glowing_tulip_salad, qty: 1 }
+
+  - id: steamed_fish
+    name: "蒸し魚"
+    type: "料理"
+    facility: "調理用鍋"
+    recipes:
+      - id: steamed_fish_r0
+        craft_time: 20.0
+        main_output: steamed_fish
+        inputs:
+          - { id: orange_cave_guppy, qty: 1 }
+          - { id: carrock, qty: 1 }
+        outputs:
+          - { id: steamed_fish, qty: 1 }
+
+  # ===========================================================================
+  # ボスアイテム (スキャナー・召喚アイテム等)
+  # ===========================================================================
+  - id: gorm_scanner
+    name: "大喰らいのゴームのスキャナー"
+    type: "ボスアイテム"
+    facility: "スライムボス像"
+    recipes:
+      - id: gorm_scanner_r0
+        craft_time: 1.0
+        main_output: gorm_scanner
+        inputs:
+          - { id: ancient_gem, qty: 3 }
+          - { id: mechanical_part, qty: 3 }
+        outputs:
+          - { id: gorm_scanner, qty: 1 }
+
+  - id: malugaz_scanner
+    name: "頽廃の王マルガズのスキャナー"
+    type: "ボスアイテム"
+    facility: "スライムボス像"
+    recipes:
+      - id: malugaz_scanner_r0
+        craft_time: 1.0
+        main_output: malugaz_scanner
+        inputs:
+          - { id: ancient_gem, qty: 5 }
+          - { id: mechanical_part, qty: 5 }
+        outputs:
+          - { id: malugaz_scanner, qty: 1 }
+
+  - id: azeos_scanner
+    name: "天空の巨鳥アゼオスのスキャナー"
+    type: "ボスアイテム"
+    facility: "古代のホログラムポッド"
+    recipes:
+      - id: azeos_scanner_r0
+        craft_time: 1.0
+        main_output: azeos_scanner
+        inputs:
+          - { id: ancient_gem, qty: 10 }
+          - { id: mechanical_part, qty: 10 }
+          - { id: ancient_feather, qty: 10 }
+        outputs:
+          - { id: azeos_scanner, qty: 1 }
+
+  - id: ra_akar_scanner
+    name: "砂の巨獣ラ・アカールのスキャナー"
+    type: "ボスアイテム"
+    facility: "古代のホログラムポッド"
+    recipes:
+      - id: ra_akar_scanner_r0
+        craft_time: 1.0
+        main_output: ra_akar_scanner
+        inputs:
+          - { id: ancient_gem, qty: 15 }
+          - { id: mechanical_part, qty: 15 }
+          - { id: scarab_wing_cover, qty: 15 }
+        outputs:
+          - { id: ra_akar_scanner, qty: 1 }
+
+  - id: large_shiny_glimmering_object
+    name: "大きくて光り輝く物体"
+    type: "ボスアイテム"
+    facility: "古代のホログラムポッド"
+    recipes:
+      - id: large_shiny_glimmering_object_r0
+        craft_time: 1.0
+        main_output: large_shiny_glimmering_object
+        inputs:
+          - { id: copper_bar, qty: 5 }
+          - { id: iron_bar, qty: 5 }
+          - { id: gold_bar, qty: 5 }
+          - { id: scarlet_bar, qty: 5 }
+          - { id: ancient_gem, qty: 3 }
+        outputs:
+          - { id: large_shiny_glimmering_object, qty: 1 }
+
+  - id: recall_idol
+    name: "帰還の偶像"
+    type: "ボスアイテム"
+    facility: "幼虫ボス像"
+    recipes:
+      - id: recall_idol_r0
+        craft_time: 1.0
+        main_output: recall_idol
+        inputs:
+          - { id: ancient_gem, qty: 1 }
+          - { id: mechanical_part, qty: 1 }
+        outputs:
+          - { id: recall_idol, qty: 1 }

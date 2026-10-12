@@ -1,0 +1,2959 @@
+# Satisfactory 1.0 以降の素材データ。
+# レシピ・生産時間・入出力量は Satisfactory日本語 Wiki*「レシピ一覧」（wikiwiki.jp/sf-jp）と
+# SCIM（satisfactory-calculator.com/ja）の 1.0 データを突き合わせて採った。食い違いは SCIM（1.0）を優先した。
+# アイテム名は SCIM 日本語版（ゲーム内の公式日本語表記）に合わせた。
+# 種別はゲーム内のアイテムカテゴリの日本語名。Satisfactory日本語 Wiki*「素材」の分類と同じにしている。
+# 資源 / パワー・シャード / バイオマス / 鉱物 / 消耗品 / 弾薬 / インゴット / 基本部品 / 電子機器 /
+# 産業用部品 / 通信 / 石油製品 / 燃料 / 先進的な精製 / 量子技術 / 容器入り / 貯蔵庫 / 原子力 / 軌道エレベーター。
+# 生産時間はレシピのサイクル秒（クロック 100%）。液体と気体の個数は m³ で数える。
+# 採掘物は空入力の原材料にしている。採鉱機 Mk.1 は「普通」純度の鉱脈で毎分 60 なので 1 秒に 1 個。
+# 揚水ポンプは毎分 120m³、原油抽出機は「普通」の鉱脈で毎分 120m³、地下資源抽出機は「普通」の井戸で毎分 60m³。
+# 木・葉・菌糸・パワー・スラッグは手で集める原材料。採取の速度はゲームに無いので 1 秒に 1 個にしている。
+# ツリー計算は各アイテムの先頭レシピだけを使う。先頭は標準レシピで、代替レシピは 2 番目以降に置いた。
+# 圧縮石炭・合成樹脂・廃重油はゲーム内に単独の標準レシピが無いので、代替レシピ（原油などから作るもの）を先頭にした。
+# FICSITEのインゴットは標準レシピが 3 つある。先頭はアルミ、2 番目以降にカテリウムと鉄を置いた。
+# 循環を避けるため、プラスチック・ゴムの先頭は原油からの精製、燃料の先頭も原油からの精製にした。
+# リサイクル・プラスチックとリサイクル・ゴム（互いを素材にする）は 2 番目以降に置いている。
+# 容器入りの液体は空の容器・空の液体タンクと液体から作る。容器から取り出すレシピは液体側の 2 番目以降に置いた。
+# 副産物は産出として記録するが、必要個数からは差し引かない。
+# バッテリーは公式が端数（硫酸 2.5、水 1.5）なので、2 回分（6 秒）に換算して整数にしている。
+# ウラン廃棄物とプルトニウム廃棄物は、原子力発電所が燃料棒 1 本を燃やしきる時間をレシピ時間にしている。
+# 励起フォトニック物質は変換機が素材なしで作る。空入力だが原材料ではない。
+name: "Satisfactory"
+
+items:
+  # --- 資源: 採掘・汲み上げ・採取 ---
+  - id: iron_ore
+    name: "鉄鉱石"
+    type: "資源"
+    facility: "採鉱機 Mk.1"
+    recipes:
+      - id: iron_ore_r0
+        craft_time: 1
+        main_output: iron_ore
+        inputs: []
+        outputs:
+          - { id: iron_ore, qty: 1 }
+
+  - id: copper_ore
+    name: "銅鉱石"
+    type: "資源"
+    facility: "採鉱機 Mk.1"
+    recipes:
+      - id: copper_ore_r0
+        craft_time: 1
+        main_output: copper_ore
+        inputs: []
+        outputs:
+          - { id: copper_ore, qty: 1 }
+
+  - id: limestone
+    name: "石灰岩"
+    type: "資源"
+    facility: "採鉱機 Mk.1"
+    recipes:
+      - id: limestone_r0
+        craft_time: 1
+        main_output: limestone
+        inputs: []
+        outputs:
+          - { id: limestone, qty: 1 }
+
+  - id: coal
+    name: "石炭"
+    type: "資源"
+    facility: "採鉱機 Mk.1"
+    recipes:
+      - id: coal_r0
+        craft_time: 1
+        main_output: coal
+        inputs: []
+        outputs:
+          - { id: coal, qty: 1 }
+
+  - id: caterium_ore
+    name: "カテリウム鉱石"
+    type: "資源"
+    facility: "採鉱機 Mk.1"
+    recipes:
+      - id: caterium_ore_r0
+        craft_time: 1
+        main_output: caterium_ore
+        inputs: []
+        outputs:
+          - { id: caterium_ore, qty: 1 }
+
+  - id: raw_quartz
+    name: "未加工石英"
+    type: "資源"
+    facility: "採鉱機 Mk.1"
+    recipes:
+      - id: raw_quartz_r0
+        craft_time: 1
+        main_output: raw_quartz
+        inputs: []
+        outputs:
+          - { id: raw_quartz, qty: 1 }
+
+  - id: sulfur
+    name: "硫黄"
+    type: "資源"
+    facility: "採鉱機 Mk.1"
+    recipes:
+      - id: sulfur_r0
+        craft_time: 1
+        main_output: sulfur
+        inputs: []
+        outputs:
+          - { id: sulfur, qty: 1 }
+
+  - id: bauxite
+    name: "ボーキサイト"
+    type: "資源"
+    facility: "採鉱機 Mk.1"
+    recipes:
+      - id: bauxite_r0
+        craft_time: 1
+        main_output: bauxite
+        inputs: []
+        outputs:
+          - { id: bauxite, qty: 1 }
+
+  - id: uranium
+    name: "ウラン"
+    type: "資源"
+    facility: "採鉱機 Mk.1"
+    recipes:
+      - id: uranium_r0
+        craft_time: 1
+        main_output: uranium
+        inputs: []
+        outputs:
+          - { id: uranium, qty: 1 }
+
+  - id: sam
+    name: "SAM"
+    type: "資源"
+    facility: "採鉱機 Mk.1"
+    recipes:
+      - id: sam_r0
+        craft_time: 1
+        main_output: sam
+        inputs: []
+        outputs:
+          - { id: sam, qty: 1 }
+
+  - id: water
+    name: "水"
+    type: "資源"
+    facility: "揚水ポンプ"
+    recipes:
+      - id: water_r0
+        craft_time: 1
+        main_output: water
+        inputs: []
+        outputs:
+          - { id: water, qty: 2 }
+      # 未包装の水（充填機）
+      - id: water_r1
+        craft_time: 1
+        main_output: water
+        inputs:
+          - { id: packaged_water, qty: 2 }
+        outputs:
+          - { id: water, qty: 2 }
+          - { id: empty_canister, qty: 2 }
+
+  - id: crude_oil
+    name: "原油"
+    type: "資源"
+    facility: "原油抽出機"
+    recipes:
+      - id: crude_oil_r0
+        craft_time: 1
+        main_output: crude_oil
+        inputs: []
+        outputs:
+          - { id: crude_oil, qty: 2 }
+      # 未包装原油（充填機）
+      - id: crude_oil_r1
+        craft_time: 2
+        main_output: crude_oil
+        inputs:
+          - { id: packaged_oil, qty: 2 }
+        outputs:
+          - { id: crude_oil, qty: 2 }
+          - { id: empty_canister, qty: 2 }
+
+  - id: nitrogen_gas
+    name: "窒素ガス"
+    type: "資源"
+    facility: "地下資源抽出機"
+    recipes:
+      - id: nitrogen_gas_r0
+        craft_time: 1
+        main_output: nitrogen_gas
+        inputs: []
+        outputs:
+          - { id: nitrogen_gas, qty: 1 }
+      # 未包装窒素ガス（充填機）
+      - id: nitrogen_gas_r1
+        craft_time: 1
+        main_output: nitrogen_gas
+        inputs:
+          - { id: packaged_nitrogen_gas, qty: 1 }
+        outputs:
+          - { id: nitrogen_gas, qty: 4 }
+          - { id: empty_fluid_tank, qty: 1 }
+
+  - id: wood
+    name: "木"
+    type: "資源"
+    facility: "採取（手作業）"
+    recipes:
+      - id: wood_r0
+        craft_time: 1
+        main_output: wood
+        inputs: []
+        outputs:
+          - { id: wood, qty: 1 }
+
+  - id: leaves
+    name: "葉"
+    type: "資源"
+    facility: "採取（手作業）"
+    recipes:
+      - id: leaves_r0
+        craft_time: 1
+        main_output: leaves
+        inputs: []
+        outputs:
+          - { id: leaves, qty: 1 }
+
+  - id: mycelia
+    name: "菌糸"
+    type: "資源"
+    facility: "採取（手作業）"
+    recipes:
+      - id: mycelia_r0
+        craft_time: 1
+        main_output: mycelia
+        inputs: []
+        outputs:
+          - { id: mycelia, qty: 1 }
+
+  - id: blue_power_slug
+    name: "青いパワー・スラッグ"
+    type: "資源"
+    facility: "採取（手作業）"
+    recipes:
+      - id: blue_power_slug_r0
+        craft_time: 1
+        main_output: blue_power_slug
+        inputs: []
+        outputs:
+          - { id: blue_power_slug, qty: 1 }
+
+  # --- パワー・シャード ---
+  - id: power_shard
+    name: "パワー・シャード"
+    type: "パワー・シャード"
+    facility: "製作機"
+    recipes:
+      # パワー・シャード(1)
+      - id: power_shard_r0
+        craft_time: 8
+        main_output: power_shard
+        inputs:
+          - { id: blue_power_slug, qty: 1 }
+        outputs:
+          - { id: power_shard, qty: 1 }
+
+  # --- バイオマス ---
+  - id: biomass
+    name: "バイオマス"
+    type: "バイオマス"
+    facility: "製作機"
+    recipes:
+      # バイオマス(木)
+      - id: biomass_r0
+        craft_time: 4
+        main_output: biomass
+        inputs:
+          - { id: wood, qty: 4 }
+        outputs:
+          - { id: biomass, qty: 20 }
+      # バイオマス(葉)
+      - id: biomass_r1
+        craft_time: 5
+        main_output: biomass
+        inputs:
+          - { id: leaves, qty: 10 }
+        outputs:
+          - { id: biomass, qty: 5 }
+      # バイオマス(菌糸)
+      - id: biomass_r2
+        craft_time: 4
+        main_output: biomass
+        inputs:
+          - { id: mycelia, qty: 1 }
+        outputs:
+          - { id: biomass, qty: 10 }
+      # バイオマス(エイリアンのタンパク質)
+      - id: biomass_r3
+        craft_time: 4
+        main_output: biomass
+        inputs:
+          - { id: alien_protein, qty: 1 }
+        outputs:
+          - { id: biomass, qty: 100 }
+
+  - id: fabric
+    name: "布地"
+    type: "バイオマス"
+    facility: "組立機"
+    recipes:
+      - id: fabric_r0
+        craft_time: 4
+        main_output: fabric
+        inputs:
+          - { id: mycelia, qty: 1 }
+          - { id: biomass, qty: 5 }
+        outputs:
+          - { id: fabric, qty: 1 }
+      # 代替: ポリエステル生地（精製機）
+      - id: fabric_r1
+        craft_time: 2
+        main_output: fabric
+        inputs:
+          - { id: polymer_resin, qty: 1 }
+          - { id: water, qty: 1 }
+        outputs:
+          - { id: fabric, qty: 1 }
+
+  - id: solid_biofuel
+    name: "固体バイオ燃料"
+    type: "バイオマス"
+    facility: "製作機"
+    recipes:
+      - id: solid_biofuel_r0
+        craft_time: 4
+        main_output: solid_biofuel
+        inputs:
+          - { id: biomass, qty: 8 }
+        outputs:
+          - { id: solid_biofuel, qty: 4 }
+
+  # --- 鉱物 ---
+  - id: concrete
+    name: "コンクリート"
+    type: "鉱物"
+    facility: "製作機"
+    recipes:
+      - id: concrete_r0
+        craft_time: 4
+        main_output: concrete
+        inputs:
+          - { id: limestone, qty: 3 }
+        outputs:
+          - { id: concrete, qty: 1 }
+      # 代替: 上質コンクリート（組立機）
+      - id: concrete_r1
+        craft_time: 12
+        main_output: concrete
+        inputs:
+          - { id: silica, qty: 3 }
+          - { id: limestone, qty: 12 }
+        outputs:
+          - { id: concrete, qty: 10 }
+
+  - id: quartz_crystal
+    name: "石英結晶"
+    type: "鉱物"
+    facility: "製作機"
+    recipes:
+      - id: quartz_crystal_r0
+        craft_time: 8
+        main_output: quartz_crystal
+        inputs:
+          - { id: raw_quartz, qty: 5 }
+        outputs:
+          - { id: quartz_crystal, qty: 3 }
+      # 代替: 純石英結晶（精製機）
+      - id: quartz_crystal_r1
+        craft_time: 8
+        main_output: quartz_crystal
+        inputs:
+          - { id: raw_quartz, qty: 9 }
+          - { id: water, qty: 5 }
+        outputs:
+          - { id: quartz_crystal, qty: 7 }
+
+  - id: silica
+    name: "シリカ"
+    type: "鉱物"
+    facility: "製作機"
+    recipes:
+      - id: silica_r0
+        craft_time: 8
+        main_output: silica
+        inputs:
+          - { id: raw_quartz, qty: 3 }
+        outputs:
+          - { id: silica, qty: 5 }
+      # 代替: 廉価シリカ（組立機）
+      - id: silica_r1
+        craft_time: 8
+        main_output: silica
+        inputs:
+          - { id: raw_quartz, qty: 3 }
+          - { id: limestone, qty: 5 }
+        outputs:
+          - { id: silica, qty: 7 }
+
+  - id: compacted_coal
+    name: "圧縮石炭"
+    type: "鉱物"
+    facility: "組立機"
+    recipes:
+      # 代替: 圧縮石炭（標準レシピが無いので先頭）
+      - id: compacted_coal_r0
+        craft_time: 12
+        main_output: compacted_coal
+        inputs:
+          - { id: coal, qty: 5 }
+          - { id: sulfur, qty: 5 }
+        outputs:
+          - { id: compacted_coal, qty: 5 }
+
+  - id: copper_powder
+    name: "銅粉"
+    type: "鉱物"
+    facility: "製作機"
+    recipes:
+      - id: copper_powder_r0
+        craft_time: 6
+        main_output: copper_powder
+        inputs:
+          - { id: copper_ingot, qty: 30 }
+        outputs:
+          - { id: copper_powder, qty: 5 }
+
+  # --- 消耗品 ---
+  - id: gas_filter
+    name: "ガスフィルター"
+    type: "消耗品"
+    facility: "製造機"
+    recipes:
+      - id: gas_filter_r0
+        craft_time: 8
+        main_output: gas_filter
+        inputs:
+          - { id: fabric, qty: 2 }
+          - { id: coal, qty: 4 }
+          - { id: iron_plate, qty: 2 }
+        outputs:
+          - { id: gas_filter, qty: 1 }
+
+  - id: iodine_infused_filter
+    name: "ヨウ素充填フィルター"
+    type: "消耗品"
+    facility: "製造機"
+    recipes:
+      - id: iodine_infused_filter_r0
+        craft_time: 16
+        main_output: iodine_infused_filter
+        inputs:
+          - { id: gas_filter, qty: 1 }
+          - { id: quickwire, qty: 8 }
+          - { id: aluminum_casing, qty: 1 }
+        outputs:
+          - { id: iodine_infused_filter, qty: 1 }
+
+  # --- 弾薬 ---
+  - id: black_powder
+    name: "黒色火薬"
+    type: "弾薬"
+    facility: "組立機"
+    recipes:
+      - id: black_powder_r0
+        craft_time: 4
+        main_output: black_powder
+        inputs:
+          - { id: coal, qty: 1 }
+          - { id: sulfur, qty: 1 }
+        outputs:
+          - { id: black_powder, qty: 2 }
+
+  - id: smokeless_powder
+    name: "無煙火薬"
+    type: "弾薬"
+    facility: "精製機"
+    recipes:
+      - id: smokeless_powder_r0
+        craft_time: 6
+        main_output: smokeless_powder
+        inputs:
+          - { id: black_powder, qty: 2 }
+          - { id: heavy_oil_residue, qty: 1 }
+        outputs:
+          - { id: smokeless_powder, qty: 2 }
+
+  - id: iron_rebar
+    name: "鉄筋"
+    type: "弾薬"
+    facility: "製作機"
+    recipes:
+      - id: iron_rebar_r0
+        craft_time: 4
+        main_output: iron_rebar
+        inputs:
+          - { id: iron_rod, qty: 1 }
+        outputs:
+          - { id: iron_rebar, qty: 1 }
+
+  - id: nobelisk
+    name: "ノーベリスク"
+    type: "弾薬"
+    facility: "組立機"
+    recipes:
+      - id: nobelisk_r0
+        craft_time: 6
+        main_output: nobelisk
+        inputs:
+          - { id: black_powder, qty: 2 }
+          - { id: steel_pipe, qty: 2 }
+        outputs:
+          - { id: nobelisk, qty: 1 }
+
+  - id: rifle_ammo
+    name: "ライフル弾"
+    type: "弾薬"
+    facility: "組立機"
+    recipes:
+      - id: rifle_ammo_r0
+        craft_time: 12
+        main_output: rifle_ammo
+        inputs:
+          - { id: copper_sheet, qty: 3 }
+          - { id: smokeless_powder, qty: 2 }
+        outputs:
+          - { id: rifle_ammo, qty: 15 }
+
+  # --- インゴット ---
+  - id: iron_ingot
+    name: "鉄のインゴット"
+    type: "インゴット"
+    facility: "製錬炉"
+    recipes:
+      - id: iron_ingot_r0
+        craft_time: 2
+        main_output: iron_ingot
+        inputs:
+          - { id: iron_ore, qty: 1 }
+        outputs:
+          - { id: iron_ingot, qty: 1 }
+      # 代替: 純鉄のインゴット（精製機）
+      - id: iron_ingot_r1
+        craft_time: 12
+        main_output: iron_ingot
+        inputs:
+          - { id: iron_ore, qty: 7 }
+          - { id: water, qty: 4 }
+        outputs:
+          - { id: iron_ingot, qty: 13 }
+
+  - id: copper_ingot
+    name: "銅のインゴット"
+    type: "インゴット"
+    facility: "製錬炉"
+    recipes:
+      - id: copper_ingot_r0
+        craft_time: 2
+        main_output: copper_ingot
+        inputs:
+          - { id: copper_ore, qty: 1 }
+        outputs:
+          - { id: copper_ingot, qty: 1 }
+      # 代替: 純銅のインゴット（精製機）
+      - id: copper_ingot_r1
+        craft_time: 24
+        main_output: copper_ingot
+        inputs:
+          - { id: copper_ore, qty: 6 }
+          - { id: water, qty: 4 }
+        outputs:
+          - { id: copper_ingot, qty: 15 }
+
+  - id: steel_ingot
+    name: "鋼鉄のインゴット"
+    type: "インゴット"
+    facility: "鋳造炉"
+    recipes:
+      - id: steel_ingot_r0
+        craft_time: 4
+        main_output: steel_ingot
+        inputs:
+          - { id: iron_ore, qty: 3 }
+          - { id: coal, qty: 3 }
+        outputs:
+          - { id: steel_ingot, qty: 3 }
+      # 代替: 高密度鋼のインゴット（鋳造炉）
+      - id: steel_ingot_r1
+        craft_time: 3
+        main_output: steel_ingot
+        inputs:
+          - { id: iron_ingot, qty: 2 }
+          - { id: coal, qty: 2 }
+        outputs:
+          - { id: steel_ingot, qty: 3 }
+
+  - id: caterium_ingot
+    name: "カテリウムのインゴット"
+    type: "インゴット"
+    facility: "製錬炉"
+    recipes:
+      - id: caterium_ingot_r0
+        craft_time: 4
+        main_output: caterium_ingot
+        inputs:
+          - { id: caterium_ore, qty: 3 }
+        outputs:
+          - { id: caterium_ingot, qty: 1 }
+      # 代替: 純カテリウムのインゴット（精製機）
+      - id: caterium_ingot_r1
+        craft_time: 5
+        main_output: caterium_ingot
+        inputs:
+          - { id: caterium_ore, qty: 2 }
+          - { id: water, qty: 2 }
+        outputs:
+          - { id: caterium_ingot, qty: 1 }
+
+  - id: aluminum_ingot
+    name: "アルミのインゴット"
+    type: "インゴット"
+    facility: "鋳造炉"
+    recipes:
+      - id: aluminum_ingot_r0
+        craft_time: 4
+        main_output: aluminum_ingot
+        inputs:
+          - { id: aluminum_scrap, qty: 6 }
+          - { id: silica, qty: 5 }
+        outputs:
+          - { id: aluminum_ingot, qty: 4 }
+      # 代替: 純アルミニウムのインゴット（製錬炉）
+      - id: aluminum_ingot_r1
+        craft_time: 2
+        main_output: aluminum_ingot
+        inputs:
+          - { id: aluminum_scrap, qty: 2 }
+        outputs:
+          - { id: aluminum_ingot, qty: 1 }
+
+  - id: ficsite_ingot
+    name: "FICSITEのインゴット"
+    type: "インゴット"
+    facility: "変換機"
+    recipes:
+      # FICSITEのインゴット(アルミ)
+      - id: ficsite_ingot_r0
+        craft_time: 2
+        main_output: ficsite_ingot
+        inputs:
+          - { id: reanimated_sam, qty: 2 }
+          - { id: aluminum_ingot, qty: 4 }
+        outputs:
+          - { id: ficsite_ingot, qty: 1 }
+      # FICSITEのインゴット(カテリウム)
+      - id: ficsite_ingot_r1
+        craft_time: 4
+        main_output: ficsite_ingot
+        inputs:
+          - { id: reanimated_sam, qty: 3 }
+          - { id: caterium_ingot, qty: 4 }
+        outputs:
+          - { id: ficsite_ingot, qty: 1 }
+      # FICSITEのインゴット(鉄)
+      - id: ficsite_ingot_r2
+        craft_time: 6
+        main_output: ficsite_ingot
+        inputs:
+          - { id: reanimated_sam, qty: 4 }
+          - { id: iron_ingot, qty: 24 }
+        outputs:
+          - { id: ficsite_ingot, qty: 1 }
+
+  # --- 基本部品 ---
+  - id: iron_plate
+    name: "鉄板"
+    type: "基本部品"
+    facility: "製作機"
+    recipes:
+      - id: iron_plate_r0
+        craft_time: 6
+        main_output: iron_plate
+        inputs:
+          - { id: iron_ingot, qty: 3 }
+        outputs:
+          - { id: iron_plate, qty: 2 }
+
+  - id: iron_rod
+    name: "鉄のロッド"
+    type: "基本部品"
+    facility: "製作機"
+    recipes:
+      - id: iron_rod_r0
+        craft_time: 4
+        main_output: iron_rod
+        inputs:
+          - { id: iron_ingot, qty: 1 }
+        outputs:
+          - { id: iron_rod, qty: 1 }
+      # 代替: 鋼鉄のロッド（製作機）
+      - id: iron_rod_r1
+        craft_time: 5
+        main_output: iron_rod
+        inputs:
+          - { id: steel_ingot, qty: 1 }
+        outputs:
+          - { id: iron_rod, qty: 4 }
+
+  - id: screw
+    name: "ネジ"
+    type: "基本部品"
+    facility: "製作機"
+    recipes:
+      - id: screw_r0
+        craft_time: 6
+        main_output: screw
+        inputs:
+          - { id: iron_rod, qty: 1 }
+        outputs:
+          - { id: screw, qty: 4 }
+      # 代替: 鋳造ネジ（製作機）
+      - id: screw_r1
+        craft_time: 24
+        main_output: screw
+        inputs:
+          - { id: iron_ingot, qty: 5 }
+        outputs:
+          - { id: screw, qty: 20 }
+
+  - id: reinforced_iron_plate
+    name: "強化鉄板"
+    type: "基本部品"
+    facility: "組立機"
+    recipes:
+      - id: reinforced_iron_plate_r0
+        craft_time: 12
+        main_output: reinforced_iron_plate
+        inputs:
+          - { id: iron_plate, qty: 6 }
+          - { id: screw, qty: 12 }
+        outputs:
+          - { id: reinforced_iron_plate, qty: 1 }
+      # 代替: ネジ留め鉄板（組立機）
+      - id: reinforced_iron_plate_r1
+        craft_time: 12
+        main_output: reinforced_iron_plate
+        inputs:
+          - { id: iron_plate, qty: 18 }
+          - { id: screw, qty: 50 }
+        outputs:
+          - { id: reinforced_iron_plate, qty: 3 }
+
+  - id: modular_frame
+    name: "モジュラー・フレーム"
+    type: "基本部品"
+    facility: "組立機"
+    recipes:
+      - id: modular_frame_r0
+        craft_time: 60
+        main_output: modular_frame
+        inputs:
+          - { id: reinforced_iron_plate, qty: 3 }
+          - { id: iron_rod, qty: 12 }
+        outputs:
+          - { id: modular_frame, qty: 2 }
+      # 代替: 鋼鉄のフレーム（組立機）
+      - id: modular_frame_r1
+        craft_time: 60
+        main_output: modular_frame
+        inputs:
+          - { id: reinforced_iron_plate, qty: 2 }
+          - { id: steel_pipe, qty: 10 }
+        outputs:
+          - { id: modular_frame, qty: 3 }
+
+  - id: copper_sheet
+    name: "銅板"
+    type: "基本部品"
+    facility: "製作機"
+    recipes:
+      - id: copper_sheet_r0
+        craft_time: 6
+        main_output: copper_sheet
+        inputs:
+          - { id: copper_ingot, qty: 2 }
+        outputs:
+          - { id: copper_sheet, qty: 1 }
+      # 代替: 蒸気加熱銅板（精製機）
+      - id: copper_sheet_r1
+        craft_time: 8
+        main_output: copper_sheet
+        inputs:
+          - { id: copper_ingot, qty: 3 }
+          - { id: water, qty: 3 }
+        outputs:
+          - { id: copper_sheet, qty: 3 }
+
+  - id: steel_beam
+    name: "鋼梁"
+    type: "基本部品"
+    facility: "製作機"
+    recipes:
+      - id: steel_beam_r0
+        craft_time: 4
+        main_output: steel_beam
+        inputs:
+          - { id: steel_ingot, qty: 4 }
+        outputs:
+          - { id: steel_beam, qty: 1 }
+
+  - id: steel_pipe
+    name: "鋼管"
+    type: "基本部品"
+    facility: "製作機"
+    recipes:
+      - id: steel_pipe_r0
+        craft_time: 6
+        main_output: steel_pipe
+        inputs:
+          - { id: steel_ingot, qty: 3 }
+        outputs:
+          - { id: steel_pipe, qty: 2 }
+
+  - id: encased_industrial_beam
+    name: "コンクリート被覆型鋼梁"
+    type: "基本部品"
+    facility: "組立機"
+    recipes:
+      - id: encased_industrial_beam_r0
+        craft_time: 10
+        main_output: encased_industrial_beam
+        inputs:
+          - { id: steel_beam, qty: 3 }
+          - { id: concrete, qty: 6 }
+        outputs:
+          - { id: encased_industrial_beam, qty: 1 }
+      # 代替: コンクリート被覆型鋼管（組立機）
+      - id: encased_industrial_beam_r1
+        craft_time: 15
+        main_output: encased_industrial_beam
+        inputs:
+          - { id: steel_pipe, qty: 6 }
+          - { id: concrete, qty: 5 }
+        outputs:
+          - { id: encased_industrial_beam, qty: 1 }
+
+  - id: heavy_modular_frame
+    name: "ヘビー・モジュラー・フレーム"
+    type: "基本部品"
+    facility: "製造機"
+    recipes:
+      - id: heavy_modular_frame_r0
+        craft_time: 30
+        main_output: heavy_modular_frame
+        inputs:
+          - { id: modular_frame, qty: 5 }
+          - { id: steel_pipe, qty: 20 }
+          - { id: encased_industrial_beam, qty: 5 }
+          - { id: screw, qty: 120 }
+        outputs:
+          - { id: heavy_modular_frame, qty: 1 }
+      # 代替: ヘビー・フレキシブル・フレーム（製造機）
+      - id: heavy_modular_frame_r1
+        craft_time: 16
+        main_output: heavy_modular_frame
+        inputs:
+          - { id: modular_frame, qty: 5 }
+          - { id: encased_industrial_beam, qty: 3 }
+          - { id: rubber, qty: 20 }
+          - { id: screw, qty: 104 }
+        outputs:
+          - { id: heavy_modular_frame, qty: 1 }
+
+  - id: alclad_aluminum_sheet
+    name: "アルクラッド・アルミシート"
+    type: "基本部品"
+    facility: "組立機"
+    recipes:
+      - id: alclad_aluminum_sheet_r0
+        craft_time: 6
+        main_output: alclad_aluminum_sheet
+        inputs:
+          - { id: aluminum_ingot, qty: 3 }
+          - { id: copper_ingot, qty: 1 }
+        outputs:
+          - { id: alclad_aluminum_sheet, qty: 3 }
+
+  - id: aluminum_casing
+    name: "アルミ筐体"
+    type: "基本部品"
+    facility: "製作機"
+    recipes:
+      - id: aluminum_casing_r0
+        craft_time: 2
+        main_output: aluminum_casing
+        inputs:
+          - { id: aluminum_ingot, qty: 3 }
+        outputs:
+          - { id: aluminum_casing, qty: 2 }
+
+  - id: ficsite_trigon
+    name: "FICSITEの三角板"
+    type: "基本部品"
+    facility: "製作機"
+    recipes:
+      - id: ficsite_trigon_r0
+        craft_time: 6
+        main_output: ficsite_trigon
+        inputs:
+          - { id: ficsite_ingot, qty: 1 }
+        outputs:
+          - { id: ficsite_trigon, qty: 3 }
+
+  # --- 電子機器 ---
+  - id: wire
+    name: "ワイヤー"
+    type: "電子機器"
+    facility: "製作機"
+    recipes:
+      - id: wire_r0
+        craft_time: 4
+        main_output: wire
+        inputs:
+          - { id: copper_ingot, qty: 1 }
+        outputs:
+          - { id: wire, qty: 2 }
+      # 代替: カテリウム・ワイヤー（製作機）
+      - id: wire_r1
+        craft_time: 4
+        main_output: wire
+        inputs:
+          - { id: caterium_ingot, qty: 1 }
+        outputs:
+          - { id: wire, qty: 8 }
+
+  - id: cable
+    name: "ケーブル"
+    type: "電子機器"
+    facility: "製作機"
+    recipes:
+      - id: cable_r0
+        craft_time: 2
+        main_output: cable
+        inputs:
+          - { id: wire, qty: 2 }
+        outputs:
+          - { id: cable, qty: 1 }
+      # 代替: 絶縁ケーブル（組立機）
+      - id: cable_r1
+        craft_time: 12
+        main_output: cable
+        inputs:
+          - { id: wire, qty: 9 }
+          - { id: rubber, qty: 6 }
+        outputs:
+          - { id: cable, qty: 20 }
+
+  - id: quickwire
+    name: "クイックワイヤー"
+    type: "電子機器"
+    facility: "製作機"
+    recipes:
+      - id: quickwire_r0
+        craft_time: 5
+        main_output: quickwire
+        inputs:
+          - { id: caterium_ingot, qty: 1 }
+        outputs:
+          - { id: quickwire, qty: 5 }
+
+  - id: circuit_board
+    name: "回路基板"
+    type: "電子機器"
+    facility: "組立機"
+    recipes:
+      - id: circuit_board_r0
+        craft_time: 8
+        main_output: circuit_board
+        inputs:
+          - { id: copper_sheet, qty: 2 }
+          - { id: plastic, qty: 4 }
+        outputs:
+          - { id: circuit_board, qty: 1 }
+      # 代替: カテリウム回路基板（組立機）
+      - id: circuit_board_r1
+        craft_time: 48
+        main_output: circuit_board
+        inputs:
+          - { id: plastic, qty: 10 }
+          - { id: quickwire, qty: 30 }
+        outputs:
+          - { id: circuit_board, qty: 7 }
+
+  - id: ai_limiter
+    name: "AIリミッター"
+    type: "電子機器"
+    facility: "組立機"
+    recipes:
+      - id: ai_limiter_r0
+        craft_time: 12
+        main_output: ai_limiter
+        inputs:
+          - { id: copper_sheet, qty: 5 }
+          - { id: quickwire, qty: 20 }
+        outputs:
+          - { id: ai_limiter, qty: 1 }
+
+  - id: high_speed_connector
+    name: "高速コネクター"
+    type: "電子機器"
+    facility: "製造機"
+    recipes:
+      - id: high_speed_connector_r0
+        craft_time: 16
+        main_output: high_speed_connector
+        inputs:
+          - { id: quickwire, qty: 56 }
+          - { id: cable, qty: 10 }
+          - { id: circuit_board, qty: 1 }
+        outputs:
+          - { id: high_speed_connector, qty: 1 }
+
+  - id: reanimated_sam
+    name: "活性SAM"
+    type: "電子機器"
+    facility: "製作機"
+    recipes:
+      - id: reanimated_sam_r0
+        craft_time: 2
+        main_output: reanimated_sam
+        inputs:
+          - { id: sam, qty: 4 }
+        outputs:
+          - { id: reanimated_sam, qty: 1 }
+
+  - id: sam_fluctuator
+    name: "SAM 変動機"
+    type: "電子機器"
+    facility: "製造機"
+    recipes:
+      - id: sam_fluctuator_r0
+        craft_time: 6
+        main_output: sam_fluctuator
+        inputs:
+          - { id: reanimated_sam, qty: 6 }
+          - { id: wire, qty: 5 }
+          - { id: steel_pipe, qty: 3 }
+        outputs:
+          - { id: sam_fluctuator, qty: 1 }
+
+  # --- 産業用部品 ---
+  - id: rotor
+    name: "ローター"
+    type: "産業用部品"
+    facility: "組立機"
+    recipes:
+      - id: rotor_r0
+        craft_time: 15
+        main_output: rotor
+        inputs:
+          - { id: iron_rod, qty: 5 }
+          - { id: screw, qty: 25 }
+        outputs:
+          - { id: rotor, qty: 1 }
+      # 代替: 鋼鉄のローター（組立機）
+      - id: rotor_r1
+        craft_time: 12
+        main_output: rotor
+        inputs:
+          - { id: steel_pipe, qty: 2 }
+          - { id: wire, qty: 6 }
+        outputs:
+          - { id: rotor, qty: 1 }
+
+  - id: stator
+    name: "固定子"
+    type: "産業用部品"
+    facility: "組立機"
+    recipes:
+      - id: stator_r0
+        craft_time: 12
+        main_output: stator
+        inputs:
+          - { id: steel_pipe, qty: 3 }
+          - { id: wire, qty: 8 }
+        outputs:
+          - { id: stator, qty: 1 }
+      # 代替: クイックワイヤー固定子（組立機）
+      - id: stator_r1
+        craft_time: 15
+        main_output: stator
+        inputs:
+          - { id: steel_pipe, qty: 4 }
+          - { id: quickwire, qty: 15 }
+        outputs:
+          - { id: stator, qty: 2 }
+
+  - id: motor
+    name: "モーター"
+    type: "産業用部品"
+    facility: "組立機"
+    recipes:
+      - id: motor_r0
+        craft_time: 12
+        main_output: motor
+        inputs:
+          - { id: rotor, qty: 2 }
+          - { id: stator, qty: 2 }
+        outputs:
+          - { id: motor, qty: 1 }
+      # 代替: 電動モーター（組立機）
+      - id: motor_r1
+        craft_time: 16
+        main_output: motor
+        inputs:
+          - { id: electromagnetic_control_rod, qty: 1 }
+          - { id: rotor, qty: 2 }
+        outputs:
+          - { id: motor, qty: 2 }
+
+  - id: heat_sink
+    name: "ヒートシンク"
+    type: "産業用部品"
+    facility: "組立機"
+    recipes:
+      - id: heat_sink_r0
+        craft_time: 8
+        main_output: heat_sink
+        inputs:
+          - { id: alclad_aluminum_sheet, qty: 5 }
+          - { id: copper_sheet, qty: 3 }
+        outputs:
+          - { id: heat_sink, qty: 1 }
+
+  - id: cooling_system
+    name: "冷却システム"
+    type: "産業用部品"
+    facility: "混合機"
+    recipes:
+      - id: cooling_system_r0
+        craft_time: 10
+        main_output: cooling_system
+        inputs:
+          - { id: heat_sink, qty: 2 }
+          - { id: rubber, qty: 2 }
+          - { id: water, qty: 5 }
+          - { id: nitrogen_gas, qty: 25 }
+        outputs:
+          - { id: cooling_system, qty: 1 }
+
+  - id: turbo_motor
+    name: "ターボ・モーター"
+    type: "産業用部品"
+    facility: "製造機"
+    recipes:
+      - id: turbo_motor_r0
+        craft_time: 32
+        main_output: turbo_motor
+        inputs:
+          - { id: cooling_system, qty: 4 }
+          - { id: radio_control_unit, qty: 2 }
+          - { id: motor, qty: 4 }
+          - { id: rubber, qty: 24 }
+        outputs:
+          - { id: turbo_motor, qty: 1 }
+
+  - id: battery
+    name: "バッテリー"
+    type: "産業用部品"
+    facility: "混合機"
+    recipes:
+      # 公式は 3 秒で硫酸 2.5・アルミナ溶液 2・アルミ筐体 1 → バッテリー 1・水 1.5。2 回分に換算。
+      - id: battery_r0
+        craft_time: 6
+        main_output: battery
+        inputs:
+          - { id: sulfuric_acid, qty: 5 }
+          - { id: alumina_solution, qty: 4 }
+          - { id: aluminum_casing, qty: 2 }
+        outputs:
+          - { id: battery, qty: 2 }
+          - { id: water, qty: 3 }
+
+  - id: fused_modular_frame
+    name: "溶融モジュラー・フレーム"
+    type: "産業用部品"
+    facility: "混合機"
+    recipes:
+      - id: fused_modular_frame_r0
+        craft_time: 40
+        main_output: fused_modular_frame
+        inputs:
+          - { id: heavy_modular_frame, qty: 1 }
+          - { id: aluminum_casing, qty: 50 }
+          - { id: nitrogen_gas, qty: 25 }
+        outputs:
+          - { id: fused_modular_frame, qty: 1 }
+
+  # --- 通信 ---
+  - id: crystal_oscillator
+    name: "水晶発振器"
+    type: "通信"
+    facility: "製造機"
+    recipes:
+      - id: crystal_oscillator_r0
+        craft_time: 120
+        main_output: crystal_oscillator
+        inputs:
+          - { id: quartz_crystal, qty: 36 }
+          - { id: cable, qty: 28 }
+          - { id: reinforced_iron_plate, qty: 5 }
+        outputs:
+          - { id: crystal_oscillator, qty: 2 }
+
+  - id: computer
+    name: "コンピューター"
+    type: "通信"
+    facility: "製造機"
+    recipes:
+      - id: computer_r0
+        craft_time: 24
+        main_output: computer
+        inputs:
+          - { id: circuit_board, qty: 4 }
+          - { id: cable, qty: 8 }
+          - { id: plastic, qty: 16 }
+        outputs:
+          - { id: computer, qty: 1 }
+      # 代替: カテリウム・コンピューター（製造機）
+      - id: computer_r1
+        craft_time: 16
+        main_output: computer
+        inputs:
+          - { id: circuit_board, qty: 4 }
+          - { id: quickwire, qty: 14 }
+          - { id: rubber, qty: 6 }
+        outputs:
+          - { id: computer, qty: 1 }
+
+  - id: supercomputer
+    name: "スーパーコンピューター"
+    type: "通信"
+    facility: "製造機"
+    recipes:
+      - id: supercomputer_r0
+        craft_time: 32
+        main_output: supercomputer
+        inputs:
+          - { id: computer, qty: 4 }
+          - { id: ai_limiter, qty: 2 }
+          - { id: high_speed_connector, qty: 3 }
+          - { id: plastic, qty: 28 }
+        outputs:
+          - { id: supercomputer, qty: 1 }
+
+  - id: radio_control_unit
+    name: "無線制御ユニット"
+    type: "通信"
+    facility: "製造機"
+    recipes:
+      - id: radio_control_unit_r0
+        craft_time: 48
+        main_output: radio_control_unit
+        inputs:
+          - { id: aluminum_casing, qty: 32 }
+          - { id: crystal_oscillator, qty: 1 }
+          - { id: computer, qty: 2 }
+        outputs:
+          - { id: radio_control_unit, qty: 2 }
+
+  # --- 石油製品 ---
+  - id: plastic
+    name: "プラスチック"
+    type: "石油製品"
+    facility: "精製機"
+    recipes:
+      - id: plastic_r0
+        craft_time: 6
+        main_output: plastic
+        inputs:
+          - { id: crude_oil, qty: 3 }
+        outputs:
+          - { id: plastic, qty: 2 }
+          - { id: heavy_oil_residue, qty: 1 }
+      # 残留プラスチック（精製機）
+      - id: plastic_r1
+        craft_time: 6
+        main_output: plastic
+        inputs:
+          - { id: polymer_resin, qty: 6 }
+          - { id: water, qty: 2 }
+        outputs:
+          - { id: plastic, qty: 2 }
+      # 代替: リサイクル・プラスチック（精製機）。ゴムと互いに素材になるので先頭にしない。
+      - id: plastic_r2
+        craft_time: 12
+        main_output: plastic
+        inputs:
+          - { id: rubber, qty: 6 }
+          - { id: fuel, qty: 6 }
+        outputs:
+          - { id: plastic, qty: 12 }
+
+  - id: rubber
+    name: "ゴム"
+    type: "石油製品"
+    facility: "精製機"
+    recipes:
+      - id: rubber_r0
+        craft_time: 6
+        main_output: rubber
+        inputs:
+          - { id: crude_oil, qty: 3 }
+        outputs:
+          - { id: rubber, qty: 2 }
+          - { id: heavy_oil_residue, qty: 2 }
+      # 残留ゴム（精製機）
+      - id: rubber_r1
+        craft_time: 6
+        main_output: rubber
+        inputs:
+          - { id: polymer_resin, qty: 4 }
+          - { id: water, qty: 4 }
+        outputs:
+          - { id: rubber, qty: 2 }
+      # 代替: リサイクル・ゴム（精製機）。プラスチックと互いに素材になるので先頭にしない。
+      - id: rubber_r2
+        craft_time: 12
+        main_output: rubber
+        inputs:
+          - { id: plastic, qty: 6 }
+          - { id: fuel, qty: 6 }
+        outputs:
+          - { id: rubber, qty: 12 }
+
+  - id: petroleum_coke
+    name: "石油コークス"
+    type: "石油製品"
+    facility: "精製機"
+    recipes:
+      - id: petroleum_coke_r0
+        craft_time: 6
+        main_output: petroleum_coke
+        inputs:
+          - { id: heavy_oil_residue, qty: 4 }
+        outputs:
+          - { id: petroleum_coke, qty: 12 }
+
+  - id: polymer_resin
+    name: "合成樹脂"
+    type: "石油製品"
+    facility: "精製機"
+    recipes:
+      # 代替: 合成樹脂。標準では燃料の副産物なので、単独で作るこのレシピを先頭にした。
+      - id: polymer_resin_r0
+        craft_time: 6
+        main_output: polymer_resin
+        inputs:
+          - { id: crude_oil, qty: 6 }
+        outputs:
+          - { id: polymer_resin, qty: 13 }
+          - { id: heavy_oil_residue, qty: 2 }
+
+  - id: heavy_oil_residue
+    name: "廃重油"
+    type: "石油製品"
+    facility: "精製機"
+    recipes:
+      # 代替: 廃重油。標準ではプラスチック・ゴムの副産物なので、単独で作るこのレシピを先頭にした。
+      - id: heavy_oil_residue_r0
+        craft_time: 6
+        main_output: heavy_oil_residue
+        inputs:
+          - { id: crude_oil, qty: 3 }
+        outputs:
+          - { id: heavy_oil_residue, qty: 4 }
+          - { id: polymer_resin, qty: 2 }
+      # 未包装廃重油（充填機）
+      - id: heavy_oil_residue_r1
+        craft_time: 6
+        main_output: heavy_oil_residue
+        inputs:
+          - { id: packaged_heavy_oil_residue, qty: 2 }
+        outputs:
+          - { id: heavy_oil_residue, qty: 2 }
+          - { id: empty_canister, qty: 2 }
+
+  # --- 燃料 ---
+  - id: fuel
+    name: "燃料"
+    type: "燃料"
+    facility: "精製機"
+    recipes:
+      - id: fuel_r0
+        craft_time: 6
+        main_output: fuel
+        inputs:
+          - { id: crude_oil, qty: 6 }
+        outputs:
+          - { id: fuel, qty: 4 }
+          - { id: polymer_resin, qty: 3 }
+      # 残留燃料（精製機）
+      - id: fuel_r1
+        craft_time: 6
+        main_output: fuel
+        inputs:
+          - { id: heavy_oil_residue, qty: 6 }
+        outputs:
+          - { id: fuel, qty: 4 }
+      # 代替: 希釈燃料（混合機）
+      - id: fuel_r2
+        craft_time: 6
+        main_output: fuel
+        inputs:
+          - { id: heavy_oil_residue, qty: 5 }
+          - { id: water, qty: 10 }
+        outputs:
+          - { id: fuel, qty: 10 }
+      # 未包装燃料（充填機）
+      - id: fuel_r3
+        craft_time: 2
+        main_output: fuel
+        inputs:
+          - { id: packaged_fuel, qty: 2 }
+        outputs:
+          - { id: fuel, qty: 2 }
+          - { id: empty_canister, qty: 2 }
+
+  - id: turbofuel
+    name: "ターボ燃料"
+    type: "燃料"
+    facility: "精製機"
+    recipes:
+      - id: turbofuel_r0
+        craft_time: 16
+        main_output: turbofuel
+        inputs:
+          - { id: fuel, qty: 6 }
+          - { id: compacted_coal, qty: 4 }
+        outputs:
+          - { id: turbofuel, qty: 5 }
+      # 代替: ターボ重油（精製機）
+      - id: turbofuel_r1
+        craft_time: 8
+        main_output: turbofuel
+        inputs:
+          - { id: heavy_oil_residue, qty: 5 }
+          - { id: compacted_coal, qty: 4 }
+        outputs:
+          - { id: turbofuel, qty: 4 }
+      # 未包装ターボ燃料（充填機）
+      - id: turbofuel_r2
+        craft_time: 6
+        main_output: turbofuel
+        inputs:
+          - { id: packaged_turbofuel, qty: 2 }
+        outputs:
+          - { id: turbofuel, qty: 2 }
+          - { id: empty_canister, qty: 2 }
+
+  - id: liquid_biofuel
+    name: "液体バイオ燃料"
+    type: "燃料"
+    facility: "精製機"
+    recipes:
+      - id: liquid_biofuel_r0
+        craft_time: 4
+        main_output: liquid_biofuel
+        inputs:
+          - { id: solid_biofuel, qty: 6 }
+          - { id: water, qty: 3 }
+        outputs:
+          - { id: liquid_biofuel, qty: 4 }
+      # 未包装液体バイオ燃料（充填機）
+      - id: liquid_biofuel_r1
+        craft_time: 2
+        main_output: liquid_biofuel
+        inputs:
+          - { id: packaged_liquid_biofuel, qty: 2 }
+        outputs:
+          - { id: liquid_biofuel, qty: 2 }
+          - { id: empty_canister, qty: 2 }
+
+  - id: rocket_fuel
+    name: "ロケット燃料"
+    type: "燃料"
+    facility: "混合機"
+    recipes:
+      - id: rocket_fuel_r0
+        craft_time: 6
+        main_output: rocket_fuel
+        inputs:
+          - { id: turbofuel, qty: 6 }
+          - { id: nitric_acid, qty: 1 }
+        outputs:
+          - { id: rocket_fuel, qty: 10 }
+          - { id: compacted_coal, qty: 1 }
+      # 開封されたロケット燃料（充填機）
+      - id: rocket_fuel_r1
+        craft_time: 1
+        main_output: rocket_fuel
+        inputs:
+          - { id: packaged_rocket_fuel, qty: 1 }
+        outputs:
+          - { id: rocket_fuel, qty: 2 }
+          - { id: empty_fluid_tank, qty: 1 }
+
+  - id: ionized_fuel
+    name: "イオン燃料"
+    type: "燃料"
+    facility: "精製機"
+    recipes:
+      - id: ionized_fuel_r0
+        craft_time: 24
+        main_output: ionized_fuel
+        inputs:
+          - { id: rocket_fuel, qty: 16 }
+          - { id: power_shard, qty: 1 }
+        outputs:
+          - { id: ionized_fuel, qty: 16 }
+          - { id: compacted_coal, qty: 2 }
+      # 開封されたイオン燃料（充填機）
+      - id: ionized_fuel_r1
+        craft_time: 3
+        main_output: ionized_fuel
+        inputs:
+          - { id: packaged_ionized_fuel, qty: 2 }
+        outputs:
+          - { id: ionized_fuel, qty: 4 }
+          - { id: empty_fluid_tank, qty: 2 }
+
+  # --- 先進的な精製 ---
+  - id: alumina_solution
+    name: "アルミナ溶液"
+    type: "先進的な精製"
+    facility: "精製機"
+    recipes:
+      - id: alumina_solution_r0
+        craft_time: 6
+        main_output: alumina_solution
+        inputs:
+          - { id: bauxite, qty: 12 }
+          - { id: water, qty: 18 }
+        outputs:
+          - { id: alumina_solution, qty: 12 }
+          - { id: silica, qty: 5 }
+      # 未包装アルミナ溶液（充填機）
+      - id: alumina_solution_r1
+        craft_time: 1
+        main_output: alumina_solution
+        inputs:
+          - { id: packaged_alumina_solution, qty: 2 }
+        outputs:
+          - { id: alumina_solution, qty: 2 }
+          - { id: empty_canister, qty: 2 }
+
+  - id: aluminum_scrap
+    name: "アルミのスクラップ"
+    type: "先進的な精製"
+    facility: "精製機"
+    recipes:
+      - id: aluminum_scrap_r0
+        craft_time: 1
+        main_output: aluminum_scrap
+        inputs:
+          - { id: alumina_solution, qty: 4 }
+          - { id: coal, qty: 2 }
+        outputs:
+          - { id: aluminum_scrap, qty: 6 }
+          - { id: water, qty: 2 }
+      # 代替: 電極アルミ・スクラップ（精製機）
+      - id: aluminum_scrap_r1
+        craft_time: 4
+        main_output: aluminum_scrap
+        inputs:
+          - { id: alumina_solution, qty: 12 }
+          - { id: petroleum_coke, qty: 4 }
+        outputs:
+          - { id: aluminum_scrap, qty: 20 }
+          - { id: water, qty: 7 }
+
+  - id: sulfuric_acid
+    name: "硫酸"
+    type: "先進的な精製"
+    facility: "精製機"
+    recipes:
+      - id: sulfuric_acid_r0
+        craft_time: 6
+        main_output: sulfuric_acid
+        inputs:
+          - { id: sulfur, qty: 5 }
+          - { id: water, qty: 5 }
+        outputs:
+          - { id: sulfuric_acid, qty: 5 }
+      # 未包装硫酸（充填機）
+      - id: sulfuric_acid_r1
+        craft_time: 1
+        main_output: sulfuric_acid
+        inputs:
+          - { id: packaged_sulfuric_acid, qty: 1 }
+        outputs:
+          - { id: sulfuric_acid, qty: 1 }
+          - { id: empty_canister, qty: 1 }
+
+  - id: nitric_acid
+    name: "硝酸"
+    type: "先進的な精製"
+    facility: "混合機"
+    recipes:
+      - id: nitric_acid_r0
+        craft_time: 6
+        main_output: nitric_acid
+        inputs:
+          - { id: nitrogen_gas, qty: 12 }
+          - { id: water, qty: 3 }
+          - { id: iron_plate, qty: 1 }
+        outputs:
+          - { id: nitric_acid, qty: 3 }
+      # 未包装硝酸（充填機）
+      - id: nitric_acid_r1
+        craft_time: 3
+        main_output: nitric_acid
+        inputs:
+          - { id: packaged_nitric_acid, qty: 1 }
+        outputs:
+          - { id: nitric_acid, qty: 1 }
+          - { id: empty_fluid_tank, qty: 1 }
+
+  # --- 量子技術 ---
+  - id: diamonds
+    name: "ダイヤモンド"
+    type: "量子技術"
+    facility: "粒子加速器"
+    recipes:
+      - id: diamonds_r0
+        craft_time: 2
+        main_output: diamonds
+        inputs:
+          - { id: coal, qty: 20 }
+        outputs:
+          - { id: diamonds, qty: 1 }
+      # 代替: ダイヤモンド(石油)（粒子加速器）
+      - id: diamonds_r1
+        craft_time: 2
+        main_output: diamonds
+        inputs:
+          - { id: petroleum_coke, qty: 24 }
+        outputs:
+          - { id: diamonds, qty: 1 }
+
+  - id: time_crystal
+    name: "時の結晶"
+    type: "量子技術"
+    facility: "変換機"
+    recipes:
+      - id: time_crystal_r0
+        craft_time: 10
+        main_output: time_crystal
+        inputs:
+          - { id: diamonds, qty: 2 }
+        outputs:
+          - { id: time_crystal, qty: 1 }
+
+  - id: excited_photonic_matter
+    name: "励起フォトニック物質"
+    type: "量子技術"
+    facility: "変換機"
+    recipes:
+      - id: excited_photonic_matter_r0
+        craft_time: 3
+        main_output: excited_photonic_matter
+        inputs: []
+        outputs:
+          - { id: excited_photonic_matter, qty: 10 }
+
+  - id: dark_matter_residue
+    name: "ダークマターの残留物"
+    type: "量子技術"
+    facility: "変換機"
+    recipes:
+      - id: dark_matter_residue_r0
+        craft_time: 6
+        main_output: dark_matter_residue
+        inputs:
+          - { id: reanimated_sam, qty: 5 }
+        outputs:
+          - { id: dark_matter_residue, qty: 10 }
+
+  - id: dark_matter_crystal
+    name: "ダークマターの結晶"
+    type: "量子技術"
+    facility: "粒子加速器"
+    recipes:
+      - id: dark_matter_crystal_r0
+        craft_time: 2
+        main_output: dark_matter_crystal
+        inputs:
+          - { id: diamonds, qty: 1 }
+          - { id: dark_matter_residue, qty: 5 }
+        outputs:
+          - { id: dark_matter_crystal, qty: 1 }
+      # 代替: ダークマターのトラップ（粒子加速器）
+      - id: dark_matter_crystal_r1
+        craft_time: 2
+        main_output: dark_matter_crystal
+        inputs:
+          - { id: time_crystal, qty: 1 }
+          - { id: dark_matter_residue, qty: 5 }
+        outputs:
+          - { id: dark_matter_crystal, qty: 2 }
+
+  - id: singularity_cell
+    name: "シンギュラリティセル"
+    type: "量子技術"
+    facility: "製造機"
+    recipes:
+      - id: singularity_cell_r0
+        craft_time: 60
+        main_output: singularity_cell
+        inputs:
+          - { id: nuclear_pasta, qty: 1 }
+          - { id: dark_matter_crystal, qty: 20 }
+          - { id: iron_plate, qty: 100 }
+          - { id: concrete, qty: 200 }
+        outputs:
+          - { id: singularity_cell, qty: 10 }
+
+  - id: superposition_oscillator
+    name: "重ね合わせ発振器"
+    type: "量子技術"
+    facility: "量子エンコーダー"
+    recipes:
+      - id: superposition_oscillator_r0
+        craft_time: 12
+        main_output: superposition_oscillator
+        inputs:
+          - { id: dark_matter_crystal, qty: 6 }
+          - { id: crystal_oscillator, qty: 1 }
+          - { id: alclad_aluminum_sheet, qty: 9 }
+          - { id: excited_photonic_matter, qty: 25 }
+        outputs:
+          - { id: superposition_oscillator, qty: 1 }
+          - { id: dark_matter_residue, qty: 25 }
+
+  - id: neural_quantum_processor
+    name: "ニューラル量子プロセッサー"
+    type: "量子技術"
+    facility: "量子エンコーダー"
+    recipes:
+      - id: neural_quantum_processor_r0
+        craft_time: 20
+        main_output: neural_quantum_processor
+        inputs:
+          - { id: time_crystal, qty: 5 }
+          - { id: supercomputer, qty: 1 }
+          - { id: ficsite_trigon, qty: 15 }
+          - { id: excited_photonic_matter, qty: 25 }
+        outputs:
+          - { id: neural_quantum_processor, qty: 1 }
+          - { id: dark_matter_residue, qty: 25 }
+
+  - id: alien_power_matrix
+    name: "異星のパワーマトリックス"
+    type: "量子技術"
+    facility: "量子エンコーダー"
+    recipes:
+      - id: alien_power_matrix_r0
+        craft_time: 24
+        main_output: alien_power_matrix
+        inputs:
+          - { id: sam_fluctuator, qty: 5 }
+          - { id: power_shard, qty: 3 }
+          - { id: superposition_oscillator, qty: 3 }
+          - { id: excited_photonic_matter, qty: 24 }
+        outputs:
+          - { id: alien_power_matrix, qty: 1 }
+          - { id: dark_matter_residue, qty: 24 }
+
+  # --- 容器入り ---
+  - id: packaged_water
+    name: "包装済み水"
+    type: "容器入り"
+    facility: "充填機"
+    recipes:
+      - id: packaged_water_r0
+        craft_time: 2
+        main_output: packaged_water
+        inputs:
+          - { id: water, qty: 2 }
+          - { id: empty_canister, qty: 2 }
+        outputs:
+          - { id: packaged_water, qty: 2 }
+
+  - id: packaged_oil
+    name: "包装済み原油"
+    type: "容器入り"
+    facility: "充填機"
+    recipes:
+      - id: packaged_oil_r0
+        craft_time: 4
+        main_output: packaged_oil
+        inputs:
+          - { id: crude_oil, qty: 2 }
+          - { id: empty_canister, qty: 2 }
+        outputs:
+          - { id: packaged_oil, qty: 2 }
+
+  - id: packaged_heavy_oil_residue
+    name: "包装済み廃重油"
+    type: "容器入り"
+    facility: "充填機"
+    recipes:
+      - id: packaged_heavy_oil_residue_r0
+        craft_time: 4
+        main_output: packaged_heavy_oil_residue
+        inputs:
+          - { id: heavy_oil_residue, qty: 2 }
+          - { id: empty_canister, qty: 2 }
+        outputs:
+          - { id: packaged_heavy_oil_residue, qty: 2 }
+
+  - id: packaged_fuel
+    name: "包装済み燃料"
+    type: "容器入り"
+    facility: "充填機"
+    recipes:
+      - id: packaged_fuel_r0
+        craft_time: 3
+        main_output: packaged_fuel
+        inputs:
+          - { id: fuel, qty: 2 }
+          - { id: empty_canister, qty: 2 }
+        outputs:
+          - { id: packaged_fuel, qty: 2 }
+      # 代替: 容器入り希釈燃料（精製機）
+      - id: packaged_fuel_r1
+        craft_time: 2
+        main_output: packaged_fuel
+        inputs:
+          - { id: heavy_oil_residue, qty: 1 }
+          - { id: packaged_water, qty: 2 }
+        outputs:
+          - { id: packaged_fuel, qty: 2 }
+
+  - id: packaged_turbofuel
+    name: "容器入りターボ燃料"
+    type: "容器入り"
+    facility: "充填機"
+    recipes:
+      - id: packaged_turbofuel_r0
+        craft_time: 6
+        main_output: packaged_turbofuel
+        inputs:
+          - { id: turbofuel, qty: 2 }
+          - { id: empty_canister, qty: 2 }
+        outputs:
+          - { id: packaged_turbofuel, qty: 2 }
+
+  - id: packaged_liquid_biofuel
+    name: "包装済み液体バイオ燃料"
+    type: "容器入り"
+    facility: "充填機"
+    recipes:
+      - id: packaged_liquid_biofuel_r0
+        craft_time: 3
+        main_output: packaged_liquid_biofuel
+        inputs:
+          - { id: liquid_biofuel, qty: 2 }
+          - { id: empty_canister, qty: 2 }
+        outputs:
+          - { id: packaged_liquid_biofuel, qty: 2 }
+
+  - id: packaged_sulfuric_acid
+    name: "包装済み硫酸"
+    type: "容器入り"
+    facility: "充填機"
+    recipes:
+      - id: packaged_sulfuric_acid_r0
+        craft_time: 3
+        main_output: packaged_sulfuric_acid
+        inputs:
+          - { id: sulfuric_acid, qty: 2 }
+          - { id: empty_canister, qty: 2 }
+        outputs:
+          - { id: packaged_sulfuric_acid, qty: 2 }
+
+  - id: packaged_alumina_solution
+    name: "包装済みアルミナ溶液"
+    type: "容器入り"
+    facility: "充填機"
+    recipes:
+      - id: packaged_alumina_solution_r0
+        craft_time: 1
+        main_output: packaged_alumina_solution
+        inputs:
+          - { id: alumina_solution, qty: 2 }
+          - { id: empty_canister, qty: 2 }
+        outputs:
+          - { id: packaged_alumina_solution, qty: 2 }
+
+  - id: packaged_nitrogen_gas
+    name: "包装済み窒素ガス"
+    type: "容器入り"
+    facility: "充填機"
+    recipes:
+      - id: packaged_nitrogen_gas_r0
+        craft_time: 1
+        main_output: packaged_nitrogen_gas
+        inputs:
+          - { id: nitrogen_gas, qty: 4 }
+          - { id: empty_fluid_tank, qty: 1 }
+        outputs:
+          - { id: packaged_nitrogen_gas, qty: 1 }
+
+  - id: packaged_nitric_acid
+    name: "容器入り硝酸"
+    type: "容器入り"
+    facility: "充填機"
+    recipes:
+      - id: packaged_nitric_acid_r0
+        craft_time: 2
+        main_output: packaged_nitric_acid
+        inputs:
+          - { id: nitric_acid, qty: 1 }
+          - { id: empty_fluid_tank, qty: 1 }
+        outputs:
+          - { id: packaged_nitric_acid, qty: 1 }
+
+  - id: packaged_rocket_fuel
+    name: "包装済みロケット燃料"
+    type: "容器入り"
+    facility: "充填機"
+    recipes:
+      - id: packaged_rocket_fuel_r0
+        craft_time: 1
+        main_output: packaged_rocket_fuel
+        inputs:
+          - { id: rocket_fuel, qty: 2 }
+          - { id: empty_fluid_tank, qty: 1 }
+        outputs:
+          - { id: packaged_rocket_fuel, qty: 1 }
+
+  - id: packaged_ionized_fuel
+    name: "包装済みイオン燃料"
+    type: "容器入り"
+    facility: "充填機"
+    recipes:
+      - id: packaged_ionized_fuel_r0
+        craft_time: 3
+        main_output: packaged_ionized_fuel
+        inputs:
+          - { id: ionized_fuel, qty: 4 }
+          - { id: empty_fluid_tank, qty: 2 }
+        outputs:
+          - { id: packaged_ionized_fuel, qty: 2 }
+
+  # --- 貯蔵庫 ---
+  - id: empty_canister
+    name: "空の容器"
+    type: "貯蔵庫"
+    facility: "製作機"
+    recipes:
+      - id: empty_canister_r0
+        craft_time: 4
+        main_output: empty_canister
+        inputs:
+          - { id: plastic, qty: 2 }
+        outputs:
+          - { id: empty_canister, qty: 4 }
+      # 代替: 鋼鉄容器（製作機）
+      - id: empty_canister_r1
+        craft_time: 6
+        main_output: empty_canister
+        inputs:
+          - { id: steel_ingot, qty: 4 }
+        outputs:
+          - { id: empty_canister, qty: 4 }
+
+  - id: empty_fluid_tank
+    name: "空の液体タンク"
+    type: "貯蔵庫"
+    facility: "製作機"
+    recipes:
+      - id: empty_fluid_tank_r0
+        craft_time: 1
+        main_output: empty_fluid_tank
+        inputs:
+          - { id: aluminum_ingot, qty: 1 }
+        outputs:
+          - { id: empty_fluid_tank, qty: 1 }
+
+  - id: pressure_conversion_cube
+    name: "圧力変換キューブ"
+    type: "貯蔵庫"
+    facility: "組立機"
+    recipes:
+      - id: pressure_conversion_cube_r0
+        craft_time: 60
+        main_output: pressure_conversion_cube
+        inputs:
+          - { id: fused_modular_frame, qty: 1 }
+          - { id: radio_control_unit, qty: 2 }
+        outputs:
+          - { id: pressure_conversion_cube, qty: 1 }
+
+  # --- 原子力 ---
+  - id: electromagnetic_control_rod
+    name: "電磁制御棒"
+    type: "原子力"
+    facility: "組立機"
+    recipes:
+      - id: electromagnetic_control_rod_r0
+        craft_time: 30
+        main_output: electromagnetic_control_rod
+        inputs:
+          - { id: stator, qty: 3 }
+          - { id: ai_limiter, qty: 2 }
+        outputs:
+          - { id: electromagnetic_control_rod, qty: 2 }
+      # 代替: 電磁接続棒（組立機）
+      - id: electromagnetic_control_rod_r1
+        craft_time: 15
+        main_output: electromagnetic_control_rod
+        inputs:
+          - { id: stator, qty: 2 }
+          - { id: high_speed_connector, qty: 1 }
+        outputs:
+          - { id: electromagnetic_control_rod, qty: 2 }
+
+  - id: encased_uranium_cell
+    name: "被覆型ウラン・セル"
+    type: "原子力"
+    facility: "混合機"
+    recipes:
+      - id: encased_uranium_cell_r0
+        craft_time: 12
+        main_output: encased_uranium_cell
+        inputs:
+          - { id: uranium, qty: 10 }
+          - { id: concrete, qty: 3 }
+          - { id: sulfuric_acid, qty: 8 }
+        outputs:
+          - { id: encased_uranium_cell, qty: 5 }
+          - { id: sulfuric_acid, qty: 2 }
+
+  - id: uranium_fuel_rod
+    name: "ウラン燃料棒"
+    type: "原子力"
+    facility: "製造機"
+    recipes:
+      - id: uranium_fuel_rod_r0
+        craft_time: 150
+        main_output: uranium_fuel_rod
+        inputs:
+          - { id: encased_uranium_cell, qty: 50 }
+          - { id: encased_industrial_beam, qty: 3 }
+          - { id: electromagnetic_control_rod, qty: 5 }
+        outputs:
+          - { id: uranium_fuel_rod, qty: 1 }
+
+  - id: uranium_waste
+    name: "ウラン廃棄物"
+    type: "原子力"
+    facility: "原子力発電所"
+    recipes:
+      # 発電中の排出。燃料棒 1 本を 300 秒で燃やし、水 1200m³ を使う。
+      - id: uranium_waste_r0
+        craft_time: 300
+        main_output: uranium_waste
+        inputs:
+          - { id: uranium_fuel_rod, qty: 1 }
+          - { id: water, qty: 1200 }
+        outputs:
+          - { id: uranium_waste, qty: 50 }
+
+  - id: non_fissile_uranium
+    name: "非核分裂性ウラン"
+    type: "原子力"
+    facility: "混合機"
+    recipes:
+      - id: non_fissile_uranium_r0
+        craft_time: 24
+        main_output: non_fissile_uranium
+        inputs:
+          - { id: uranium_waste, qty: 15 }
+          - { id: silica, qty: 10 }
+          - { id: nitric_acid, qty: 6 }
+          - { id: sulfuric_acid, qty: 6 }
+        outputs:
+          - { id: non_fissile_uranium, qty: 20 }
+          - { id: water, qty: 6 }
+
+  - id: plutonium_pellet
+    name: "プルトニウム・ペレット"
+    type: "原子力"
+    facility: "粒子加速器"
+    recipes:
+      - id: plutonium_pellet_r0
+        craft_time: 60
+        main_output: plutonium_pellet
+        inputs:
+          - { id: non_fissile_uranium, qty: 100 }
+          - { id: uranium_waste, qty: 25 }
+        outputs:
+          - { id: plutonium_pellet, qty: 30 }
+
+  - id: encased_plutonium_cell
+    name: "被覆型プルトニウム・セル"
+    type: "原子力"
+    facility: "組立機"
+    recipes:
+      - id: encased_plutonium_cell_r0
+        craft_time: 12
+        main_output: encased_plutonium_cell
+        inputs:
+          - { id: plutonium_pellet, qty: 2 }
+          - { id: concrete, qty: 4 }
+        outputs:
+          - { id: encased_plutonium_cell, qty: 1 }
+
+  - id: plutonium_fuel_rod
+    name: "プルトニウム燃料棒"
+    type: "原子力"
+    facility: "製造機"
+    recipes:
+      - id: plutonium_fuel_rod_r0
+        craft_time: 240
+        main_output: plutonium_fuel_rod
+        inputs:
+          - { id: encased_plutonium_cell, qty: 30 }
+          - { id: steel_beam, qty: 18 }
+          - { id: electromagnetic_control_rod, qty: 6 }
+          - { id: heat_sink, qty: 10 }
+        outputs:
+          - { id: plutonium_fuel_rod, qty: 1 }
+
+  - id: plutonium_waste
+    name: "プルトニウム廃棄物"
+    type: "原子力"
+    facility: "原子力発電所"
+    recipes:
+      # 発電中の排出。燃料棒 1 本を 600 秒で燃やし、水 2400m³ を使う。
+      - id: plutonium_waste_r0
+        craft_time: 600
+        main_output: plutonium_waste
+        inputs:
+          - { id: plutonium_fuel_rod, qty: 1 }
+          - { id: water, qty: 2400 }
+        outputs:
+          - { id: plutonium_waste, qty: 10 }
+
+  - id: ficsonium
+    name: "FICSONIUM"
+    type: "原子力"
+    facility: "粒子加速器"
+    recipes:
+      - id: ficsonium_r0
+        craft_time: 6
+        main_output: ficsonium
+        inputs:
+          - { id: plutonium_waste, qty: 1 }
+          - { id: singularity_cell, qty: 1 }
+          - { id: dark_matter_residue, qty: 20 }
+        outputs:
+          - { id: ficsonium, qty: 1 }
+
+  - id: ficsonium_fuel_rod
+    name: "FICSONIUM燃料棒"
+    type: "原子力"
+    facility: "量子エンコーダー"
+    recipes:
+      - id: ficsonium_fuel_rod_r0
+        craft_time: 24
+        main_output: ficsonium_fuel_rod
+        inputs:
+          - { id: ficsonium, qty: 2 }
+          - { id: electromagnetic_control_rod, qty: 2 }
+          - { id: ficsite_trigon, qty: 40 }
+          - { id: excited_photonic_matter, qty: 20 }
+        outputs:
+          - { id: ficsonium_fuel_rod, qty: 1 }
+          - { id: dark_matter_residue, qty: 20 }
+
+  # --- 軌道エレベーター（プロジェクト・パーツ #1〜#12） ---
+  - id: smart_plating
+    name: "スマート・プレート"
+    type: "軌道エレベーター"
+    facility: "組立機"
+    recipes:
+      - id: smart_plating_r0
+        craft_time: 30
+        main_output: smart_plating
+        inputs:
+          - { id: reinforced_iron_plate, qty: 1 }
+          - { id: rotor, qty: 1 }
+        outputs:
+          - { id: smart_plating, qty: 1 }
+      # 代替: プラスチック・スマート・プレート（製造機）
+      - id: smart_plating_r1
+        craft_time: 24
+        main_output: smart_plating
+        inputs:
+          - { id: reinforced_iron_plate, qty: 1 }
+          - { id: rotor, qty: 1 }
+          - { id: plastic, qty: 3 }
+        outputs:
+          - { id: smart_plating, qty: 2 }
+
+  - id: versatile_framework
+    name: "多目的フレームワーク"
+    type: "軌道エレベーター"
+    facility: "組立機"
+    recipes:
+      - id: versatile_framework_r0
+        craft_time: 24
+        main_output: versatile_framework
+        inputs:
+          - { id: modular_frame, qty: 1 }
+          - { id: steel_beam, qty: 12 }
+        outputs:
+          - { id: versatile_framework, qty: 2 }
+      # 代替: フレキシブル・フレームワーク（製造機）
+      - id: versatile_framework_r1
+        craft_time: 16
+        main_output: versatile_framework
+        inputs:
+          - { id: modular_frame, qty: 1 }
+          - { id: steel_beam, qty: 6 }
+          - { id: rubber, qty: 8 }
+        outputs:
+          - { id: versatile_framework, qty: 2 }
+
+  - id: automated_wiring
+    name: "自動ワイヤー"
+    type: "軌道エレベーター"
+    facility: "組立機"
+    recipes:
+      - id: automated_wiring_r0
+        craft_time: 24
+        main_output: automated_wiring
+        inputs:
+          - { id: stator, qty: 1 }
+          - { id: cable, qty: 20 }
+        outputs:
+          - { id: automated_wiring, qty: 1 }
+      # 代替: 自動スピードワイヤー（製造機）
+      - id: automated_wiring_r1
+        craft_time: 32
+        main_output: automated_wiring
+        inputs:
+          - { id: stator, qty: 2 }
+          - { id: wire, qty: 40 }
+          - { id: high_speed_connector, qty: 1 }
+        outputs:
+          - { id: automated_wiring, qty: 4 }
+
+  - id: modular_engine
+    name: "モジュラーエンジン"
+    type: "軌道エレベーター"
+    facility: "製造機"
+    recipes:
+      - id: modular_engine_r0
+        craft_time: 60
+        main_output: modular_engine
+        inputs:
+          - { id: motor, qty: 2 }
+          - { id: rubber, qty: 15 }
+          - { id: smart_plating, qty: 2 }
+        outputs:
+          - { id: modular_engine, qty: 1 }
+
+  - id: adaptive_control_unit
+    name: "自律制御ユニット"
+    type: "軌道エレベーター"
+    facility: "製造機"
+    recipes:
+      - id: adaptive_control_unit_r0
+        craft_time: 60
+        main_output: adaptive_control_unit
+        inputs:
+          - { id: automated_wiring, qty: 5 }
+          - { id: circuit_board, qty: 5 }
+          - { id: heavy_modular_frame, qty: 1 }
+          - { id: computer, qty: 2 }
+        outputs:
+          - { id: adaptive_control_unit, qty: 1 }
+
+  - id: assembly_director_system
+    name: "組立指揮システム"
+    type: "軌道エレベーター"
+    facility: "組立機"
+    recipes:
+      - id: assembly_director_system_r0
+        craft_time: 80
+        main_output: assembly_director_system
+        inputs:
+          - { id: adaptive_control_unit, qty: 2 }
+          - { id: supercomputer, qty: 1 }
+        outputs:
+          - { id: assembly_director_system, qty: 1 }
+
+  - id: magnetic_field_generator
+    name: "磁界発生装置"
+    type: "軌道エレベーター"
+    facility: "製造機"
+    recipes:
+      - id: magnetic_field_generator_r0
+        craft_time: 120
+        main_output: magnetic_field_generator
+        inputs:
+          - { id: versatile_framework, qty: 5 }
+          - { id: electromagnetic_control_rod, qty: 2 }
+        outputs:
+          - { id: magnetic_field_generator, qty: 2 }
+
+  - id: thermal_propulsion_rocket
+    name: "熱推進型ロケット"
+    type: "軌道エレベーター"
+    facility: "製造機"
+    recipes:
+      - id: thermal_propulsion_rocket_r0
+        craft_time: 120
+        main_output: thermal_propulsion_rocket
+        inputs:
+          - { id: modular_engine, qty: 5 }
+          - { id: turbo_motor, qty: 2 }
+          - { id: cooling_system, qty: 6 }
+          - { id: fused_modular_frame, qty: 2 }
+        outputs:
+          - { id: thermal_propulsion_rocket, qty: 2 }
+
+  - id: nuclear_pasta
+    name: "核パスタ"
+    type: "軌道エレベーター"
+    facility: "粒子加速器"
+    recipes:
+      - id: nuclear_pasta_r0
+        craft_time: 120
+        main_output: nuclear_pasta
+        inputs:
+          - { id: copper_powder, qty: 200 }
+          - { id: pressure_conversion_cube, qty: 1 }
+        outputs:
+          - { id: nuclear_pasta, qty: 1 }
+
+  - id: biochemical_sculptor
+    name: "生化学スカルプター"
+    type: "軌道エレベーター"
+    facility: "混合機"
+    recipes:
+      - id: biochemical_sculptor_r0
+        craft_time: 120
+        main_output: biochemical_sculptor
+        inputs:
+          - { id: assembly_director_system, qty: 1 }
+          - { id: ficsite_trigon, qty: 80 }
+          - { id: water, qty: 20 }
+        outputs:
+          - { id: biochemical_sculptor, qty: 4 }
+
+  - id: ballistic_warp_drive
+    name: "弾道ワープドライブ"
+    type: "軌道エレベーター"
+    facility: "製造機"
+    recipes:
+      - id: ballistic_warp_drive_r0
+        craft_time: 60
+        main_output: ballistic_warp_drive
+        inputs:
+          - { id: thermal_propulsion_rocket, qty: 1 }
+          - { id: singularity_cell, qty: 5 }
+          - { id: superposition_oscillator, qty: 2 }
+          - { id: dark_matter_crystal, qty: 40 }
+        outputs:
+          - { id: ballistic_warp_drive, qty: 1 }
+
+  - id: ai_expansion_server
+    name: "AI拡張サーバー"
+    type: "軌道エレベーター"
+    facility: "量子エンコーダー"
+    recipes:
+      - id: ai_expansion_server_r0
+        craft_time: 15
+        main_output: ai_expansion_server
+        inputs:
+          - { id: magnetic_field_generator, qty: 1 }
+          - { id: neural_quantum_processor, qty: 1 }
+          - { id: superposition_oscillator, qty: 1 }
+          - { id: excited_photonic_matter, qty: 25 }
+        outputs:
+          - { id: ai_expansion_server, qty: 1 }
+          - { id: dark_matter_residue, qty: 25 }
+
+  # --- 採取物・遺骸 ---
+  - id: hog_remains
+    name: "ホッグの遺骸"
+    type: "資源"
+    facility: "採取（手作業）"
+    recipes:
+      - id: hog_remains_r0
+        craft_time: 1
+        main_output: hog_remains
+        inputs: []
+        outputs:
+          - { id: hog_remains, qty: 1 }
+
+  - id: hatcher_remains
+    name: "ハッチャーの遺骸"
+    type: "資源"
+    facility: "採取（手作業）"
+    recipes:
+      - id: hatcher_remains_r0
+        craft_time: 1
+        main_output: hatcher_remains
+        inputs: []
+        outputs:
+          - { id: hatcher_remains, qty: 1 }
+
+  - id: spitter_remains
+    name: "プラズマ・スピッターの遺骸"
+    type: "資源"
+    facility: "採取（手作業）"
+    recipes:
+      - id: spitter_remains_r0
+        craft_time: 1
+        main_output: spitter_remains
+        inputs: []
+        outputs:
+          - { id: spitter_remains, qty: 1 }
+
+  - id: stinger_remains
+    name: "スティンガーの遺骸"
+    type: "資源"
+    facility: "採取（手作業）"
+    recipes:
+      - id: stinger_remains_r0
+        craft_time: 1
+        main_output: stinger_remains
+        inputs: []
+        outputs:
+          - { id: stinger_remains, qty: 1 }
+
+  - id: beryl_nut
+    name: "ベリル・ナッツ"
+    type: "資源"
+    facility: "採取（手作業）"
+    recipes:
+      - id: beryl_nut_r0
+        craft_time: 1
+        main_output: beryl_nut
+        inputs: []
+        outputs:
+          - { id: beryl_nut, qty: 1 }
+
+  - id: paleberry
+    name: "パレベリー"
+    type: "資源"
+    facility: "採取（手作業）"
+    recipes:
+      - id: paleberry_r0
+        craft_time: 1
+        main_output: paleberry
+        inputs: []
+        outputs:
+          - { id: paleberry, qty: 1 }
+
+  - id: bacon_agaric
+    name: "ベーコンタケ"
+    type: "資源"
+    facility: "採取（手作業）"
+    recipes:
+      - id: bacon_agaric_r0
+        craft_time: 1
+        main_output: bacon_agaric
+        inputs: []
+        outputs:
+          - { id: bacon_agaric, qty: 1 }
+
+  # --- エイリアン研究 ---
+  - id: alien_protein
+    name: "エイリアンのタンパク質"
+    type: "バイオマス"
+    facility: "製作機"
+    recipes:
+      - id: alien_protein_r0
+        craft_time: 3
+        main_output: alien_protein
+        inputs:
+          - { id: hog_remains, qty: 1 }
+        outputs:
+          - { id: alien_protein, qty: 1 }
+      - id: alien_protein_r1
+        craft_time: 3
+        main_output: alien_protein
+        inputs:
+          - { id: hatcher_remains, qty: 1 }
+        outputs:
+          - { id: alien_protein, qty: 1 }
+      - id: alien_protein_r2
+        craft_time: 3
+        main_output: alien_protein
+        inputs:
+          - { id: spitter_remains, qty: 1 }
+        outputs:
+          - { id: alien_protein, qty: 1 }
+      - id: alien_protein_r3
+        craft_time: 3
+        main_output: alien_protein
+        inputs:
+          - { id: stinger_remains, qty: 1 }
+        outputs:
+          - { id: alien_protein, qty: 1 }
+
+  - id: alien_dna_capsule
+    name: "エイリアンのDNAカプセル"
+    type: "バイオマス"
+    facility: "製作機"
+    recipes:
+      - id: alien_dna_capsule_r0
+        craft_time: 6
+        main_output: alien_dna_capsule
+        inputs:
+          - { id: alien_protein, qty: 1 }
+        outputs:
+          - { id: alien_dna_capsule, qty: 1 }
+
+  # --- 弾薬 ---
+  - id: stun_rebar
+    name: "スタン鉄筋"
+    type: "弾薬"
+    facility: "組立機"
+    recipes:
+      - id: stun_rebar_r0
+        craft_time: 6
+        main_output: stun_rebar
+        inputs:
+          - { id: iron_rebar, qty: 1 }
+          - { id: quickwire, qty: 5 }
+        outputs:
+          - { id: stun_rebar, qty: 1 }
+
+  - id: shatter_rebar
+    name: "拡散鉄筋"
+    type: "弾薬"
+    facility: "組立機"
+    recipes:
+      - id: shatter_rebar_r0
+        craft_time: 12
+        main_output: shatter_rebar
+        inputs:
+          - { id: iron_rebar, qty: 2 }
+          - { id: quartz_crystal, qty: 3 }
+        outputs:
+          - { id: shatter_rebar, qty: 1 }
+
+  - id: explosive_rebar
+    name: "炸裂鉄筋"
+    type: "弾薬"
+    facility: "製造機"
+    recipes:
+      - id: explosive_rebar_r0
+        craft_time: 12
+        main_output: explosive_rebar
+        inputs:
+          - { id: iron_rebar, qty: 2 }
+          - { id: smokeless_powder, qty: 2 }
+          - { id: steel_pipe, qty: 2 }
+        outputs:
+          - { id: explosive_rebar, qty: 1 }
+
+  - id: gas_nobelisk
+    name: "毒ガス・ノーベリスク"
+    type: "弾薬"
+    facility: "組立機"
+    recipes:
+      - id: gas_nobelisk_r0
+        craft_time: 12
+        main_output: gas_nobelisk
+        inputs:
+          - { id: nobelisk, qty: 1 }
+          - { id: biomass, qty: 10 }
+        outputs:
+          - { id: gas_nobelisk, qty: 1 }
+
+  - id: pulse_nobelisk
+    name: "パルス・ノーベリスク"
+    type: "弾薬"
+    facility: "組立機"
+    recipes:
+      - id: pulse_nobelisk_r0
+        craft_time: 60
+        main_output: pulse_nobelisk
+        inputs:
+          - { id: nobelisk, qty: 5 }
+          - { id: crystal_oscillator, qty: 1 }
+        outputs:
+          - { id: pulse_nobelisk, qty: 5 }
+
+  - id: cluster_nobelisk
+    name: "クラスター・ノーベリスク"
+    type: "弾薬"
+    facility: "組立機"
+    recipes:
+      - id: cluster_nobelisk_r0
+        craft_time: 24
+        main_output: cluster_nobelisk
+        inputs:
+          - { id: nobelisk, qty: 3 }
+          - { id: smokeless_powder, qty: 4 }
+        outputs:
+          - { id: cluster_nobelisk, qty: 1 }
+
+  - id: nuke_nobelisk
+    name: "核ノーベリスク"
+    type: "弾薬"
+    facility: "製造機"
+    recipes:
+      - id: nuke_nobelisk_r0
+        craft_time: 120
+        main_output: nuke_nobelisk
+        inputs:
+          - { id: nobelisk, qty: 5 }
+          - { id: encased_uranium_cell, qty: 20 }
+          - { id: smokeless_powder, qty: 10 }
+          - { id: ai_limiter, qty: 6 }
+        outputs:
+          - { id: nuke_nobelisk, qty: 1 }
+
+  - id: homing_rifle_ammo
+    name: "ホーミングライフル弾"
+    type: "弾薬"
+    facility: "組立機"
+    recipes:
+      - id: homing_rifle_ammo_r0
+        craft_time: 24
+        main_output: homing_rifle_ammo
+        inputs:
+          - { id: rifle_ammo, qty: 20 }
+          - { id: high_speed_connector, qty: 1 }
+        outputs:
+          - { id: homing_rifle_ammo, qty: 10 }
+
+  - id: turbo_rifle_ammo
+    name: "ターボライフル弾"
+    type: "弾薬"
+    facility: "混合機"
+    recipes:
+      - id: turbo_rifle_ammo_r0
+        craft_time: 12
+        main_output: turbo_rifle_ammo
+        inputs:
+          - { id: rifle_ammo, qty: 25 }
+          - { id: aluminum_casing, qty: 3 }
+          - { id: turbofuel, qty: 3 }
+        outputs:
+          - { id: turbo_rifle_ammo, qty: 50 }
+      - id: turbo_rifle_ammo_r1
+        craft_time: 12
+        main_output: turbo_rifle_ammo
+        inputs:
+          - { id: rifle_ammo, qty: 25 }
+          - { id: aluminum_casing, qty: 3 }
+          - { id: packaged_turbofuel, qty: 3 }
+        outputs:
+          - { id: turbo_rifle_ammo, qty: 50 }
+
+  # --- 装備品・ツール・消耗品 ---
+  - id: medicinal_inhaler
+    name: "薬用吸入器"
+    type: "消耗品"
+    facility: "装備品作業場"
+    recipes:
+      - id: medicinal_inhaler_r0
+        craft_time: 10
+        main_output: medicinal_inhaler
+        inputs:
+          - { id: mycelia, qty: 10 }
+          - { id: paleberry, qty: 5 }
+        outputs:
+          - { id: medicinal_inhaler, qty: 1 }
+      - id: medicinal_inhaler_r1
+        craft_time: 10
+        main_output: medicinal_inhaler
+        inputs:
+          - { id: alien_protein, qty: 1 }
+          - { id: beryl_nut, qty: 10 }
+        outputs:
+          - { id: medicinal_inhaler, qty: 1 }
+      - id: medicinal_inhaler_r2
+        craft_time: 10
+        main_output: medicinal_inhaler
+        inputs:
+          - { id: mycelia, qty: 15 }
+          - { id: alien_protein, qty: 1 }
+          - { id: bacon_agaric, qty: 1 }
+        outputs:
+          - { id: medicinal_inhaler, qty: 1 }
+      - id: medicinal_inhaler_r3
+        craft_time: 10
+        main_output: medicinal_inhaler
+        inputs:
+          - { id: bacon_agaric, qty: 1 }
+          - { id: paleberry, qty: 2 }
+          - { id: beryl_nut, qty: 5 }
+        outputs:
+          - { id: medicinal_inhaler, qty: 1 }
+
+  - id: gas_mask
+    name: "ガスマスク"
+    type: "消耗品"
+    facility: "装備品作業場"
+    recipes:
+      - id: gas_mask_r0
+        craft_time: 30
+        main_output: gas_mask
+        inputs:
+          - { id: fabric, qty: 50 }
+          - { id: copper_sheet, qty: 10 }
+          - { id: steel_pipe, qty: 10 }
+        outputs:
+          - { id: gas_mask, qty: 1 }
+
+  - id: hazmat_suit
+    name: "防護スーツ"
+    type: "消耗品"
+    facility: "装備品作業場"
+    recipes:
+      - id: hazmat_suit_r0
+        craft_time: 50
+        main_output: hazmat_suit
+        inputs:
+          - { id: rubber, qty: 50 }
+          - { id: plastic, qty: 50 }
+          - { id: alclad_aluminum_sheet, qty: 50 }
+          - { id: fabric, qty: 50 }
+        outputs:
+          - { id: hazmat_suit, qty: 1 }
+
+  - id: jetpack
+    name: "ジェットパック"
+    type: "消耗品"
+    facility: "装備品作業場"
+    recipes:
+      - id: jetpack_r0
+        craft_time: 30
+        main_output: jetpack
+        inputs:
+          - { id: motor, qty: 5 }
+          - { id: steel_pipe, qty: 10 }
+          - { id: iron_plate, qty: 25 }
+          - { id: wire, qty: 50 }
+        outputs:
+          - { id: jetpack, qty: 1 }
+
+  - id: hoverpack
+    name: "ホバーパック"
+    type: "消耗品"
+    facility: "装備品作業場"
+    recipes:
+      - id: hoverpack_r0
+        craft_time: 60
+        main_output: hoverpack
+        inputs:
+          - { id: motor, qty: 8 }
+          - { id: heavy_modular_frame, qty: 4 }
+          - { id: computer, qty: 8 }
+          - { id: alclad_aluminum_sheet, qty: 40 }
+        outputs:
+          - { id: hoverpack, qty: 1 }
+
+  - id: chainsaw
+    name: "チェーンソー"
+    type: "消耗品"
+    facility: "装備品作業場"
+    recipes:
+      - id: chainsaw_r0
+        craft_time: 20
+        main_output: chainsaw
+        inputs:
+          - { id: reinforced_iron_plate, qty: 5 }
+          - { id: iron_rod, qty: 25 }
+          - { id: screw, qty: 160 }
+          - { id: cable, qty: 15 }
+        outputs:
+          - { id: chainsaw, qty: 1 }
+
+  - id: blade_runners
+    name: "ブレードランナーズ"
+    type: "消耗品"
+    facility: "装備品作業場"
+    recipes:
+      - id: blade_runners_r0
+        craft_time: 30
+        main_output: blade_runners
+        inputs:
+          - { id: silica, qty: 20 }
+          - { id: modular_frame, qty: 3 }
+          - { id: rotor, qty: 3 }
+        outputs:
+          - { id: blade_runners, qty: 1 }
+
+  - id: parachute
+    name: "パラシュート"
+    type: "消耗品"
+    facility: "装備品作業場"
+    recipes:
+      - id: parachute_r0
+        craft_time: 20
+        main_output: parachute
+        inputs:
+          - { id: fabric, qty: 20 }
+          - { id: cable, qty: 10 }
+        outputs:
+          - { id: parachute, qty: 1 }
+
+  - id: zipline
+    name: "ジップライン"
+    type: "消耗品"
+    facility: "装備品作業場"
+    recipes:
+      - id: zipline_r0
+        craft_time: 20
+        main_output: zipline
+        inputs:
+          - { id: xeno_zapper, qty: 1 }
+          - { id: quickwire, qty: 30 }
+          - { id: iron_rod, qty: 3 }
+          - { id: cable, qty: 10 }
+        outputs:
+          - { id: zipline, qty: 1 }
+
+  - id: xeno_zapper
+    name: "ゼノ・ザッパー"
+    type: "消耗品"
+    facility: "装備品作業場"
+    recipes:
+      - id: xeno_zapper_r0
+        craft_time: 20
+        main_output: xeno_zapper
+        inputs:
+          - { id: iron_rod, qty: 10 }
+          - { id: reinforced_iron_plate, qty: 2 }
+          - { id: cable, qty: 15 }
+          - { id: wire, qty: 50 }
+        outputs:
+          - { id: xeno_zapper, qty: 1 }
+
+  - id: xeno_basher
+    name: "ゼノ・バッシャー"
+    type: "消耗品"
+    facility: "装備品作業場"
+    recipes:
+      - id: xeno_basher_r0
+        craft_time: 40
+        main_output: xeno_basher
+        inputs:
+          - { id: xeno_zapper, qty: 2 }
+          - { id: modular_frame, qty: 5 }
+          - { id: iron_rod, qty: 25 }
+          - { id: wire, qty: 500 }
+        outputs:
+          - { id: xeno_basher, qty: 1 }
+
+  - id: rebar_gun
+    name: "鉄筋ガン"
+    type: "消耗品"
+    facility: "装備品作業場"
+    recipes:
+      - id: rebar_gun_r0
+        craft_time: 30
+        main_output: rebar_gun
+        inputs:
+          - { id: reinforced_iron_plate, qty: 6 }
+          - { id: iron_rod, qty: 16 }
+          - { id: screw, qty: 100 }
+        outputs:
+          - { id: rebar_gun, qty: 1 }
+
+  - id: rifle
+    name: "ライフル銃"
+    type: "消耗品"
+    facility: "装備品作業場"
+    recipes:
+      - id: rifle_r0
+        craft_time: 60
+        main_output: rifle
+        inputs:
+          - { id: motor, qty: 2 }
+          - { id: rubber, qty: 10 }
+          - { id: steel_pipe, qty: 25 }
+          - { id: screw, qty: 250 }
+        outputs:
+          - { id: rifle, qty: 1 }
+
+  - id: nobelisk_detonator
+    name: "ノーベリスク起爆装置"
+    type: "消耗品"
+    facility: "装備品作業場"
+    recipes:
+      - id: nobelisk_detonator_r0
+        craft_time: 40
+        main_output: nobelisk_detonator
+        inputs:
+          - { id: object_scanner, qty: 1 }
+          - { id: steel_beam, qty: 10 }
+          - { id: cable, qty: 50 }
+        outputs:
+          - { id: nobelisk_detonator, qty: 1 }
+
+  - id: object_scanner
+    name: "オブジェクト・スキャナー"
+    type: "消耗品"
+    facility: "装備品作業場"
+    recipes:
+      - id: object_scanner_r0
+        craft_time: 20
+        main_output: object_scanner
+        inputs:
+          - { id: reinforced_iron_plate, qty: 4 }
+          - { id: wire, qty: 20 }
+          - { id: screw, qty: 50 }
+        outputs:
+          - { id: object_scanner, qty: 1 }
+
+  - id: portable_miner
+    name: "携帯式採鉱機"
+    type: "消耗品"
+    facility: "装備品作業場"
+    recipes:
+      - id: portable_miner_r0
+        craft_time: 20
+        main_output: portable_miner
+        inputs:
+          - { id: iron_plate, qty: 2 }
+          - { id: iron_rod, qty: 4 }
+        outputs:
+          - { id: portable_miner, qty: 1 }
+      - id: portable_miner_r1
+        craft_time: 60
+        main_output: portable_miner
+        inputs:
+          - { id: steel_pipe, qty: 4 }
+          - { id: iron_plate, qty: 4 }
+        outputs:
+          - { id: portable_miner, qty: 1 }

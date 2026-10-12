@@ -1,0 +1,92 @@
+[
+  {
+    "game_id": "satisfactory",
+    "id": "dark_matter_crystal",
+    "name": "ダークマターの結晶",
+    "type": "量子技術",
+    "facility": "粒子加速器",
+    "is_raw": false,
+    "used_as_in": true
+  },
+  {
+    "game_id": "satisfactory",
+    "id": "dark_matter_residue",
+    "name": "ダークマターの残留物",
+    "type": "量子技術",
+    "facility": "変換機",
+    "is_raw": false,
+    "used_as_in": true
+  },
+  {
+    "game_id": "satisfactory",
+    "id": "excited_photonic_matter",
+    "name": "励起フォトニック物質",
+    "type": "量子技術",
+    "facility": "変換機",
+    "is_raw": true,
+    "used_as_in": true
+  },
+  {
+    "game_id": "satisfactory",
+    "id": "ficsonium",
+    "name": "FICSONIUM",
+    "type": "原子力",
+    "facility": "粒子加速器",
+    "is_raw": false,
+    "used_as_in": true
+  },
+  {
+    "game_id": "satisfactory",
+    "id": "neural_quantum_processor",
+    "name": "ニューラル量子プロセッサー",
+    "type": "量子技術",
+    "facility": "量子エンコーダー",
+    "is_raw": false,
+    "used_as_in": true
+  },
+  {
+    "game_id": "satisfactory",
+    "id": "packaged_ionized_fuel",
+    "name": "包装済みイオン燃料",
+    "type": "容器入り",
+    "facility": "充填機",
+    "is_raw": false,
+    "used_as_in": true
+  },
+  {
+    "game_id": "satisfactory",
+    "id": "packaged_rocket_fuel",
+    "name": "包装済みロケット燃料",
+    "type": "容器入り",
+    "facility": "充填機",
+    "is_raw": false,
+    "used_as_in": true
+  },
+  {
+    "game_id": "satisfactory",
+    "id": "sam_fluctuator",
+    "name": "SAM 変動機",
+    "type": "電子機器",
+    "facility": "製造機",
+    "is_raw": false,
+    "used_as_in": true
+  },
+  {
+    "game_id": "satisfactory",
+    "id": "singularity_cell",
+    "name": "シンギュラリティセル",
+    "type": "量子技術",
+    "facility": "製造機",
+    "is_raw": false,
+    "used_as_in": true
+  },
+  {
+    "game_id": "satisfactory",
+    "id": "spitter_remains",
+    "name": "プラズマ・スピッターの遺骸",
+    "type": "資源",
+    "facility": "採取（手作業）",
+    "is_raw": true,
+    "used_as_in": true
+  }
+]

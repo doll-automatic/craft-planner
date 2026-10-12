@@ -1,0 +1,1412 @@
+# Timberborn の素材データ。
+# Update 5 / Update 6 最新の公式レシピ・公式日本語ローカライズ表記に準拠。
+# フォークテイル（Folktails）およびアイアン・ティース（Iron Teeth）両陣営の生産チェーンを包含。
+# 木工・建材、食料・農業、金属・工業、生化学・ボット、水利、ウェルビーイング関連の生産品を網羅。
+# レシピ時間（craft_time）はゲーム内レシピの作業時間（CycleDurationInHours）。
+# 燃料（丸太）を消費する施設（パン屋、グリル、精錬所、遠心分離機等）は、丸太1本あたりのサイクル数（10回または5回）に換算して整数比率を保ったレシピを先頭に設定し、単一サイクルのレシピを代替として収録。
+# 原材料・農作物・水・採取物は入力なし（inputs: []）のレシピとして表現。
+# ツリー展開・集計・施設数算出は各アイテムの先頭レシピ（Recipes[0]）を使用する。
+
+name: "Timberborn"
+
+items:
+  # ==========================================
+  # 木材・建材 (Wood & Building Materials)
+  # ==========================================
+  - id: log
+    name: "丸太"
+    type: "木材"
+    facility: "木こりの基点"
+    recipes:
+      - id: log_r0
+        craft_time: 1.0
+        main_output: log
+        inputs: []
+        outputs:
+          - { id: log, qty: 1 }
+      - id: log_r1
+        craft_time: 30.0
+        main_output: log
+        inputs: []
+        outputs:
+          - { id: log, qty: 8 }
+      - id: log_r2
+        craft_time: 12.0
+        main_output: log
+        inputs: []
+        outputs:
+          - { id: log, qty: 2 }
+      - id: log_r3
+        craft_time: 9.0
+        main_output: log
+        inputs: []
+        outputs:
+          - { id: log, qty: 1 }
+      - id: log_r4
+        craft_time: 24.0
+        main_output: log
+        inputs: []
+        outputs:
+          - { id: log, qty: 3 }
+
+  - id: plank
+    name: "板"
+    type: "木材"
+    facility: "製材所"
+    recipes:
+      - id: plank_r0
+        craft_time: 1.3
+        main_output: plank
+        inputs:
+          - { id: log, qty: 1 }
+        outputs:
+          - { id: plank, qty: 1 }
+      - id: plank_r1
+        craft_time: 0.63
+        main_output: plank
+        inputs:
+          - { id: log, qty: 1 }
+        outputs:
+          - { id: plank, qty: 1 }
+
+  - id: gear
+    name: "歯車"
+    type: "木材"
+    facility: "歯車製造所"
+    recipes:
+      - id: gear_r0
+        craft_time: 3.0
+        main_output: gear
+        inputs:
+          - { id: plank, qty: 1 }
+        outputs:
+          - { id: gear, qty: 1 }
+
+  - id: pine_resin
+    name: "松脂"
+    type: "木材"
+    facility: "タッパーの小屋"
+    recipes:
+      - id: pine_resin_r0
+        craft_time: 1.0
+        main_output: pine_resin
+        inputs: []
+        outputs:
+          - { id: pine_resin, qty: 1 }
+
+  - id: treated_plank
+    name: "加工された板"
+    type: "木材"
+    facility: "木材加工所"
+    recipes:
+      - id: treated_plank_r0
+        craft_time: 3.0
+        main_output: treated_plank
+        inputs:
+          - { id: plank, qty: 1 }
+          - { id: pine_resin, qty: 1 }
+        outputs:
+          - { id: treated_plank, qty: 1 }
+
+  - id: paper
+    name: "紙"
+    type: "木材"
+    facility: "製紙工場"
+    recipes:
+      - id: paper_r0
+        craft_time: 1.6
+        main_output: paper
+        inputs:
+          - { id: log, qty: 1 }
+        outputs:
+          - { id: paper, qty: 2 }
+
+  - id: book
+    name: "本"
+    type: "木材"
+    facility: "印刷所"
+    recipes:
+      - id: book_r0
+        craft_time: 1.5
+        main_output: book
+        inputs:
+          - { id: paper, qty: 1 }
+        outputs:
+          - { id: book, qty: 1 }
+
+  - id: punch_card
+    name: "パンチカード"
+    type: "木材"
+    facility: "印刷所"
+    recipes:
+      - id: punch_card_r0
+        craft_time: 0.75
+        main_output: punch_card
+        inputs:
+          - { id: paper, qty: 2 }
+          - { id: plank, qty: 1 }
+        outputs:
+          - { id: punch_card, qty: 2 }
+
+  # ==========================================
+  # 金属・工業・整地 (Metal & Industry)
+  # ==========================================
+  - id: scrap_metal
+    name: "金属スクラップ"
+    type: "金属"
+    facility: "清掃員の基点"
+    recipes:
+      - id: scrap_metal_r0
+        craft_time: 1.0
+        main_output: scrap_metal
+        inputs: []
+        outputs:
+          - { id: scrap_metal, qty: 1 }
+      - id: scrap_metal_r1
+        craft_time: 1.8
+        main_output: scrap_metal
+        inputs:
+          - { id: treated_plank, qty: 1 }
+          - { id: gear, qty: 1 }
+        outputs:
+          - { id: scrap_metal, qty: 5 }
+      - id: scrap_metal_r2
+        craft_time: 1.8
+        main_output: scrap_metal
+        inputs:
+          - { id: treated_plank, qty: 1 }
+          - { id: extract, qty: 2 }
+        outputs:
+          - { id: scrap_metal, qty: 10 }
+
+  - id: metal_block
+    name: "金属ブロック"
+    type: "金属"
+    facility: "精錬所"
+    recipes:
+      - id: metal_block_r0
+        craft_time: 10.0
+        main_output: metal_block
+        inputs:
+          - { id: scrap_metal, qty: 10 }
+          - { id: log, qty: 1 }
+        outputs:
+          - { id: metal_block, qty: 5 }
+      - id: metal_block_r1
+        craft_time: 2.0
+        main_output: metal_block
+        inputs:
+          - { id: scrap_metal, qty: 2 }
+        outputs:
+          - { id: metal_block, qty: 1 }
+
+  - id: metal_parts
+    name: "金属パーツ"
+    type: "金属"
+    facility: "鍛冶屋"
+    recipes:
+      - id: metal_parts_r0
+        craft_time: 15.0
+        main_output: metal_parts
+        inputs:
+          - { id: scrap_metal, qty: 5 }
+          - { id: log, qty: 1 }
+        outputs:
+          - { id: metal_parts, qty: 5 }
+      - id: metal_parts_r1
+        craft_time: 3.0
+        main_output: metal_parts
+        inputs:
+          - { id: scrap_metal, qty: 1 }
+        outputs:
+          - { id: metal_parts, qty: 1 }
+
+  - id: dirt
+    name: "土砂"
+    type: "材料"
+    facility: "土砂採掘機"
+    recipes:
+      - id: dirt_r0
+        craft_time: 2.0
+        main_output: dirt
+        inputs: []
+        outputs:
+          - { id: dirt, qty: 6 }
+
+  - id: badwater
+    name: "汚水"
+    type: "水"
+    facility: "汚水ポンプ"
+    recipes:
+      - id: badwater_r0
+        craft_time: 0.33
+        main_output: badwater
+        inputs: []
+        outputs:
+          - { id: badwater, qty: 1 }
+      - id: badwater_r1
+        craft_time: 0.33
+        main_output: badwater
+        inputs: []
+        outputs:
+          - { id: badwater, qty: 1 }
+
+  - id: extract
+    name: "精製物"
+    type: "材料"
+    facility: "遠心分離機"
+    recipes:
+      - id: extract_r0
+        craft_time: 7.5
+        main_output: extract
+        inputs:
+          - { id: badwater, qty: 40 }
+          - { id: log, qty: 1 }
+        outputs:
+          - { id: extract, qty: 10 }
+      - id: extract_r1
+        craft_time: 0.75
+        main_output: extract
+        inputs:
+          - { id: badwater, qty: 4 }
+        outputs:
+          - { id: extract, qty: 1 }
+
+  - id: explosives
+    name: "爆薬"
+    type: "材料"
+    facility: "爆薬工場"
+    recipes:
+      - id: explosives_r0
+        craft_time: 3.0
+        main_output: explosives
+        inputs:
+          - { id: badwater, qty: 5 }
+        outputs:
+          - { id: explosives, qty: 1 }
+
+  - id: fireworks
+    name: "花火"
+    type: "材料"
+    facility: "爆薬工場"
+    recipes:
+      - id: fireworks_r0
+        craft_time: 3.0
+        main_output: fireworks
+        inputs:
+          - { id: explosives, qty: 1 }
+        outputs:
+          - { id: fireworks, qty: 10 }
+
+  # ==========================================
+  # 水・農業・原材料 (Water & Agriculture)
+  # ==========================================
+  - id: water
+    name: "水"
+    type: "水"
+    facility: "汲水ポンプ"
+    recipes:
+      - id: water_r0
+        craft_time: 0.33
+        main_output: water
+        inputs: []
+        outputs:
+          - { id: water, qty: 1 }
+      - id: water_r1
+        craft_time: 0.5
+        main_output: water
+        inputs: []
+        outputs:
+          - { id: water, qty: 5 }
+      - id: water_r2
+        craft_time: 0.33
+        main_output: water
+        inputs: []
+        outputs:
+          - { id: water, qty: 1 }
+
+  - id: berries
+    name: "ベリー"
+    type: "食料"
+    facility: "採集者の基点"
+    recipes:
+      - id: berries_r0
+        craft_time: 12.0
+        main_output: berries
+        inputs: []
+        outputs:
+          - { id: berries, qty: 3 }
+
+  - id: dandelion
+    name: "タンポポ"
+    type: "ウェルビーイング"
+    facility: "採集者の基点"
+    recipes:
+      - id: dandelion_r0
+        craft_time: 1.0
+        main_output: dandelion
+        inputs: []
+        outputs:
+          - { id: dandelion, qty: 1 }
+
+  - id: chestnut
+    name: "栗"
+    type: "食料"
+    facility: "採集者の基点"
+    recipes:
+      - id: chestnut_r0
+        craft_time: 8.0
+        main_output: chestnut
+        inputs: []
+        outputs:
+          - { id: chestnut, qty: 3 }
+
+  - id: coffee_beans
+    name: "コーヒー豆"
+    type: "食料"
+    facility: "採集者の基点"
+    recipes:
+      - id: coffee_beans_r0
+        craft_time: 8.0
+        main_output: coffee_beans
+        inputs: []
+        outputs:
+          - { id: coffee_beans, qty: 3 }
+
+  - id: mangrove_fruit
+    name: "マングローブの実"
+    type: "食料"
+    facility: "採集者の基点"
+    recipes:
+      - id: mangrove_fruit_r0
+        craft_time: 12.0
+        main_output: mangrove_fruit
+        inputs: []
+        outputs:
+          - { id: mangrove_fruit, qty: 3 }
+
+  - id: maple_syrup
+    name: "メープルシロップ"
+    type: "食料"
+    facility: "タッパーの小屋"
+    recipes:
+      - id: maple_syrup_r0
+        craft_time: 12.0
+        main_output: maple_syrup
+        inputs: []
+        outputs:
+          - { id: maple_syrup, qty: 3 }
+
+  - id: carrot
+    name: "ニンジン"
+    type: "食料"
+    facility: "農場"
+    recipes:
+      - id: carrot_r0
+        craft_time: 4.0
+        main_output: carrot
+        inputs: []
+        outputs:
+          - { id: carrot, qty: 3 }
+
+  - id: sunflower_seed
+    name: "向日葵の種"
+    type: "食料"
+    facility: "農場"
+    recipes:
+      - id: sunflower_seed_r0
+        craft_time: 5.0
+        main_output: sunflower_seed
+        inputs: []
+        outputs:
+          - { id: sunflower_seed, qty: 2 }
+
+  - id: potato
+    name: "ジャガイモ"
+    type: "食料"
+    facility: "農場"
+    recipes:
+      - id: potato_r0
+        craft_time: 6.0
+        main_output: potato
+        inputs: []
+        outputs:
+          - { id: potato, qty: 1 }
+
+  - id: wheat
+    name: "小麦"
+    type: "食料"
+    facility: "農場"
+    recipes:
+      - id: wheat_r0
+        craft_time: 10.0
+        main_output: wheat
+        inputs: []
+        outputs:
+          - { id: wheat, qty: 3 }
+
+  - id: cattail_root
+    name: "ガマの根"
+    type: "食料"
+    facility: "水生農場"
+    recipes:
+      - id: cattail_root_r0
+        craft_time: 8.0
+        main_output: cattail_root
+        inputs: []
+        outputs:
+          - { id: cattail_root, qty: 3 }
+
+  - id: spadderdock
+    name: "セイヨウコウホネ"
+    type: "食料"
+    facility: "水生農場"
+    recipes:
+      - id: spadderdock_r0
+        craft_time: 12.0
+        main_output: spadderdock
+        inputs: []
+        outputs:
+          - { id: spadderdock, qty: 3 }
+
+  - id: kohlrabi
+    name: "コールラビ"
+    type: "食料"
+    facility: "農場"
+    recipes:
+      - id: kohlrabi_r0
+        craft_time: 3.0
+        main_output: kohlrabi
+        inputs: []
+        outputs:
+          - { id: kohlrabi, qty: 3 }
+
+  - id: canola_seeds
+    name: "キャノーラ種子"
+    type: "食料"
+    facility: "農場"
+    recipes:
+      - id: canola_seeds_r0
+        craft_time: 6.0
+        main_output: canola_seeds
+        inputs: []
+        outputs:
+          - { id: canola_seeds, qty: 3 }
+
+  - id: cassava
+    name: "キャッサバ"
+    type: "食料"
+    facility: "農場"
+    recipes:
+      - id: cassava_r0
+        craft_time: 5.0
+        main_output: cassava
+        inputs: []
+        outputs:
+          - { id: cassava, qty: 1 }
+
+  - id: soybean
+    name: "大豆"
+    type: "食料"
+    facility: "農場"
+    recipes:
+      - id: soybean_r0
+        craft_time: 8.0
+        main_output: soybean
+        inputs: []
+        outputs:
+          - { id: soybean, qty: 2 }
+
+  - id: corn
+    name: "トウモロコシ"
+    type: "食料"
+    facility: "農場"
+    recipes:
+      - id: corn_r0
+        craft_time: 10.0
+        main_output: corn
+        inputs: []
+        outputs:
+          - { id: corn, qty: 2 }
+
+  - id: eggplant
+    name: "ナス"
+    type: "食料"
+    facility: "農場"
+    recipes:
+      - id: eggplant_r0
+        craft_time: 12.0
+        main_output: eggplant
+        inputs: []
+        outputs:
+          - { id: eggplant, qty: 3 }
+
+  - id: mushroom
+    name: "キノコ"
+    type: "食料"
+    facility: "水耕栽培所"
+    recipes:
+      - id: mushroom_r0
+        craft_time: 192.0
+        main_output: mushroom
+        inputs:
+          - { id: water, qty: 40 }
+        outputs:
+          - { id: mushroom, qty: 45 }
+
+  - id: algae
+    name: "藻類"
+    type: "食料"
+    facility: "水耕栽培所"
+    recipes:
+      - id: algae_r0
+        craft_time: 288.0
+        main_output: algae
+        inputs:
+          - { id: water, qty: 60 }
+        outputs:
+          - { id: algae, qty: 70 }
+
+  # ==========================================
+  # 食料加工品 (Processed Food)
+  # ==========================================
+  - id: wheat_flour
+    name: "小麦粉"
+    type: "食料"
+    facility: "製粉所"
+    recipes:
+      - id: wheat_flour_r0
+        craft_time: 0.5
+        main_output: wheat_flour
+        inputs:
+          - { id: wheat, qty: 1 }
+        outputs:
+          - { id: wheat_flour, qty: 1 }
+
+  - id: cattail_flour
+    name: "ガマ粉"
+    type: "食料"
+    facility: "製粉所"
+    recipes:
+      - id: cattail_flour_r0
+        craft_time: 0.25
+        main_output: cattail_flour
+        inputs:
+          - { id: cattail_root, qty: 1 }
+        outputs:
+          - { id: cattail_flour, qty: 1 }
+
+  - id: bread
+    name: "パン"
+    type: "食料"
+    facility: "パン焼き工房"
+    recipes:
+      - id: bread_r0
+        craft_time: 10.0
+        main_output: bread
+        inputs:
+          - { id: wheat_flour, qty: 10 }
+          - { id: log, qty: 1 }
+        outputs:
+          - { id: bread, qty: 50 }
+      - id: bread_r1
+        craft_time: 1.0
+        main_output: bread
+        inputs:
+          - { id: wheat_flour, qty: 1 }
+        outputs:
+          - { id: bread, qty: 5 }
+
+  - id: cattail_cracker
+    name: "ガマクラッカー"
+    type: "食料"
+    facility: "パン焼き工房"
+    recipes:
+      - id: cattail_cracker_r0
+        craft_time: 5.0
+        main_output: cattail_cracker
+        inputs:
+          - { id: cattail_flour, qty: 10 }
+          - { id: log, qty: 1 }
+        outputs:
+          - { id: cattail_cracker, qty: 40 }
+      - id: cattail_cracker_r1
+        craft_time: 0.5
+        main_output: cattail_cracker
+        inputs:
+          - { id: cattail_flour, qty: 1 }
+        outputs:
+          - { id: cattail_cracker, qty: 4 }
+
+  - id: maple_pastry
+    name: "メープルペストリー"
+    type: "食料"
+    facility: "パン焼き工房"
+    recipes:
+      - id: maple_pastry_r0
+        craft_time: 15.0
+        main_output: maple_pastry
+        inputs:
+          - { id: wheat_flour, qty: 10 }
+          - { id: maple_syrup, qty: 10 }
+          - { id: log, qty: 1 }
+        outputs:
+          - { id: maple_pastry, qty: 30 }
+      - id: maple_pastry_r1
+        craft_time: 1.5
+        main_output: maple_pastry
+        inputs:
+          - { id: wheat_flour, qty: 1 }
+          - { id: maple_syrup, qty: 1 }
+        outputs:
+          - { id: maple_pastry, qty: 3 }
+
+  - id: grilled_potato
+    name: "グリルドポテト"
+    type: "食料"
+    facility: "グリル"
+    recipes:
+      - id: grilled_potato_r0
+        craft_time: 5.2
+        main_output: grilled_potato
+        inputs:
+          - { id: potato, qty: 10 }
+          - { id: log, qty: 1 }
+        outputs:
+          - { id: grilled_potato, qty: 40 }
+      - id: grilled_potato_r1
+        craft_time: 0.52
+        main_output: grilled_potato
+        inputs:
+          - { id: potato, qty: 1 }
+        outputs:
+          - { id: grilled_potato, qty: 4 }
+
+  - id: grilled_chestnut
+    name: "焼き栗"
+    type: "食料"
+    facility: "グリル"
+    recipes:
+      - id: grilled_chestnut_r0
+        craft_time: 3.3
+        main_output: grilled_chestnut
+        inputs:
+          - { id: chestnut, qty: 10 }
+          - { id: log, qty: 1 }
+        outputs:
+          - { id: grilled_chestnut, qty: 20 }
+      - id: grilled_chestnut_r1
+        craft_time: 0.33
+        main_output: grilled_chestnut
+        inputs:
+          - { id: chestnut, qty: 1 }
+        outputs:
+          - { id: grilled_chestnut, qty: 2 }
+
+  - id: grilled_spadderdock
+    name: "焼きコウホネ"
+    type: "食料"
+    facility: "グリル"
+    recipes:
+      - id: grilled_spadderdock_r0
+        craft_time: 4.0
+        main_output: grilled_spadderdock
+        inputs:
+          - { id: spadderdock, qty: 10 }
+          - { id: log, qty: 1 }
+        outputs:
+          - { id: grilled_spadderdock, qty: 30 }
+      - id: grilled_spadderdock_r1
+        craft_time: 0.4
+        main_output: grilled_spadderdock
+        inputs:
+          - { id: spadderdock, qty: 1 }
+        outputs:
+          - { id: grilled_spadderdock, qty: 3 }
+
+  - id: canola_oil
+    name: "キャノーラ油"
+    type: "食料"
+    facility: "搾油機"
+    recipes:
+      - id: canola_oil_r0
+        craft_time: 1.3
+        main_output: canola_oil
+        inputs:
+          - { id: canola_seeds, qty: 1 }
+        outputs:
+          - { id: canola_oil, qty: 1 }
+
+  - id: fermented_cassava
+    name: "発酵キャッサバ"
+    type: "食料"
+    facility: "発酵所"
+    recipes:
+      - id: fermented_cassava_r0
+        craft_time: 2.0
+        main_output: fermented_cassava
+        inputs:
+          - { id: cassava, qty: 4 }
+        outputs:
+          - { id: fermented_cassava, qty: 10 }
+
+  - id: fermented_soybean
+    name: "発酵大豆"
+    type: "食料"
+    facility: "発酵所"
+    recipes:
+      - id: fermented_soybean_r0
+        craft_time: 3.0
+        main_output: fermented_soybean
+        inputs:
+          - { id: soybean, qty: 6 }
+          - { id: canola_oil, qty: 1 }
+        outputs:
+          - { id: fermented_soybean, qty: 20 }
+
+  - id: fermented_mushroom
+    name: "発酵キノコ"
+    type: "食料"
+    facility: "発酵所"
+    recipes:
+      - id: fermented_mushroom_r0
+        craft_time: 2.0
+        main_output: fermented_mushroom
+        inputs:
+          - { id: mushroom, qty: 4 }
+        outputs:
+          - { id: fermented_mushroom, qty: 16 }
+
+  - id: corn_ration
+    name: "コーン配給食"
+    type: "食料"
+    facility: "食料工場"
+    recipes:
+      - id: corn_ration_r0
+        craft_time: 5.0
+        main_output: corn_ration
+        inputs:
+          - { id: corn, qty: 10 }
+          - { id: log, qty: 1 }
+        outputs:
+          - { id: corn_ration, qty: 50 }
+      - id: corn_ration_r1
+        craft_time: 0.5
+        main_output: corn_ration
+        inputs:
+          - { id: corn, qty: 1 }
+        outputs:
+          - { id: corn_ration, qty: 5 }
+
+  - id: eggplant_ration
+    name: "ナス配給食"
+    type: "食料"
+    facility: "食料工場"
+    recipes:
+      - id: eggplant_ration_r0
+        craft_time: 5.0
+        main_output: eggplant_ration
+        inputs:
+          - { id: eggplant, qty: 10 }
+          - { id: canola_oil, qty: 10 }
+          - { id: log, qty: 1 }
+        outputs:
+          - { id: eggplant_ration, qty: 60 }
+      - id: eggplant_ration_r1
+        craft_time: 0.5
+        main_output: eggplant_ration
+        inputs:
+          - { id: eggplant, qty: 1 }
+          - { id: canola_oil, qty: 1 }
+        outputs:
+          - { id: eggplant_ration, qty: 6 }
+
+  - id: algae_ration
+    name: "藻類配給食"
+    type: "食料"
+    facility: "食料工場"
+    recipes:
+      - id: algae_ration_r0
+        craft_time: 2.5
+        main_output: algae_ration
+        inputs:
+          - { id: algae, qty: 10 }
+          - { id: canola_oil, qty: 10 }
+          - { id: log, qty: 1 }
+        outputs:
+          - { id: algae_ration, qty: 60 }
+      - id: algae_ration_r1
+        craft_time: 0.25
+        main_output: algae_ration
+        inputs:
+          - { id: algae, qty: 1 }
+          - { id: canola_oil, qty: 1 }
+        outputs:
+          - { id: algae_ration, qty: 6 }
+
+  - id: coffee
+    name: "コーヒー"
+    type: "食料"
+    facility: "コーヒー醸造所"
+    recipes:
+      - id: coffee_r0
+        craft_time: 10.0
+        main_output: coffee
+        inputs:
+          - { id: coffee_beans, qty: 10 }
+          - { id: water, qty: 10 }
+          - { id: log, qty: 1 }
+        outputs:
+          - { id: coffee, qty: 40 }
+      - id: coffee_r1
+        craft_time: 1.0
+        main_output: coffee
+        inputs:
+          - { id: coffee_beans, qty: 1 }
+          - { id: water, qty: 1 }
+        outputs:
+          - { id: coffee, qty: 4 }
+
+  # ==========================================
+  # 生化学・ボット・健康 (Biochemistry & Bots)
+  # ==========================================
+  - id: biofuel
+    name: "バイオ燃料"
+    type: "材料"
+    facility: "精製所"
+    recipes:
+      - id: biofuel_r0
+        craft_time: 3.0
+        main_output: biofuel
+        inputs:
+          - { id: potato, qty: 2 }
+          - { id: water, qty: 2 }
+        outputs:
+          - { id: biofuel, qty: 30 }
+      - id: biofuel_r1
+        craft_time: 3.0
+        main_output: biofuel
+        inputs:
+          - { id: carrot, qty: 2 }
+          - { id: water, qty: 2 }
+        outputs:
+          - { id: biofuel, qty: 5 }
+      - id: biofuel_r2
+        craft_time: 3.0
+        main_output: biofuel
+        inputs:
+          - { id: spadderdock, qty: 2 }
+          - { id: water, qty: 2 }
+        outputs:
+          - { id: biofuel, qty: 25 }
+
+  - id: catalyst
+    name: "触媒"
+    type: "材料"
+    facility: "精製所"
+    recipes:
+      - id: catalyst_r0
+        craft_time: 3.0
+        main_output: catalyst
+        inputs:
+          - { id: extract, qty: 1 }
+          - { id: maple_syrup, qty: 1 }
+        outputs:
+          - { id: catalyst, qty: 3 }
+
+  - id: grease
+    name: "グリス"
+    type: "材料"
+    facility: "グリス工場"
+    recipes:
+      - id: grease_r0
+        craft_time: 2.0
+        main_output: grease
+        inputs:
+          - { id: canola_oil, qty: 1 }
+          - { id: extract, qty: 1 }
+        outputs:
+          - { id: grease, qty: 2 }
+
+  - id: antidote
+    name: "解毒剤"
+    type: "ウェルビーイング"
+    facility: "薬草医の小屋"
+    recipes:
+      - id: antidote_r0
+        craft_time: 2.0
+        main_output: antidote
+        inputs:
+          - { id: berries, qty: 2 }
+          - { id: dandelion, qty: 2 }
+          - { id: paper, qty: 1 }
+        outputs:
+          - { id: antidote, qty: 2 }
+
+  - id: bot_chassis
+    name: "ボットの胴体"
+    type: "ボット"
+    facility: "ボット部品工場"
+    recipes:
+      - id: bot_chassis_r0
+        craft_time: 18.0
+        main_output: bot_chassis
+        inputs:
+          - { id: plank, qty: 5 }
+          - { id: metal_block, qty: 1 }
+          - { id: biofuel, qty: 1 }
+        outputs:
+          - { id: bot_chassis, qty: 1 }
+      - id: bot_chassis_r1
+        craft_time: 18.0
+        main_output: bot_chassis
+        inputs:
+          - { id: plank, qty: 5 }
+          - { id: metal_block, qty: 1 }
+        outputs:
+          - { id: bot_chassis, qty: 1 }
+
+  - id: bot_head
+    name: "ボットの頭"
+    type: "ボット"
+    facility: "ボット部品工場"
+    recipes:
+      - id: bot_head_r0
+        craft_time: 18.0
+        main_output: bot_head
+        inputs:
+          - { id: plank, qty: 1 }
+          - { id: gear, qty: 3 }
+          - { id: metal_block, qty: 1 }
+        outputs:
+          - { id: bot_head, qty: 1 }
+
+  - id: bot_limbs
+    name: "ボットの手足"
+    type: "ボット"
+    facility: "ボット部品工場"
+    recipes:
+      - id: bot_limbs_r0
+        craft_time: 4.5
+        main_output: bot_limbs
+        inputs:
+          - { id: plank, qty: 1 }
+          - { id: gear, qty: 3 }
+        outputs:
+          - { id: bot_limbs, qty: 1 }
+
+  - id: bot
+    name: "ボット"
+    type: "ボット"
+    facility: "ボット組立所"
+    recipes:
+      - id: bot_r0
+        craft_time: 36.0
+        main_output: bot
+        inputs:
+          - { id: bot_chassis, qty: 1 }
+          - { id: bot_head, qty: 1 }
+          - { id: bot_limbs, qty: 4 }
+        outputs:
+          - { id: bot, qty: 1 }
+
+  # ==========================================
+  # 科学・繁殖 (Science & Breeding)
+  # ==========================================
+  - id: science_point
+    name: "科学ポイント"
+    type: "科学"
+    facility: "発明家"
+    recipes:
+      - id: science_point_r0
+        craft_time: 1.0
+        main_output: science_point
+        inputs: []
+        outputs:
+          - { id: science_point, qty: 1 }
+      - id: science_point_r1
+        craft_time: 1.0
+        main_output: science_point
+        inputs: []
+        outputs:
+          - { id: science_point, qty: 12 }
+      - id: science_point_r2
+        craft_time: 0.75
+        main_output: science_point
+        inputs: []
+        outputs:
+          - { id: science_point, qty: 10 }
+
+  - id: beaver
+    name: "ビーバー"
+    type: "科学"
+    facility: "繁殖ポッド"
+    recipes:
+      - id: beaver_r0
+        craft_time: 120.0
+        main_output: beaver
+        inputs:
+          - { id: water, qty: 5 }
+          - { id: berries, qty: 5 }
+        outputs:
+          - { id: beaver, qty: 1 }
+      - id: beaver_r1
+        craft_time: 120.0
+        main_output: beaver
+        inputs:
+          - { id: water, qty: 5 }
+          - { id: extract, qty: 5 }
+        outputs:
+          - { id: beaver, qty: 1 }
+
+  # ==========================================
+  # 科学施設 (Science Buildings)
+  # ==========================================
+  - id: observatory
+    name: "望遠鏡"
+    type: "科学"
+    facility: "建設者の基点"
+    recipes:
+      - id: observatory_r0
+        craft_time: 15.0
+        main_output: observatory
+        inputs:
+          - { id: plank, qty: 80 }
+          - { id: gear, qty: 30 }
+          - { id: pine_resin, qty: 10 }
+        outputs:
+          - { id: observatory, qty: 1 }
+
+  # ==========================================
+  # ウェルビーイング・娯楽施設 (Well-Being Buildings)
+  # ==========================================
+  - id: mud_bath
+    name: "泥風呂"
+    type: "ウェルビーイング"
+    facility: "建設者の基点"
+    recipes:
+      - id: mud_bath_r0
+        craft_time: 10.0
+        main_output: mud_bath
+        inputs:
+          - { id: treated_plank, qty: 50 }
+          - { id: water, qty: 30 }
+          - { id: dirt, qty: 10 }
+        outputs:
+          - { id: mud_bath, qty: 1 }
+
+  - id: mud_pit
+    name: "泥沼"
+    type: "ウェルビーイング"
+    facility: "建設者の基点"
+    recipes:
+      - id: mud_pit_r0
+        craft_time: 5.0
+        main_output: mud_pit
+        inputs:
+          - { id: dirt, qty: 10 }
+          - { id: water, qty: 20 }
+        outputs:
+          - { id: mud_pit, qty: 1 }
+
+  - id: shower
+    name: "シャワー"
+    type: "ウェルビーイング"
+    facility: "建設者の基点"
+    recipes:
+      - id: shower_r0
+        craft_time: 2.0
+        main_output: shower
+        inputs:
+          - { id: log, qty: 10 }
+          - { id: plank, qty: 1 }
+        outputs:
+          - { id: shower, qty: 1 }
+
+  - id: double_shower
+    name: "二段シャワー"
+    type: "ウェルビーイング"
+    facility: "建設者の基点"
+    recipes:
+      - id: double_shower_r0
+        craft_time: 2.0
+        main_output: double_shower
+        inputs:
+          - { id: log, qty: 10 }
+          - { id: plank, qty: 1 }
+        outputs:
+          - { id: double_shower, qty: 1 }
+
+  - id: carousel
+    name: "カルーセル"
+    type: "ウェルビーイング"
+    facility: "建設者の基点"
+    recipes:
+      - id: carousel_r0
+        craft_time: 15.0
+        main_output: carousel
+        inputs:
+          - { id: plank, qty: 50 }
+          - { id: gear, qty: 50 }
+          - { id: metal_block, qty: 40 }
+        outputs:
+          - { id: carousel, qty: 1 }
+
+  - id: wind_tunnel
+    name: "風洞"
+    type: "ウェルビーイング"
+    facility: "建設者の基点"
+    recipes:
+      - id: wind_tunnel_r0
+        craft_time: 15.0
+        main_output: wind_tunnel
+        inputs:
+          - { id: plank, qty: 50 }
+          - { id: gear, qty: 50 }
+          - { id: metal_block, qty: 40 }
+        outputs:
+          - { id: wind_tunnel, qty: 1 }
+
+  - id: exercise_plaza
+    name: "運動場"
+    type: "ウェルビーイング"
+    facility: "建設者の基点"
+    recipes:
+      - id: exercise_plaza_r0
+        craft_time: 10.0
+        main_output: exercise_plaza
+        inputs:
+          - { id: log, qty: 50 }
+          - { id: plank, qty: 50 }
+          - { id: metal_block, qty: 10 }
+        outputs:
+          - { id: exercise_plaza, qty: 1 }
+
+  - id: dance_hall
+    name: "ダンスホール"
+    type: "ウェルビーイング"
+    facility: "建設者の基点"
+    recipes:
+      - id: dance_hall_r0
+        craft_time: 10.0
+        main_output: dance_hall
+        inputs:
+          - { id: plank, qty: 60 }
+          - { id: gear, qty: 30 }
+          - { id: metal_block, qty: 20 }
+        outputs:
+          - { id: dance_hall, qty: 1 }
+
+  - id: campfire
+    name: "焚火"
+    type: "ウェルビーイング"
+    facility: "建設者の基点"
+    recipes:
+      - id: campfire_r0
+        craft_time: 2.0
+        main_output: campfire
+        inputs:
+          - { id: log, qty: 15 }
+        outputs:
+          - { id: campfire, qty: 1 }
+
+  - id: rooftop_terrace
+    name: "屋上テラス"
+    type: "ウェルビーイング"
+    facility: "建設者の基点"
+    recipes:
+      - id: rooftop_terrace_r0
+        craft_time: 3.0
+        main_output: rooftop_terrace
+        inputs:
+          - { id: plank, qty: 20 }
+        outputs:
+          - { id: rooftop_terrace, qty: 1 }
+
+  - id: lido
+    name: "水浴び場"
+    type: "ウェルビーイング"
+    facility: "建設者の基点"
+    recipes:
+      - id: lido_r0
+        craft_time: 5.0
+        main_output: lido
+        inputs:
+          - { id: log, qty: 10 }
+          - { id: plank, qty: 20 }
+        outputs:
+          - { id: lido, qty: 1 }
+
+  - id: temple
+    name: "寺院"
+    type: "ウェルビーイング"
+    facility: "建設者の基点"
+    recipes:
+      - id: temple_r0
+        craft_time: 15.0
+        main_output: temple
+        inputs:
+          - { id: plank, qty: 150 }
+          - { id: gear, qty: 30 }
+          - { id: paper, qty: 20 }
+        outputs:
+          - { id: temple, qty: 1 }
+
+  - id: shrine
+    name: "祠"
+    type: "ウェルビーイング"
+    facility: "建設者の基点"
+    recipes:
+      - id: shrine_r0
+        craft_time: 2.0
+        main_output: shrine
+        inputs:
+          - { id: plank, qty: 10 }
+        outputs:
+          - { id: shrine, qty: 1 }
+
+  - id: medical_bed
+    name: "医療ベッド"
+    type: "ウェルビーイング"
+    facility: "建設者の基点"
+    recipes:
+      - id: medical_bed_r0
+        craft_time: 2.0
+        main_output: medical_bed
+        inputs:
+          - { id: plank, qty: 10 }
+        outputs:
+          - { id: medical_bed, qty: 1 }
+
+  - id: decontamination_pod
+    name: "除染ポッド"
+    type: "ウェルビーイング"
+    facility: "建設者の基点"
+    recipes:
+      - id: decontamination_pod_r0
+        craft_time: 5.0
+        main_output: decontamination_pod
+        inputs:
+          - { id: plank, qty: 20 }
+          - { id: gear, qty: 10 }
+        outputs:
+          - { id: decontamination_pod, qty: 1 }
+
+  # ==========================================
+  # 記念碑・世界の七不思議 (Monuments & Wonders)
+  # ==========================================
+  - id: laborer_monument
+    name: "労働の記念碑"
+    type: "ウェルビーイング"
+    facility: "建設者の基点"
+    recipes:
+      - id: laborer_monument_r0
+        craft_time: 10.0
+        main_output: laborer_monument
+        inputs:
+          - { id: plank, qty: 100 }
+          - { id: gear, qty: 100 }
+        outputs:
+          - { id: laborer_monument, qty: 1 }
+
+  - id: farmer_monument
+    name: "農民の記念碑"
+    type: "ウェルビーイング"
+    facility: "建設者の基点"
+    recipes:
+      - id: farmer_monument_r0
+        craft_time: 10.0
+        main_output: farmer_monument
+        inputs:
+          - { id: plank, qty: 100 }
+          - { id: log, qty: 100 }
+        outputs:
+          - { id: farmer_monument, qty: 1 }
+
+  - id: flame_of_unity
+    name: "団結の炎"
+    type: "ウェルビーイング"
+    facility: "建設者の基点"
+    recipes:
+      - id: flame_of_unity_r0
+        craft_time: 15.0
+        main_output: flame_of_unity
+        inputs:
+          - { id: plank, qty: 300 }
+          - { id: metal_block, qty: 50 }
+        outputs:
+          - { id: flame_of_unity, qty: 1 }
+
+  - id: brazier_of_bonding
+    name: "絆のかがり火"
+    type: "ウェルビーイング"
+    facility: "建設者の基点"
+    recipes:
+      - id: brazier_of_bonding_r0
+        craft_time: 15.0
+        main_output: brazier_of_bonding
+        inputs:
+          - { id: plank, qty: 300 }
+          - { id: treated_plank, qty: 50 }
+        outputs:
+          - { id: brazier_of_bonding, qty: 1 }
+
+  - id: tribute_to_ingenuity
+    name: "創意工夫の記念碑"
+    type: "ウェルビーイング"
+    facility: "建設者の基点"
+    recipes:
+      - id: tribute_to_ingenuity_r0
+        craft_time: 30.0
+        main_output: tribute_to_ingenuity
+        inputs:
+          - { id: gear, qty: 400 }
+          - { id: treated_plank, qty: 100 }
+          - { id: metal_block, qty: 300 }
+        outputs:
+          - { id: tribute_to_ingenuity, qty: 1 }
+
+  - id: fountain_of_joy
+    name: "歓喜の噴水"
+    type: "ウェルビーイング"
+    facility: "建設者の基点"
+    recipes:
+      - id: fountain_of_joy_r0
+        craft_time: 30.0
+        main_output: fountain_of_joy
+        inputs:
+          - { id: plank, qty: 400 }
+          - { id: treated_plank, qty: 100 }
+          - { id: metal_block, qty: 300 }
+        outputs:
+          - { id: fountain_of_joy, qty: 1 }
+
+  - id: earth_repopulator
+    name: "地球再入植機"
+    type: "ウェルビーイング"
+    facility: "建設者の基点"
+    recipes:
+      - id: earth_repopulator_r0
+        craft_time: 100.0
+        main_output: earth_repopulator
+        inputs:
+          - { id: gear, qty: 1500 }
+          - { id: treated_plank, qty: 2000 }
+          - { id: metal_block, qty: 2000 }
+        outputs:
+          - { id: earth_repopulator, qty: 1 }
+
+  - id: earth_recultivator
+    name: "地球再耕作機"
+    type: "ウェルビーイング"
+    facility: "建設者の基点"
+    recipes:
+      - id: earth_recultivator_r0
+        craft_time: 100.0
+        main_output: earth_recultivator
+        inputs:
+          - { id: gear, qty: 2000 }
+          - { id: treated_plank, qty: 2000 }
+          - { id: metal_block, qty: 1500 }
+        outputs:
+          - { id: earth_recultivator, qty: 1 }

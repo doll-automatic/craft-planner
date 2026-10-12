@@ -1,0 +1,2986 @@
+# 7 Days to Die (7DTD) 1.0 正式リリース版基準の生産データ。
+# 公式日本語ローカライズ名称に準拠。
+# 生産時間はゲーム内基本レシピの秒数（スキル・パーク補正なし）。
+# 炉、作業台、化学実験ステーション、焚き火、セメントミキサー、手荷物クラフトに対応。
+# 炉で生産する金属・建材は、炉への投入原料（生鉄、粘土の土、小さな石、生鉛、真鍮）を直接の必要素材として展開。
+# 採取・採掘・狩猟・探索・解体で入手する基本資源は入力なしレシピ（原材料）として表現。
+# 複数レシピがある場合（化学ステーションと焚き火など）は、効率の高い標準ステーションのレシピを先頭（Recipes[0]）に配置。
+# 先頭レシピのみを辿った生産ツリーに循環（閉路）は存在しない。
+# 種別はゲーム内カテゴリ分類（資源 / 建築 / 道具 / 武器 / 弾薬 / 医療 / 食料 / 車両 / 電気）に準拠。
+
+name: "7 Days to Die"
+
+items:
+  # ==========================================
+  # 基本資源（原材料: 採取・採掘・狩猟・探索・解体）
+  # ==========================================
+  - id: wood
+    name: "木材"
+    type: "資源"
+    facility: "採取"
+    recipes:
+      - id: wood_r0
+        craft_time: 1.0
+        main_output: wood
+        inputs: []
+        outputs:
+          - { id: wood, qty: 1 }
+
+  - id: small_stone
+    name: "小さな石"
+    type: "資源"
+    facility: "採掘"
+    recipes:
+      - id: small_stone_r0
+        craft_time: 1.0
+        main_output: small_stone
+        inputs: []
+        outputs:
+          - { id: small_stone, qty: 1 }
+
+  - id: clay_soil
+    name: "粘土の土"
+    type: "資源"
+    facility: "採掘"
+    recipes:
+      - id: clay_soil_r0
+        craft_time: 1.0
+        main_output: clay_soil
+        inputs: []
+        outputs:
+          - { id: clay_soil, qty: 1 }
+
+  - id: raw_iron
+    name: "生鉄"
+    type: "資源"
+    facility: "採掘"
+    recipes:
+      - id: raw_iron_r0
+        craft_time: 1.0
+        main_output: raw_iron
+        inputs: []
+        outputs:
+          - { id: raw_iron, qty: 1 }
+
+  - id: raw_lead
+    name: "生鉛"
+    type: "資源"
+    facility: "採掘"
+    recipes:
+      - id: raw_lead_r0
+        craft_time: 1.0
+        main_output: raw_lead
+        inputs: []
+        outputs:
+          - { id: raw_lead, qty: 1 }
+
+  - id: coal
+    name: "石炭"
+    type: "資源"
+    facility: "採掘"
+    recipes:
+      - id: coal_r0
+        craft_time: 1.0
+        main_output: coal
+        inputs: []
+        outputs:
+          - { id: coal, qty: 1 }
+
+  - id: nitrate_powder
+    name: "硝酸塩粉末"
+    type: "資源"
+    facility: "採掘"
+    recipes:
+      - id: nitrate_powder_r0
+        craft_time: 1.0
+        main_output: nitrate_powder
+        inputs: []
+        outputs:
+          - { id: nitrate_powder, qty: 1 }
+
+  - id: oil_shale
+    name: "オイルシェール"
+    type: "資源"
+    facility: "採掘"
+    recipes:
+      - id: oil_shale_r0
+        craft_time: 1.0
+        main_output: oil_shale
+        inputs: []
+        outputs:
+          - { id: oil_shale, qty: 1 }
+
+  - id: scrap_brass
+    name: "真鍮"
+    type: "資源"
+    facility: "探索"
+    recipes:
+      - id: scrap_brass_r0
+        craft_time: 1.0
+        main_output: scrap_brass
+        inputs: []
+        outputs:
+          - { id: scrap_brass, qty: 1 }
+
+  - id: murky_water
+    name: "濁った水"
+    type: "資源"
+    facility: "探索"
+    recipes:
+      - id: murky_water_r0
+        craft_time: 1.0
+        main_output: murky_water
+        inputs: []
+        outputs:
+          - { id: murky_water, qty: 1 }
+
+  - id: animal_fat
+    name: "動物の油脂"
+    type: "資源"
+    facility: "狩猟"
+    recipes:
+      - id: animal_fat_r0
+        craft_time: 1.0
+        main_output: animal_fat
+        inputs: []
+        outputs:
+          - { id: animal_fat, qty: 1 }
+
+  - id: raw_meat
+    name: "生肉"
+    type: "資源"
+    facility: "狩猟"
+    recipes:
+      - id: raw_meat_r0
+        craft_time: 1.0
+        main_output: raw_meat
+        inputs: []
+        outputs:
+          - { id: raw_meat, qty: 1 }
+
+  - id: bone
+    name: "骨"
+    type: "資源"
+    facility: "狩猟"
+    recipes:
+      - id: bone_r0
+        craft_time: 1.0
+        main_output: bone
+        inputs: []
+        outputs:
+          - { id: bone, qty: 1 }
+
+  - id: rotting_flesh
+    name: "腐肉"
+    type: "資源"
+    facility: "探索"
+    recipes:
+      - id: rotting_flesh_r0
+        craft_time: 1.0
+        main_output: rotting_flesh
+        inputs: []
+        outputs:
+          - { id: rotting_flesh, qty: 1 }
+
+  - id: plant_fibers
+    name: "植物繊維"
+    type: "資源"
+    facility: "採取"
+    recipes:
+      - id: plant_fibers_r0
+        craft_time: 1.0
+        main_output: plant_fibers
+        inputs: []
+        outputs:
+          - { id: plant_fibers, qty: 1 }
+
+  - id: feather
+    name: "羽"
+    type: "資源"
+    facility: "採取"
+    recipes:
+      - id: feather_r0
+        craft_time: 1.0
+        main_output: feather
+        inputs: []
+        outputs:
+          - { id: feather, qty: 1 }
+
+  - id: cotton
+    name: "綿花"
+    type: "資源"
+    facility: "農業"
+    recipes:
+      - id: cotton_r0
+        craft_time: 1.0
+        main_output: cotton
+        inputs: []
+        outputs:
+          - { id: cotton, qty: 1 }
+
+  - id: corn
+    name: "トウモロコシ"
+    type: "資源"
+    facility: "農業"
+    recipes:
+      - id: corn_r0
+        craft_time: 1.0
+        main_output: corn
+        inputs: []
+        outputs:
+          - { id: corn, qty: 1 }
+
+  - id: potato
+    name: "ジャガイモ"
+    type: "資源"
+    facility: "農業"
+    recipes:
+      - id: potato_r0
+        craft_time: 1.0
+        main_output: potato
+        inputs: []
+        outputs:
+          - { id: potato, qty: 1 }
+
+  - id: mushrooms
+    name: "キノコ"
+    type: "資源"
+    facility: "農業"
+    recipes:
+      - id: mushrooms_r0
+        craft_time: 1.0
+        main_output: mushrooms
+        inputs: []
+        outputs:
+          - { id: mushrooms, qty: 1 }
+
+  - id: blueberry
+    name: "ブルーベリー"
+    type: "資源"
+    facility: "農業"
+    recipes:
+      - id: blueberry_r0
+        craft_time: 1.0
+        main_output: blueberry
+        inputs: []
+        outputs:
+          - { id: blueberry, qty: 1 }
+
+  - id: chrysanthemum
+    name: "菊"
+    type: "資源"
+    facility: "採取"
+    recipes:
+      - id: chrysanthemum_r0
+        craft_time: 1.0
+        main_output: chrysanthemum
+        inputs: []
+        outputs:
+          - { id: chrysanthemum, qty: 1 }
+
+  - id: goldenrod
+    name: "アキノキリンソウ"
+    type: "資源"
+    facility: "採取"
+    recipes:
+      - id: goldenrod_r0
+        craft_time: 1.0
+        main_output: goldenrod
+        inputs: []
+        outputs:
+          - { id: goldenrod, qty: 1 }
+
+  - id: coffee_beans
+    name: "コーヒー豆"
+    type: "資源"
+    facility: "農業"
+    recipes:
+      - id: coffee_beans_r0
+        craft_time: 1.0
+        main_output: coffee_beans
+        inputs: []
+        outputs:
+          - { id: coffee_beans, qty: 1 }
+
+  - id: hops
+    name: "ホップ"
+    type: "資源"
+    facility: "農業"
+    recipes:
+      - id: hops_r0
+        craft_time: 1.0
+        main_output: hops
+        inputs: []
+        outputs:
+          - { id: hops, qty: 1 }
+
+  - id: aloe_leaf
+    name: "アロエの葉"
+    type: "資源"
+    facility: "採取"
+    recipes:
+      - id: aloe_leaf_r0
+        craft_time: 1.0
+        main_output: aloe_leaf
+        inputs: []
+        outputs:
+          - { id: aloe_leaf, qty: 1 }
+
+  - id: egg
+    name: "卵"
+    type: "資源"
+    facility: "探索"
+    recipes:
+      - id: egg_r0
+        craft_time: 1.0
+        main_output: egg
+        inputs: []
+        outputs:
+          - { id: egg, qty: 1 }
+
+  - id: mechanical_parts
+    name: "機械部品"
+    type: "資源"
+    facility: "解体"
+    recipes:
+      - id: mechanical_parts_r0
+        craft_time: 1.0
+        main_output: mechanical_parts
+        inputs: []
+        outputs:
+          - { id: mechanical_parts, qty: 1 }
+
+  - id: electrical_parts
+    name: "電気部品"
+    type: "資源"
+    facility: "解体"
+    recipes:
+      - id: electrical_parts_r0
+        craft_time: 1.0
+        main_output: electrical_parts
+        inputs: []
+        outputs:
+          - { id: electrical_parts, qty: 1 }
+
+  - id: spring
+    name: "ばね"
+    type: "資源"
+    facility: "解体"
+    recipes:
+      - id: spring_r0
+        craft_time: 1.0
+        main_output: spring
+        inputs: []
+        outputs:
+          - { id: spring, qty: 1 }
+
+  - id: small_engine
+    name: "エンジン"
+    type: "資源"
+    facility: "解体"
+    recipes:
+      - id: small_engine_r0
+        craft_time: 1.0
+        main_output: small_engine
+        inputs: []
+        outputs:
+          - { id: small_engine, qty: 1 }
+
+  - id: headlight
+    name: "ヘッドライト"
+    type: "資源"
+    facility: "解体"
+    recipes:
+      - id: headlight_r0
+        craft_time: 1.0
+        main_output: headlight
+        inputs: []
+        outputs:
+          - { id: headlight, qty: 1 }
+
+  - id: beaker
+    name: "ビーカー"
+    type: "資源"
+    facility: "探索"
+    recipes:
+      - id: beaker_r0
+        craft_time: 1.0
+        main_output: beaker
+        inputs: []
+        outputs:
+          - { id: beaker, qty: 1 }
+
+  - id: acid_bottle
+    name: "酸入りボトル"
+    type: "資源"
+    facility: "探索"
+    recipes:
+      - id: acid_bottle_r0
+        craft_time: 1.0
+        main_output: acid_bottle
+        inputs: []
+        outputs:
+          - { id: acid_bottle, qty: 1 }
+
+  - id: sewing_kit
+    name: "裁縫キット"
+    type: "資源"
+    facility: "探索"
+    recipes:
+      - id: sewing_kit_r0
+        craft_time: 1.0
+        main_output: sewing_kit
+        inputs: []
+        outputs:
+          - { id: sewing_kit, qty: 1 }
+
+  - id: blood_bag
+    name: "血液バッグ"
+    type: "資源"
+    facility: "探索"
+    recipes:
+      - id: blood_bag_r0
+        craft_time: 1.0
+        main_output: blood_bag
+        inputs: []
+        outputs:
+          - { id: blood_bag, qty: 1 }
+
+  - id: sham_sandwich
+    name: "古いシャムサンドイッチ"
+    type: "資源"
+    facility: "探索"
+    recipes:
+      - id: sham_sandwich_r0
+        craft_time: 1.0
+        main_output: sham_sandwich
+        inputs: []
+        outputs:
+          - { id: sham_sandwich, qty: 1 }
+
+  - id: plastic_polymer
+    name: "プラスチックポリマー"
+    type: "資源"
+    facility: "解体"
+    recipes:
+      - id: plastic_polymer_r0
+        craft_time: 1.0
+        main_output: plastic_polymer
+        inputs: []
+        outputs:
+          - { id: plastic_polymer, qty: 1 }
+
+  - id: leather
+    name: "レザー"
+    type: "資源"
+    facility: "狩猟"
+    recipes:
+      - id: leather_r0
+        craft_time: 1.0
+        main_output: leather
+        inputs: []
+        outputs:
+          - { id: leather, qty: 1 }
+
+  - id: weapon_parts_handgun
+    name: "ハンドガンパーツ"
+    type: "資源"
+    facility: "解体"
+    recipes:
+      - id: weapon_parts_handgun_r0
+        craft_time: 1.0
+        main_output: weapon_parts_handgun
+        inputs: []
+        outputs:
+          - { id: weapon_parts_handgun, qty: 1 }
+
+  - id: weapon_parts_machinegun
+    name: "マシンガンパーツ"
+    type: "資源"
+    facility: "解体"
+    recipes:
+      - id: weapon_parts_machinegun_r0
+        craft_time: 1.0
+        main_output: weapon_parts_machinegun
+        inputs: []
+        outputs:
+          - { id: weapon_parts_machinegun, qty: 1 }
+
+  - id: weapon_parts_shotgun
+    name: "ショットガンパーツ"
+    type: "資源"
+    facility: "解体"
+    recipes:
+      - id: weapon_parts_shotgun_r0
+        craft_time: 1.0
+        main_output: weapon_parts_shotgun
+        inputs: []
+        outputs:
+          - { id: weapon_parts_shotgun, qty: 1 }
+
+  - id: weapon_parts_rifle
+    name: "ライフルパーツ"
+    type: "資源"
+    facility: "解体"
+    recipes:
+      - id: weapon_parts_rifle_r0
+        craft_time: 1.0
+        main_output: weapon_parts_rifle
+        inputs: []
+        outputs:
+          - { id: weapon_parts_rifle, qty: 1 }
+
+  - id: weapon_parts_rocket
+    name: "ロケットランチャーパーツ"
+    type: "資源"
+    facility: "解体"
+    recipes:
+      - id: weapon_parts_rocket_r0
+        craft_time: 1.0
+        main_output: weapon_parts_rocket
+        inputs: []
+        outputs:
+          - { id: weapon_parts_rocket, qty: 1 }
+
+  - id: tool_parts_steel
+    name: "鉄鋼ツールパーツ"
+    type: "資源"
+    facility: "解体"
+    recipes:
+      - id: tool_parts_steel_r0
+        craft_time: 1.0
+        main_output: tool_parts_steel
+        inputs: []
+        outputs:
+          - { id: tool_parts_steel, qty: 1 }
+
+  - id: tool_parts_motorized
+    name: "動力ツールパーツ"
+    type: "資源"
+    facility: "解体"
+    recipes:
+      - id: tool_parts_motorized_r0
+        craft_time: 1.0
+        main_output: tool_parts_motorized
+        inputs: []
+        outputs:
+          - { id: tool_parts_motorized, qty: 1 }
+
+  - id: armor_parts
+    name: "アーマーパーツ"
+    type: "資源"
+    facility: "解体"
+    recipes:
+      - id: armor_parts_r0
+        craft_time: 1.0
+        main_output: armor_parts
+        inputs: []
+        outputs:
+          - { id: armor_parts, qty: 1 }
+
+  - id: painkillers
+    name: "鎮痛剤"
+    type: "医療"
+    facility: "探索"
+    recipes:
+      - id: painkillers_r0
+        craft_time: 1.0
+        main_output: painkillers
+        inputs: []
+        outputs:
+          - { id: painkillers, qty: 1 }
+
+  - id: vitamins
+    name: "ビタミン剤"
+    type: "医療"
+    facility: "探索"
+    recipes:
+      - id: vitamins_r0
+        craft_time: 1.0
+        main_output: vitamins
+        inputs: []
+        outputs:
+          - { id: vitamins, qty: 1 }
+
+  # ==========================================
+  # 加工・建材素材
+  # ==========================================
+  - id: wood_log
+    name: "丸太"
+    type: "建築"
+    facility: "手荷物"
+    recipes:
+      - id: wood_log_r0
+        craft_time: 2.0
+        main_output: wood_log
+        inputs:
+          - { id: wood, qty: 10 }
+        outputs:
+          - { id: wood_log, qty: 1 }
+
+  - id: wood_frame
+    name: "木材フレーム"
+    type: "建築"
+    facility: "手荷物"
+    recipes:
+      - id: wood_frame_r0
+        craft_time: 0.5
+        main_output: wood_frame
+        inputs:
+          - { id: wood, qty: 2 }
+        outputs:
+          - { id: wood_frame, qty: 1 }
+
+  - id: cobblestone_rocks
+    name: "玉石岩"
+    type: "建築"
+    facility: "手荷物"
+    recipes:
+      - id: cobblestone_rocks_r0
+        craft_time: 0.4
+        main_output: cobblestone_rocks
+        inputs:
+          - { id: small_stone, qty: 1 }
+          - { id: clay_soil, qty: 1 }
+        outputs:
+          - { id: cobblestone_rocks, qty: 1 }
+
+  - id: flagstone_block
+    name: "玉石ブロック"
+    type: "建築"
+    facility: "手荷物"
+    recipes:
+      - id: flagstone_block_r0
+        craft_time: 1.0
+        main_output: flagstone_block
+        inputs:
+          - { id: cobblestone_rocks, qty: 10 }
+        outputs:
+          - { id: flagstone_block, qty: 1 }
+
+  - id: cement
+    name: "セメント"
+    type: "建築"
+    facility: "炉"
+    recipes:
+      - id: cement_r0
+        craft_time: 3.0
+        main_output: cement
+        inputs:
+          - { id: small_stone, qty: 12 }
+        outputs:
+          - { id: cement, qty: 1 }
+
+  - id: crushed_sand
+    name: "砂"
+    type: "資源"
+    facility: "セメントミキサー"
+    recipes:
+      - id: crushed_sand_r0
+        craft_time: 0.2
+        main_output: crushed_sand
+        inputs:
+          - { id: small_stone, qty: 1 }
+        outputs:
+          - { id: crushed_sand, qty: 1 }
+
+  - id: concrete_mix
+    name: "コンクリートミックス"
+    type: "建築"
+    facility: "セメントミキサー"
+    recipes:
+      - id: concrete_mix_r0
+        craft_time: 2.0
+        main_output: concrete_mix
+        inputs:
+          - { id: cement, qty: 1 }
+          - { id: small_stone, qty: 1 }
+          - { id: crushed_sand, qty: 1 }
+        outputs:
+          - { id: concrete_mix, qty: 1 }
+
+  - id: concrete_block
+    name: "コンクリートブロック"
+    type: "建築"
+    facility: "手荷物"
+    recipes:
+      - id: concrete_block_r0
+        craft_time: 1.0
+        main_output: concrete_block
+        inputs:
+          - { id: concrete_mix, qty: 10 }
+        outputs:
+          - { id: concrete_block, qty: 1 }
+
+  - id: forged_iron
+    name: "鍛造鉄"
+    type: "資源"
+    facility: "炉"
+    recipes:
+      - id: forged_iron_r0
+        craft_time: 8.0
+        main_output: forged_iron
+        inputs:
+          - { id: raw_iron, qty: 12 }
+          - { id: clay_soil, qty: 6 }
+        outputs:
+          - { id: forged_iron, qty: 1 }
+
+  - id: forged_steel
+    name: "鍛造鋼"
+    type: "資源"
+    facility: "炉"
+    recipes:
+      - id: forged_steel_r0
+        craft_time: 15.0
+        main_output: forged_steel
+        inputs:
+          - { id: raw_iron, qty: 31 }
+          - { id: clay_soil, qty: 15 }
+        outputs:
+          - { id: forged_steel, qty: 1 }
+
+  - id: short_iron_pipe
+    name: "鉄パイプ"
+    type: "資源"
+    facility: "炉"
+    recipes:
+      - id: short_iron_pipe_r0
+        craft_time: 8.0
+        main_output: short_iron_pipe
+        inputs:
+          - { id: raw_iron, qty: 12 }
+          - { id: clay_soil, qty: 6 }
+        outputs:
+          - { id: short_iron_pipe, qty: 1 }
+      - id: short_iron_pipe_r1
+        craft_time: 10.0
+        main_output: short_iron_pipe
+        inputs:
+          - { id: forged_iron, qty: 1 }
+        outputs:
+          - { id: short_iron_pipe, qty: 1 }
+
+  - id: nails
+    name: "釘"
+    type: "資源"
+    facility: "炉"
+    recipes:
+      - id: nails_r0
+        craft_time: 1.0
+        main_output: nails
+        inputs:
+          - { id: raw_iron, qty: 1 }
+          - { id: clay_soil, qty: 1 }
+        outputs:
+          - { id: nails, qty: 1 }
+
+  - id: glue
+    name: "接着剤"
+    type: "資源"
+    facility: "化学実験ステーション"
+    recipes:
+      - id: glue_r0
+        craft_time: 16.0
+        main_output: glue
+        inputs:
+          - { id: bone, qty: 5 }
+          - { id: boiled_water, qty: 1 }
+        outputs:
+          - { id: glue, qty: 1 }
+      - id: glue_r1
+        craft_time: 16.0
+        main_output: glue
+        inputs:
+          - { id: bone, qty: 7 }
+          - { id: boiled_water, qty: 1 }
+        outputs:
+          - { id: glue, qty: 1 }
+
+  - id: cloth_fragment
+    name: "布の切れ端"
+    type: "資源"
+    facility: "手荷物"
+    recipes:
+      - id: cloth_fragment_r0
+        craft_time: 2.0
+        main_output: cloth_fragment
+        inputs:
+          - { id: cotton, qty: 1 }
+        outputs:
+          - { id: cloth_fragment, qty: 1 }
+      - id: cloth_fragment_r1
+        craft_time: 4.0
+        main_output: cloth_fragment
+        inputs:
+          - { id: plant_fibers, qty: 20 }
+        outputs:
+          - { id: cloth_fragment, qty: 1 }
+
+  - id: duct_tape
+    name: "ダクトテープ"
+    type: "資源"
+    facility: "手荷物"
+    recipes:
+      - id: duct_tape_r0
+        craft_time: 2.0
+        main_output: duct_tape
+        inputs:
+          - { id: glue, qty: 1 }
+          - { id: cloth_fragment, qty: 7 }
+        outputs:
+          - { id: duct_tape, qty: 1 }
+
+  - id: repair_kit
+    name: "修理キット"
+    type: "道具"
+    facility: "手荷物"
+    recipes:
+      - id: repair_kit_r0
+        craft_time: 11.0
+        main_output: repair_kit
+        inputs:
+          - { id: forged_iron, qty: 1 }
+          - { id: duct_tape, qty: 1 }
+        outputs:
+          - { id: repair_kit, qty: 1 }
+
+  - id: glass
+    name: "ガラス"
+    type: "建築"
+    facility: "炉"
+    recipes:
+      - id: glass_r0
+        craft_time: 5.0
+        main_output: glass
+        inputs:
+          - { id: crushed_sand, qty: 12 }
+          - { id: clay_soil, qty: 6 }
+        outputs:
+          - { id: glass, qty: 1 }
+
+  - id: bulletproof_glass
+    name: "防弾ガラス"
+    type: "建築"
+    facility: "炉"
+    recipes:
+      - id: bulletproof_glass_r0
+        craft_time: 30.0
+        main_output: bulletproof_glass
+        inputs:
+          - { id: crushed_sand, qty: 110 }
+          - { id: small_stone, qty: 10 }
+          - { id: raw_lead, qty: 40 }
+          - { id: raw_iron, qty: 20 }
+          - { id: clay_soil, qty: 20 }
+        outputs:
+          - { id: bulletproof_glass, qty: 1 }
+
+  - id: oil
+    name: "オイル"
+    type: "資源"
+    facility: "化学実験ステーション"
+    recipes:
+      - id: oil_r0
+        craft_time: 24.0
+        main_output: oil
+        inputs:
+          - { id: oil_shale, qty: 24 }
+        outputs:
+          - { id: oil, qty: 1 }
+
+  - id: gas_can
+    name: "ガソリン缶"
+    type: "資源"
+    facility: "化学実験ステーション"
+    recipes:
+      - id: gas_can_r0
+        craft_time: 0.25
+        main_output: gas_can
+        inputs:
+          - { id: oil_shale, qty: 1 }
+        outputs:
+          - { id: gas_can, qty: 2 }
+
+  - id: battery
+    name: "バッテリー"
+    type: "電気"
+    facility: "作業台"
+    recipes:
+      - id: battery_r0
+        craft_time: 39.0
+        main_output: battery
+        inputs:
+          - { id: raw_lead, qty: 180 }
+          - { id: plastic_polymer, qty: 10 }
+          - { id: acid_bottle, qty: 1 }
+        outputs:
+          - { id: battery, qty: 1 }
+
+  - id: paper
+    name: "紙"
+    type: "資源"
+    facility: "化学実験ステーション"
+    recipes:
+      - id: paper_r0
+        craft_time: 18.0
+        main_output: paper
+        inputs:
+          - { id: wood, qty: 10 }
+          - { id: glue, qty: 1 }
+          - { id: boiled_water, qty: 1 }
+        outputs:
+          - { id: paper, qty: 10 }
+
+  # ==========================================
+  # 作業施設（ステーション等）
+  # ==========================================
+  - id: campfire
+    name: "焚き火"
+    type: "道具"
+    facility: "手荷物"
+    recipes:
+      - id: campfire_r0
+        craft_time: 5.0
+        main_output: campfire
+        inputs:
+          - { id: small_stone, qty: 5 }
+        outputs:
+          - { id: campfire, qty: 1 }
+
+  - id: cooking_pot
+    name: "調理鍋"
+    type: "道具"
+    facility: "炉"
+    recipes:
+      - id: cooking_pot_r0
+        craft_time: 20.0
+        main_output: cooking_pot
+        inputs:
+          - { id: raw_iron, qty: 31 }
+          - { id: clay_soil, qty: 6 }
+        outputs:
+          - { id: cooking_pot, qty: 1 }
+
+  - id: cooking_grill
+    name: "調理グリル"
+    type: "道具"
+    facility: "炉"
+    recipes:
+      - id: cooking_grill_r0
+        craft_time: 20.0
+        main_output: cooking_grill
+        inputs:
+          - { id: raw_iron, qty: 31 }
+          - { id: clay_soil, qty: 6 }
+        outputs:
+          - { id: cooking_grill, qty: 1 }
+
+  - id: forge
+    name: "炉"
+    type: "道具"
+    facility: "手荷物"
+    recipes:
+      - id: forge_r0
+        craft_time: 30.0
+        main_output: forge
+        inputs:
+          - { id: cobblestone_rocks, qty: 50 }
+          - { id: wood_log, qty: 1 }
+          - { id: leather, qty: 10 }
+          - { id: duct_tape, qty: 3 }
+          - { id: short_iron_pipe, qty: 3 }
+        outputs:
+          - { id: forge, qty: 1 }
+
+  - id: bellows
+    name: "ふいご"
+    type: "道具"
+    facility: "手荷物"
+    recipes:
+      - id: bellows_r0
+        craft_time: 15.0
+        main_output: bellows
+        inputs:
+          - { id: wood, qty: 6 }
+          - { id: leather, qty: 20 }
+          - { id: short_iron_pipe, qty: 2 }
+          - { id: duct_tape, qty: 5 }
+          - { id: nails, qty: 5 }
+        outputs:
+          - { id: bellows, qty: 1 }
+
+  - id: anvil
+    name: "金敷"
+    type: "道具"
+    facility: "炉"
+    recipes:
+      - id: anvil_r0
+        craft_time: 60.0
+        main_output: anvil
+        inputs:
+          - { id: raw_iron, qty: 1250 }
+          - { id: clay_soil, qty: 125 }
+        outputs:
+          - { id: anvil, qty: 1 }
+
+  - id: crucible
+    name: "るつぼ"
+    type: "道具"
+    facility: "作業台"
+    recipes:
+      - id: crucible_r0
+        craft_time: 120.0
+        main_output: crucible
+        inputs:
+          - { id: forged_iron, qty: 100 }
+          - { id: mechanical_parts, qty: 20 }
+          - { id: small_stone, qty: 1200 }
+          - { id: oil, qty: 20 }
+          - { id: clay_soil, qty: 900 }
+        outputs:
+          - { id: crucible, qty: 1 }
+
+  - id: workbench
+    name: "作業台"
+    type: "道具"
+    facility: "手荷物"
+    recipes:
+      - id: workbench_r0
+        craft_time: 30.0
+        main_output: workbench
+        inputs:
+          - { id: forged_iron, qty: 25 }
+          - { id: mechanical_parts, qty: 20 }
+          - { id: duct_tape, qty: 5 }
+          - { id: nails, qty: 100 }
+          - { id: wood, qty: 100 }
+        outputs:
+          - { id: workbench, qty: 1 }
+
+  - id: cement_mixer
+    name: "セメントミキサー"
+    type: "道具"
+    facility: "作業台"
+    recipes:
+      - id: cement_mixer_r0
+        craft_time: 30.0
+        main_output: cement_mixer
+        inputs:
+          - { id: forged_iron, qty: 25 }
+          - { id: spring, qty: 4 }
+          - { id: small_engine, qty: 1 }
+          - { id: mechanical_parts, qty: 10 }
+        outputs:
+          - { id: cement_mixer, qty: 1 }
+
+  - id: chemistry_station
+    name: "化学実験ステーション"
+    type: "道具"
+    facility: "作業台"
+    recipes:
+      - id: chemistry_station_r0
+        craft_time: 30.0
+        main_output: chemistry_station
+        inputs:
+          - { id: beaker, qty: 1 }
+          - { id: forged_iron, qty: 100 }
+          - { id: cooking_pot, qty: 3 }
+          - { id: short_iron_pipe, qty: 30 }
+          - { id: acid_bottle, qty: 5 }
+        outputs:
+          - { id: chemistry_station, qty: 1 }
+
+  - id: dew_collector
+    name: "水滴収集器"
+    type: "道具"
+    facility: "手荷物"
+    recipes:
+      - id: dew_collector_r0
+        craft_time: 20.0
+        main_output: dew_collector
+        inputs:
+          - { id: plastic_polymer, qty: 100 }
+          - { id: short_iron_pipe, qty: 4 }
+          - { id: duct_tape, qty: 4 }
+        outputs:
+          - { id: dew_collector, qty: 1 }
+
+  # ==========================================
+  # 弾薬・火薬
+  # ==========================================
+  - id: gunpowder
+    name: "銃粉"
+    type: "弾薬"
+    facility: "化学実験ステーション"
+    recipes:
+      - id: gunpowder_r0
+        craft_time: 1.0
+        main_output: gunpowder
+        inputs:
+          - { id: coal, qty: 1 }
+          - { id: nitrate_powder, qty: 1 }
+        outputs:
+          - { id: gunpowder, qty: 1 }
+      - id: gunpowder_r1
+        craft_time: 2.0
+        main_output: gunpowder
+        inputs:
+          - { id: coal, qty: 2 }
+          - { id: nitrate_powder, qty: 2 }
+        outputs:
+          - { id: gunpowder, qty: 1 }
+
+  - id: bullet_tip
+    name: "弾頭"
+    type: "弾薬"
+    facility: "炉"
+    recipes:
+      - id: bullet_tip_r0
+        craft_time: 2.0
+        main_output: bullet_tip
+        inputs:
+          - { id: raw_lead, qty: 2 }
+          - { id: clay_soil, qty: 1 }
+        outputs:
+          - { id: bullet_tip, qty: 1 }
+
+  - id: bullet_casing
+    name: "薬莢"
+    type: "弾薬"
+    facility: "炉"
+    recipes:
+      - id: bullet_casing_r0
+        craft_time: 3.0
+        main_output: bullet_casing
+        inputs:
+          - { id: scrap_brass, qty: 6 }
+          - { id: clay_soil, qty: 1 }
+        outputs:
+          - { id: bullet_casing, qty: 1 }
+
+  - id: buckshot
+    name: "散弾薬莢"
+    type: "弾薬"
+    facility: "炉"
+    recipes:
+      - id: buckshot_r0
+        craft_time: 2.0
+        main_output: buckshot
+        inputs:
+          - { id: raw_lead, qty: 3 }
+          - { id: clay_soil, qty: 1 }
+        outputs:
+          - { id: buckshot, qty: 1 }
+
+  - id: ammo_9mm
+    name: "9mm弾"
+    type: "弾薬"
+    facility: "作業台"
+    recipes:
+      - id: ammo_9mm_r0
+        craft_time: 3.0
+        main_output: ammo_9mm
+        inputs:
+          - { id: bullet_tip, qty: 1 }
+          - { id: gunpowder, qty: 1 }
+          - { id: bullet_casing, qty: 1 }
+        outputs:
+          - { id: ammo_9mm, qty: 1 }
+
+  - id: ammo_762mm
+    name: "7.62mm弾"
+    type: "弾薬"
+    facility: "作業台"
+    recipes:
+      - id: ammo_762mm_r0
+        craft_time: 5.0
+        main_output: ammo_762mm
+        inputs:
+          - { id: bullet_tip, qty: 1 }
+          - { id: gunpowder, qty: 3 }
+          - { id: bullet_casing, qty: 1 }
+        outputs:
+          - { id: ammo_762mm, qty: 1 }
+
+  - id: ammo_44magnum
+    name: ".44マグナム弾"
+    type: "弾薬"
+    facility: "作業台"
+    recipes:
+      - id: ammo_44magnum_r0
+        craft_time: 4.0
+        main_output: ammo_44magnum
+        inputs:
+          - { id: bullet_tip, qty: 1 }
+          - { id: gunpowder, qty: 2 }
+          - { id: bullet_casing, qty: 1 }
+        outputs:
+          - { id: ammo_44magnum, qty: 1 }
+
+  - id: shotgun_shell
+    name: "ショットガンシェル"
+    type: "弾薬"
+    facility: "作業台"
+    recipes:
+      - id: shotgun_shell_r0
+        craft_time: 5.0
+        main_output: shotgun_shell
+        inputs:
+          - { id: buckshot, qty: 1 }
+          - { id: gunpowder, qty: 4 }
+          - { id: paper, qty: 1 }
+        outputs:
+          - { id: shotgun_shell, qty: 1 }
+
+  - id: iron_arrowhead
+    name: "鉄矢尻"
+    type: "弾薬"
+    facility: "炉"
+    recipes:
+      - id: iron_arrowhead_r0
+        craft_time: 2.0
+        main_output: iron_arrowhead
+        inputs:
+          - { id: raw_iron, qty: 2 }
+          - { id: clay_soil, qty: 1 }
+        outputs:
+          - { id: iron_arrowhead, qty: 1 }
+
+  - id: iron_arrow
+    name: "鉄矢"
+    type: "弾薬"
+    facility: "手荷物"
+    recipes:
+      - id: iron_arrow_r0
+        craft_time: 2.0
+        main_output: iron_arrow
+        inputs:
+          - { id: iron_arrowhead, qty: 1 }
+          - { id: wood, qty: 1 }
+          - { id: feather, qty: 1 }
+        outputs:
+          - { id: iron_arrow, qty: 1 }
+
+  - id: steel_arrowhead
+    name: "鋼鉄矢尻"
+    type: "弾薬"
+    facility: "炉"
+    recipes:
+      - id: steel_arrowhead_r0
+        craft_time: 3.0
+        main_output: steel_arrowhead
+        inputs:
+          - { id: raw_iron, qty: 7 }
+          - { id: clay_soil, qty: 1 }
+        outputs:
+          - { id: steel_arrowhead, qty: 1 }
+
+  - id: steel_arrow
+    name: "鋼鉄矢"
+    type: "弾薬"
+    facility: "手荷物"
+    recipes:
+      - id: steel_arrow_r0
+        craft_time: 1.0
+        main_output: steel_arrow
+        inputs:
+          - { id: steel_arrowhead, qty: 1 }
+          - { id: plastic_polymer, qty: 2 }
+        outputs:
+          - { id: steel_arrow, qty: 1 }
+
+  - id: pipe_bomb
+    name: "パイプ爆弾"
+    type: "弾薬"
+    facility: "手荷物"
+    recipes:
+      - id: pipe_bomb_r0
+        craft_time: 12.0
+        main_output: pipe_bomb
+        inputs:
+          - { id: short_iron_pipe, qty: 1 }
+          - { id: gunpowder, qty: 12 }
+          - { id: plant_fibers, qty: 1 }
+        outputs:
+          - { id: pipe_bomb, qty: 1 }
+
+  - id: grenade
+    name: "手榴弾"
+    type: "弾薬"
+    facility: "作業台"
+    recipes:
+      - id: grenade_r0
+        craft_time: 16.0
+        main_output: grenade
+        inputs:
+          - { id: mechanical_parts, qty: 1 }
+          - { id: gunpowder, qty: 14 }
+          - { id: forged_iron, qty: 4 }
+          - { id: spring, qty: 1 }
+        outputs:
+          - { id: grenade, qty: 1 }
+
+  - id: contact_grenade
+    name: "接触起爆手榴弾"
+    type: "弾薬"
+    facility: "作業台"
+    recipes:
+      - id: contact_grenade_r0
+        craft_time: 20.0
+        main_output: contact_grenade
+        inputs:
+          - { id: mechanical_parts, qty: 2 }
+          - { id: gunpowder, qty: 14 }
+          - { id: forged_iron, qty: 4 }
+          - { id: spring, qty: 1 }
+        outputs:
+          - { id: contact_grenade, qty: 1 }
+
+  - id: molotov_cocktail
+    name: "モロトフ・カクテル"
+    type: "弾薬"
+    facility: "手荷物"
+    recipes:
+      - id: molotov_cocktail_r0
+        craft_time: 12.0
+        main_output: molotov_cocktail
+        inputs:
+          - { id: cloth_fragment, qty: 5 }
+          - { id: gas_can, qty: 300 }
+          - { id: oil, qty: 1 }
+        outputs:
+          - { id: molotov_cocktail, qty: 1 }
+
+  - id: timed_charge
+    name: "時限爆弾"
+    type: "弾薬"
+    facility: "作業台"
+    recipes:
+      - id: timed_charge_r0
+        craft_time: 30.0
+        main_output: timed_charge
+        inputs:
+          - { id: forged_iron, qty: 20 }
+          - { id: gunpowder, qty: 10 }
+          - { id: electrical_parts, qty: 1 }
+        outputs:
+          - { id: timed_charge, qty: 1 }
+
+  - id: dynamite
+    name: "ダイナマイトスティック"
+    type: "弾薬"
+    facility: "作業台"
+    recipes:
+      - id: dynamite_r0
+        craft_time: 15.0
+        main_output: dynamite
+        inputs:
+          - { id: plant_fibers, qty: 1 }
+          - { id: gunpowder, qty: 20 }
+          - { id: duct_tape, qty: 2 }
+          - { id: paper, qty: 10 }
+        outputs:
+          - { id: dynamite, qty: 1 }
+
+  - id: rocket_casing
+    name: "ロケットケーシング"
+    type: "弾薬"
+    facility: "炉"
+    recipes:
+      - id: rocket_casing_r0
+        craft_time: 40.0
+        main_output: rocket_casing
+        inputs:
+          - { id: raw_iron, qty: 62 }
+          - { id: clay_soil, qty: 37 }
+        outputs:
+          - { id: rocket_casing, qty: 1 }
+
+  - id: rocket_tip
+    name: "ロケット弾頭"
+    type: "弾薬"
+    facility: "炉"
+    recipes:
+      - id: rocket_tip_r0
+        craft_time: 40.0
+        main_output: rocket_tip
+        inputs:
+          - { id: raw_lead, qty: 62 }
+          - { id: clay_soil, qty: 37 }
+        outputs:
+          - { id: rocket_tip, qty: 1 }
+
+  - id: rocket_he
+    name: "榴弾ロケット"
+    type: "弾薬"
+    facility: "作業台"
+    recipes:
+      - id: rocket_he_r0
+        craft_time: 30.0
+        main_output: rocket_he
+        inputs:
+          - { id: rocket_tip, qty: 1 }
+          - { id: gunpowder, qty: 15 }
+          - { id: duct_tape, qty: 2 }
+          - { id: gas_can, qty: 500 }
+          - { id: rocket_casing, qty: 1 }
+        outputs:
+          - { id: rocket_he, qty: 1 }
+
+  - id: iron_crossbow_bolt
+    name: "鉄クロスボウボルト"
+    type: "弾薬"
+    facility: "手荷物"
+    recipes:
+      - id: iron_crossbow_bolt_r0
+        craft_time: 1.0
+        main_output: iron_crossbow_bolt
+        inputs:
+          - { id: iron_arrowhead, qty: 1 }
+          - { id: wood, qty: 1 }
+          - { id: feather, qty: 1 }
+        outputs:
+          - { id: iron_crossbow_bolt, qty: 1 }
+
+  - id: steel_crossbow_bolt
+    name: "鋼鉄クロスボウボルト"
+    type: "弾薬"
+    facility: "手荷物"
+    recipes:
+      - id: steel_crossbow_bolt_r0
+        craft_time: 1.0
+        main_output: steel_crossbow_bolt
+        inputs:
+          - { id: steel_arrowhead, qty: 1 }
+          - { id: wood, qty: 1 }
+          - { id: feather, qty: 1 }
+        outputs:
+          - { id: steel_crossbow_bolt, qty: 1 }
+
+  # ==========================================
+  # 医療・薬品
+  # ==========================================
+  - id: bandage
+    name: "包帯"
+    type: "医療"
+    facility: "手荷物"
+    recipes:
+      - id: bandage_r0
+        craft_time: 2.0
+        main_output: bandage
+        inputs:
+          - { id: cloth_fragment, qty: 10 }
+        outputs:
+          - { id: bandage, qty: 1 }
+
+  - id: aloe_cream
+    name: "アロエクリーム"
+    type: "医療"
+    facility: "手荷物"
+    recipes:
+      - id: aloe_cream_r0
+        craft_time: 20.0
+        main_output: aloe_cream
+        inputs:
+          - { id: aloe_leaf, qty: 4 }
+        outputs:
+          - { id: aloe_cream, qty: 1 }
+
+  - id: first_aid_bandage
+    name: "救急包帯"
+    type: "医療"
+    facility: "手荷物"
+    recipes:
+      - id: first_aid_bandage_r0
+        craft_time: 2.0
+        main_output: first_aid_bandage
+        inputs:
+          - { id: bandage, qty: 1 }
+          - { id: aloe_cream, qty: 1 }
+        outputs:
+          - { id: first_aid_bandage, qty: 1 }
+
+  - id: first_aid_kit
+    name: "救急キット"
+    type: "医療"
+    facility: "化学実験ステーション"
+    recipes:
+      - id: first_aid_kit_r0
+        craft_time: 8.0
+        main_output: first_aid_kit
+        inputs:
+          - { id: blood_bag, qty: 1 }
+          - { id: beer, qty: 1 }
+          - { id: bandage, qty: 5 }
+          - { id: sewing_kit, qty: 1 }
+        outputs:
+          - { id: first_aid_kit, qty: 1 }
+
+  - id: antibiotics
+    name: "抗生物質"
+    type: "医療"
+    facility: "化学実験ステーション"
+    recipes:
+      - id: antibiotics_r0
+        craft_time: 46.0
+        main_output: antibiotics
+        inputs:
+          - { id: sham_sandwich, qty: 1 }
+          - { id: nitrate_powder, qty: 1 }
+          - { id: boiled_water, qty: 1 }
+        outputs:
+          - { id: antibiotics, qty: 1 }
+      - id: antibiotics_r1
+        craft_time: 137.0
+        main_output: antibiotics
+        inputs:
+          - { id: sham_sandwich, qty: 4 }
+          - { id: nitrate_powder, qty: 3 }
+          - { id: boiled_water, qty: 1 }
+        outputs:
+          - { id: antibiotics, qty: 1 }
+
+  - id: herbal_antibiotics
+    name: "ハーブ抗生物質"
+    type: "医療"
+    facility: "化学実験ステーション"
+    recipes:
+      - id: herbal_antibiotics_r0
+        craft_time: 42.0
+        main_output: herbal_antibiotics
+        inputs:
+          - { id: blueberry, qty: 2 }
+          - { id: mushrooms, qty: 1 }
+          - { id: chrysanthemum, qty: 1 }
+          - { id: nitrate_powder, qty: 1 }
+          - { id: boiled_water, qty: 1 }
+        outputs:
+          - { id: herbal_antibiotics, qty: 1 }
+      - id: herbal_antibiotics_r1
+        craft_time: 87.0
+        main_output: herbal_antibiotics
+        inputs:
+          - { id: blueberry, qty: 5 }
+          - { id: mushrooms, qty: 3 }
+          - { id: chrysanthemum, qty: 3 }
+          - { id: nitrate_powder, qty: 3 }
+          - { id: boiled_water, qty: 1 }
+        outputs:
+          - { id: herbal_antibiotics, qty: 1 }
+
+  - id: splint
+    name: "添え木"
+    type: "医療"
+    facility: "手荷物"
+    recipes:
+      - id: splint_r0
+        craft_time: 3.0
+        main_output: splint
+        inputs:
+          - { id: wood, qty: 2 }
+          - { id: duct_tape, qty: 1 }
+          - { id: cloth_fragment, qty: 10 }
+        outputs:
+          - { id: splint, qty: 1 }
+
+  - id: plaster_cast
+    name: "ギプス"
+    type: "医療"
+    facility: "化学実験ステーション"
+    recipes:
+      - id: plaster_cast_r0
+        craft_time: 62.0
+        main_output: plaster_cast
+        inputs:
+          - { id: cloth_fragment, qty: 25 }
+          - { id: cornmeal, qty: 4 }
+          - { id: crushed_sand, qty: 2 }
+          - { id: boiled_water, qty: 1 }
+        outputs:
+          - { id: plaster_cast, qty: 1 }
+      - id: plaster_cast_r1
+        craft_time: 124.0
+        main_output: plaster_cast
+        inputs:
+          - { id: cloth_fragment, qty: 50 }
+          - { id: cornmeal, qty: 8 }
+          - { id: crushed_sand, qty: 4 }
+          - { id: boiled_water, qty: 2 }
+        outputs:
+          - { id: plaster_cast, qty: 1 }
+
+  # ==========================================
+  # 飲食
+  # ==========================================
+  - id: boiled_water
+    name: "茹でた水"
+    type: "食料"
+    facility: "焚き火"
+    recipes:
+      - id: boiled_water_r0
+        craft_time: 50.0
+        main_output: boiled_water
+        inputs:
+          - { id: murky_water, qty: 1 }
+        outputs:
+          - { id: boiled_water, qty: 1 }
+
+  - id: pure_mineral_water
+    name: "きれいな水"
+    type: "食料"
+    facility: "焚き火"
+    recipes:
+      - id: pure_mineral_water_r0
+        craft_time: 50.0
+        main_output: pure_mineral_water
+        inputs:
+          - { id: boiled_water, qty: 1 }
+          - { id: coal, qty: 1 }
+          - { id: goldenrod, qty: 1 }
+          - { id: chrysanthemum, qty: 1 }
+        outputs:
+          - { id: pure_mineral_water, qty: 1 }
+
+  - id: red_tea
+    name: "レッドティー"
+    type: "食料"
+    facility: "焚き火"
+    recipes:
+      - id: red_tea_r0
+        craft_time: 40.0
+        main_output: red_tea
+        inputs:
+          - { id: chrysanthemum, qty: 1 }
+          - { id: boiled_water, qty: 1 }
+        outputs:
+          - { id: red_tea, qty: 1 }
+
+  - id: goldenrod_tea
+    name: "ゴールデンロッドティー"
+    type: "食料"
+    facility: "焚き火"
+    recipes:
+      - id: goldenrod_tea_r0
+        craft_time: 40.0
+        main_output: goldenrod_tea
+        inputs:
+          - { id: goldenrod, qty: 1 }
+          - { id: boiled_water, qty: 1 }
+        outputs:
+          - { id: goldenrod_tea, qty: 1 }
+
+  - id: coffee
+    name: "コーヒー"
+    type: "食料"
+    facility: "焚き火"
+    recipes:
+      - id: coffee_r0
+        craft_time: 40.0
+        main_output: coffee
+        inputs:
+          - { id: coffee_beans, qty: 1 }
+          - { id: boiled_water, qty: 1 }
+        outputs:
+          - { id: coffee, qty: 1 }
+
+  - id: beer
+    name: "ビール"
+    type: "食料"
+    facility: "化学実験ステーション"
+    recipes:
+      - id: beer_r0
+        craft_time: 475.0
+        main_output: beer
+        inputs:
+          - { id: hops, qty: 4 }
+          - { id: boiled_water, qty: 1 }
+        outputs:
+          - { id: beer, qty: 1 }
+
+  - id: grilled_meat
+    name: "焼いた肉"
+    type: "食料"
+    facility: "焚き火"
+    recipes:
+      - id: grilled_meat_r0
+        craft_time: 20.0
+        main_output: grilled_meat
+        inputs:
+          - { id: raw_meat, qty: 5 }
+        outputs:
+          - { id: grilled_meat, qty: 1 }
+
+  - id: bacon_and_eggs
+    name: "ベーコンエッグ"
+    type: "食料"
+    facility: "焚き火"
+    recipes:
+      - id: bacon_and_eggs_r0
+        craft_time: 30.0
+        main_output: bacon_and_eggs
+        inputs:
+          - { id: raw_meat, qty: 5 }
+          - { id: egg, qty: 2 }
+        outputs:
+          - { id: bacon_and_eggs, qty: 1 }
+
+  - id: meat_stew
+    name: "ミートシチュー"
+    type: "食料"
+    facility: "焚き火"
+    recipes:
+      - id: meat_stew_r0
+        craft_time: 50.0
+        main_output: meat_stew
+        inputs:
+          - { id: grilled_meat, qty: 1 }
+          - { id: potato, qty: 2 }
+          - { id: corn, qty: 2 }
+          - { id: animal_fat, qty: 1 }
+          - { id: boiled_water, qty: 1 }
+        outputs:
+          - { id: meat_stew, qty: 1 }
+
+  - id: vegetable_stew
+    name: "野菜シチュー"
+    type: "食料"
+    facility: "焚き火"
+    recipes:
+      - id: vegetable_stew_r0
+        craft_time: 50.0
+        main_output: vegetable_stew
+        inputs:
+          - { id: potato, qty: 2 }
+          - { id: corn, qty: 2 }
+          - { id: mushrooms, qty: 2 }
+          - { id: boiled_water, qty: 1 }
+        outputs:
+          - { id: vegetable_stew, qty: 1 }
+
+  - id: cornmeal
+    name: "コーンミール"
+    type: "食料"
+    facility: "手荷物"
+    recipes:
+      - id: cornmeal_r0
+        craft_time: 5.0
+        main_output: cornmeal
+        inputs:
+          - { id: corn, qty: 1 }
+        outputs:
+          - { id: cornmeal, qty: 1 }
+
+  # ==========================================
+  # 車両・機械パーツ
+  # ==========================================
+  - id: wheel
+    name: "車輪"
+    type: "車両"
+    facility: "作業台"
+    recipes:
+      - id: wheel_r0
+        craft_time: 31.0
+        main_output: wheel
+        inputs:
+          - { id: forged_iron, qty: 3 }
+          - { id: plastic_polymer, qty: 24 }
+          - { id: oil, qty: 2 }
+          - { id: coal, qty: 15 }
+          - { id: acid_bottle, qty: 1 }
+        outputs:
+          - { id: wheel, qty: 1 }
+
+  - id: bicycle_chassis
+    name: "自転車のシャーシ"
+    type: "車両"
+    facility: "作業台"
+    recipes:
+      - id: bicycle_chassis_r0
+        craft_time: 30.0
+        main_output: bicycle_chassis
+        inputs:
+          - { id: forged_iron, qty: 7 }
+          - { id: duct_tape, qty: 3 }
+          - { id: leather, qty: 3 }
+          - { id: spring, qty: 3 }
+          - { id: mechanical_parts, qty: 3 }
+        outputs:
+          - { id: bicycle_chassis, qty: 1 }
+
+  - id: bicycle_handlebars
+    name: "自転車のハンドルバー"
+    type: "車両"
+    facility: "作業台"
+    recipes:
+      - id: bicycle_handlebars_r0
+        craft_time: 30.0
+        main_output: bicycle_handlebars
+        inputs:
+          - { id: short_iron_pipe, qty: 6 }
+          - { id: duct_tape, qty: 2 }
+          - { id: leather, qty: 2 }
+          - { id: spring, qty: 2 }
+          - { id: mechanical_parts, qty: 1 }
+        outputs:
+          - { id: bicycle_handlebars, qty: 1 }
+
+  - id: bicycle
+    name: "自転車"
+    type: "車両"
+    facility: "作業台"
+    recipes:
+      - id: bicycle_r0
+        craft_time: 30.0
+        main_output: bicycle
+        inputs:
+          - { id: bicycle_chassis, qty: 1 }
+          - { id: bicycle_handlebars, qty: 1 }
+          - { id: wheel, qty: 2 }
+          - { id: mechanical_parts, qty: 1 }
+        outputs:
+          - { id: bicycle, qty: 1 }
+
+  - id: minibike_chassis
+    name: "ミニバイクのシャーシ"
+    type: "車両"
+    facility: "作業台"
+    recipes:
+      - id: minibike_chassis_r0
+        craft_time: 90.0
+        main_output: minibike_chassis
+        inputs:
+          - { id: forged_iron, qty: 15 }
+          - { id: duct_tape, qty: 6 }
+          - { id: leather, qty: 6 }
+          - { id: mechanical_parts, qty: 6 }
+          - { id: electrical_parts, qty: 1 }
+        outputs:
+          - { id: minibike_chassis, qty: 1 }
+
+  - id: minibike_handlebars
+    name: "ミニバイクのハンドルバー"
+    type: "車両"
+    facility: "作業台"
+    recipes:
+      - id: minibike_handlebars_r0
+        craft_time: 90.0
+        main_output: minibike_handlebars
+        inputs:
+          - { id: short_iron_pipe, qty: 6 }
+          - { id: spring, qty: 2 }
+          - { id: headlight, qty: 1 }
+          - { id: mechanical_parts, qty: 4 }
+          - { id: electrical_parts, qty: 2 }
+        outputs:
+          - { id: minibike_handlebars, qty: 1 }
+
+  - id: minibike
+    name: "ミニバイク"
+    type: "車両"
+    facility: "作業台"
+    recipes:
+      - id: minibike_r0
+        craft_time: 90.0
+        main_output: minibike
+        inputs:
+          - { id: minibike_chassis, qty: 1 }
+          - { id: minibike_handlebars, qty: 1 }
+          - { id: wheel, qty: 2 }
+          - { id: small_engine, qty: 1 }
+          - { id: battery, qty: 1 }
+        outputs:
+          - { id: minibike, qty: 1 }
+
+  - id: motorcycle_chassis
+    name: "オートバイのシャーシ"
+    type: "車両"
+    facility: "作業台"
+    recipes:
+      - id: motorcycle_chassis_r0
+        craft_time: 150.0
+        main_output: motorcycle_chassis
+        inputs:
+          - { id: forged_steel, qty: 37 }
+          - { id: duct_tape, qty: 15 }
+          - { id: leather, qty: 15 }
+          - { id: mechanical_parts, qty: 15 }
+          - { id: electrical_parts, qty: 4 }
+        outputs:
+          - { id: motorcycle_chassis, qty: 1 }
+
+  - id: motorcycle_handlebars
+    name: "オートバイのハンドルバー"
+    type: "車両"
+    facility: "作業台"
+    recipes:
+      - id: motorcycle_handlebars_r0
+        craft_time: 150.0
+        main_output: motorcycle_handlebars
+        inputs:
+          - { id: forged_steel, qty: 7 }
+          - { id: duct_tape, qty: 15 }
+          - { id: headlight, qty: 1 }
+          - { id: mechanical_parts, qty: 15 }
+          - { id: electrical_parts, qty: 9 }
+        outputs:
+          - { id: motorcycle_handlebars, qty: 1 }
+
+  - id: motorcycle
+    name: "オートバイ"
+    type: "車両"
+    facility: "作業台"
+    recipes:
+      - id: motorcycle_r0
+        craft_time: 150.0
+        main_output: motorcycle
+        inputs:
+          - { id: motorcycle_chassis, qty: 1 }
+          - { id: motorcycle_handlebars, qty: 1 }
+          - { id: wheel, qty: 2 }
+          - { id: small_engine, qty: 1 }
+          - { id: battery, qty: 1 }
+        outputs:
+          - { id: motorcycle, qty: 1 }
+
+  - id: truck_chassis
+    name: "4x4トラックのシャーシ"
+    type: "車両"
+    facility: "作業台"
+    recipes:
+      - id: truck_chassis_r0
+        craft_time: 210.0
+        main_output: truck_chassis
+        inputs:
+          - { id: forged_steel, qty: 375 }
+          - { id: duct_tape, qty: 30 }
+          - { id: leather, qty: 60 }
+          - { id: mechanical_parts, qty: 60 }
+          - { id: electrical_parts, qty: 24 }
+        outputs:
+          - { id: truck_chassis, qty: 1 }
+
+  - id: truck_accessories
+    name: "4x4トラックの付属品"
+    type: "車両"
+    facility: "作業台"
+    recipes:
+      - id: truck_accessories_r0
+        craft_time: 210.0
+        main_output: truck_accessories
+        inputs:
+          - { id: short_iron_pipe, qty: 75 }
+          - { id: headlight, qty: 8 }
+          - { id: spring, qty: 6 }
+          - { id: mechanical_parts, qty: 24 }
+          - { id: electrical_parts, qty: 49 }
+        outputs:
+          - { id: truck_accessories, qty: 1 }
+
+  - id: truck_4x4
+    name: "4x4トラック"
+    type: "車両"
+    facility: "作業台"
+    recipes:
+      - id: truck_4x4_r0
+        craft_time: 210.0
+        main_output: truck_4x4
+        inputs:
+          - { id: truck_chassis, qty: 1 }
+          - { id: truck_accessories, qty: 1 }
+          - { id: wheel, qty: 4 }
+          - { id: small_engine, qty: 1 }
+          - { id: battery, qty: 1 }
+        outputs:
+          - { id: truck_4x4, qty: 1 }
+
+  - id: gyrocopter_chassis
+    name: "ジャイロコプターのシャーシ"
+    type: "車両"
+    facility: "作業台"
+    recipes:
+      - id: gyrocopter_chassis_r0
+        craft_time: 270.0
+        main_output: gyrocopter_chassis
+        inputs:
+          - { id: forged_steel, qty: 187 }
+          - { id: duct_tape, qty: 37 }
+          - { id: leather, qty: 60 }
+          - { id: mechanical_parts, qty: 60 }
+          - { id: electrical_parts, qty: 30 }
+        outputs:
+          - { id: gyrocopter_chassis, qty: 1 }
+
+  - id: gyrocopter_accessories
+    name: "ジャイロコプターの付属品"
+    type: "車両"
+    facility: "作業台"
+    recipes:
+      - id: gyrocopter_accessories_r0
+        craft_time: 270.0
+        main_output: gyrocopter_accessories
+        inputs:
+          - { id: short_iron_pipe, qty: 75 }
+          - { id: headlight, qty: 8 }
+          - { id: spring, qty: 6 }
+          - { id: mechanical_parts, qty: 15 }
+          - { id: electrical_parts, qty: 49 }
+        outputs:
+          - { id: gyrocopter_accessories, qty: 1 }
+
+  - id: gyrocopter
+    name: "ジャイロコプター"
+    type: "車両"
+    facility: "作業台"
+    recipes:
+      - id: gyrocopter_r0
+        craft_time: 270.0
+        main_output: gyrocopter
+        inputs:
+          - { id: gyrocopter_chassis, qty: 1 }
+          - { id: gyrocopter_accessories, qty: 1 }
+          - { id: wheel, qty: 3 }
+          - { id: small_engine, qty: 1 }
+          - { id: battery, qty: 1 }
+        outputs:
+          - { id: gyrocopter, qty: 1 }
+
+  - id: vehicle_super_charger_mod
+    name: "車両スーパーチャージャーMod"
+    type: "車両"
+    facility: "作業台"
+    recipes:
+      - id: vehicle_super_charger_mod_r0
+        craft_time: 30.0
+        main_output: vehicle_super_charger_mod
+        inputs:
+          - { id: forged_steel, qty: 15 }
+          - { id: mechanical_parts, qty: 10 }
+          - { id: small_engine, qty: 1 }
+          - { id: duct_tape, qty: 5 }
+        outputs:
+          - { id: vehicle_super_charger_mod, qty: 1 }
+
+  - id: vehicle_fuel_tank_mod
+    name: "車両予備燃料タンクMod"
+    type: "車両"
+    facility: "作業台"
+    recipes:
+      - id: vehicle_fuel_tank_mod_r0
+        craft_time: 30.0
+        main_output: vehicle_fuel_tank_mod
+        inputs:
+          - { id: forged_iron, qty: 15 }
+          - { id: mechanical_parts, qty: 5 }
+          - { id: duct_tape, qty: 5 }
+        outputs:
+          - { id: vehicle_fuel_tank_mod, qty: 1 }
+
+  - id: vehicle_plow_mod
+    name: "車両プラウMod"
+    type: "車両"
+    facility: "作業台"
+    recipes:
+      - id: vehicle_plow_mod_r0
+        craft_time: 30.0
+        main_output: vehicle_plow_mod
+        inputs:
+          - { id: forged_steel, qty: 25 }
+          - { id: mechanical_parts, qty: 10 }
+          - { id: duct_tape, qty: 5 }
+        outputs:
+          - { id: vehicle_plow_mod, qty: 1 }
+
+  - id: vehicle_seating_mod
+    name: "車両追加シートMod"
+    type: "車両"
+    facility: "作業台"
+    recipes:
+      - id: vehicle_seating_mod_r0
+        craft_time: 20.0
+        main_output: vehicle_seating_mod
+        inputs:
+          - { id: leather, qty: 10 }
+          - { id: duct_tape, qty: 5 }
+          - { id: mechanical_parts, qty: 5 }
+        outputs:
+          - { id: vehicle_seating_mod, qty: 1 }
+
+  # ==========================================
+  # 道具・武器
+  # ==========================================
+  - id: stone_axe
+    name: "石斧"
+    type: "道具"
+    facility: "手荷物"
+    recipes:
+      - id: stone_axe_r0
+        craft_time: 2.0
+        main_output: stone_axe
+        inputs:
+          - { id: small_stone, qty: 5 }
+          - { id: plant_fibers, qty: 3 }
+          - { id: wood, qty: 2 }
+        outputs:
+          - { id: stone_axe, qty: 1 }
+
+  - id: stone_shovel
+    name: "石シャベル"
+    type: "道具"
+    facility: "手荷物"
+    recipes:
+      - id: stone_shovel_r0
+        craft_time: 2.0
+        main_output: stone_shovel
+        inputs:
+          - { id: small_stone, qty: 5 }
+          - { id: plant_fibers, qty: 3 }
+          - { id: wood, qty: 2 }
+        outputs:
+          - { id: stone_shovel, qty: 1 }
+
+  - id: wooden_club
+    name: "木製棍棒"
+    type: "武器"
+    facility: "手荷物"
+    recipes:
+      - id: wooden_club_r0
+        craft_time: 2.0
+        main_output: wooden_club
+        inputs:
+          - { id: wood, qty: 5 }
+        outputs:
+          - { id: wooden_club, qty: 1 }
+
+  - id: bone_knife
+    name: "骨ナイフ"
+    type: "武器"
+    facility: "手荷物"
+    recipes:
+      - id: bone_knife_r0
+        craft_time: 2.0
+        main_output: bone_knife
+        inputs:
+          - { id: bone, qty: 5 }
+        outputs:
+          - { id: bone_knife, qty: 1 }
+
+  - id: wrench
+    name: "レンチ"
+    type: "道具"
+    facility: "作業台"
+    recipes:
+      - id: wrench_r0
+        craft_time: 10.0
+        main_output: wrench
+        inputs:
+          - { id: forged_iron, qty: 12 }
+          - { id: mechanical_parts, qty: 4 }
+          - { id: duct_tape, qty: 2 }
+        outputs:
+          - { id: wrench, qty: 1 }
+
+  - id: claw_hammer
+    name: "金づち"
+    type: "道具"
+    facility: "作業台"
+    recipes:
+      - id: claw_hammer_r0
+        craft_time: 10.0
+        main_output: claw_hammer
+        inputs:
+          - { id: forged_iron, qty: 10 }
+          - { id: wood, qty: 10 }
+          - { id: leather, qty: 2 }
+          - { id: duct_tape, qty: 2 }
+        outputs:
+          - { id: claw_hammer, qty: 1 }
+
+  - id: iron_pickaxe
+    name: "鉄製つるはし"
+    type: "道具"
+    facility: "作業台"
+    recipes:
+      - id: iron_pickaxe_r0
+        craft_time: 10.0
+        main_output: iron_pickaxe
+        inputs:
+          - { id: forged_iron, qty: 10 }
+          - { id: wood, qty: 10 }
+          - { id: leather, qty: 3 }
+          - { id: duct_tape, qty: 3 }
+        outputs:
+          - { id: iron_pickaxe, qty: 1 }
+
+  - id: iron_fireaxe
+    name: "鉄製消防斧"
+    type: "道具"
+    facility: "作業台"
+    recipes:
+      - id: iron_fireaxe_r0
+        craft_time: 10.0
+        main_output: iron_fireaxe
+        inputs:
+          - { id: forged_iron, qty: 10 }
+          - { id: wood, qty: 10 }
+          - { id: leather, qty: 3 }
+          - { id: duct_tape, qty: 3 }
+        outputs:
+          - { id: iron_fireaxe, qty: 1 }
+
+  - id: iron_shovel
+    name: "鉄製シャベル"
+    type: "道具"
+    facility: "作業台"
+    recipes:
+      - id: iron_shovel_r0
+        craft_time: 10.0
+        main_output: iron_shovel
+        inputs:
+          - { id: forged_iron, qty: 10 }
+          - { id: wood, qty: 10 }
+          - { id: leather, qty: 3 }
+          - { id: duct_tape, qty: 3 }
+        outputs:
+          - { id: iron_shovel, qty: 1 }
+
+  - id: steel_pickaxe
+    name: "鉄鋼製つるはし"
+    type: "道具"
+    facility: "作業台"
+    recipes:
+      - id: steel_pickaxe_r0
+        craft_time: 15.0
+        main_output: steel_pickaxe
+        inputs:
+          - { id: forged_steel, qty: 10 }
+          - { id: wood, qty: 10 }
+          - { id: duct_tape, qty: 3 }
+          - { id: tool_parts_steel, qty: 1 }
+        outputs:
+          - { id: steel_pickaxe, qty: 1 }
+
+  - id: steel_fireaxe
+    name: "鉄鋼製消防斧"
+    type: "道具"
+    facility: "作業台"
+    recipes:
+      - id: steel_fireaxe_r0
+        craft_time: 15.0
+        main_output: steel_fireaxe
+        inputs:
+          - { id: forged_steel, qty: 10 }
+          - { id: wood, qty: 10 }
+          - { id: duct_tape, qty: 3 }
+          - { id: tool_parts_steel, qty: 1 }
+        outputs:
+          - { id: steel_fireaxe, qty: 1 }
+
+  - id: chainsaw
+    name: "チェーンソー"
+    type: "道具"
+    facility: "作業台"
+    recipes:
+      - id: chainsaw_r0
+        craft_time: 30.0
+        main_output: chainsaw
+        inputs:
+          - { id: forged_steel, qty: 10 }
+          - { id: bicycle_handlebars, qty: 1 }
+          - { id: small_engine, qty: 1 }
+          - { id: tool_parts_motorized, qty: 1 }
+        outputs:
+          - { id: chainsaw, qty: 1 }
+
+  - id: auger
+    name: "オーガー"
+    type: "道具"
+    facility: "作業台"
+    recipes:
+      - id: auger_r0
+        craft_time: 30.0
+        main_output: auger
+        inputs:
+          - { id: forged_steel, qty: 10 }
+          - { id: bicycle_handlebars, qty: 1 }
+          - { id: small_engine, qty: 1 }
+          - { id: tool_parts_motorized, qty: 1 }
+        outputs:
+          - { id: auger, qty: 1 }
+
+  - id: pipe_pistol
+    name: "パイプピストル"
+    type: "武器"
+    facility: "手荷物"
+    recipes:
+      - id: pipe_pistol_r0
+        craft_time: 5.0
+        main_output: pipe_pistol
+        inputs:
+          - { id: short_iron_pipe, qty: 8 }
+          - { id: wood, qty: 5 }
+          - { id: glue, qty: 1 }
+        outputs:
+          - { id: pipe_pistol, qty: 1 }
+
+  - id: pipe_rifle
+    name: "パイプライフル"
+    type: "武器"
+    facility: "手荷物"
+    recipes:
+      - id: pipe_rifle_r0
+        craft_time: 5.0
+        main_output: pipe_rifle
+        inputs:
+          - { id: short_iron_pipe, qty: 12 }
+          - { id: wood, qty: 8 }
+          - { id: glue, qty: 2 }
+        outputs:
+          - { id: pipe_rifle, qty: 1 }
+
+  - id: pipe_shotgun
+    name: "パイプショットガン"
+    type: "武器"
+    facility: "手荷物"
+    recipes:
+      - id: pipe_shotgun_r0
+        craft_time: 5.0
+        main_output: pipe_shotgun
+        inputs:
+          - { id: short_iron_pipe, qty: 10 }
+          - { id: wood, qty: 6 }
+          - { id: glue, qty: 1 }
+        outputs:
+          - { id: pipe_shotgun, qty: 1 }
+
+  - id: pipe_machinegun
+    name: "パイプマシンガン"
+    type: "武器"
+    facility: "手荷物"
+    recipes:
+      - id: pipe_machinegun_r0
+        craft_time: 5.0
+        main_output: pipe_machinegun
+        inputs:
+          - { id: short_iron_pipe, qty: 15 }
+          - { id: wood, qty: 10 }
+          - { id: glue, qty: 3 }
+        outputs:
+          - { id: pipe_machinegun, qty: 1 }
+
+  - id: pistol
+    name: "9mmピストル"
+    type: "武器"
+    facility: "作業台"
+    recipes:
+      - id: pistol_r0
+        craft_time: 10.0
+        main_output: pistol
+        inputs:
+          - { id: forged_iron, qty: 5 }
+          - { id: duct_tape, qty: 1 }
+          - { id: spring, qty: 1 }
+          - { id: weapon_parts_handgun, qty: 1 }
+        outputs:
+          - { id: pistol, qty: 1 }
+
+  - id: ak47_rifle
+    name: "AK-47ライフル"
+    type: "武器"
+    facility: "作業台"
+    recipes:
+      - id: ak47_rifle_r0
+        craft_time: 10.0
+        main_output: ak47_rifle
+        inputs:
+          - { id: forged_iron, qty: 5 }
+          - { id: duct_tape, qty: 1 }
+          - { id: spring, qty: 1 }
+          - { id: weapon_parts_machinegun, qty: 1 }
+        outputs:
+          - { id: ak47_rifle, qty: 1 }
+
+  - id: pump_shotgun
+    name: "ポンプアクションショットガン"
+    type: "武器"
+    facility: "作業台"
+    recipes:
+      - id: pump_shotgun_r0
+        craft_time: 10.0
+        main_output: pump_shotgun
+        inputs:
+          - { id: forged_iron, qty: 5 }
+          - { id: duct_tape, qty: 1 }
+          - { id: spring, qty: 1 }
+          - { id: weapon_parts_shotgun, qty: 1 }
+        outputs:
+          - { id: pump_shotgun, qty: 1 }
+
+  - id: sniper_rifle
+    name: "スナイパーライフル"
+    type: "武器"
+    facility: "作業台"
+    recipes:
+      - id: sniper_rifle_r0
+        craft_time: 30.0
+        main_output: sniper_rifle
+        inputs:
+          - { id: forged_steel, qty: 100 }
+          - { id: duct_tape, qty: 13 }
+          - { id: spring, qty: 25 }
+          - { id: weapon_parts_rifle, qty: 13 }
+        outputs:
+          - { id: sniper_rifle, qty: 1 }
+
+  - id: m60_machinegun
+    name: "M60マシンガン"
+    type: "武器"
+    facility: "作業台"
+    recipes:
+      - id: m60_machinegun_r0
+        craft_time: 30.0
+        main_output: m60_machinegun
+        inputs:
+          - { id: forged_steel, qty: 100 }
+          - { id: duct_tape, qty: 13 }
+          - { id: spring, qty: 25 }
+          - { id: weapon_parts_machinegun, qty: 13 }
+        outputs:
+          - { id: m60_machinegun, qty: 1 }
+
+  - id: rocket_launcher
+    name: "ロケットランチャー"
+    type: "武器"
+    facility: "作業台"
+    recipes:
+      - id: rocket_launcher_r0
+        craft_time: 30.0
+        main_output: rocket_launcher
+        inputs:
+          - { id: forged_steel, qty: 20 }
+          - { id: duct_tape, qty: 3 }
+          - { id: spring, qty: 3 }
+          - { id: weapon_parts_rocket, qty: 1 }
+        outputs:
+          - { id: rocket_launcher, qty: 1 }
+
+  - id: desert_eagle
+    name: "デザートイーグル"
+    type: "武器"
+    facility: "作業台"
+    recipes:
+      - id: desert_eagle_r0
+        craft_time: 25.0
+        main_output: desert_eagle
+        inputs:
+          - { id: weapon_parts_handgun, qty: 10 }
+          - { id: forged_steel, qty: 20 }
+          - { id: duct_tape, qty: 5 }
+          - { id: spring, qty: 5 }
+        outputs:
+          - { id: desert_eagle, qty: 1 }
+
+  - id: tactical_assault_rifle
+    name: "タクティカルアサルトライフル"
+    type: "武器"
+    facility: "作業台"
+    recipes:
+      - id: tactical_assault_rifle_r0
+        craft_time: 20.0
+        main_output: tactical_assault_rifle
+        inputs:
+          - { id: weapon_parts_machinegun, qty: 5 }
+          - { id: forged_iron, qty: 15 }
+          - { id: duct_tape, qty: 3 }
+          - { id: spring, qty: 4 }
+        outputs:
+          - { id: tactical_assault_rifle, qty: 1 }
+
+  - id: auto_shotgun
+    name: "オートショットガン"
+    type: "武器"
+    facility: "作業台"
+    recipes:
+      - id: auto_shotgun_r0
+        craft_time: 30.0
+        main_output: auto_shotgun
+        inputs:
+          - { id: weapon_parts_shotgun, qty: 10 }
+          - { id: forged_steel, qty: 40 }
+          - { id: duct_tape, qty: 8 }
+          - { id: spring, qty: 10 }
+        outputs:
+          - { id: auto_shotgun, qty: 1 }
+
+  - id: baseball_bat
+    name: "野球バット"
+    type: "武器"
+    facility: "作業台"
+    recipes:
+      - id: baseball_bat_r0
+        craft_time: 10.0
+        main_output: baseball_bat
+        inputs:
+          - { id: wood, qty: 10 }
+          - { id: forged_iron, qty: 4 }
+          - { id: leather, qty: 2 }
+          - { id: duct_tape, qty: 2 }
+        outputs:
+          - { id: baseball_bat, qty: 1 }
+
+  - id: steel_club
+    name: "鋼鉄棍棒"
+    type: "武器"
+    facility: "作業台"
+    recipes:
+      - id: steel_club_r0
+        craft_time: 25.0
+        main_output: steel_club
+        inputs:
+          - { id: forged_steel, qty: 10 }
+          - { id: leather, qty: 4 }
+          - { id: duct_tape, qty: 3 }
+          - { id: tool_parts_steel, qty: 1 }
+        outputs:
+          - { id: steel_club, qty: 1 }
+
+  - id: iron_spear
+    name: "鉄の槍"
+    type: "武器"
+    facility: "作業台"
+    recipes:
+      - id: iron_spear_r0
+        craft_time: 10.0
+        main_output: iron_spear
+        inputs:
+          - { id: forged_iron, qty: 8 }
+          - { id: wood, qty: 5 }
+          - { id: leather, qty: 2 }
+          - { id: duct_tape, qty: 2 }
+        outputs:
+          - { id: iron_spear, qty: 1 }
+
+  - id: steel_spear
+    name: "鋼鉄の槍"
+    type: "武器"
+    facility: "作業台"
+    recipes:
+      - id: steel_spear_r0
+        craft_time: 25.0
+        main_output: steel_spear
+        inputs:
+          - { id: forged_steel, qty: 10 }
+          - { id: wood, qty: 5 }
+          - { id: leather, qty: 3 }
+          - { id: duct_tape, qty: 3 }
+          - { id: tool_parts_steel, qty: 1 }
+        outputs:
+          - { id: steel_spear, qty: 1 }
+
+  - id: wooden_bow
+    name: "木製弓"
+    type: "武器"
+    facility: "手荷物"
+    recipes:
+      - id: wooden_bow_r0
+        craft_time: 3.0
+        main_output: wooden_bow
+        inputs:
+          - { id: wood, qty: 8 }
+          - { id: plant_fibers, qty: 5 }
+        outputs:
+          - { id: wooden_bow, qty: 1 }
+
+  - id: crossbow
+    name: "クロスボウ"
+    type: "武器"
+    facility: "作業台"
+    recipes:
+      - id: crossbow_r0
+        craft_time: 10.0
+        main_output: crossbow
+        inputs:
+          - { id: wood, qty: 15 }
+          - { id: leather, qty: 2 }
+          - { id: duct_tape, qty: 2 }
+          - { id: spring, qty: 1 }
+        outputs:
+          - { id: crossbow, qty: 1 }
+
+  - id: iron_crossbow
+    name: "鉄のクロスボウ"
+    type: "武器"
+    facility: "作業台"
+    recipes:
+      - id: iron_crossbow_r0
+        craft_time: 15.0
+        main_output: iron_crossbow
+        inputs:
+          - { id: forged_iron, qty: 10 }
+          - { id: wood, qty: 10 }
+          - { id: duct_tape, qty: 2 }
+          - { id: spring, qty: 2 }
+        outputs:
+          - { id: iron_crossbow, qty: 1 }
+
+  # ==========================================
+  # 電気・トラップ
+  # ==========================================
+  - id: wood_spike_trap
+    name: "木製スパイクトラップ"
+    type: "電気"
+    facility: "手荷物"
+    recipes:
+      - id: wood_spike_trap_r0
+        craft_time: 4.0
+        main_output: wood_spike_trap
+        inputs:
+          - { id: wood, qty: 20 }
+        outputs:
+          - { id: wood_spike_trap, qty: 1 }
+
+  - id: iron_spike_trap
+    name: "鉄製スパイクトラップ"
+    type: "電気"
+    facility: "手荷物"
+    recipes:
+      - id: iron_spike_trap_r0
+        craft_time: 40.0
+        main_output: iron_spike_trap
+        inputs:
+          - { id: forged_iron, qty: 4 }
+        outputs:
+          - { id: iron_spike_trap, qty: 1 }
+
+  - id: barbed_wire_fence
+    name: "有刺鉄線フェンス"
+    type: "電気"
+    facility: "手荷物"
+    recipes:
+      - id: barbed_wire_fence_r0
+        craft_time: 4.0
+        main_output: barbed_wire_fence
+        inputs:
+          - { id: raw_iron, qty: 10 }
+          - { id: wood, qty: 10 }
+        outputs:
+          - { id: barbed_wire_fence, qty: 1 }
+
+  - id: electric_wire_relay
+    name: "電気配線リレー"
+    type: "電気"
+    facility: "作業台"
+    recipes:
+      - id: electric_wire_relay_r0
+        craft_time: 20.0
+        main_output: electric_wire_relay
+        inputs:
+          - { id: forged_iron, qty: 3 }
+          - { id: electrical_parts, qty: 1 }
+        outputs:
+          - { id: electric_wire_relay, qty: 1 }
+
+  - id: switch
+    name: "スイッチ"
+    type: "電気"
+    facility: "作業台"
+    recipes:
+      - id: switch_r0
+        craft_time: 20.0
+        main_output: switch
+        inputs:
+          - { id: forged_iron, qty: 3 }
+          - { id: electrical_parts, qty: 1 }
+          - { id: mechanical_parts, qty: 1 }
+        outputs:
+          - { id: switch, qty: 1 }
+
+  - id: motion_sensor
+    name: "人感センサー"
+    type: "電気"
+    facility: "作業台"
+    recipes:
+      - id: motion_sensor_r0
+        craft_time: 21.0
+        main_output: motion_sensor
+        inputs:
+          - { id: forged_iron, qty: 3 }
+          - { id: electrical_parts, qty: 7 }
+          - { id: mechanical_parts, qty: 1 }
+        outputs:
+          - { id: motion_sensor, qty: 1 }
+
+  - id: electric_fence_post
+    name: "電流フェンスポスト"
+    type: "電気"
+    facility: "作業台"
+    recipes:
+      - id: electric_fence_post_r0
+        craft_time: 50.0
+        main_output: electric_fence_post
+        inputs:
+          - { id: forged_iron, qty: 7 }
+          - { id: electrical_parts, qty: 3 }
+        outputs:
+          - { id: electric_fence_post, qty: 1 }
+
+  - id: wire_tool
+    name: "配線ツール"
+    type: "道具"
+    facility: "作業台"
+    recipes:
+      - id: wire_tool_r0
+        craft_time: 136.0
+        main_output: wire_tool
+        inputs:
+          - { id: forged_steel, qty: 9 }
+          - { id: mechanical_parts, qty: 3 }
+        outputs:
+          - { id: wire_tool, qty: 1 }
+
+  - id: generator_bank
+    name: "発電機バンク"
+    type: "電気"
+    facility: "作業台"
+    recipes:
+      - id: generator_bank_r0
+        craft_time: 45.0
+        main_output: generator_bank
+        inputs:
+          - { id: forged_iron, qty: 25 }
+          - { id: electrical_parts, qty: 10 }
+          - { id: mechanical_parts, qty: 10 }
+        outputs:
+          - { id: generator_bank, qty: 1 }
+
+  - id: battery_bank
+    name: "バッテリーバンク"
+    type: "電気"
+    facility: "作業台"
+    recipes:
+      - id: battery_bank_r0
+        craft_time: 45.0
+        main_output: battery_bank
+        inputs:
+          - { id: forged_iron, qty: 25 }
+          - { id: electrical_parts, qty: 10 }
+        outputs:
+          - { id: battery_bank, qty: 1 }
+
+  - id: blade_trap
+    name: "ブレードトラップ"
+    type: "電気"
+    facility: "作業台"
+    recipes:
+      - id: blade_trap_r0
+        craft_time: 30.0
+        main_output: blade_trap
+        inputs:
+          - { id: forged_iron, qty: 15 }
+          - { id: mechanical_parts, qty: 10 }
+          - { id: electrical_parts, qty: 10 }
+          - { id: spring, qty: 3 }
+        outputs:
+          - { id: blade_trap, qty: 1 }
+
+  - id: shotgun_turret
+    name: "ショットガントラップ"
+    type: "電気"
+    facility: "作業台"
+    recipes:
+      - id: shotgun_turret_r0
+        craft_time: 45.0
+        main_output: shotgun_turret
+        inputs:
+          - { id: forged_iron, qty: 15 }
+          - { id: weapon_parts_shotgun, qty: 3 }
+          - { id: motion_sensor, qty: 1 }
+          - { id: electrical_parts, qty: 10 }
+          - { id: mechanical_parts, qty: 10 }
+        outputs:
+          - { id: shotgun_turret, qty: 1 }
+
+  - id: smg_turret
+    name: "SMG自動砲塔"
+    type: "電気"
+    facility: "作業台"
+    recipes:
+      - id: smg_turret_r0
+        craft_time: 45.0
+        main_output: smg_turret
+        inputs:
+          - { id: forged_steel, qty: 10 }
+          - { id: weapon_parts_handgun, qty: 3 }
+          - { id: motion_sensor, qty: 1 }
+          - { id: electrical_parts, qty: 10 }
+          - { id: mechanical_parts, qty: 10 }
+        outputs:
+          - { id: smg_turret, qty: 1 }
+
+  - id: battery_charger
+    name: "バッテリーチャージャー"
+    type: "電気"
+    facility: "作業台"
+    recipes:
+      - id: battery_charger_r0
+        craft_time: 30.0
+        main_output: battery_charger
+        inputs:
+          - { id: forged_iron, qty: 10 }
+          - { id: electrical_parts, qty: 10 }
+          - { id: mechanical_parts, qty: 5 }
+        outputs:
+          - { id: battery_charger, qty: 1 }
+
+  - id: dart_trap
+    name: "ダーツトラップ"
+    type: "電気"
+    facility: "作業台"
+    recipes:
+      - id: dart_trap_r0
+        craft_time: 30.0
+        main_output: dart_trap
+        inputs:
+          - { id: forged_iron, qty: 15 }
+          - { id: mechanical_parts, qty: 5 }
+          - { id: electrical_parts, qty: 5 }
+        outputs:
+          - { id: dart_trap, qty: 1 }
+
+  - id: farm_plot
+    name: "耕作区画ブロック"
+    type: "建築"
+    facility: "手荷物"
+    recipes:
+      - id: farm_plot_r0
+        craft_time: 20.0
+        main_output: farm_plot
+        inputs:
+          - { id: wood, qty: 4 }
+          - { id: rotting_flesh, qty: 10 }
+          - { id: nitrate_powder, qty: 25 }
+          - { id: clay_soil, qty: 100 }
+        outputs:
+          - { id: farm_plot, qty: 1 }
+
+  # ==========================================
+  # 防具
+  # ==========================================
+  - id: military_helmet
+    name: "ミリタリーヘルメット"
+    type: "防具"
+    facility: "作業台"
+    recipes:
+      - id: military_helmet_r0
+        craft_time: 20.0
+        main_output: military_helmet
+        inputs:
+          - { id: armor_parts, qty: 3 }
+          - { id: forged_iron, qty: 5 }
+          - { id: leather, qty: 4 }
+          - { id: duct_tape, qty: 2 }
+          - { id: sewing_kit, qty: 1 }
+        outputs:
+          - { id: military_helmet, qty: 1 }
+
+  - id: stealth_armor
+    name: "ステルスアーマー"
+    type: "防具"
+    facility: "作業台"
+    recipes:
+      - id: stealth_armor_r0
+        craft_time: 25.0
+        main_output: stealth_armor
+        inputs:
+          - { id: armor_parts, qty: 4 }
+          - { id: leather, qty: 8 }
+          - { id: duct_tape, qty: 3 }
+          - { id: sewing_kit, qty: 2 }
+          - { id: cloth_fragment, qty: 10 }
+        outputs:
+          - { id: stealth_armor, qty: 1 }
+
+  - id: steel_helmet
+    name: "スチール兜"
+    type: "防具"
+    facility: "作業台"
+    recipes:
+      - id: steel_helmet_r0
+        craft_time: 25.0
+        main_output: steel_helmet
+        inputs:
+          - { id: armor_parts, qty: 3 }
+          - { id: forged_steel, qty: 10 }
+          - { id: leather, qty: 4 }
+          - { id: duct_tape, qty: 2 }
+          - { id: sewing_kit, qty: 1 }
+        outputs:
+          - { id: steel_helmet, qty: 1 }
+
+  - id: steel_chest
+    name: "スチール胸当て"
+    type: "防具"
+    facility: "作業台"
+    recipes:
+      - id: steel_chest_r0
+        craft_time: 30.0
+        main_output: steel_chest
+        inputs:
+          - { id: armor_parts, qty: 4 }
+          - { id: forged_steel, qty: 16 }
+          - { id: leather, qty: 6 }
+          - { id: duct_tape, qty: 3 }
+          - { id: sewing_kit, qty: 1 }
+        outputs:
+          - { id: steel_chest, qty: 1 }
+
+  - id: steel_gloves
+    name: "スチールグローブ"
+    type: "防具"
+    facility: "作業台"
+    recipes:
+      - id: steel_gloves_r0
+        craft_time: 20.0
+        main_output: steel_gloves
+        inputs:
+          - { id: armor_parts, qty: 2 }
+          - { id: forged_steel, qty: 8 }
+          - { id: leather, qty: 4 }
+          - { id: duct_tape, qty: 2 }
+          - { id: sewing_kit, qty: 1 }
+        outputs:
+          - { id: steel_gloves, qty: 1 }
+
+  - id: steel_leggings
+    name: "スチールレギンス"
+    type: "防具"
+    facility: "作業台"
+    recipes:
+      - id: steel_leggings_r0
+        craft_time: 25.0
+        main_output: steel_leggings
+        inputs:
+          - { id: armor_parts, qty: 3 }
+          - { id: forged_steel, qty: 12 }
+          - { id: leather, qty: 5 }
+          - { id: duct_tape, qty: 2 }
+          - { id: sewing_kit, qty: 1 }
+        outputs:
+          - { id: steel_leggings, qty: 1 }
+
+  - id: steel_boots
+    name: "スチールブーツ"
+    type: "防具"
+    facility: "作業台"
+    recipes:
+      - id: steel_boots_r0
+        craft_time: 20.0
+        main_output: steel_boots
+        inputs:
+          - { id: armor_parts, qty: 2 }
+          - { id: forged_steel, qty: 8 }
+          - { id: leather, qty: 4 }
+          - { id: duct_tape, qty: 2 }
+          - { id: sewing_kit, qty: 1 }
+        outputs:
+          - { id: steel_boots, qty: 1 }

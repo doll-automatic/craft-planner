@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>生産管理</title>
+  <script>
+    (function () {
+      var theme = "light";
+      try {
+        var saved = localStorage.getItem("gpm-theme");
+        if (saved === "light" || saved === "dark") theme = saved;
+        else if (window.matchMedia("(prefers-color-scheme: dark)").matches) theme = "dark";
+      } catch (e) {
+        if (window.matchMedia("(prefers-color-scheme: dark)").matches) theme = "dark";
+      }
+      document.documentElement.setAttribute("data-theme", theme);
+    })();
+  </script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="top">
+    <div class="title-row">
+      <h1>生産管理</h1>
+      <button type="button" id="theme-toggle" class="theme-toggle" aria-pressed="false">ダーク</button>
+    </div>
+    <p class="lede">ゲームの生産ツリー、必要素材、施設数を確認します。データは YAMLの手編集で更新します。</p>
+  </header>
+
+  <section id="errors" class="errors" hidden></section>
+
+  <section class="controls">
+    <label>ゲーム
+      <select id="game-select"></select>
+    </label>
+    <label>種類
+      <select id="type-filter" disabled>
+        <option value="">すべて</option>
+      </select>
+    </label>
+    <label>名称
+      <input id="name-filter" type="search" autocomplete="off" placeholder="名称の一部" disabled>
+    </label>
+    <label>アイテム
+      <select id="item-select" disabled></select>
+    </label>
+    <label>目標生産速度（個/秒）
+      <input id="rate-input" type="text" inputmode="decimal" autocomplete="off" placeholder="例: 1.5">
+    </label>
+  </section>
+  <p id="filter-empty" class="warn" hidden>一致するアイテムがありません</p>
+  <p id="rate-error" class="warn" hidden></p>
+  <p id="empty-game" class="warn" hidden>表示可能なアイテムがありません</p>
+
+  <div id="tree-panel">
+    <div class="panel-toolbar">
+      <p id="tree-notice" class="notice"></p>
+      <button type="button" id="tree-fullscreen" class="fullscreen-toggle" aria-pressed="false" aria-controls="tree-panel">全画面表示</button>
+    </div>
+    <p id="tree-placeholder" class="placeholder">アイテムを選択すると生産ツリーを表示します</p>
+    <div id="cy" hidden></div>
+  </div>
+
+  <section class="columns" id="lists-panel">
+    <div class="lists-toolbar">
+      <button type="button" id="lists-fullscreen" class="fullscreen-toggle" aria-pressed="false" aria-controls="lists-panel">全画面表示</button>
+    </div>
+    <div>
+      <div class="section-head">
+        <h2>必要素材</h2>
+        <div class="summary-mode" role="radiogroup" aria-label="必要素材の表示">
+          <label class="summary-mode-option">
+            <input type="radio" name="summary-mode" value="all" checked>
+            1 次素材＋中間素材
+          </label>
+          <label class="summary-mode-option">
+            <input type="radio" name="summary-mode" value="primary">
+            1 次素材のみ
+          </label>
+        </div>
+      </div>
+      <ul id="materials"></ul>
+    </div>
+    <div>
+      <h2>必要施設数</h2>
+      <ul id="facilities"></ul>
+    </div>
+  </section>
+
+  <script src="vendor/cytoscape.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
