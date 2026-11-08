@@ -9,6 +9,7 @@ import (
 	"net/http"
 	"os"
 	"strconv"
+	"strings"
 
 	"game-production-manager/internal/loader"
 	"game-production-manager/internal/server"
@@ -18,7 +19,6 @@ import (
 type Runtime struct {
 	Listener net.Listener
 	Handler  http.Handler
-	Port     int
 }
 
 func main() {
@@ -53,20 +53,86 @@ func Boot(args []string, stdout io.Writer) (*Runtime, int) {
 	result, err := loader.LoadGames(dataDir)
 	if err != nil {
 		fmt.Fprintf(stdout, "データディレクトリの読み込みに失敗しました: %v\n", err)
-		result = loader.LoadResult{Games: nil, Errors: nil}
+		result = loader.LoadResult{Errors: []loader.GameLoadError{{
+			Message: err.Error(),
+		}}}
 	}
 
 	ln, err := net.Listen("tcp", fmt.Sprintf(":%d", port))
 	if err != nil {
-		fmt.Fprintf(stdout, "ポートが使用中です: %d\n", port)
+		fmt.Fprintf(stdout, "ポートが使用中です: %d (%v)\n", port, err)
 		return nil, 1
 	}
-	fmt.Fprintf(stdout, "http://localhost:%d/\n", port)
+	urls := accessURLs(port)
+	for _, url := range urls {
+		fmt.Fprintln(stdout, url)
+	}
 	return &Runtime{
 		Listener: ln,
-		Handler:  server.New(result.Games, result.Errors, dataDir),
-		Port:     port,
+		Handler:  server.New(result.Games, result.Errors, dataDir, clientJoinURL(urls)),
 	}, 0
+}
+
+// clientJoinURL は QR に出すクライアント画面の URL である。
+// 起動ログと同じ順で、最初の LAN アドレスを使う。無ければ localhost。
+func clientJoinURL(urls []string) string {
+	base := urls[0]
+	for _, u := range urls {
+		if !strings.Contains(u, "://localhost") {
+			base = u
+			break
+		}
+	}
+	return strings.TrimRight(base, "/") + "/client"
+}
+
+// accessURLs は自分のブラウザ用と、外部へ通信できる NIC の URL を返す。
+// 169.254.0.0/16 のようなリンクローカルは、同じ LAN のタブレットから開けない。
+func accessURLs(port int) []string {
+	urls := []string{fmt.Sprintf("http://localhost:%d/", port)}
+	external := externalInterfaceIndexes()
+	if len(external) == 0 {
+		return urls
+	}
+	ifaces, err := net.Interfaces()
+	if err != nil {
+		return urls
+	}
+	seen := map[string]bool{}
+	for _, iface := range ifaces {
+		if iface.Flags&net.FlagUp == 0 || iface.Flags&net.FlagLoopback != 0 || !external[iface.Index] {
+			continue
+		}
+		addrs, err := iface.Addrs()
+		if err != nil {
+			continue
+		}
+		for _, addr := range addrs {
+			ip := ipv4Of(addr)
+			if !routableIPv4(ip) || seen[ip.String()] {
+				continue
+			}
+			seen[ip.String()] = true
+			urls = append(urls, fmt.Sprintf("http://%s:%d/", ip, port))
+		}
+	}
+	return urls
+}
+
+func ipv4Of(addr net.Addr) net.IP {
+	switch a := addr.(type) {
+	case *net.IPNet:
+		return a.IP.To4()
+	case *net.IPAddr:
+		return a.IP.To4()
+	default:
+		return nil
+	}
+}
+
+// routableIPv4 は他の端末から到達し得る IPv4 か。リンクローカルは対象外。
+func routableIPv4(ip net.IP) bool {
+	return ip != nil && !ip.IsLoopback() && !ip.IsLinkLocalUnicast() && !ip.IsMulticast() && !ip.IsUnspecified()
 }
 
 // ValidatePort は 1024 以上 65535 以下の整数だけを受け付ける。

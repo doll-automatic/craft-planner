@@ -13,6 +13,7 @@ import (
 	"path/filepath"
 	"strings"
 	"testing"
+	"time"
 
 	"game-production-manager/internal/loader"
 	"game-production-manager/internal/model"
@@ -46,7 +47,7 @@ items:
 	if err != nil {
 		t.Fatal(err)
 	}
-	ts := httptest.NewServer(New(res.Games, res.Errors, dir))
+	ts := httptest.NewServer(New(res.Games, res.Errors, dir, ""))
 	defer ts.Close()
 
 	resp, err := http.Get(ts.URL + "/api/games")
@@ -99,7 +100,7 @@ func TestTreeAndFacilitiesAPI(t *testing.T) {
 	game := &model.GameData{GameId: "sample", Name: "Sample", Items: map[string]*model.Item{
 		"iron_ore": ore, "iron_plate": plate, "gear": gear,
 	}}
-	ts := httptest.NewServer(New([]*model.GameData{game}, nil, t.TempDir()))
+	ts := httptest.NewServer(New([]*model.GameData{game}, nil, t.TempDir(), ""))
 	defer ts.Close()
 
 	resp, err := http.Get(ts.URL + "/api/games/sample/tree?itemId=gear")
@@ -133,12 +134,18 @@ func TestTreeAndFacilitiesAPI(t *testing.T) {
 		t.Fatalf("materials = %+v", tree.Materials)
 	}
 
-	fac, err := http.Get(ts.URL + "/api/games/sample/facilities?itemId=gear&rate=2")
+	fac, err := http.Get(ts.URL + "/api/games/sample/facilities?itemId=gear&quantity=2")
 	if err != nil {
 		t.Fatal(err)
 	}
 	defer fac.Body.Close()
-	var result model.FacilityResult
+	var result struct {
+		Items     []model.FacilityItem `json:"items"`
+		Materials []struct {
+			ItemId   string `json:"itemId"`
+			Quantity int    `json:"quantity"`
+		} `json:"materials"`
+	}
 	if err := json.NewDecoder(fac.Body).Decode(&result); err != nil {
 		t.Fatal(err)
 	}
@@ -149,8 +156,24 @@ func TestTreeAndFacilitiesAPI(t *testing.T) {
 	if counts["gear"] != 2 || counts["iron_plate"] != 13 || counts["iron_ore"] != 8 {
 		t.Fatalf("counts = %+v", result.Items)
 	}
+	matQty := map[string]int{}
+	for _, line := range result.Materials {
+		matQty[line.ItemId] = line.Quantity
+	}
+	if matQty["iron_plate"] != 4 || matQty["iron_ore"] != 4 {
+		t.Fatalf("materials = %+v", result.Materials)
+	}
 
-	for _, path := range []string{"/api/games/sample/facilities?itemId=gear&rate=0", "/api/games/sample/facilities?itemId=gear&rate=abc"} {
+	half, err := http.Get(ts.URL + "/api/games/sample/facilities?itemId=gear&quantity=1.5")
+	if err != nil {
+		t.Fatal(err)
+	}
+	halfBody, _ := io.ReadAll(half.Body)
+	half.Body.Close()
+	if half.StatusCode != http.StatusOK {
+		t.Fatalf("1.5 -> %d %s", half.StatusCode, halfBody)
+	}
+	for _, path := range []string{"/api/games/sample/facilities?itemId=gear&quantity=0", "/api/games/sample/facilities?itemId=gear&quantity=-1", "/api/games/sample/facilities?itemId=gear&quantity=abc"} {
 		bad, err := http.Get(ts.URL + path)
 		if err != nil {
 			t.Fatal(err)
@@ -164,7 +187,7 @@ func TestTreeAndFacilitiesAPI(t *testing.T) {
 }
 
 func TestStaticEmbed(t *testing.T) {
-	ts := httptest.NewServer(New(nil, nil, t.TempDir()))
+	ts := httptest.NewServer(New(nil, nil, t.TempDir(), ""))
 	defer ts.Close()
 	index, err := http.Get(ts.URL + "/")
 	if err != nil {
@@ -224,7 +247,7 @@ func TestIconRoute(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	srv := New([]*model.GameData{game}, nil, dir)
+	srv := New([]*model.GameData{game}, nil, dir, "")
 	ts := httptest.NewServer(srv)
 	defer ts.Close()
 
@@ -273,6 +296,154 @@ func TestIconRoute(t *testing.T) {
 	if rec.Code != http.StatusNotFound || bytes.Contains(rec.Body.Bytes(), []byte("secret-body")) {
 		t.Fatalf("gameId .. -> %d %q", rec.Code, rec.Body.String())
 	}
+}
+
+func TestSharedStateJoinAndClient(t *testing.T) {
+	sample := &model.GameData{
+		GameId: "sample",
+		Name:   "Sample",
+		Items: map[string]*model.Item{
+			"ore":  {ItemId: "ore", Name: "鉱石"},
+			"gear": {ItemId: "gear", Name: "歯車"},
+		},
+	}
+	other := &model.GameData{
+		GameId: "other",
+		Name:   "Other",
+		Items: map[string]*model.Item{
+			"wood": {ItemId: "wood", Name: "木材"},
+		},
+	}
+	const joinURL = "http://192.168.1.10:8080/client"
+	ts := httptest.NewServer(New([]*model.GameData{sample, other}, nil, t.TempDir(), joinURL))
+	defer ts.Close()
+
+	state := getState(t, ts.URL)
+	if state.GameId != "" || state.ItemId != "" || state.Quantity != "" || state.Revision <= 0 {
+		t.Fatalf("initial = %+v", state)
+	}
+	base := state.Revision
+
+	state = patchState(t, ts.URL, `{"gameId":"sample","itemId":"gear","quantity":"1.5"}`, http.StatusOK)
+	if state.GameId != "sample" || state.ItemId != "gear" || state.Quantity != "1.5" || state.Revision != base+1 {
+		t.Fatalf("set = %+v", state)
+	}
+
+	state = patchState(t, ts.URL, `{"gameId":"other"}`, http.StatusOK)
+	if state.GameId != "other" || state.ItemId != "" || state.Quantity != "1.5" || state.Revision != base+2 {
+		t.Fatalf("game change = %+v", state)
+	}
+
+	state = patchState(t, ts.URL, `{"quantity":""}`, http.StatusOK)
+	if state.Quantity != "" || state.GameId != "other" || state.Revision != base+3 {
+		t.Fatalf("clear quantity = %+v", state)
+	}
+
+	state = patchState(t, ts.URL, `{"itemId":"wood"}`, http.StatusOK)
+	if state.ItemId != "wood" || state.Revision != base+4 {
+		t.Fatalf("item = %+v", state)
+	}
+
+	// 再起動後のサーバは、開いたままの画面が知っている番号より大きい番号から数える。
+	time.Sleep(10 * time.Millisecond)
+	restarted := httptest.NewServer(New([]*model.GameData{sample, other}, nil, t.TempDir(), joinURL))
+	defer restarted.Close()
+	if fresh := getState(t, restarted.URL); fresh.Revision <= state.Revision {
+		t.Fatalf("restart revision %d <= %d", fresh.Revision, state.Revision)
+	}
+
+	before := state
+	for _, body := range []string{
+		`{"itemId":"gear"}`,
+		`{"gameId":"missing"}`,
+		`{"quantity":"0"}`,
+		`{"quantity":"abc"}`,
+		`not-json`,
+	} {
+		got := patchState(t, ts.URL, body, http.StatusBadRequest)
+		if got.Revision != 0 && got.GameId != "" {
+			t.Fatalf("error body leaked state: %s -> %+v", body, got)
+		}
+	}
+	state = getState(t, ts.URL)
+	if state != before {
+		t.Fatalf("state changed after errors: %+v", state)
+	}
+
+	same := patchState(t, ts.URL, `{"itemId":"wood"}`, http.StatusOK)
+	if same.Revision != before.Revision {
+		t.Fatalf("unchanged patch bumped revision: %+v", same)
+	}
+
+	joinRes, err := http.Get(ts.URL + "/api/join")
+	if err != nil {
+		t.Fatal(err)
+	}
+	joinBody, _ := io.ReadAll(joinRes.Body)
+	joinRes.Body.Close()
+	if joinRes.StatusCode != http.StatusOK || strings.TrimSpace(string(joinBody)) != `{"url":"`+joinURL+`"}` {
+		t.Fatalf("join %d %s", joinRes.StatusCode, joinBody)
+	}
+
+	client, err := http.Get(ts.URL + "/client")
+	if err != nil {
+		t.Fatal(err)
+	}
+	clientBody, _ := io.ReadAll(client.Body)
+	client.Body.Close()
+	if client.StatusCode != http.StatusOK || !strings.Contains(client.Header.Get("Content-Type"), "text/html") || !strings.Contains(string(clientBody), "生産管理") {
+		t.Fatalf("client %d %s %s", client.StatusCode, client.Header.Get("Content-Type"), clientBody)
+	}
+}
+
+type stateView struct {
+	GameId   string `json:"gameId"`
+	ItemId   string `json:"itemId"`
+	Quantity string `json:"quantity"`
+	Revision int64  `json:"revision"`
+}
+
+func getState(t *testing.T, base string) stateView {
+	t.Helper()
+	res, err := http.Get(base + "/api/state")
+	if err != nil {
+		t.Fatal(err)
+	}
+	defer res.Body.Close()
+	var state stateView
+	if err := json.NewDecoder(res.Body).Decode(&state); err != nil {
+		t.Fatal(err)
+	}
+	if res.StatusCode != http.StatusOK {
+		t.Fatalf("state %d", res.StatusCode)
+	}
+	return state
+}
+
+func patchState(t *testing.T, base, body string, want int) stateView {
+	t.Helper()
+	req, err := http.NewRequest(http.MethodPatch, base+"/api/state", strings.NewReader(body))
+	if err != nil {
+		t.Fatal(err)
+	}
+	req.Header.Set("Content-Type", "application/json")
+	res, err := http.DefaultClient.Do(req)
+	if err != nil {
+		t.Fatal(err)
+	}
+	defer res.Body.Close()
+	raw, _ := io.ReadAll(res.Body)
+	if res.StatusCode != want {
+		t.Fatalf("PATCH %s -> %d %s", body, res.StatusCode, raw)
+	}
+	if want != http.StatusOK {
+		return stateView{}
+	}
+	var state stateView
+	if err := json.Unmarshal(raw, &state); err != nil {
+		t.Fatal(err)
+	}
+	return state
 }
 
 func testPNG(t *testing.T) []byte {

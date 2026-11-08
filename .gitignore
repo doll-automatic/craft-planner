@@ -35,6 +35,8 @@ coverage.txt
 # Cursor / Claude / その他 AI ツール
 .cursor/
 .claude/
+.serena/
+.mcp.json
 
 # Kiro（AI仕様策定ツール）
 /.kiro/*

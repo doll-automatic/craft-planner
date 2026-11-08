@@ -173,8 +173,19 @@ func (b *treeBuilder) recordCycle(reentry string) {
 	b.cycle = append(cyc, reentry)
 }
 
-// SummarizeMaterials は 1 回の root 生産に必要な各素材の総個数を、経路ごとの積の和で求める。
-// root 自身は含めない。循環経路上の Item へは再帰しない。
+// craftsFor は quantity 個の産出に要するレシピの実行回数（切り上げ前の理論値）を返す。
+// 主産物の産出数が分からないレシピは 1 回 1 個として扱う。
+func craftsFor(recipe *model.Recipe, quantity float64) float64 {
+	if qty, ok := recipe.MainOutputQty(); ok && qty > 0 {
+		return quantity / float64(qty)
+	}
+	return quantity
+}
+
+// SummarizeMaterials は root を 1 個作るのに必要な各素材の総個数を、経路ごとの寄与の和で求める。
+// 寄与は「親の必要個数 ÷ 親の産出数 × 1 回あたり必要個数」の積み重ねで、端数を切り上げない。
+// 各 Item の内訳は 1 回だけ計算して再利用する。root 自身は含めない。循環の先へは進まない。
+// 目標速度への倍率は ScaleMaterials で掛ける。
 func SummarizeMaterials(g *model.GameData, rootItemId string, maxNodes int) ([]model.MaterialLine, error) {
 	if err := requireItem(g, rootItemId); err != nil {
 		return nil, err
@@ -182,47 +193,17 @@ func SummarizeMaterials(g *model.GameData, rootItemId string, maxNodes int) ([]m
 	if maxNodes < 0 {
 		maxNodes = 0
 	}
-	summary := map[string]int{}
-	expanded := map[string]bool{}
-	var walk func(id string, multiplier int, onPath map[string]bool)
-	walk = func(id string, multiplier int, onPath map[string]bool) {
-		if onPath[id] {
-			return
-		}
-		if !expanded[id] {
-			if len(expanded) >= maxNodes {
-				return
-			}
-			expanded[id] = true
-		}
-		item := g.Items[id]
-		if item == nil {
-			return
-		}
-		recipe, ok := item.FirstRecipe()
-		if !ok {
-			return
-		}
-		onPath[id] = true
-		for _, in := range recipe.Inputs {
-			if in.ItemId == "" {
-				continue
-			}
-			summary[in.ItemId] += multiplier * in.Quantity
-			if onPath[in.ItemId] {
-				continue
-			}
-			walk(in.ItemId, multiplier*in.Quantity, onPath)
-		}
-		onPath[id] = false
+	w := &materialWalk{
+		g:        g,
+		maxNodes: maxNodes,
+		memo:     map[string]map[string]float64{},
+		expanded: map[string]bool{},
+		stack:    map[string]bool{},
 	}
-	walk(rootItemId, 1, map[string]bool{})
+	summary := w.ingredients(rootItemId)
 
 	lines := make([]model.MaterialLine, 0, len(summary))
 	for id, qty := range summary {
-		if qty < 1 {
-			continue
-		}
 		name := id
 		var item *model.Item
 		if g.Items != nil {
@@ -242,6 +223,58 @@ func SummarizeMaterials(g *model.GameData, rootItemId string, maxNodes int) ([]m
 	return lines, nil
 }
 
+// materialWalk は「1 個作るときの素材」を Item ごとに記憶する。
+type materialWalk struct {
+	g        *model.GameData
+	maxNodes int
+	memo     map[string]map[string]float64
+	expanded map[string]bool
+	stack    map[string]bool
+}
+
+func (w *materialWalk) ingredients(id string) map[string]float64 {
+	if m, ok := w.memo[id]; ok {
+		return m
+	}
+	if w.stack[id] {
+		return map[string]float64{}
+	}
+	if !w.expanded[id] {
+		if len(w.expanded) >= w.maxNodes {
+			return map[string]float64{}
+		}
+		w.expanded[id] = true
+	}
+	out := map[string]float64{}
+	item := w.g.Items[id]
+	recipe, ok := (*model.Recipe)(nil), false
+	if item != nil {
+		recipe, ok = item.FirstRecipe()
+	}
+	if !ok {
+		w.memo[id] = out
+		return out
+	}
+	w.stack[id] = true
+	crafts := craftsFor(recipe, 1)
+	for _, in := range recipe.Inputs {
+		if in.ItemId == "" {
+			continue
+		}
+		q := crafts * float64(in.Quantity)
+		out[in.ItemId] += q
+		if w.stack[in.ItemId] {
+			continue
+		}
+		for childID, childQty := range w.ingredients(in.ItemId) {
+			out[childID] += q * childQty
+		}
+	}
+	w.stack[id] = false
+	w.memo[id] = out
+	return out
+}
+
 // primaryMaterial は先頭 Recipe の inputs が空かを返す。
 // レシピが無い素材も前提素材を持たないものとして 1 次素材とする。必要個数は変えない。
 func primaryMaterial(item *model.Item) bool {
@@ -252,59 +285,61 @@ func primaryMaterial(item *model.Item) bool {
 	return len(recipe.Inputs) == 0
 }
 
-// ComputeFacilities は Target_Rate を素材方向へ再帰展開し、各 Item の必要生産速度と施設数を求める。
-// 下流の必要生産速度は切り上げ前の理論値を使い、切り上げは Facility_Count にだけ適用する。
+// ScaleMaterials は 1 個分の素材合計を目標速度（個/秒）倍する。
+// 段ごとに切り上げず、理論値のまま掛ける。整数への切り上げは表示側で行う。
+func ScaleMaterials(lines []model.MaterialLine, targetRate float64) ([]model.MaterialLine, error) {
+	if err := requireTarget(targetRate); err != nil {
+		return nil, err
+	}
+	out := make([]model.MaterialLine, 0, len(lines))
+	for _, line := range lines {
+		line.Quantity *= targetRate
+		if math.IsInf(line.Quantity, 0) || math.IsNaN(line.Quantity) {
+			return nil, fmt.Errorf("必要個数が大きすぎます")
+		}
+		out = append(out, line)
+	}
+	return out, nil
+}
+
+// ComputeFacilities は目標速度（個/秒）を素材方向へ展開し、各 Item の必要速度と施設数を求める。
+// 施設数は必要速度 ÷ 1台あたり産出速度で、切り上げは FacilityCount の表示値にだけ行う。
+// 各 Item の内訳は 1 回だけ計算する。下流へ渡す値は切り上げ前の理論値である。
 func ComputeFacilities(g *model.GameData, rootItemId string, targetRate float64) (model.FacilityResult, error) {
 	if err := requireItem(g, rootItemId); err != nil {
 		return model.FacilityResult{}, err
 	}
-	if targetRate <= 0 || math.IsNaN(targetRate) || math.IsInf(targetRate, 0) {
-		return model.FacilityResult{}, fmt.Errorf("目標生産速度が不正です")
+	if err := requireTarget(targetRate); err != nil {
+		return model.FacilityResult{}, err
 	}
 
+	w := &facilityWalk{
+		g:     g,
+		memo:  map[string]facilityUnit{},
+		stack: map[string]bool{},
+	}
+	perRoot, cyc := w.unit(rootItemId)
 	required := map[string]float64{}
 	uncomputable := map[string]bool{}
-	var order []string
-	seen := map[string]bool{}
-	var walk func(id string, rate float64, path []string, onPath map[string]bool)
-	walk = func(id string, rate float64, path []string, onPath map[string]bool) {
-		if onPath[id] {
-			markCycle(path, id, uncomputable)
-			return
+	if cyc {
+		for id := range perRoot {
+			uncomputable[id] = true
 		}
-		required[id] += rate
-		if !seen[id] {
-			seen[id] = true
-			order = append(order, id)
-		}
-		item := g.Items[id]
-		if item == nil {
-			return
-		}
-		recipe, ok := item.FirstRecipe()
-		if !ok {
-			return
-		}
-		onPath[id] = true
-		path = append(path, id)
-		for _, in := range recipe.Inputs {
-			if in.ItemId == "" {
-				continue
-			}
-			if _, ok := g.Items[in.ItemId]; !ok {
-				continue
-			}
-			// 下流へ渡すのはこの経路の理論値であり、施設数の切り上げ後速度ではない。
-			childRate := rate * float64(in.Quantity)
-			if onPath[in.ItemId] {
-				markCycle(path, in.ItemId, uncomputable)
-				continue
-			}
-			walk(in.ItemId, childRate, path, onPath)
-		}
-		onPath[id] = false
 	}
-	walk(rootItemId, targetRate, nil, map[string]bool{})
+	order := make([]string, 0, len(perRoot))
+	for id, qty := range perRoot {
+		required[id] = qty * targetRate
+		order = append(order, id)
+	}
+	sort.Slice(order, func(i, j int) bool {
+		if order[i] == rootItemId {
+			return true
+		}
+		if order[j] == rootItemId {
+			return false
+		}
+		return order[i] < order[j]
+	})
 
 	items := make([]model.FacilityItem, 0, len(order))
 	for _, id := range order {
@@ -314,9 +349,9 @@ func ComputeFacilities(g *model.GameData, rootItemId string, targetRate float64)
 			name = item.Name
 		}
 		line := model.FacilityItem{
-			ItemId:       id,
-			Name:         name,
-			RequiredRate: required[id],
+			ItemId:           id,
+			Name:             name,
+			RequiredQuantity: required[id],
 		}
 		if uncomputable[id] {
 			line.Uncomputable = true
@@ -333,35 +368,86 @@ func ComputeFacilities(g *model.GameData, rootItemId string, targetRate float64)
 		}
 		qty, ok := recipe.MainOutputQty()
 		if !ok || recipe.CraftTime <= 0 {
-			return model.FacilityResult{}, fmt.Errorf("産出速度を計算できません: %s", id)
+			line.Uncomputable = true
+			line.Reason = "生産時間がないため算出できません"
+			items = append(items, line)
+			continue
 		}
 		line.OutputRate = float64(qty) / recipe.CraftTime
-		count := int(math.Ceil(line.RequiredRate / line.OutputRate))
-		if count < 1 {
-			count = 1
-		}
-		line.FacilityCount = count
+		line.FacilityCount = ceilUnits(line.RequiredQuantity / line.OutputRate)
 		items = append(items, line)
 	}
 	return model.FacilityResult{Items: items}, nil
 }
 
-func markCycle(path []string, reentry string, uncomputable map[string]bool) {
-	idx := -1
-	for i, id := range path {
-		if id == reentry {
-			idx = i
-			break
+type facilityUnit struct {
+	need  map[string]float64
+	cycle bool
+}
+
+// facilityWalk は「1 個/秒あたり、自分を含む必要速度」を Item ごとに記憶する。
+type facilityWalk struct {
+	g     *model.GameData
+	memo  map[string]facilityUnit
+	stack map[string]bool
+}
+
+func (w *facilityWalk) unit(id string) (map[string]float64, bool) {
+	if m, ok := w.memo[id]; ok {
+		return m.need, m.cycle
+	}
+	if w.stack[id] {
+		return map[string]float64{id: 1}, true
+	}
+	need := map[string]float64{id: 1}
+	item := w.g.Items[id]
+	if item == nil {
+		w.memo[id] = facilityUnit{need: need}
+		return need, false
+	}
+	recipe, ok := item.FirstRecipe()
+	if !ok {
+		w.memo[id] = facilityUnit{need: need}
+		return need, false
+	}
+	w.stack[id] = true
+	cycle := false
+	crafts := craftsFor(recipe, 1)
+	for _, in := range recipe.Inputs {
+		if in.ItemId == "" {
+			continue
+		}
+		if _, known := w.g.Items[in.ItemId]; !known {
+			continue
+		}
+		q := crafts * float64(in.Quantity)
+		sub, subCycle := w.unit(in.ItemId)
+		if subCycle {
+			cycle = true
+		}
+		for childID, childQty := range sub {
+			need[childID] += q * childQty
 		}
 	}
-	if idx < 0 {
-		uncomputable[reentry] = true
-		return
+	w.stack[id] = false
+	w.memo[id] = facilityUnit{need: need, cycle: cycle}
+	return need, cycle
+}
+
+// ceilUnits は施設数の切り上げである。二進小数の誤差で 1 台増えないよう、ごく小さい余りは切り捨てる。
+func ceilUnits(x float64) int {
+	n := int(math.Ceil(x - 1e-9))
+	if n < 1 {
+		return 1
 	}
-	for _, id := range path[idx:] {
-		uncomputable[id] = true
+	return n
+}
+
+func requireTarget(rate float64) error {
+	if math.IsNaN(rate) || math.IsInf(rate, 0) || rate <= 0 || rate > 1_000_000_000 {
+		return fmt.Errorf("目標速度が不正です")
 	}
-	uncomputable[reentry] = true
+	return nil
 }
 
 func requireItem(g *model.GameData, itemID string) error {

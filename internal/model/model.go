@@ -109,26 +109,29 @@ type TreeResult struct {
 }
 
 // MaterialLine は素材名と必要個数の合計 1 行である。
+// Quantity は切り上げ前の理論値で、端数を持つことがある。整数への切り上げは表示時にだけ行う。
 // IsPrimary は先頭 Recipe の inputs が空の 1 次素材を示す。必要個数の合計とは独立した表示用フラグである。
 type MaterialLine struct {
-	ItemId    string `json:"itemId"`
-	Name      string `json:"name"`
-	Quantity  int    `json:"quantity"`
-	IsPrimary bool   `json:"isPrimary"`
+	ItemId    string  `json:"itemId"`
+	Name      string  `json:"name"`
+	Quantity  float64 `json:"quantity"`
+	IsPrimary bool    `json:"isPrimary"`
 }
 
-// FacilityItem は 1 つの Item の必要生産速度と施設数である。
+// FacilityItem は 1 つの Item の必要個数と施設数である。
+// RequiredQuantity は切り上げ前の理論値。FacilityCount はそれを 1 台あたり産出速度で割って切り上げた台数で、
+// 目標個数を 1 秒で作り切る場合と同じ数になる。
 type FacilityItem struct {
-	ItemId        string  `json:"itemId"`
-	Name          string  `json:"name"`
-	RequiredRate  float64 `json:"requiredRate"`
-	OutputRate    float64 `json:"outputRate"`
-	FacilityCount int     `json:"facilityCount"`
-	Uncomputable  bool    `json:"uncomputable"`
-	Reason        string  `json:"reason,omitempty"`
+	ItemId           string  `json:"itemId"`
+	Name             string  `json:"name"`
+	RequiredQuantity float64 `json:"requiredQuantity"`
+	OutputRate       float64 `json:"outputRate"`
+	FacilityCount    int     `json:"facilityCount"`
+	Uncomputable     bool    `json:"uncomputable"`
+	Reason           string  `json:"reason,omitempty"`
 }
 
-// FacilityResult は Target_Rate を素材方向へ展開した結果である。
+// FacilityResult は目標個数を素材方向へ展開した結果である。
 type FacilityResult struct {
 	Items []FacilityItem `json:"items"`
 }

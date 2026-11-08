@@ -10,6 +10,44 @@ import (
 	"time"
 )
 
+func TestRoutableIPv4SkipsLinkLocal(t *testing.T) {
+	if routableIPv4(net.ParseIP("169.254.104.201").To4()) {
+		t.Fatal("リンクローカルを通した")
+	}
+	if !routableIPv4(net.ParseIP("192.168.11.5").To4()) {
+		t.Fatal("LAN のアドレスを落とした")
+	}
+}
+
+func TestAccessURLsOnlyExternalNIC(t *testing.T) {
+	urls := accessURLs(8080)
+	if len(urls) == 0 || urls[0] != "http://localhost:8080/" {
+		t.Fatalf("urls = %q", urls)
+	}
+	for _, u := range urls[1:] {
+		host := strings.TrimPrefix(strings.TrimSuffix(u, ":8080/"), "http://")
+		ip := net.ParseIP(host)
+		if !routableIPv4(ip) {
+			t.Fatalf("外部通信できない URL: %s", u)
+		}
+	}
+}
+
+func TestClientJoinURLUsesFirstLAN(t *testing.T) {
+	got := clientJoinURL([]string{
+		"http://localhost:8080/",
+		"http://192.168.1.10:8080/",
+		"http://10.0.0.5:8080/",
+	})
+	if got != "http://192.168.1.10:8080/client" {
+		t.Fatal(got)
+	}
+	local := clientJoinURL([]string{"http://localhost:8080/"})
+	if local != "http://localhost:8080/client" {
+		t.Fatal(local)
+	}
+}
+
 func TestValidatePort(t *testing.T) {
 	for _, input := range []string{"1024", "8080", "65535"} {
 		if _, err := ValidatePort(input); err != nil {

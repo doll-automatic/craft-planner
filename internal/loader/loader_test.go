@@ -194,6 +194,32 @@ items:
 	}
 }
 
+func TestOmittedCraftTime(t *testing.T) {
+	body := `
+name: "時間なし"
+items:
+  - id: herb
+    name: "薬草"
+    type: "素材"
+    facility: "調合"
+    recipes:
+      - id: herb_r
+        main_output: herb
+        inputs: []
+        outputs:
+          - { id: herb, qty: 1 }
+`
+	res := loadFiles(t, map[string]string{"mh.yaml": body})
+	assertNoErrors(t, res)
+	if len(res.Games) != 1 {
+		t.Fatalf("games = %d", len(res.Games))
+	}
+	item := res.Games[0].Items["herb"]
+	if item == nil || item.Recipes[0].CraftTime != 0 {
+		t.Fatalf("herb = %+v", item)
+	}
+}
+
 func TestReferenceError(t *testing.T) {
 	body := `
 name: "参照切れ"
@@ -227,7 +253,6 @@ func TestCraftTimeErrors(t *testing.T) {
 		{"too small", "0.09", "0.1以上86400以下"},
 		{"too large", "86400.1", "0.1以上86400以下"},
 		{"not number", "\"abc\"", "数値ではありません"},
-		{"missing", "", "欠損"},
 	}
 	for _, tc := range cases {
 		t.Run(tc.name, func(t *testing.T) {
@@ -406,6 +431,70 @@ func TestMissingDataDir(t *testing.T) {
 	if err == nil {
 		t.Fatal("存在しないディレクトリで error が返らなかった")
 	}
+}
+
+func TestUnknownKeyAndMissingItems(t *testing.T) {
+	dir := t.TempDir()
+	typo := "name: \"t\"\nitmes:\n  - id: a\n"
+	if err := os.WriteFile(filepath.Join(dir, "typo.yaml"), []byte(typo), 0o644); err != nil {
+		t.Fatal(err)
+	}
+	res, err := LoadGames(dir)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if len(res.Games) != 0 || len(res.Errors) == 0 || !strings.Contains(res.Errors[0].Message, "itmes") {
+		t.Fatalf("%+v", res.Errors)
+	}
+
+	dir = t.TempDir()
+	missing := "name: \"t\"\n"
+	if err := os.WriteFile(filepath.Join(dir, "noitems.yaml"), []byte(missing), 0o644); err != nil {
+		t.Fatal(err)
+	}
+	res, err = LoadGames(dir)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if len(res.Games) != 0 || !strings.Contains(strings.Join(errorText(res.Errors), " "), "items") {
+		t.Fatalf("%+v", res.Errors)
+	}
+
+	dir = t.TempDir()
+	badTime := "name: \"t\"\nitems:\n  - id: a\n    name: \"A\"\n    type: \"素材\"\n    facility: \"f\"\n    recipes:\n      - id: a_r\n        craft_tiem: 1\n        main_output: a\n        inputs: []\n        outputs:\n          - { id: a, qty: 1 }\n"
+	if err := os.WriteFile(filepath.Join(dir, "time.yaml"), []byte(badTime), 0o644); err != nil {
+		t.Fatal(err)
+	}
+	res, err = LoadGames(dir)
+	if err != nil {
+		t.Fatal(err)
+	}
+	// 行番号はアイテムの中ではなく、ファイル全体で数えた 9 行目である。
+	if len(res.Games) != 0 || !strings.Contains(strings.Join(errorText(res.Errors), " "), "9行目: 不明なキー craft_tiem") {
+		t.Fatalf("%+v", res.Errors)
+	}
+
+	dir = t.TempDir()
+	badRef := strings.Replace(badTime, "craft_tiem: 1", "craft_time: 1", 1)
+	badRef = strings.Replace(badRef, "{ id: a, qty: 1 }", "{ id: a, qyt: 1 }", 1)
+	if err := os.WriteFile(filepath.Join(dir, "ref.yaml"), []byte(badRef), 0o644); err != nil {
+		t.Fatal(err)
+	}
+	res, err = LoadGames(dir)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if len(res.Games) != 0 || !strings.Contains(strings.Join(errorText(res.Errors), " "), "13行目: 不明なキー qyt") {
+		t.Fatalf("%+v", res.Errors)
+	}
+}
+
+func errorText(errs []GameLoadError) []string {
+	out := make([]string, 0, len(errs))
+	for _, err := range errs {
+		out = append(out, err.Message)
+	}
+	return out
 }
 
 func TestEmptyDir(t *testing.T) {

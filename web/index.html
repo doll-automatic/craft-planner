@@ -3,9 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <base href="/">
   <title>生産管理</title>
   <script>
     (function () {
+      var path = location.pathname.replace(/\/+$/, "") || "/";
+      document.documentElement.setAttribute("data-role", path === "/client" ? "client" : "host");
+      if (path === "/client") document.title = "生産管理（クライアント）";
       var theme = "light";
       try {
         var saved = localStorage.getItem("gpm-theme");
@@ -20,12 +24,16 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <div class="page">
   <header class="top">
     <div class="title-row">
-      <h1>生産管理</h1>
-      <button type="button" id="theme-toggle" class="theme-toggle" aria-pressed="false">ダーク</button>
+      <h1 id="app-title">生産管理</h1>
+      <div class="title-actions">
+        <button type="button" id="qr-toggle" class="theme-toggle">接続</button>
+        <button type="button" id="theme-toggle" class="theme-toggle" aria-pressed="false">ダーク</button>
+      </div>
     </div>
-    <p class="lede">ゲームの生産ツリー、必要素材、施設数を確認します。データは YAMLの手編集で更新します。</p>
+    <p class="lede">ゲームの生産ツリー、必要素材、施設数の確認ができます。データは YAMLの手編集で更新してください。</p>
   </header>
 
   <section id="errors" class="errors" hidden></section>
@@ -45,18 +53,14 @@
     <label>アイテム
       <select id="item-select" disabled></select>
     </label>
-    <label>目標生産速度（個/秒）
-      <input id="rate-input" type="text" inputmode="decimal" autocomplete="off" placeholder="例: 1.5">
-    </label>
   </section>
   <p id="filter-empty" class="warn" hidden>一致するアイテムがありません</p>
-  <p id="rate-error" class="warn" hidden></p>
   <p id="empty-game" class="warn" hidden>表示可能なアイテムがありません</p>
 
   <div id="tree-panel">
     <div class="panel-toolbar">
       <p id="tree-notice" class="notice"></p>
-      <button type="button" id="tree-fullscreen" class="fullscreen-toggle" aria-pressed="false" aria-controls="tree-panel">全画面表示</button>
+      <button type="button" id="tree-fullscreen" class="fullscreen-toggle" aria-pressed="false" aria-controls="tree-panel">拡大</button>
     </div>
     <p id="tree-placeholder" class="placeholder">アイテムを選択すると生産ツリーを表示します</p>
     <div id="cy" hidden></div>
@@ -64,31 +68,55 @@
 
   <section class="columns" id="lists-panel">
     <div class="lists-toolbar">
-      <button type="button" id="lists-fullscreen" class="fullscreen-toggle" aria-pressed="false" aria-controls="lists-panel">全画面表示</button>
+      <div class="summary-mode" role="radiogroup" aria-label="表示する結果">
+        <label class="summary-mode-option">
+          <input type="radio" name="result-mode" value="materials" checked>
+          必要素材
+        </label>
+        <label class="summary-mode-option">
+          <input type="radio" name="result-mode" value="facilities">
+          必要施設数
+        </label>
+      </div>
+      <label class="toolbar-quantity" style="margin-left: 50px;">目標個数/速度
+        <input id="quantity-input" type="text" inputmode="decimal" autocomplete="off" placeholder="例: 1">
+      </label>
+      <button type="button" id="lists-fullscreen" class="fullscreen-toggle" aria-pressed="false" aria-controls="lists-panel">拡大</button>
     </div>
-    <div>
+    <p id="quantity-error" class="warn" hidden></p>
+    <div id="materials-panel">
       <div class="section-head">
         <h2>必要素材</h2>
         <div class="summary-mode" role="radiogroup" aria-label="必要素材の表示">
           <label class="summary-mode-option">
             <input type="radio" name="summary-mode" value="all" checked>
-            1 次素材＋中間素材
+            すべて
           </label>
           <label class="summary-mode-option">
             <input type="radio" name="summary-mode" value="primary">
-            1 次素材のみ
+            1次素材のみ
           </label>
         </div>
       </div>
       <ul id="materials"></ul>
     </div>
-    <div>
+    <div id="facilities-panel" hidden>
       <h2>必要施設数</h2>
       <ul id="facilities"></ul>
     </div>
   </section>
+  </div>
+
+  <dialog id="qr-dialog" aria-labelledby="qr-caption">
+    <p id="qr-caption" class="qr-caption">クライアント接続</p>
+    <div id="qr-code"></div>
+    <p id="qr-url"></p>
+    <p id="qr-note" class="warn" hidden>このPC以外からは開けません</p>
+    <button type="button" id="qr-close" class="theme-toggle">閉じる</button>
+  </dialog>
 
   <script src="vendor/cytoscape.min.js"></script>
+  <script src="vendor/qrcode.js"></script>
   <script src="app.js"></script>
 </body>
 </html>

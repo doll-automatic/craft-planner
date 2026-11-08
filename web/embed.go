@@ -6,5 +6,5 @@ import "embed"
 
 // FS は HTML / JS / CSS と Cytoscape.js を含む。
 //
-//go:embed index.html app.js style.css vendor/cytoscape.min.js
+//go:embed index.html app.js style.css vendor/cytoscape.min.js vendor/qrcode.js
 var FS embed.FS

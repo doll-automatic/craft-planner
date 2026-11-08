@@ -27,17 +27,40 @@ const ui = {
   itemId: "",
   cy: null,
   materials: [],
-  // リロードすると初期の「1 次＋中間」に戻る。
+  facilityItems: [],
+  // リロードすると「すべて」と「必要素材」に戻る。表示切替は同期しない。
+  // summaryMode の primary は先頭レシピに前提がない 1 次素材だけ。
   summaryMode: "all",
+  gameReq: 0,
+  treeReq: 0,
+  planReq: 0,
+  resultMode: "materials",
+  role: "host",
+  // 未取得は -1。サーバの初期 revision 0 でも初回は適用する。
+  revision: -1,
+  pulling: false,
+  heldQuantity: null,
+  // ゲームごとの現在個数メモ。ホストとクライアントでは共有しない。
+  stock: {},
 };
 
 const $ = (id) => document.getElementById(id);
 
 function init() {
+  ui.role = document.documentElement.getAttribute("data-role") === "client" ? "client" : "host";
+  if (ui.role === "client") {
+    document.title = "生産管理（クライアント）";
+    $("app-title").textContent = "生産管理（クライアント）";
+  }
   applyTheme(savedOrSystemTheme());
+  loadStock();
   $("theme-toggle").addEventListener("click", toggleTheme);
+  $("qr-toggle").addEventListener("click", () => {
+    openJoinQR().catch((err) => console.error(err));
+  });
+  $("qr-close").addEventListener("click", () => $("qr-dialog").close());
   $("game-select").addEventListener("change", () => {
-    selectGame($("game-select").value);
+    changeGame($("game-select").value);
   });
   $("type-filter").addEventListener("change", () => {
     renderItemOptions();
@@ -46,15 +69,30 @@ function init() {
     renderItemOptions();
   });
   $("item-select").addEventListener("change", () => {
-    const id = $("item-select").value;
-    if (!id) {
-      clearItemView();
+    changeItem($("item-select").value);
+  });
+  $("quantity-input").addEventListener("input", () => {
+    ui.heldQuantity = null;
+  });
+  $("quantity-input").addEventListener("change", () => {
+    commitQuantity();
+  });
+  $("quantity-input").addEventListener("blur", () => {
+    // フォーカス中に届いた値は、その後に打ち直していなければここで反映する。
+    if (ui.heldQuantity == null || $("quantity-input").value === ui.heldQuantity) {
+      ui.heldQuantity = null;
       return;
     }
-    selectItem(id);
+    $("quantity-input").value = ui.heldQuantity;
+    ui.heldQuantity = null;
+    applyQuantity(currentQuantity());
   });
-  $("rate-input").addEventListener("change", () => {
-    commitRate();
+  document.querySelectorAll('input[name="result-mode"]').forEach((input) => {
+    input.addEventListener("change", () => {
+      if (!input.checked) return;
+      ui.resultMode = input.value === "materials" ? "materials" : "facilities";
+      applyResultMode();
+    });
   });
   document.querySelectorAll('input[name="summary-mode"]').forEach((input) => {
     input.addEventListener("change", () => {
@@ -66,11 +104,19 @@ function init() {
   $("tree-fullscreen").addEventListener("click", () => toggleFullscreen("tree-panel"));
   $("lists-fullscreen").addEventListener("click", () => toggleFullscreen("lists-panel"));
   document.addEventListener("keydown", onFullscreenKey);
+  applyResultMode();
   clearFacilities();
   renderMaterials([]);
-  loadGameList().catch((err) => {
-    console.error(err);
-  });
+  loadGameList()
+    .catch((err) => {
+      console.error(err);
+      renderErrors([{ message: "サーバに接続できませんでした" }]);
+    })
+    .finally(() => {
+      pullState();
+      // shortcut: 反映は1秒間隔の取得。同時編集は後勝ち。届ける方式が必要になったら置き換える。
+      setInterval(pullState, 1000);
+    });
 }
 
 function savedOrSystemTheme() {
@@ -196,6 +242,9 @@ function renderErrors(errors) {
 }
 
 async function selectGame(gameId) {
+  const req = ++ui.gameReq;
+  ui.treeReq++;
+  ui.planReq++;
   clearItemView();
   clearRate();
   resetItemFilter();
@@ -205,13 +254,24 @@ async function selectGame(gameId) {
   renderTypeOptions();
   renderItemOptions();
   if (!ui.gameId) return;
-  const res = await fetch("/api/games/" + encodeURIComponent(ui.gameId));
+  let res;
+  try {
+    res = await fetch("/api/games/" + encodeURIComponent(ui.gameId));
+  } catch (err) {
+    console.error(err);
+    if (req !== ui.gameReq) return;
+    $("empty-game").hidden = false;
+    $("empty-game").textContent = "サーバに接続できませんでした";
+    return;
+  }
+  if (req !== ui.gameReq) return;
   if (!res.ok) {
     $("empty-game").hidden = false;
     $("empty-game").textContent = "ゲームを読み込めませんでした";
     return;
   }
   ui.game = await res.json();
+  if (req !== ui.gameReq) return;
   renderTypeOptions();
   renderItemOptions();
   const items = ui.game.items || [];
@@ -293,19 +353,42 @@ async function selectItem(id) {
     clearItemView();
     return;
   }
-  await loadTree(id);
-  const rate = currentRate();
-  if (rate.ok) await loadFacilities(rate.value);
+  const quantity = currentQuantity();
+  ui.materials = [];
+  ui.facilityItems = [];
+  renderMaterials([]);
+  clearFacilities();
+  if (!quantity.empty && !quantity.ok) {
+    $("quantity-error").hidden = false;
+    $("quantity-error").textContent = "目標速度が不正なため、一覧は表示していません。";
+  } else {
+    $("quantity-error").hidden = true;
+  }
+  if (ui.role !== "client") await loadTree(id);
+  if (ui.itemId !== id) return;
+  if (quantity.empty) await loadPlan(minimumUnit(item));
+  else if (quantity.ok) await loadPlan(quantity.value);
 }
 
 async function loadTree(id) {
-  const url = "/api/games/" + encodeURIComponent(ui.gameId) + "/tree?itemId=" + encodeURIComponent(id);
-  const res = await fetch(url);
+  const req = ++ui.treeReq;
+  const gameId = ui.gameId;
+  const url = "/api/games/" + encodeURIComponent(gameId) + "/tree?itemId=" + encodeURIComponent(id);
+  let res;
+  try {
+    res = await fetch(url);
+  } catch (err) {
+    console.error(err);
+    if (req === ui.treeReq) $("tree-notice").textContent = "サーバに接続できませんでした";
+    return;
+  }
+  if (req !== ui.treeReq || ui.itemId !== id || ui.gameId !== gameId) return;
   if (!res.ok) {
     $("tree-notice").textContent = "生産ツリーを取得できませんでした";
     return;
   }
   const data = await res.json();
+  if (req !== ui.treeReq || ui.itemId !== id || ui.gameId !== gameId) return;
   const notes = [];
   if (data.truncated) notes.push("ノード数が上限（1000）に達したため、一部が未展開です。");
   if (data.cycle && data.cycle.length) {
@@ -313,7 +396,6 @@ async function loadTree(id) {
   }
   $("tree-notice").textContent = notes.join(" ");
   renderGraph(data);
-  renderMaterials(data.materials || []);
 }
 
 function fitTree(cy) {
@@ -401,16 +483,29 @@ function cardTitle(data) {
   return name + " (" + data.output + ")";
 }
 
-function rateLine(data) {
+function facilityByNode(id) {
+  return ui.facilityItems.find((item) => item.itemId === id) || null;
+}
+
+// 目標速度（未入力時は最小単位）の算出後は、選択中の結果だけを出す。
+function metricLine(data) {
   const facility = data.facility || "";
-  if (data.outputRate == null || !Number.isFinite(Number(data.outputRate))) return facility;
-  const rate = formatNum(Number(data.outputRate)) + "/秒";
-  return facility ? facility + " " + rate : rate;
+  const row = facilityByNode(data.id);
+  if (!row) {
+    if (data.outputRate == null || !Number.isFinite(Number(data.outputRate))) return facility;
+    const rate = formatNum(Number(data.outputRate)) + "/秒";
+    return facility ? facility + " " + rate : rate;
+  }
+  // 必要個数は生産時間が無くても求まる。算出不可は施設数の表示にだけ関わる。
+  if (ui.resultMode === "materials") return "必要 " + displayQuantity(row.requiredQuantity) + " 個";
+  if (row.uncomputable) return row.reason || "算出できません";
+  return (facility ? facility + " " : "") + row.facilityCount + " 台";
 }
 
 function buildNodeCard(data) {
   const card = document.createElement("div");
   card.className = "node-card" + (data.hasInputs ? "" : " leaf");
+  card.dataset.nodeId = data.id || "";
   const head = document.createElement("div");
   head.className = "node-card-head";
   const name = document.createElement("div");
@@ -423,7 +518,7 @@ function buildNodeCard(data) {
   head.append(name, type);
   const mid = document.createElement("div");
   mid.className = "node-card-rate";
-  mid.textContent = rateLine(data);
+  mid.textContent = metricLine(data);
   mid.title = mid.textContent;
   card.append(head, mid);
   if (data.hasInputs && Array.isArray(data.inputs) && data.inputs.length) {
@@ -503,7 +598,6 @@ function renderGraph(data) {
         w: size.w,
         h: size.h,
       },
-      classes: raw.hasInputs ? "" : "leaf",
     });
   });
   (data.edges || []).forEach((edge, index) => {
@@ -580,32 +674,112 @@ function openVerticalLanes(cy) {
   });
 }
 
+function applyResultMode() {
+  const materials = ui.resultMode === "materials";
+  $("materials-panel").hidden = !materials;
+  $("facilities-panel").hidden = materials;
+  refreshNodeMetrics();
+}
+
+function refreshNodeMetrics() {
+  document.querySelectorAll("#cy .node-card").forEach((card) => {
+    const mid = card.querySelector(".node-card-rate");
+    const node = ui.cy && ui.cy.getElementById(card.dataset.nodeId);
+    if (!mid || !node || node.empty()) return;
+    mid.textContent = metricLine(node.data());
+    mid.title = mid.textContent;
+  });
+}
+
 function renderMaterials(list) {
   ui.materials = Array.isArray(list) ? list : [];
   const ul = $("materials");
   ul.replaceChildren();
+  // 個数はサーバが目標速度倍した値。ここでは一覧の絞り込みだけ行い、グラフのノードは消さない。
   const shown = ui.summaryMode === "primary" ? ui.materials.filter((line) => line.isPrimary) : ui.materials;
   if (!ui.materials.length) {
     const li = document.createElement("li");
-    li.textContent = ui.itemId ? "素材が存在しません" : "アイテムを選択すると必要素材を表示します";
+    li.textContent = ui.facilityItems.length ? "素材が存在しません" : "目標速度を入力すると、必要な素材を表示します";
     ul.appendChild(li);
     return;
   }
   if (!shown.length) {
     const li = document.createElement("li");
-    li.textContent = "1 次素材はありません";
+    li.textContent = "1次素材はありません";
     ul.appendChild(li);
     return;
   }
+  const focused = document.activeElement;
+  const focusedId = focused && focused.classList && focused.classList.contains("stock-memo") ? focused.dataset.itemId : "";
+  const selStart = focusedId ? focused.selectionStart : null;
+  const selEnd = focusedId ? focused.selectionEnd : null;
   for (const line of shown) {
     const li = document.createElement("li");
     li.className = "item-row";
     appendItemIcon(li, line.itemId);
     const text = document.createElement("span");
-    text.textContent = line.name + " × " + line.quantity;
-    li.appendChild(text);
+    const targetText = displayQuantity(line.quantity);
+    text.textContent = line.name + " × " + targetText;
+    const memo = document.createElement("input");
+    memo.type = "text";
+    memo.className = "stock-memo";
+    memo.inputMode = "numeric";
+    memo.autocomplete = "off";
+    memo.placeholder = "現在";
+    memo.setAttribute("aria-label", line.name + "の現在の個数");
+    memo.dataset.itemId = line.itemId;
+    memo.value = stockOf(line.itemId);
+    memo.addEventListener("input", () => {
+      writeStock(line.itemId, memo.value);
+      markStock(li, memo.value, targetText);
+    });
+    markStock(li, memo.value, targetText);
+    li.append(text, memo);
     ul.appendChild(li);
+    if (focusedId && focusedId === line.itemId) {
+      memo.focus();
+      if (selStart != null && selEnd != null) memo.setSelectionRange(selStart, selEnd);
+    }
   }
+}
+
+const STOCK_KEY = "gpm-stock";
+
+function loadStock() {
+  try {
+    const raw = localStorage.getItem(STOCK_KEY);
+    const parsed = raw ? JSON.parse(raw) : {};
+    ui.stock = parsed && typeof parsed === "object" ? parsed : {};
+  } catch (err) {
+    ui.stock = {};
+  }
+}
+
+function stockOf(itemId) {
+  const game = ui.stock[ui.gameId];
+  if (!game || game[itemId] == null) return "";
+  return String(game[itemId]);
+}
+
+function writeStock(itemId, value) {
+  if (!ui.gameId || !itemId) return;
+  if (!ui.stock[ui.gameId] || typeof ui.stock[ui.gameId] !== "object") ui.stock[ui.gameId] = {};
+  const trimmed = value.trim();
+  if (trimmed === "") delete ui.stock[ui.gameId][itemId];
+  else ui.stock[ui.gameId][itemId] = trimmed;
+  try {
+    localStorage.setItem(STOCK_KEY, JSON.stringify(ui.stock));
+  } catch (err) {
+    // 保存できなくても、画面上のメモはそのまま残す。
+  }
+}
+
+// 現在数が、行に出している目標個数を超えたときだけ暗くする。
+function markStock(li, raw, targetText) {
+  const current = Number(String(raw).trim());
+  const target = Number(targetText);
+  const over = String(raw).trim() !== "" && Number.isFinite(current) && Number.isFinite(target) && current > target;
+  li.classList.toggle("is-over", over);
 }
 
 // アイコンは data/icon/<gameId>/<itemId>.png。無いときは要素を外して名称だけ残す。
@@ -621,37 +795,230 @@ function appendItemIcon(parent, itemId) {
   parent.appendChild(img);
 }
 
-function currentRate() {
-  const raw = $("rate-input").value.trim();
+// minimumUnit は先頭レシピが1回で出す主産物の個数。未定義や 0 以下は 1。
+function minimumUnit(item) {
+  const recipe = item && Array.isArray(item.recipes) ? item.recipes[0] : null;
+  if (!recipe || !Array.isArray(recipe.outputs)) return 1;
+  const main = recipe.outputs.find((out) => out && out.id === recipe.mainOutput);
+  const qty = main ? Number(main.qty) : NaN;
+  if (!Number.isInteger(qty) || qty < 1) return 1;
+  return qty;
+}
+function currentQuantity() {
+  const raw = $("quantity-input").value.trim();
   if (raw === "") return { ok: false, empty: true };
+  if (!/^(?:0|[1-9]\d*)(?:\.\d+)?$|^\.\d+$/.test(raw)) return { ok: false, empty: false };
   const value = Number(raw);
-  if (!Number.isFinite(value) || value <= 0) return { ok: false, empty: false };
-  return { ok: true, value };
+  if (!Number.isFinite(value) || value <= 0 || value > 1000000000) return { ok: false, empty: false };
+  return { ok: true, value, empty: false };
 }
 
-function commitRate() {
-  const rate = currentRate();
-  if (!rate.ok) {
-    $("rate-error").hidden = false;
-    $("rate-error").textContent = "目標生産速度は 0 より大きい数値で入力してください。直前の表示を保持しています。";
+function commitQuantity() {
+  // 確定した値を送る。直後の blur で、入力中に届いた古い値へ戻さない。
+  ui.heldQuantity = null;
+  const quantity = currentQuantity();
+  applyQuantity(quantity);
+  if (!quantity.empty && !quantity.ok) return;
+  pushState({ quantity: $("quantity-input").value.trim() });
+}
+
+function applyQuantity(quantity) {
+  if (quantity.empty) {
+    $("quantity-error").hidden = true;
+    const item = itemById(ui.itemId);
+    if (item) loadPlan(minimumUnit(item));
     return;
   }
-  $("rate-error").hidden = true;
-  if (ui.itemId) loadFacilities(rate.value);
+  if (!quantity.ok) {
+    $("quantity-error").hidden = false;
+    $("quantity-error").textContent = "目標速度は 0 より大きい数で入力してください。直前の表示を保持しています。";
+    return;
+  }
+  $("quantity-error").hidden = true;
+  if (ui.itemId) loadPlan(quantity.value);
 }
 
-async function loadFacilities(rate) {
-  const url = "/api/games/" + encodeURIComponent(ui.gameId) + "/facilities?itemId=" + encodeURIComponent(ui.itemId) + "&rate=" + encodeURIComponent(rate);
-  const res = await fetch(url);
+// change は利用者の操作でだけ起きる（value の代入では起きない）ので、ここからは常に送る。
+async function changeGame(gameId) {
+  await selectGame(gameId);
+  await pushState({ gameId: gameId || "", quantity: "" });
+}
+
+async function changeItem(id) {
+  if (!id) {
+    clearItemView();
+    await pushState({ itemId: "" });
+    return;
+  }
+  await selectItem(id);
+  await pushState({ itemId: id });
+}
+
+// 操作の送信と重なった取得は捨てる。古い応答で入力を戻さない。
+// 反映の途中で利用者が操作したら（syncEpoch が進んだら）、反映をやめて利用者の操作を残す。
+let syncEpoch = 0;
+
+async function pushState(patch) {
+  const ticket = ++syncEpoch;
+  let res;
+  try {
+    res = await fetch("/api/state", {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(patch),
+    });
+  } catch (err) {
+    console.error(err);
+    return;
+  }
+  if (ticket !== syncEpoch || !res.ok) return;
+  const state = await res.json();
+  if (ticket !== syncEpoch) return;
+  if (typeof state.revision === "number" && state.revision > ui.revision) ui.revision = state.revision;
+}
+
+async function pullState() {
+  if (ui.pulling) return;
+  ui.pulling = true;
+  const ticket = syncEpoch;
+  try {
+    const res = await fetch("/api/state");
+    if (ticket !== syncEpoch || !res.ok) return;
+    const state = await res.json();
+    if (ticket !== syncEpoch) return;
+    if (typeof state.revision !== "number" || state.revision <= ui.revision) {
+      healQuantity(state.quantity || "");
+      return;
+    }
+    await applyRemote(state, ticket);
+  } catch (err) {
+    console.error(err);
+  } finally {
+    ui.pulling = false;
+  }
+}
+
+async function applyRemote(state, ticket) {
+  const quantityFocused = document.activeElement === $("quantity-input");
+  const gameId = state.gameId || "";
+  const itemId = state.itemId || "";
+  const quantity = state.quantity || "";
+  const gameChanged = gameId !== ui.gameId;
+  const itemChanged = itemId !== ui.itemId;
+  const prevQuantity = $("quantity-input").value;
+  if (gameChanged) {
+    $("game-select").value = gameId;
+    await selectGame(gameId);
+    if (ticket !== syncEpoch) return;
+  }
+  if (!quantityFocused) {
+    $("quantity-input").value = quantity;
+    ui.heldQuantity = null;
+  } else if (quantity !== $("quantity-input").value) {
+    ui.heldQuantity = quantity;
+  }
+  if (itemId) {
+    if (gameChanged || itemChanged) {
+      revealItem(itemId);
+      $("item-select").value = itemId;
+      await selectItem(itemId);
+    } else if (!quantityFocused && quantity !== prevQuantity) {
+      applyQuantity(currentQuantity());
+    }
+  } else if (itemChanged || gameChanged) {
+    clearItemView();
+  }
+  if (ticket === syncEpoch && state.revision > ui.revision) ui.revision = state.revision;
+}
+
+// 反映を見送った目標速度を、フォーカスが外れたあとに合わせる。
+function healQuantity(quantity) {
+  if (document.activeElement === $("quantity-input")) {
+    if (quantity !== $("quantity-input").value) ui.heldQuantity = quantity;
+    return;
+  }
+  if ($("quantity-input").value === quantity) {
+    ui.heldQuantity = null;
+    return;
+  }
+  $("quantity-input").value = quantity;
+  ui.heldQuantity = null;
+  applyQuantity(currentQuantity());
+}
+
+// 絞り込みで見えない相手のアイテムは、絞り込みを外して一覧に戻す。
+function revealItem(id) {
+  const item = itemById(id);
+  if (!item) return;
+  const type = $("type-filter").value;
+  const query = $("name-filter").value.trim().toLowerCase();
+  const hidden = (type && item.type !== type) || (query && !String(item.name || "").toLowerCase().includes(query));
+  if (!hidden) return;
+  $("type-filter").value = "";
+  $("name-filter").value = "";
+  renderItemOptions();
+}
+
+async function openJoinQR() {
+  const dialog = $("qr-dialog");
+  let url = "";
+  try {
+    const res = await fetch("/api/join");
+    if (res.ok) {
+      const data = await res.json();
+      url = data.url || "";
+    }
+  } catch (err) {
+    console.error(err);
+  }
+  $("qr-url").textContent = url || "接続URLを取得できませんでした";
+  $("qr-note").hidden = !/^https?:\/\/(localhost|127\.0\.0\.1)([:/]|$)/.test(url);
+  const box = $("qr-code");
+  box.replaceChildren();
+  if (url && typeof QRCode === "function") {
+    new QRCode(box, {
+      text: url,
+      width: 196,
+      height: 196,
+      correctLevel: QRCode.CorrectLevel.M,
+    });
+  }
+  if (!dialog.open) dialog.showModal();
+}
+
+async function loadPlan(quantity) {
+  const req = ++ui.planReq;
+  const gameId = ui.gameId;
+  const itemId = ui.itemId;
+  const url = "/api/games/" + encodeURIComponent(gameId) + "/facilities?itemId=" + encodeURIComponent(itemId) + "&quantity=" + encodeURIComponent(quantity);
+  let res;
+  try {
+    res = await fetch(url);
+  } catch (err) {
+    console.error(err);
+    if (req === ui.planReq) {
+      $("quantity-error").hidden = false;
+      $("quantity-error").textContent = "サーバに接続できませんでした";
+    }
+    return;
+  }
+  if (req !== ui.planReq || ui.itemId !== itemId || ui.gameId !== gameId) return;
   if (!res.ok) {
-    $("rate-error").hidden = false;
-    $("rate-error").textContent = "目標生産速度が不正なため、算出を行いませんでした。直前の表示を保持しています。";
+    $("quantity-error").hidden = false;
+    $("quantity-error").textContent = "目標速度が不正なため、算出を行いませんでした。直前の表示を保持しています。";
     return;
   }
   const data = await res.json();
+  if (req !== ui.planReq || ui.itemId !== itemId || ui.gameId !== gameId) return;
+  ui.facilityItems = data.items || [];
+  renderFacilities(ui.facilityItems);
+  renderMaterials(data.materials || []);
+  refreshNodeMetrics();
+}
+
+function renderFacilities(items) {
   const ul = $("facilities");
   ul.replaceChildren();
-  const items = data.items || [];
   if (!items.length) {
     const li = document.createElement("li");
     li.textContent = "算出結果がありません";
@@ -665,13 +1032,22 @@ async function loadFacilities(rate) {
     appendItemIcon(li, item.itemId);
     const text = document.createElement("span");
     if (item.uncomputable) {
-      text.textContent = item.name + ": 循環により算出できません";
+      text.textContent = item.name + ": " + (item.reason || "算出できません");
     } else {
-      text.textContent = item.name + ": 必要 " + formatNum(item.requiredRate) + " 個/秒 / 施設 " + item.facilityCount + " 台（1台あたり " + formatNum(item.outputRate) + " 個/秒）";
+      text.textContent = item.name + ": " + item.facilityCount + " 台（必要 " + displayQuantity(item.requiredQuantity) + " 個、1台あたり " + formatNum(item.outputRate) + " 個/秒）";
     }
     li.appendChild(text);
     ul.appendChild(li);
   }
+}
+
+// 整数に近い理論値はそのまま出し、端数があるときだけ切り上げて個数にする。
+function displayQuantity(n) {
+  if (!Number.isFinite(Number(n))) return "-";
+  const value = Number(n);
+  const nearest = Math.round(value);
+  if (Math.abs(value - nearest) < 1e-6) return String(nearest);
+  return String(Math.ceil(value - 1e-9));
 }
 
 function formatNum(n) {
@@ -689,22 +1065,25 @@ function clearItemView() {
     ui.cy.destroy();
     ui.cy = null;
   }
+  ui.materials = [];
+  ui.facilityItems = [];
   renderMaterials([]);
   clearFacilities();
+  refreshNodeMetrics();
   const sel = $("item-select");
   if (sel) sel.value = "";
 }
 
 function clearRate() {
-  $("rate-input").value = "";
-  $("rate-error").hidden = true;
+  $("quantity-input").value = "";
+  $("quantity-error").hidden = true;
 }
 
 function clearFacilities() {
   const ul = $("facilities");
   ul.replaceChildren();
   const li = document.createElement("li");
-  li.textContent = "目標生産速度を入力すると、必要な施設数を表示します";
+  li.textContent = "目標速度を入力すると、必要な施設数を表示します";
   ul.appendChild(li);
 }
 

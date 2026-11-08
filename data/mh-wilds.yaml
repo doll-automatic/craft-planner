@@ -3,10 +3,7 @@
 # 武器・防具は公開Wiki（GameWith、mhwilds.com、Gamerch、Kiranico、Game8）の
 # 生産・強化素材に合わせた。架空装備は入れていない。
 # アイテム名はゲーム公式の日本語表記。
-# ゲームに公式の調合時間・加工時間はない。
-# Data_Loader は craft_time の欠損・null・0・空文字を拒否し、0.1〜86400 を要求する。
-# そのため全レシピの craft_time は仕様下限の 0.1 秒（空欄相当の番兵値）に統一した。
-# UI 上は秒数が付くが、実時間データではない。
+# ゲームに公式の調合時間・加工時間はないため、レシピに craft_time は入れていない。
 # こんがり肉は消耗品。産出は生肉1個あたりの典型値5個（切り分け成功で最大12個）。
 # 複数レシピがあるアイテムは、調合番号の若い方／強化経路の主レシピを先頭に置いている。
 # ツリー計算は各アイテムの先頭レシピだけを使う。
@@ -29,7 +26,6 @@ items:
     facility: "採集"
     recipes:
       - id: herb_r0
-        craft_time: 0.1
         main_output: herb
         inputs: []
         outputs:
@@ -41,7 +37,6 @@ items:
     facility: "採集"
     recipes:
       - id: honey_r0
-        craft_time: 0.1
         main_output: honey
         inputs: []
         outputs:
@@ -53,7 +48,6 @@ items:
     facility: "採集"
     recipes:
       - id: antidote_herb_r0
-        craft_time: 0.1
         main_output: antidote_herb
         inputs: []
         outputs:
@@ -65,7 +59,6 @@ items:
     facility: "採集"
     recipes:
       - id: blue_mushroom_r0
-        craft_time: 0.1
         main_output: blue_mushroom
         inputs: []
         outputs:
@@ -77,7 +70,6 @@ items:
     facility: "採集"
     recipes:
       - id: smokenut_r0
-        craft_time: 0.1
         main_output: smokenut
         inputs: []
         outputs:
@@ -89,7 +81,6 @@ items:
     facility: "採集"
     recipes:
       - id: fire_herb_r0
-        craft_time: 0.1
         main_output: fire_herb
         inputs: []
         outputs:
@@ -101,7 +92,6 @@ items:
     facility: "採集"
     recipes:
       - id: mandragora_r0
-        craft_time: 0.1
         main_output: mandragora
         inputs: []
         outputs:
@@ -113,7 +103,6 @@ items:
     facility: "採集"
     recipes:
       - id: gloamgrass_bud_r0
-        craft_time: 0.1
         main_output: gloamgrass_bud
         inputs: []
         outputs:
@@ -125,7 +114,6 @@ items:
     facility: "採集"
     recipes:
       - id: nitroshroom_r0
-        craft_time: 0.1
         main_output: nitroshroom
         inputs: []
         outputs:
@@ -137,7 +125,6 @@ items:
     facility: "採集"
     recipes:
       - id: chillshroom_r0
-        craft_time: 0.1
         main_output: chillshroom
         inputs: []
         outputs:
@@ -149,7 +136,6 @@ items:
     facility: "採集"
     recipes:
       - id: hot_pepper_r0
-        craft_time: 0.1
         main_output: hot_pepper
         inputs: []
         outputs:
@@ -161,7 +147,6 @@ items:
     facility: "採集"
     recipes:
       - id: might_seed_r0
-        craft_time: 0.1
         main_output: might_seed
         inputs: []
         outputs:
@@ -173,7 +158,6 @@ items:
     facility: "採集"
     recipes:
       - id: adamant_seed_r0
-        craft_time: 0.1
         main_output: adamant_seed
         inputs: []
         outputs:
@@ -185,7 +169,6 @@ items:
     facility: "採集"
     recipes:
       - id: exciteshroom_r0
-        craft_time: 0.1
         main_output: exciteshroom
         inputs: []
         outputs:
@@ -197,7 +180,6 @@ items:
     facility: "採集"
     recipes:
       - id: ivy_r0
-        craft_time: 0.1
         main_output: ivy
         inputs: []
         outputs:
@@ -209,7 +191,6 @@ items:
     facility: "採集"
     recipes:
       - id: toadstool_r0
-        craft_time: 0.1
         main_output: toadstool
         inputs: []
         outputs:
@@ -221,7 +202,6 @@ items:
     facility: "採集"
     recipes:
       - id: parashroom_r0
-        craft_time: 0.1
         main_output: parashroom
         inputs: []
         outputs:
@@ -233,7 +213,6 @@ items:
     facility: "採集"
     recipes:
       - id: sleep_herb_r0
-        craft_time: 0.1
         main_output: sleep_herb
         inputs: []
         outputs:
@@ -245,7 +224,6 @@ items:
     facility: "採集"
     recipes:
       - id: spider_web_r0
-        craft_time: 0.1
         main_output: spider_web
         inputs: []
         outputs:
@@ -257,7 +235,6 @@ items:
     facility: "採集"
     recipes:
       - id: blastnut_r0
-        craft_time: 0.1
         main_output: blastnut
         inputs: []
         outputs:
@@ -269,7 +246,6 @@ items:
     facility: "採集"
     recipes:
       - id: bomberry_r0
-        craft_time: 0.1
         main_output: bomberry
         inputs: []
         outputs:
@@ -281,7 +257,6 @@ items:
     facility: "採集"
     recipes:
       - id: slashberry_r0
-        craft_time: 0.1
         main_output: slashberry
         inputs: []
         outputs:
@@ -293,7 +268,6 @@ items:
     facility: "採集"
     recipes:
       - id: flowfern_r0
-        craft_time: 0.1
         main_output: flowfern
         inputs: []
         outputs:
@@ -305,7 +279,6 @@ items:
     facility: "採集"
     recipes:
       - id: snow_herb_r0
-        craft_time: 0.1
         main_output: snow_herb
         inputs: []
         outputs:
@@ -317,7 +290,6 @@ items:
     facility: "採集"
     recipes:
       - id: dragonfell_berry_r0
-        craft_time: 0.1
         main_output: dragonfell_berry
         inputs: []
         outputs:
@@ -329,7 +301,6 @@ items:
     facility: "採集"
     recipes:
       - id: dragonstrike_nut_r0
-        craft_time: 0.1
         main_output: dragonstrike_nut
         inputs: []
         outputs:
@@ -341,7 +312,6 @@ items:
     facility: "採集"
     recipes:
       - id: devils_blight_r0
-        craft_time: 0.1
         main_output: devils_blight
         inputs: []
         outputs:
@@ -354,7 +324,6 @@ items:
     facility: "採取"
     recipes:
       - id: bitterbug_broth_r0
-        craft_time: 0.1
         main_output: bitterbug_broth
         inputs: []
         outputs:
@@ -366,7 +335,6 @@ items:
     facility: "採取"
     recipes:
       - id: godbug_essence_r0
-        craft_time: 0.1
         main_output: godbug_essence
         inputs: []
         outputs:
@@ -378,7 +346,6 @@ items:
     facility: "採取"
     recipes:
       - id: flashbug_phosphor_r0
-        craft_time: 0.1
         main_output: flashbug_phosphor
         inputs: []
         outputs:
@@ -390,7 +357,6 @@ items:
     facility: "採取"
     recipes:
       - id: thunderbug_capacitor_r0
-        craft_time: 0.1
         main_output: thunderbug_capacitor
         inputs: []
         outputs:
@@ -402,7 +368,6 @@ items:
     facility: "採取"
     recipes:
       - id: bomb_arowana_scale_r0
-        craft_time: 0.1
         main_output: bomb_arowana_scale
         inputs: []
         outputs:
@@ -414,7 +379,6 @@ items:
     facility: "採取"
     recipes:
       - id: burst_arowana_scale_r0
-        craft_time: 0.1
         main_output: burst_arowana_scale
         inputs: []
         outputs:
@@ -426,7 +390,6 @@ items:
     facility: "採取"
     recipes:
       - id: gunpowderfish_scale_r0
-        craft_time: 0.1
         main_output: gunpowderfish_scale
         inputs: []
         outputs:
@@ -439,7 +402,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: nourishing_extract_r0
-        craft_time: 0.1
         main_output: nourishing_extract
         inputs: []
         outputs:
@@ -451,7 +413,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: dash_extract_r0
-        craft_time: 0.1
         main_output: dash_extract
         inputs: []
         outputs:
@@ -463,7 +424,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: dung_r0
-        craft_time: 0.1
         main_output: dung
         inputs: []
         outputs:
@@ -475,7 +435,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: rolled_up_dung_r0
-        craft_time: 0.1
         main_output: rolled_up_dung
         inputs: []
         outputs:
@@ -487,7 +446,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: raw_meat_r0
-        craft_time: 0.1
         main_output: raw_meat
         inputs: []
         outputs:
@@ -499,7 +457,6 @@ items:
     facility: "支給"
     recipes:
       - id: first_aid_med_r0
-        craft_time: 0.1
         main_output: first_aid_med
         inputs: []
         outputs:
@@ -511,7 +468,6 @@ items:
     facility: "購入"
     recipes:
       - id: small_barrel_r0
-        craft_time: 0.1
         main_output: small_barrel
         inputs: []
         outputs:
@@ -523,7 +479,6 @@ items:
     facility: "購入"
     recipes:
       - id: large_barrel_r0
-        craft_time: 0.1
         main_output: large_barrel
         inputs: []
         outputs:
@@ -535,7 +490,6 @@ items:
     facility: "購入"
     recipes:
       - id: trap_tool_r0
-        craft_time: 0.1
         main_output: trap_tool
         inputs: []
         outputs:
@@ -547,7 +501,6 @@ items:
     facility: "購入"
     recipes:
       - id: normal_ammo_r0
-        craft_time: 0.1
         main_output: normal_ammo
         inputs: []
         outputs:
@@ -559,7 +512,6 @@ items:
     facility: "必須アイテム"
     recipes:
       - id: throwing_knife_r0
-        craft_time: 0.1
         main_output: throwing_knife
         inputs: []
         outputs:
@@ -572,7 +524,6 @@ items:
     facility: "テント調合"
     recipes:
       - id: potion_r0
-        craft_time: 0.1
         main_output: potion
         inputs:
           - { id: herb, qty: 1 }
@@ -585,7 +536,6 @@ items:
     facility: "テント調合"
     recipes:
       - id: mega_potion_r0
-        craft_time: 0.1
         main_output: mega_potion
         inputs:
           - { id: potion, qty: 1 }
@@ -599,7 +549,6 @@ items:
     facility: "テント調合"
     recipes:
       - id: first_aid_med_plus_r0
-        craft_time: 0.1
         main_output: first_aid_med_plus
         inputs:
           - { id: first_aid_med, qty: 1 }
@@ -613,7 +562,6 @@ items:
     facility: "テント調合"
     recipes:
       - id: antidote_r0
-        craft_time: 0.1
         main_output: antidote
         inputs:
           - { id: antidote_herb, qty: 1 }
@@ -626,7 +574,6 @@ items:
     facility: "テント調合"
     recipes:
       - id: herbal_medicine_r0
-        craft_time: 0.1
         main_output: herbal_medicine
         inputs:
           - { id: antidote, qty: 1 }
@@ -640,7 +587,6 @@ items:
     facility: "テント調合"
     recipes:
       - id: deodorant_r0
-        craft_time: 0.1
         main_output: deodorant
         inputs:
           - { id: smokenut, qty: 1 }
@@ -654,7 +600,6 @@ items:
     facility: "テント調合"
     recipes:
       - id: cleanser_r0
-        craft_time: 0.1
         main_output: cleanser
         inputs:
           - { id: fire_herb, qty: 1 }
@@ -668,7 +613,6 @@ items:
     facility: "テント調合"
     recipes:
       - id: catalyst_r0
-        craft_time: 0.1
         main_output: catalyst
         inputs:
           - { id: bitterbug_broth, qty: 1 }
@@ -682,7 +626,6 @@ items:
     facility: "テント調合"
     recipes:
       - id: max_potion_r0
-        craft_time: 0.1
         main_output: max_potion
         inputs:
           - { id: catalyst, qty: 1 }
@@ -696,7 +639,6 @@ items:
     facility: "テント調合"
     recipes:
       - id: immunizer_r0
-        craft_time: 0.1
         main_output: immunizer
         inputs:
           - { id: bitterbug_broth, qty: 1 }
@@ -710,7 +652,6 @@ items:
     facility: "テント調合"
     recipes:
       - id: ancient_potion_r0
-        craft_time: 0.1
         main_output: ancient_potion
         inputs:
           - { id: immunizer, qty: 1 }
@@ -724,7 +665,6 @@ items:
     facility: "テント調合"
     recipes:
       - id: lifepowder_r0
-        craft_time: 0.1
         main_output: lifepowder
         inputs:
           - { id: godbug_essence, qty: 1 }
@@ -738,7 +678,6 @@ items:
     facility: "テント調合"
     recipes:
       - id: dust_of_life_r0
-        craft_time: 0.1
         main_output: dust_of_life
         inputs:
           - { id: godbug_essence, qty: 1 }
@@ -752,7 +691,6 @@ items:
     facility: "テント調合"
     recipes:
       - id: herbal_powder_r0
-        craft_time: 0.1
         main_output: herbal_powder
         inputs:
           - { id: godbug_essence, qty: 1 }
@@ -767,7 +705,6 @@ items:
     facility: "テント調合"
     recipes:
       - id: energy_drink_r0
-        craft_time: 0.1
         main_output: energy_drink
         inputs:
           - { id: nitroshroom, qty: 1 }
@@ -781,7 +718,6 @@ items:
     facility: "テント調合"
     recipes:
       - id: cool_drink_r0
-        craft_time: 0.1
         main_output: cool_drink
         inputs:
           - { id: chillshroom, qty: 1 }
@@ -794,7 +730,6 @@ items:
     facility: "テント調合"
     recipes:
       - id: hot_drink_r0
-        craft_time: 0.1
         main_output: hot_drink
         inputs:
           - { id: hot_pepper, qty: 1 }
@@ -807,7 +742,6 @@ items:
     facility: "テント調合"
     recipes:
       - id: dash_juice_r0
-        craft_time: 0.1
         main_output: dash_juice
         inputs:
           - { id: catalyst, qty: 1 }
@@ -821,7 +755,6 @@ items:
     facility: "テント調合"
     recipes:
       - id: demondrug_r0
-        craft_time: 0.1
         main_output: demondrug
         inputs:
           - { id: catalyst, qty: 1 }
@@ -835,7 +768,6 @@ items:
     facility: "テント調合"
     recipes:
       - id: mega_demondrug_r0
-        craft_time: 0.1
         main_output: mega_demondrug
         inputs:
           - { id: nourishing_extract, qty: 1 }
@@ -849,7 +781,6 @@ items:
     facility: "テント調合"
     recipes:
       - id: demon_powder_r0
-        craft_time: 0.1
         main_output: demon_powder
         inputs:
           - { id: godbug_essence, qty: 1 }
@@ -863,7 +794,6 @@ items:
     facility: "テント調合"
     recipes:
       - id: might_pill_r0
-        craft_time: 0.1
         main_output: might_pill
         inputs:
           - { id: immunizer, qty: 1 }
@@ -877,7 +807,6 @@ items:
     facility: "テント調合"
     recipes:
       - id: armorskin_r0
-        craft_time: 0.1
         main_output: armorskin
         inputs:
           - { id: catalyst, qty: 1 }
@@ -891,7 +820,6 @@ items:
     facility: "テント調合"
     recipes:
       - id: mega_armorskin_r0
-        craft_time: 0.1
         main_output: mega_armorskin
         inputs:
           - { id: nourishing_extract, qty: 1 }
@@ -905,7 +833,6 @@ items:
     facility: "テント調合"
     recipes:
       - id: hardshell_powder_r0
-        craft_time: 0.1
         main_output: hardshell_powder
         inputs:
           - { id: godbug_essence, qty: 1 }
@@ -919,7 +846,6 @@ items:
     facility: "テント調合"
     recipes:
       - id: adamant_pill_r0
-        craft_time: 0.1
         main_output: adamant_pill
         inputs:
           - { id: immunizer, qty: 1 }
@@ -933,7 +859,6 @@ items:
     facility: "テント調合"
     recipes:
       - id: farcaster_r0
-        craft_time: 0.1
         main_output: farcaster
         inputs:
           - { id: smokenut, qty: 1 }
@@ -948,7 +873,6 @@ items:
     facility: "テント調合"
     recipes:
       - id: gunpowder_r0
-        craft_time: 0.1
         main_output: gunpowder
         inputs:
           - { id: fire_herb, qty: 1 }
@@ -962,7 +886,6 @@ items:
     facility: "テント調合"
     recipes:
       - id: barrel_bomb_r0
-        craft_time: 0.1
         main_output: barrel_bomb
         inputs:
           - { id: fire_herb, qty: 1 }
@@ -976,7 +899,6 @@ items:
     facility: "テント調合"
     recipes:
       - id: large_barrel_bomb_r0
-        craft_time: 0.1
         main_output: large_barrel_bomb
         inputs:
           - { id: gunpowder, qty: 1 }
@@ -990,7 +912,6 @@ items:
     facility: "テント調合"
     recipes:
       - id: mega_barrel_bomb_r0
-        craft_time: 0.1
         main_output: mega_barrel_bomb
         inputs:
           - { id: devils_blight, qty: 1 }
@@ -998,7 +919,6 @@ items:
         outputs:
           - { id: mega_barrel_bomb, qty: 1 }
       - id: mega_barrel_bomb_r1
-        craft_time: 0.1
         main_output: mega_barrel_bomb
         inputs:
           - { id: gunpowderfish_scale, qty: 1 }
@@ -1012,7 +932,6 @@ items:
     facility: "テント調合"
     recipes:
       - id: smoke_bomb_r0
-        craft_time: 0.1
         main_output: smoke_bomb
         inputs:
           - { id: smokenut, qty: 1 }
@@ -1026,7 +945,6 @@ items:
     facility: "テント調合"
     recipes:
       - id: poison_smoke_bomb_r0
-        craft_time: 0.1
         main_output: poison_smoke_bomb
         inputs:
           - { id: smokenut, qty: 1 }
@@ -1040,7 +958,6 @@ items:
     facility: "テント調合"
     recipes:
       - id: flash_pod_r0
-        craft_time: 0.1
         main_output: flash_pod
         inputs:
           - { id: flashbug_phosphor, qty: 1 }
@@ -1053,14 +970,12 @@ items:
     facility: "テント調合"
     recipes:
       - id: dung_pod_r0
-        craft_time: 0.1
         main_output: dung_pod
         inputs:
           - { id: dung, qty: 1 }
         outputs:
           - { id: dung_pod, qty: 1 }
       - id: dung_pod_r1
-        craft_time: 0.1
         main_output: dung_pod
         inputs:
           - { id: rolled_up_dung, qty: 1 }
@@ -1073,7 +988,6 @@ items:
     facility: "テント調合"
     recipes:
       - id: large_dung_pod_r0
-        craft_time: 0.1
         main_output: large_dung_pod
         inputs:
           - { id: dung_pod, qty: 1 }
@@ -1087,7 +1001,6 @@ items:
     facility: "テント調合"
     recipes:
       - id: luring_pod_r0
-        craft_time: 0.1
         main_output: luring_pod
         inputs:
           - { id: exciteshroom, qty: 1 }
@@ -1101,7 +1014,6 @@ items:
     facility: "テント調合"
     recipes:
       - id: poisoned_meat_r0
-        craft_time: 0.1
         main_output: poisoned_meat
         inputs:
           - { id: raw_meat, qty: 1 }
@@ -1115,7 +1027,6 @@ items:
     facility: "テント調合"
     recipes:
       - id: tinged_meat_r0
-        craft_time: 0.1
         main_output: tinged_meat
         inputs:
           - { id: raw_meat, qty: 1 }
@@ -1129,7 +1040,6 @@ items:
     facility: "テント調合"
     recipes:
       - id: drugged_meat_r0
-        craft_time: 0.1
         main_output: drugged_meat
         inputs:
           - { id: raw_meat, qty: 1 }
@@ -1143,7 +1053,6 @@ items:
     facility: "テント調合"
     recipes:
       - id: net_r0
-        craft_time: 0.1
         main_output: net
         inputs:
           - { id: ivy, qty: 1 }
@@ -1157,7 +1066,6 @@ items:
     facility: "テント調合"
     recipes:
       - id: pitfall_trap_r0
-        craft_time: 0.1
         main_output: pitfall_trap
         inputs:
           - { id: trap_tool, qty: 1 }
@@ -1171,7 +1079,6 @@ items:
     facility: "テント調合"
     recipes:
       - id: shock_trap_r0
-        craft_time: 0.1
         main_output: shock_trap
         inputs:
           - { id: trap_tool, qty: 1 }
@@ -1185,7 +1092,6 @@ items:
     facility: "テント調合"
     recipes:
       - id: tranq_bomb_r0
-        craft_time: 0.1
         main_output: tranq_bomb
         inputs:
           - { id: sleep_herb, qty: 1 }
@@ -1199,7 +1105,6 @@ items:
     facility: "テント調合"
     recipes:
       - id: tranq_ammo_r0
-        craft_time: 0.1
         main_output: tranq_ammo
         inputs:
           - { id: tranq_bomb, qty: 1 }
@@ -1213,7 +1118,6 @@ items:
     facility: "テント調合"
     recipes:
       - id: tranq_blade_r0
-        craft_time: 0.1
         main_output: tranq_blade
         inputs:
           - { id: tranq_bomb, qty: 1 }
@@ -1228,14 +1132,12 @@ items:
     facility: "テント調合"
     recipes:
       - id: sticky_ammo_r0
-        craft_time: 0.1
         main_output: sticky_ammo
         inputs:
           - { id: blastnut, qty: 1 }
         outputs:
           - { id: sticky_ammo, qty: 1 }
       - id: sticky_ammo_r1
-        craft_time: 0.1
         main_output: sticky_ammo
         inputs:
           - { id: normal_ammo, qty: 1 }
@@ -1249,7 +1151,6 @@ items:
     facility: "テント調合"
     recipes:
       - id: cluster_bomb_r0
-        craft_time: 0.1
         main_output: cluster_bomb
         inputs:
           - { id: bomberry, qty: 1 }
@@ -1262,14 +1163,12 @@ items:
     facility: "テント調合"
     recipes:
       - id: slicing_ammo_r0
-        craft_time: 0.1
         main_output: slicing_ammo
         inputs:
           - { id: slashberry, qty: 1 }
         outputs:
           - { id: slicing_ammo, qty: 1 }
       - id: slicing_ammo_r1
-        craft_time: 0.1
         main_output: slicing_ammo
         inputs:
           - { id: normal_ammo, qty: 1 }
@@ -1283,7 +1182,6 @@ items:
     facility: "テント調合"
     recipes:
       - id: flaming_ammo_r0
-        craft_time: 0.1
         main_output: flaming_ammo
         inputs:
           - { id: normal_ammo, qty: 1 }
@@ -1297,7 +1195,6 @@ items:
     facility: "テント調合"
     recipes:
       - id: water_ammo_r0
-        craft_time: 0.1
         main_output: water_ammo
         inputs:
           - { id: normal_ammo, qty: 1 }
@@ -1311,7 +1208,6 @@ items:
     facility: "テント調合"
     recipes:
       - id: thunder_ammo_r0
-        craft_time: 0.1
         main_output: thunder_ammo
         inputs:
           - { id: normal_ammo, qty: 1 }
@@ -1325,7 +1221,6 @@ items:
     facility: "テント調合"
     recipes:
       - id: freeze_ammo_r0
-        craft_time: 0.1
         main_output: freeze_ammo
         inputs:
           - { id: normal_ammo, qty: 1 }
@@ -1339,7 +1234,6 @@ items:
     facility: "テント調合"
     recipes:
       - id: dragon_ammo_r0
-        craft_time: 0.1
         main_output: dragon_ammo
         inputs:
           - { id: normal_ammo, qty: 1 }
@@ -1353,7 +1247,6 @@ items:
     facility: "テント調合"
     recipes:
       - id: poison_ammo_r0
-        craft_time: 0.1
         main_output: poison_ammo
         inputs:
           - { id: normal_ammo, qty: 1 }
@@ -1367,7 +1260,6 @@ items:
     facility: "テント調合"
     recipes:
       - id: paralysis_ammo_r0
-        craft_time: 0.1
         main_output: paralysis_ammo
         inputs:
           - { id: normal_ammo, qty: 1 }
@@ -1381,7 +1273,6 @@ items:
     facility: "テント調合"
     recipes:
       - id: sleep_ammo_r0
-        craft_time: 0.1
         main_output: sleep_ammo
         inputs:
           - { id: normal_ammo, qty: 1 }
@@ -1395,7 +1286,6 @@ items:
     facility: "テント調合"
     recipes:
       - id: exhaust_ammo_r0
-        craft_time: 0.1
         main_output: exhaust_ammo
         inputs:
           - { id: normal_ammo, qty: 1 }
@@ -1409,7 +1299,6 @@ items:
     facility: "テント調合"
     recipes:
       - id: recover_ammo_r0
-        craft_time: 0.1
         main_output: recover_ammo
         inputs:
           - { id: normal_ammo, qty: 1 }
@@ -1423,7 +1312,6 @@ items:
     facility: "テント調合"
     recipes:
       - id: demon_ammo_r0
-        craft_time: 0.1
         main_output: demon_ammo
         inputs:
           - { id: normal_ammo, qty: 1 }
@@ -1437,7 +1325,6 @@ items:
     facility: "テント調合"
     recipes:
       - id: armor_ammo_r0
-        craft_time: 0.1
         main_output: armor_ammo
         inputs:
           - { id: normal_ammo, qty: 1 }
@@ -1451,7 +1338,6 @@ items:
     facility: "テント調合"
     recipes:
       - id: wyvern_ammo_r0
-        craft_time: 0.1
         main_output: wyvern_ammo
         inputs:
           - { id: dragonstrike_nut, qty: 1 }
@@ -1465,7 +1351,6 @@ items:
     facility: "携帯焚き火台"
     recipes:
       - id: well_done_steak_r0
-        craft_time: 0.1
         main_output: well_done_steak
         inputs:
           - { id: raw_meat, qty: 1 }
@@ -1479,7 +1364,6 @@ items:
     facility: "採掘"
     recipes:
       - id: iron_ore_r0
-        craft_time: 0.1
         main_output: iron_ore
         inputs: []
         outputs:
@@ -1490,7 +1374,6 @@ items:
     facility: "採掘"
     recipes:
       - id: machalite_ore_r0
-        craft_time: 0.1
         main_output: machalite_ore
         inputs: []
         outputs:
@@ -1501,7 +1384,6 @@ items:
     facility: "採掘"
     recipes:
       - id: dragonite_ore_r0
-        craft_time: 0.1
         main_output: dragonite_ore
         inputs: []
         outputs:
@@ -1512,7 +1394,6 @@ items:
     facility: "採掘"
     recipes:
       - id: carbalite_ore_r0
-        craft_time: 0.1
         main_output: carbalite_ore
         inputs: []
         outputs:
@@ -1523,7 +1404,6 @@ items:
     facility: "採掘"
     recipes:
       - id: fucium_ore_r0
-        craft_time: 0.1
         main_output: fucium_ore
         inputs: []
         outputs:
@@ -1534,7 +1414,6 @@ items:
     facility: "採掘"
     recipes:
       - id: earth_crystal_r0
-        craft_time: 0.1
         main_output: earth_crystal
         inputs: []
         outputs:
@@ -1545,7 +1424,6 @@ items:
     facility: "採掘"
     recipes:
       - id: firestone_r0
-        craft_time: 0.1
         main_output: firestone
         inputs: []
         outputs:
@@ -1556,7 +1434,6 @@ items:
     facility: "採集"
     recipes:
       - id: mystery_bone_r0
-        craft_time: 0.1
         main_output: mystery_bone
         inputs: []
         outputs:
@@ -1567,7 +1444,6 @@ items:
     facility: "採集"
     recipes:
       - id: stout_bone_r0
-        craft_time: 0.1
         main_output: stout_bone
         inputs: []
         outputs:
@@ -1578,7 +1454,6 @@ items:
     facility: "採集"
     recipes:
       - id: hardy_bone_r0
-        craft_time: 0.1
         main_output: hardy_bone
         inputs: []
         outputs:
@@ -1589,7 +1464,6 @@ items:
     facility: "採集"
     recipes:
       - id: quality_bone_r0
-        craft_time: 0.1
         main_output: quality_bone
         inputs: []
         outputs:
@@ -1600,7 +1474,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: monster_hardbone_r0
-        craft_time: 0.1
         main_output: monster_hardbone
         inputs: []
         outputs:
@@ -1611,7 +1484,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: monster_fluid_r0
-        craft_time: 0.1
         main_output: monster_fluid
         inputs: []
         outputs:
@@ -1622,7 +1494,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: sharp_fang_r0
-        craft_time: 0.1
         main_output: sharp_fang
         inputs: []
         outputs:
@@ -1633,7 +1504,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: wingdrake_hide_plus_r0
-        craft_time: 0.1
         main_output: wingdrake_hide_plus
         inputs: []
         outputs:
@@ -1645,7 +1515,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: chatacabra_scale_r0
-        craft_time: 0.1
         main_output: chatacabra_scale
         inputs: []
         outputs:
@@ -1656,7 +1525,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: chatacabra_hide_r0
-        craft_time: 0.1
         main_output: chatacabra_hide
         inputs: []
         outputs:
@@ -1667,7 +1535,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: chatacabra_jaw_r0
-        craft_time: 0.1
         main_output: chatacabra_jaw
         inputs: []
         outputs:
@@ -1678,7 +1545,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: chatacabra_shell_r0
-        craft_time: 0.1
         main_output: chatacabra_shell
         inputs: []
         outputs:
@@ -1689,7 +1555,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: chatacabra_certificate_r0
-        craft_time: 0.1
         main_output: chatacabra_certificate
         inputs: []
         outputs:
@@ -1700,7 +1565,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: chatacabra_scale_plus_r0
-        craft_time: 0.1
         main_output: chatacabra_scale_plus
         inputs: []
         outputs:
@@ -1711,7 +1575,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: chatacabra_hide_plus_r0
-        craft_time: 0.1
         main_output: chatacabra_hide_plus
         inputs: []
         outputs:
@@ -1722,7 +1585,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: chatacabra_jaw_plus_r0
-        craft_time: 0.1
         main_output: chatacabra_jaw_plus
         inputs: []
         outputs:
@@ -1733,7 +1595,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: chatacabra_carapace_r0
-        craft_time: 0.1
         main_output: chatacabra_carapace
         inputs: []
         outputs:
@@ -1744,7 +1605,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: chatacabra_certificate_s_r0
-        craft_time: 0.1
         main_output: chatacabra_certificate_s
         inputs: []
         outputs:
@@ -1756,7 +1616,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: quematrice_scale_r0
-        craft_time: 0.1
         main_output: quematrice_scale
         inputs: []
         outputs:
@@ -1767,7 +1626,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: quematrice_hide_r0
-        craft_time: 0.1
         main_output: quematrice_hide
         inputs: []
         outputs:
@@ -1778,7 +1636,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: quematrice_crest_r0
-        craft_time: 0.1
         main_output: quematrice_crest
         inputs: []
         outputs:
@@ -1789,7 +1646,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: quematrice_igniter_r0
-        craft_time: 0.1
         main_output: quematrice_igniter
         inputs: []
         outputs:
@@ -1800,7 +1656,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: quematrice_tail_r0
-        craft_time: 0.1
         main_output: quematrice_tail
         inputs: []
         outputs:
@@ -1811,7 +1666,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: quematrice_certificate_r0
-        craft_time: 0.1
         main_output: quematrice_certificate
         inputs: []
         outputs:
@@ -1823,7 +1677,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: balahara_scale_r0
-        craft_time: 0.1
         main_output: balahara_scale
         inputs: []
         outputs:
@@ -1834,7 +1687,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: balahara_shell_r0
-        craft_time: 0.1
         main_output: balahara_shell
         inputs: []
         outputs:
@@ -1845,7 +1697,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: balahara_skull_r0
-        craft_time: 0.1
         main_output: balahara_skull
         inputs: []
         outputs:
@@ -1856,7 +1707,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: balahara_tail_r0
-        craft_time: 0.1
         main_output: balahara_tail
         inputs: []
         outputs:
@@ -1867,7 +1717,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: aqua_sac_r0
-        craft_time: 0.1
         main_output: aqua_sac
         inputs: []
         outputs:
@@ -1878,7 +1727,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: balahara_certificate_r0
-        craft_time: 0.1
         main_output: balahara_certificate
         inputs: []
         outputs:
@@ -1889,7 +1737,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: balahara_black_pearl_r0
-        craft_time: 0.1
         main_output: balahara_black_pearl
         inputs: []
         outputs:
@@ -1901,7 +1748,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: hope_blade_1_r0
-        craft_time: 0.1
         main_output: hope_blade_1
         inputs: []
         outputs:
@@ -1912,7 +1758,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: hope_blade_2_r0
-        craft_time: 0.1
         main_output: hope_blade_2
         inputs:
           - { id: hope_blade_1, qty: 1 }
@@ -1925,7 +1770,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: hope_blade_3_r0
-        craft_time: 0.1
         main_output: hope_blade_3
         inputs:
           - { id: hope_blade_2, qty: 1 }
@@ -1939,7 +1783,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: hope_edge_1_r0
-        craft_time: 0.1
         main_output: hope_edge_1
         inputs: []
         outputs:
@@ -1950,7 +1793,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: hope_edge_2_r0
-        craft_time: 0.1
         main_output: hope_edge_2
         inputs:
           - { id: hope_edge_1, qty: 1 }
@@ -1963,7 +1805,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: hope_edge_3_r0
-        craft_time: 0.1
         main_output: hope_edge_3
         inputs:
           - { id: hope_edge_2, qty: 1 }
@@ -1977,7 +1818,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: hope_sword_1_r0
-        craft_time: 0.1
         main_output: hope_sword_1
         inputs: []
         outputs:
@@ -1988,7 +1828,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: hope_sword_2_r0
-        craft_time: 0.1
         main_output: hope_sword_2
         inputs:
           - { id: hope_sword_1, qty: 1 }
@@ -2001,7 +1840,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: hope_sword_3_r0
-        craft_time: 0.1
         main_output: hope_sword_3
         inputs:
           - { id: hope_sword_2, qty: 1 }
@@ -2015,7 +1853,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: hope_dagger_1_r0
-        craft_time: 0.1
         main_output: hope_dagger_1
         inputs: []
         outputs:
@@ -2026,7 +1863,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: hope_dagger_2_r0
-        craft_time: 0.1
         main_output: hope_dagger_2
         inputs:
           - { id: hope_dagger_1, qty: 1 }
@@ -2039,7 +1875,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: hope_dagger_3_r0
-        craft_time: 0.1
         main_output: hope_dagger_3
         inputs:
           - { id: hope_dagger_2, qty: 1 }
@@ -2053,7 +1888,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: hope_hammer_1_r0
-        craft_time: 0.1
         main_output: hope_hammer_1
         inputs: []
         outputs:
@@ -2064,7 +1898,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: hope_hammer_2_r0
-        craft_time: 0.1
         main_output: hope_hammer_2
         inputs:
           - { id: hope_hammer_1, qty: 1 }
@@ -2077,7 +1910,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: hope_hammer_3_r0
-        craft_time: 0.1
         main_output: hope_hammer_3
         inputs:
           - { id: hope_hammer_2, qty: 1 }
@@ -2091,7 +1923,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: hope_horn_1_r0
-        craft_time: 0.1
         main_output: hope_horn_1
         inputs: []
         outputs:
@@ -2102,7 +1933,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: hope_horn_2_r0
-        craft_time: 0.1
         main_output: hope_horn_2
         inputs:
           - { id: hope_horn_1, qty: 1 }
@@ -2115,7 +1945,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: hope_horn_3_r0
-        craft_time: 0.1
         main_output: hope_horn_3
         inputs:
           - { id: hope_horn_2, qty: 1 }
@@ -2129,7 +1958,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: hope_lance_1_r0
-        craft_time: 0.1
         main_output: hope_lance_1
         inputs: []
         outputs:
@@ -2140,7 +1968,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: hope_lance_2_r0
-        craft_time: 0.1
         main_output: hope_lance_2
         inputs:
           - { id: hope_lance_1, qty: 1 }
@@ -2153,7 +1980,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: hope_lance_3_r0
-        craft_time: 0.1
         main_output: hope_lance_3
         inputs:
           - { id: hope_lance_2, qty: 1 }
@@ -2167,7 +1993,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: hope_gunlance_1_r0
-        craft_time: 0.1
         main_output: hope_gunlance_1
         inputs: []
         outputs:
@@ -2178,7 +2003,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: hope_gunlance_2_r0
-        craft_time: 0.1
         main_output: hope_gunlance_2
         inputs:
           - { id: hope_gunlance_1, qty: 1 }
@@ -2191,7 +2015,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: hope_gunlance_3_r0
-        craft_time: 0.1
         main_output: hope_gunlance_3
         inputs:
           - { id: hope_gunlance_2, qty: 1 }
@@ -2205,7 +2028,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: hope_axe_1_r0
-        craft_time: 0.1
         main_output: hope_axe_1
         inputs: []
         outputs:
@@ -2216,7 +2038,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: hope_axe_2_r0
-        craft_time: 0.1
         main_output: hope_axe_2
         inputs:
           - { id: hope_axe_1, qty: 1 }
@@ -2229,7 +2050,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: hope_axe_3_r0
-        craft_time: 0.1
         main_output: hope_axe_3
         inputs:
           - { id: hope_axe_2, qty: 1 }
@@ -2243,7 +2063,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: hope_arms_1_r0
-        craft_time: 0.1
         main_output: hope_arms_1
         inputs: []
         outputs:
@@ -2254,7 +2073,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: hope_arms_2_r0
-        craft_time: 0.1
         main_output: hope_arms_2
         inputs:
           - { id: hope_arms_1, qty: 1 }
@@ -2267,7 +2085,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: hope_arms_3_r0
-        craft_time: 0.1
         main_output: hope_arms_3
         inputs:
           - { id: hope_arms_2, qty: 1 }
@@ -2281,7 +2098,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: hope_rod_1_r0
-        craft_time: 0.1
         main_output: hope_rod_1
         inputs: []
         outputs:
@@ -2292,7 +2108,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: hope_rod_2_r0
-        craft_time: 0.1
         main_output: hope_rod_2
         inputs:
           - { id: hope_rod_1, qty: 1 }
@@ -2305,7 +2120,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: hope_rod_3_r0
-        craft_time: 0.1
         main_output: hope_rod_3
         inputs:
           - { id: hope_rod_2, qty: 1 }
@@ -2319,7 +2133,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: hope_bullet_1_r0
-        craft_time: 0.1
         main_output: hope_bullet_1
         inputs: []
         outputs:
@@ -2330,7 +2143,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: hope_bullet_2_r0
-        craft_time: 0.1
         main_output: hope_bullet_2
         inputs:
           - { id: hope_bullet_1, qty: 1 }
@@ -2343,7 +2155,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: hope_bullet_3_r0
-        craft_time: 0.1
         main_output: hope_bullet_3
         inputs:
           - { id: hope_bullet_2, qty: 1 }
@@ -2357,7 +2168,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: hope_cannon_1_r0
-        craft_time: 0.1
         main_output: hope_cannon_1
         inputs: []
         outputs:
@@ -2368,7 +2178,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: hope_cannon_2_r0
-        craft_time: 0.1
         main_output: hope_cannon_2
         inputs:
           - { id: hope_cannon_1, qty: 1 }
@@ -2381,7 +2190,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: hope_cannon_3_r0
-        craft_time: 0.1
         main_output: hope_cannon_3
         inputs:
           - { id: hope_cannon_2, qty: 1 }
@@ -2395,7 +2203,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: hope_bow_1_r0
-        craft_time: 0.1
         main_output: hope_bow_1
         inputs: []
         outputs:
@@ -2406,7 +2213,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: hope_bow_2_r0
-        craft_time: 0.1
         main_output: hope_bow_2
         inputs:
           - { id: hope_bow_1, qty: 1 }
@@ -2419,7 +2225,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: hope_bow_3_r0
-        craft_time: 0.1
         main_output: hope_bow_3
         inputs:
           - { id: hope_bow_2, qty: 1 }
@@ -2434,7 +2239,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: bone_blade_1_r0
-        craft_time: 0.1
         main_output: bone_blade_1
         inputs:
           - { id: mystery_bone, qty: 2 }
@@ -2446,7 +2250,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: bone_blade_2_r0
-        craft_time: 0.1
         main_output: bone_blade_2
         inputs:
           - { id: bone_blade_1, qty: 1 }
@@ -2460,7 +2263,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: quematrice_espada_1_r0
-        craft_time: 0.1
         main_output: quematrice_espada_1
         inputs:
           - { id: quematrice_scale, qty: 3 }
@@ -2474,7 +2276,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: quematrice_espada_2_r0
-        craft_time: 0.1
         main_output: quematrice_espada_2
         inputs:
           - { id: quematrice_espada_1, qty: 1 }
@@ -2489,7 +2290,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: chatacabra_club_1_r0
-        craft_time: 0.1
         main_output: chatacabra_club_1
         inputs:
           - { id: chatacabra_scale, qty: 3 }
@@ -2504,7 +2304,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: hope_mask_r0
-        craft_time: 0.1
         main_output: hope_mask
         inputs: []
         outputs:
@@ -2515,7 +2314,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: hope_mail_r0
-        craft_time: 0.1
         main_output: hope_mail
         inputs: []
         outputs:
@@ -2526,7 +2324,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: hope_arm_r0
-        craft_time: 0.1
         main_output: hope_arm
         inputs: []
         outputs:
@@ -2537,7 +2334,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: hope_coil_r0
-        craft_time: 0.1
         main_output: hope_coil
         inputs: []
         outputs:
@@ -2548,7 +2344,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: hope_greaves_r0
-        craft_time: 0.1
         main_output: hope_greaves
         inputs: []
         outputs:
@@ -2560,7 +2355,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: hope_mask_alpha_r0
-        craft_time: 0.1
         main_output: hope_mask_alpha
         inputs:
           - { id: stout_bone, qty: 2 }
@@ -2573,7 +2367,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: hope_mail_alpha_r0
-        craft_time: 0.1
         main_output: hope_mail_alpha
         inputs:
           - { id: stout_bone, qty: 1 }
@@ -2586,7 +2379,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: hope_arm_alpha_r0
-        craft_time: 0.1
         main_output: hope_arm_alpha
         inputs:
           - { id: stout_bone, qty: 2 }
@@ -2599,7 +2391,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: hope_coil_alpha_r0
-        craft_time: 0.1
         main_output: hope_coil_alpha
         inputs:
           - { id: stout_bone, qty: 1 }
@@ -2612,7 +2403,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: hope_greaves_alpha_r0
-        craft_time: 0.1
         main_output: hope_greaves_alpha
         inputs:
           - { id: stout_bone, qty: 3 }
@@ -2625,7 +2415,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: bone_helm_r0
-        craft_time: 0.1
         main_output: bone_helm
         inputs:
           - { id: mystery_bone, qty: 1 }
@@ -2637,7 +2426,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: bone_mail_r0
-        craft_time: 0.1
         main_output: bone_mail
         inputs:
           - { id: mystery_bone, qty: 1 }
@@ -2649,7 +2437,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: bone_arm_r0
-        craft_time: 0.1
         main_output: bone_arm
         inputs:
           - { id: mystery_bone, qty: 1 }
@@ -2661,7 +2448,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: bone_coil_r0
-        craft_time: 0.1
         main_output: bone_coil
         inputs:
           - { id: mystery_bone, qty: 1 }
@@ -2673,7 +2459,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: bone_greaves_r0
-        craft_time: 0.1
         main_output: bone_greaves
         inputs:
           - { id: mystery_bone, qty: 1 }
@@ -2686,7 +2471,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: chata_helm_r0
-        craft_time: 0.1
         main_output: chata_helm
         inputs:
           - { id: chatacabra_scale, qty: 2 }
@@ -2699,7 +2483,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: chata_mail_r0
-        craft_time: 0.1
         main_output: chata_mail
         inputs:
           - { id: chatacabra_scale, qty: 2 }
@@ -2713,7 +2496,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: chata_arm_r0
-        craft_time: 0.1
         main_output: chata_arm
         inputs:
           - { id: chatacabra_hide, qty: 2 }
@@ -2726,7 +2508,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: chata_coil_r0
-        craft_time: 0.1
         main_output: chata_coil
         inputs:
           - { id: chatacabra_certificate, qty: 1 }
@@ -2741,7 +2522,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: chata_greaves_r0
-        craft_time: 0.1
         main_output: chata_greaves
         inputs:
           - { id: chatacabra_jaw, qty: 1 }
@@ -2756,7 +2536,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: chata_helm_alpha_beta_r0
-        craft_time: 0.1
         main_output: chata_helm_alpha_beta
         inputs:
           - { id: chatacabra_scale_plus, qty: 2 }
@@ -2770,7 +2549,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: chata_mail_alpha_beta_r0
-        craft_time: 0.1
         main_output: chata_mail_alpha_beta
         inputs:
           - { id: chatacabra_certificate_s, qty: 1 }
@@ -2784,7 +2562,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: chata_arm_alpha_beta_r0
-        craft_time: 0.1
         main_output: chata_arm_alpha_beta
         inputs:
           - { id: chatacabra_scale_plus, qty: 2 }
@@ -2799,7 +2576,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: chata_coil_alpha_beta_r0
-        craft_time: 0.1
         main_output: chata_coil_alpha_beta
         inputs:
           - { id: chatacabra_certificate_s, qty: 1 }
@@ -2813,7 +2589,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: chata_greaves_alpha_beta_r0
-        craft_time: 0.1
         main_output: chata_greaves_alpha_beta
         inputs:
           - { id: chatacabra_certificate_s, qty: 1 }
@@ -2829,7 +2604,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: tris_helm_r0
-        craft_time: 0.1
         main_output: tris_helm
         inputs:
           - { id: quematrice_certificate, qty: 1 }
@@ -2844,7 +2618,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: tris_mail_r0
-        craft_time: 0.1
         main_output: tris_mail
         inputs:
           - { id: quematrice_igniter, qty: 1 }
@@ -2858,7 +2631,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: tris_arm_r0
-        craft_time: 0.1
         main_output: tris_arm
         inputs:
           - { id: quematrice_scale, qty: 2 }
@@ -2871,7 +2643,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: tris_coil_r0
-        craft_time: 0.1
         main_output: tris_coil
         inputs:
           - { id: quematrice_hide, qty: 2 }
@@ -2884,7 +2655,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: tris_greaves_r0
-        craft_time: 0.1
         main_output: tris_greaves
         inputs:
           - { id: quematrice_scale, qty: 2 }
@@ -2899,7 +2669,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: bara_helm_r0
-        craft_time: 0.1
         main_output: bara_helm
         inputs:
           - { id: balahara_scale, qty: 2 }
@@ -2912,7 +2681,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: bara_mail_r0
-        craft_time: 0.1
         main_output: bara_mail
         inputs:
           - { id: balahara_scale, qty: 2 }
@@ -2926,7 +2694,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: bara_arm_r0
-        craft_time: 0.1
         main_output: bara_arm
         inputs:
           - { id: balahara_skull, qty: 1 }
@@ -2940,7 +2707,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: bara_coil_r0
-        craft_time: 0.1
         main_output: bara_coil
         inputs:
           - { id: balahara_certificate, qty: 1 }
@@ -2955,7 +2721,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: bara_greaves_r0
-        craft_time: 0.1
         main_output: bara_greaves
         inputs:
           - { id: balahara_shell, qty: 2 }
@@ -2970,7 +2735,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: bird_wyvern_gem_r0
-        craft_time: 0.1
         main_output: bird_wyvern_gem
         inputs: []
         outputs:
@@ -2981,7 +2745,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: wyvern_gem_r0
-        craft_time: 0.1
         main_output: wyvern_gem
         inputs: []
         outputs:
@@ -2992,7 +2755,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: beast_gem_r0
-        craft_time: 0.1
         main_output: beast_gem
         inputs: []
         outputs:
@@ -3003,7 +2765,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: hunter_symbol_1_r0
-        craft_time: 0.1
         main_output: hunter_symbol_1
         inputs: []
         outputs:
@@ -3014,7 +2775,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: hunter_symbol_2_r0
-        craft_time: 0.1
         main_output: hunter_symbol_2
         inputs: []
         outputs:
@@ -3025,7 +2785,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: hunter_symbol_3_r0
-        craft_time: 0.1
         main_output: hunter_symbol_3
         inputs: []
         outputs:
@@ -3036,7 +2795,6 @@ items:
     facility: "採集"
     recipes:
       - id: ancient_dragon_bone_r0
-        craft_time: 0.1
         main_output: ancient_dragon_bone
         inputs: []
         outputs:
@@ -3047,7 +2805,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: monster_keenbone_r0
-        craft_time: 0.1
         main_output: monster_keenbone
         inputs: []
         outputs:
@@ -3058,7 +2815,6 @@ items:
     facility: "採集"
     recipes:
       - id: monster_toughbone_r0
-        craft_time: 0.1
         main_output: monster_toughbone
         inputs: []
         outputs:
@@ -3069,7 +2825,6 @@ items:
     facility: "採集"
     recipes:
       - id: colossal_bone_r0
-        craft_time: 0.1
         main_output: colossal_bone
         inputs: []
         outputs:
@@ -3080,7 +2835,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: heavy_bone_r0
-        craft_time: 0.1
         main_output: heavy_bone
         inputs: []
         outputs:
@@ -3091,7 +2845,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: beast_bone_r0
-        craft_time: 0.1
         main_output: beast_bone
         inputs: []
         outputs:
@@ -3102,7 +2855,6 @@ items:
     facility: "採集"
     recipes:
       - id: frozen_icebone_r0
-        craft_time: 0.1
         main_output: frozen_icebone
         inputs: []
         outputs:
@@ -3113,7 +2865,6 @@ items:
     facility: "採集"
     recipes:
       - id: oily_bone_r0
-        craft_time: 0.1
         main_output: oily_bone
         inputs: []
         outputs:
@@ -3124,7 +2875,6 @@ items:
     facility: "採掘"
     recipes:
       - id: nova_crystal_r0
-        craft_time: 0.1
         main_output: nova_crystal
         inputs: []
         outputs:
@@ -3135,7 +2885,6 @@ items:
     facility: "採掘"
     recipes:
       - id: light_crystal_r0
-        craft_time: 0.1
         main_output: light_crystal
         inputs: []
         outputs:
@@ -3146,7 +2895,6 @@ items:
     facility: "採掘"
     recipes:
       - id: icium_r0
-        craft_time: 0.1
         main_output: icium
         inputs: []
         outputs:
@@ -3157,7 +2905,6 @@ items:
     facility: "採掘"
     recipes:
       - id: isis_metal_r0
-        craft_time: 0.1
         main_output: isis_metal
         inputs: []
         outputs:
@@ -3168,7 +2915,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: guardian_pelt_r0
-        craft_time: 0.1
         main_output: guardian_pelt
         inputs: []
         outputs:
@@ -3179,7 +2925,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: guardian_scale_r0
-        craft_time: 0.1
         main_output: guardian_scale
         inputs: []
         outputs:
@@ -3190,7 +2935,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: guardian_pelt_plus_r0
-        craft_time: 0.1
         main_output: guardian_pelt_plus
         inputs: []
         outputs:
@@ -3201,7 +2945,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: guardian_scale_plus_r0
-        craft_time: 0.1
         main_output: guardian_scale_plus
         inputs: []
         outputs:
@@ -3212,7 +2955,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: guardian_blood_r0
-        craft_time: 0.1
         main_output: guardian_blood
         inputs: []
         outputs:
@@ -3223,7 +2965,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: herbivore_shell_r0
-        craft_time: 0.1
         main_output: herbivore_shell
         inputs: []
         outputs:
@@ -3234,7 +2975,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: herbivore_carapace_r0
-        craft_time: 0.1
         main_output: herbivore_carapace
         inputs: []
         outputs:
@@ -3245,7 +2985,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: sharp_fang_plus_r0
-        craft_time: 0.1
         main_output: sharp_fang_plus
         inputs: []
         outputs:
@@ -3256,7 +2995,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: monster_broth_r0
-        craft_time: 0.1
         main_output: monster_broth
         inputs: []
         outputs:
@@ -3267,7 +3005,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: inferno_sac_r0
-        craft_time: 0.1
         main_output: inferno_sac
         inputs: []
         outputs:
@@ -3278,7 +3015,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: tearsac_r0
-        craft_time: 0.1
         main_output: tearsac
         inputs: []
         outputs:
@@ -3289,7 +3025,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: coma_sac_r0
-        craft_time: 0.1
         main_output: coma_sac
         inputs: []
         outputs:
@@ -3300,7 +3035,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: freeze_sac_r0
-        craft_time: 0.1
         main_output: freeze_sac
         inputs: []
         outputs:
@@ -3311,7 +3045,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: torrent_sac_r0
-        craft_time: 0.1
         main_output: torrent_sac
         inputs: []
         outputs:
@@ -3322,7 +3055,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: rubber_hide_plus_r0
-        craft_time: 0.1
         main_output: rubber_hide_plus
         inputs: []
         outputs:
@@ -3333,7 +3065,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: wyvern_medulla_r0
-        craft_time: 0.1
         main_output: wyvern_medulla
         inputs: []
         outputs:
@@ -3345,7 +3076,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: doshaguma_fur_r0
-        craft_time: 0.1
         main_output: doshaguma_fur
         inputs: []
         outputs:
@@ -3356,7 +3086,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: doshaguma_hide_r0
-        craft_time: 0.1
         main_output: doshaguma_hide
         inputs: []
         outputs:
@@ -3367,7 +3096,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: doshaguma_fang_r0
-        craft_time: 0.1
         main_output: doshaguma_fang
         inputs: []
         outputs:
@@ -3378,7 +3106,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: doshaguma_claw_r0
-        craft_time: 0.1
         main_output: doshaguma_claw
         inputs: []
         outputs:
@@ -3389,7 +3116,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: doshaguma_certificate_r0
-        craft_time: 0.1
         main_output: doshaguma_certificate
         inputs: []
         outputs:
@@ -3400,7 +3126,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: doshaguma_fur_plus_r0
-        craft_time: 0.1
         main_output: doshaguma_fur_plus
         inputs: []
         outputs:
@@ -3411,7 +3136,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: doshaguma_hide_plus_r0
-        craft_time: 0.1
         main_output: doshaguma_hide_plus
         inputs: []
         outputs:
@@ -3422,7 +3146,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: doshaguma_fang_plus_r0
-        craft_time: 0.1
         main_output: doshaguma_fang_plus
         inputs: []
         outputs:
@@ -3433,7 +3156,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: doshaguma_claw_plus_r0
-        craft_time: 0.1
         main_output: doshaguma_claw_plus
         inputs: []
         outputs:
@@ -3444,7 +3166,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: doshaguma_certificate_s_r0
-        craft_time: 0.1
         main_output: doshaguma_certificate_s
         inputs: []
         outputs:
@@ -3455,7 +3176,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: guardian_doshaguma_claw_r0
-        craft_time: 0.1
         main_output: guardian_doshaguma_claw
         inputs: []
         outputs:
@@ -3467,7 +3187,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: quematrice_scale_plus_r0
-        craft_time: 0.1
         main_output: quematrice_scale_plus
         inputs: []
         outputs:
@@ -3478,7 +3197,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: quematrice_hide_plus_r0
-        craft_time: 0.1
         main_output: quematrice_hide_plus
         inputs: []
         outputs:
@@ -3489,7 +3207,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: quematrice_crest_plus_r0
-        craft_time: 0.1
         main_output: quematrice_crest_plus
         inputs: []
         outputs:
@@ -3500,7 +3217,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: quematrice_igniter_plus_r0
-        craft_time: 0.1
         main_output: quematrice_igniter_plus
         inputs: []
         outputs:
@@ -3511,7 +3227,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: quematrice_certificate_s_r0
-        craft_time: 0.1
         main_output: quematrice_certificate_s
         inputs: []
         outputs:
@@ -3522,7 +3237,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: nu_udra_certificate_s_r0
-        craft_time: 0.1
         main_output: nu_udra_certificate_s
         inputs: []
         outputs:
@@ -3533,7 +3247,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: nu_udra_flamegem_r0
-        craft_time: 0.1
         main_output: nu_udra_flamegem
         inputs: []
         outputs:
@@ -3545,7 +3258,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: balahara_scale_plus_r0
-        craft_time: 0.1
         main_output: balahara_scale_plus
         inputs: []
         outputs:
@@ -3556,7 +3268,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: balahara_shell_plus_r0
-        craft_time: 0.1
         main_output: balahara_shell_plus
         inputs: []
         outputs:
@@ -3567,7 +3278,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: balahara_skull_plus_r0
-        craft_time: 0.1
         main_output: balahara_skull_plus
         inputs: []
         outputs:
@@ -3578,7 +3288,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: balahara_certificate_s_r0
-        craft_time: 0.1
         main_output: balahara_certificate_s
         inputs: []
         outputs:
@@ -3589,7 +3298,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: hirabami_certificate_s_r0
-        craft_time: 0.1
         main_output: hirabami_certificate_s
         inputs: []
         outputs:
@@ -3600,7 +3308,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: hirabami_watergem_r0
-        craft_time: 0.1
         main_output: hirabami_watergem
         inputs: []
         outputs:
@@ -3611,7 +3318,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: rompopolo_claw_r0
-        craft_time: 0.1
         main_output: rompopolo_claw
         inputs: []
         outputs:
@@ -3623,7 +3329,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: rathian_scale_plus_r0
-        craft_time: 0.1
         main_output: rathian_scale_plus
         inputs: []
         outputs:
@@ -3634,7 +3339,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: rathian_carapace_r0
-        craft_time: 0.1
         main_output: rathian_carapace
         inputs: []
         outputs:
@@ -3645,7 +3349,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: rathian_webbing_r0
-        craft_time: 0.1
         main_output: rathian_webbing
         inputs: []
         outputs:
@@ -3656,7 +3359,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: rathian_spike_plus_r0
-        craft_time: 0.1
         main_output: rathian_spike_plus
         inputs: []
         outputs:
@@ -3667,7 +3369,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: rathian_ruby_r0
-        craft_time: 0.1
         main_output: rathian_ruby
         inputs: []
         outputs:
@@ -3678,7 +3379,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: rathian_certificate_s_r0
-        craft_time: 0.1
         main_output: rathian_certificate_s
         inputs: []
         outputs:
@@ -3689,7 +3389,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: rathalos_scale_plus_r0
-        craft_time: 0.1
         main_output: rathalos_scale_plus
         inputs: []
         outputs:
@@ -3700,7 +3399,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: rathalos_carapace_r0
-        craft_time: 0.1
         main_output: rathalos_carapace
         inputs: []
         outputs:
@@ -3711,7 +3409,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: rathalos_wing_r0
-        craft_time: 0.1
         main_output: rathalos_wing
         inputs: []
         outputs:
@@ -3722,7 +3419,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: rathalos_tail_r0
-        craft_time: 0.1
         main_output: rathalos_tail
         inputs: []
         outputs:
@@ -3733,7 +3429,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: rathalos_ruby_r0
-        craft_time: 0.1
         main_output: rathalos_ruby
         inputs: []
         outputs:
@@ -3744,7 +3439,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: rathalos_certificate_s_r0
-        craft_time: 0.1
         main_output: rathalos_certificate_s
         inputs: []
         outputs:
@@ -3756,7 +3450,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: rey_dau_scale_plus_r0
-        craft_time: 0.1
         main_output: rey_dau_scale_plus
         inputs: []
         outputs:
@@ -3767,7 +3460,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: rey_dau_carapace_r0
-        craft_time: 0.1
         main_output: rey_dau_carapace
         inputs: []
         outputs:
@@ -3778,7 +3470,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: rey_dau_horn_r0
-        craft_time: 0.1
         main_output: rey_dau_horn
         inputs: []
         outputs:
@@ -3789,7 +3480,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: rey_dau_claw_r0
-        craft_time: 0.1
         main_output: rey_dau_claw
         inputs: []
         outputs:
@@ -3800,7 +3490,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: rey_dau_tail_r0
-        craft_time: 0.1
         main_output: rey_dau_tail
         inputs: []
         outputs:
@@ -3811,7 +3500,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: rey_dau_plate_r0
-        craft_time: 0.1
         main_output: rey_dau_plate
         inputs: []
         outputs:
@@ -3822,7 +3510,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: rey_dau_gem_r0
-        craft_time: 0.1
         main_output: rey_dau_gem
         inputs: []
         outputs:
@@ -3833,7 +3520,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: rey_dau_certificate_s_r0
-        craft_time: 0.1
         main_output: rey_dau_certificate_s
         inputs: []
         outputs:
@@ -3844,7 +3530,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: bulaqchi_carapace_r0
-        craft_time: 0.1
         main_output: bulaqchi_carapace
         inputs: []
         outputs:
@@ -3856,7 +3541,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: nerscylla_carapace_r0
-        craft_time: 0.1
         main_output: nerscylla_carapace
         inputs: []
         outputs:
@@ -3867,7 +3551,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: nerscylla_shearclaw_r0
-        craft_time: 0.1
         main_output: nerscylla_shearclaw
         inputs: []
         outputs:
@@ -3878,7 +3561,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: nerscylla_claw_plus_r0
-        craft_time: 0.1
         main_output: nerscylla_claw_plus
         inputs: []
         outputs:
@@ -3889,7 +3571,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: nerscylla_spike_plus_r0
-        craft_time: 0.1
         main_output: nerscylla_spike_plus
         inputs: []
         outputs:
@@ -3900,7 +3581,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: nerscylla_certificate_s_r0
-        craft_time: 0.1
         main_output: nerscylla_certificate_s
         inputs: []
         outputs:
@@ -3911,7 +3591,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: nemalachi_carapace_r0
-        craft_time: 0.1
         main_output: nemalachi_carapace
         inputs: []
         outputs:
@@ -3922,7 +3601,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: gypceros_wing_r0
-        craft_time: 0.1
         main_output: gypceros_wing
         inputs: []
         outputs:
@@ -3933,7 +3611,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: gypceros_head_r0
-        craft_time: 0.1
         main_output: gypceros_head
         inputs: []
         outputs:
@@ -3944,7 +3621,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: gypceros_tail_r0
-        craft_time: 0.1
         main_output: gypceros_tail
         inputs: []
         outputs:
@@ -3955,7 +3631,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: gypceros_certificate_s_r0
-        craft_time: 0.1
         main_output: gypceros_certificate_s
         inputs: []
         outputs:
@@ -3966,7 +3641,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: lala_carapace_r0
-        craft_time: 0.1
         main_output: lala_carapace
         inputs: []
         outputs:
@@ -3977,7 +3651,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: lala_claw_plus_r0
-        craft_time: 0.1
         main_output: lala_claw_plus
         inputs: []
         outputs:
@@ -3988,7 +3661,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: lala_fluff_plus_r0
-        craft_time: 0.1
         main_output: lala_fluff_plus
         inputs: []
         outputs:
@@ -3999,7 +3671,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: lala_spike_plus_r0
-        craft_time: 0.1
         main_output: lala_spike_plus
         inputs: []
         outputs:
@@ -4010,7 +3681,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: lala_mucus_plus_r0
-        craft_time: 0.1
         main_output: lala_mucus_plus
         inputs: []
         outputs:
@@ -4021,7 +3691,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: lala_certificate_s_r0
-        craft_time: 0.1
         main_output: lala_certificate_s
         inputs: []
         outputs:
@@ -4033,7 +3702,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: jin_scale_plus_r0
-        craft_time: 0.1
         main_output: jin_scale_plus
         inputs: []
         outputs:
@@ -4044,7 +3712,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: jin_carapace_r0
-        craft_time: 0.1
         main_output: jin_carapace
         inputs: []
         outputs:
@@ -4055,7 +3722,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: jin_iceplate_r0
-        craft_time: 0.1
         main_output: jin_iceplate
         inputs: []
         outputs:
@@ -4066,7 +3732,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: jin_claw_plus_r0
-        craft_time: 0.1
         main_output: jin_claw_plus
         inputs: []
         outputs:
@@ -4077,7 +3742,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: jin_horn_r0
-        craft_time: 0.1
         main_output: jin_horn
         inputs: []
         outputs:
@@ -4088,7 +3752,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: jin_gem_r0
-        craft_time: 0.1
         main_output: jin_gem
         inputs: []
         outputs:
@@ -4099,7 +3762,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: jin_certificate_s_r0
-        craft_time: 0.1
         main_output: jin_certificate_s
         inputs: []
         outputs:
@@ -4110,7 +3772,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: gore_scale_plus_r0
-        craft_time: 0.1
         main_output: gore_scale_plus
         inputs: []
         outputs:
@@ -4121,7 +3782,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: gore_carapace_r0
-        craft_time: 0.1
         main_output: gore_carapace
         inputs: []
         outputs:
@@ -4132,7 +3792,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: gore_claw_plus_r0
-        craft_time: 0.1
         main_output: gore_claw_plus
         inputs: []
         outputs:
@@ -4143,7 +3802,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: gore_wing_plus_r0
-        craft_time: 0.1
         main_output: gore_wing_plus
         inputs: []
         outputs:
@@ -4154,7 +3812,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: gore_horn_plus_r0
-        craft_time: 0.1
         main_output: gore_horn_plus
         inputs: []
         outputs:
@@ -4165,7 +3822,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: gore_tail_r0
-        craft_time: 0.1
         main_output: gore_tail
         inputs: []
         outputs:
@@ -4176,7 +3832,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: gore_gem_r0
-        craft_time: 0.1
         main_output: gore_gem
         inputs: []
         outputs:
@@ -4187,7 +3842,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: gore_certificate_s_r0
-        craft_time: 0.1
         main_output: gore_certificate_s
         inputs: []
         outputs:
@@ -4198,7 +3852,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: frenzy_crystal_r0
-        craft_time: 0.1
         main_output: frenzy_crystal
         inputs: []
         outputs:
@@ -4209,7 +3862,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: frenzy_shard_r0
-        craft_time: 0.1
         main_output: frenzy_shard
         inputs: []
         outputs:
@@ -4221,7 +3873,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: arkveld_scale_plus_r0
-        craft_time: 0.1
         main_output: arkveld_scale_plus
         inputs: []
         outputs:
@@ -4232,7 +3883,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: arkveld_armor_r0
-        craft_time: 0.1
         main_output: arkveld_armor
         inputs: []
         outputs:
@@ -4243,7 +3893,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: arkveld_whitefur_r0
-        craft_time: 0.1
         main_output: arkveld_whitefur
         inputs: []
         outputs:
@@ -4254,7 +3903,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: arkveld_chainblade_r0
-        craft_time: 0.1
         main_output: arkveld_chainblade
         inputs: []
         outputs:
@@ -4265,7 +3913,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: arkveld_gem_r0
-        craft_time: 0.1
         main_output: arkveld_gem
         inputs: []
         outputs:
@@ -4276,7 +3923,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: arkveld_certificate_s_r0
-        craft_time: 0.1
         main_output: arkveld_certificate_s
         inputs: []
         outputs:
@@ -4288,7 +3934,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: hope_blade_4_r0
-        craft_time: 0.1
         main_output: hope_blade_4
         inputs:
           - { id: hope_blade_3, qty: 1 }
@@ -4301,7 +3946,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: hope_blade_5_r0
-        craft_time: 0.1
         main_output: hope_blade_5
         inputs:
           - { id: hope_blade_4, qty: 1 }
@@ -4315,7 +3959,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: esperanza_blade_r0
-        craft_time: 0.1
         main_output: esperanza_blade
         inputs:
           - { id: hope_blade_5, qty: 1 }
@@ -4329,7 +3972,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: hope_edge_4_r0
-        craft_time: 0.1
         main_output: hope_edge_4
         inputs:
           - { id: hope_edge_3, qty: 1 }
@@ -4342,7 +3984,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: hope_edge_5_r0
-        craft_time: 0.1
         main_output: hope_edge_5
         inputs:
           - { id: hope_edge_4, qty: 1 }
@@ -4356,7 +3997,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: esperanza_edge_r0
-        craft_time: 0.1
         main_output: esperanza_edge
         inputs:
           - { id: hope_edge_5, qty: 1 }
@@ -4370,7 +4010,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: hope_sword_4_r0
-        craft_time: 0.1
         main_output: hope_sword_4
         inputs:
           - { id: hope_sword_3, qty: 1 }
@@ -4383,7 +4022,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: hope_sword_5_r0
-        craft_time: 0.1
         main_output: hope_sword_5
         inputs:
           - { id: hope_sword_4, qty: 1 }
@@ -4397,7 +4035,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: esperanza_sword_r0
-        craft_time: 0.1
         main_output: esperanza_sword
         inputs:
           - { id: hope_sword_5, qty: 1 }
@@ -4411,7 +4048,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: hope_dagger_4_r0
-        craft_time: 0.1
         main_output: hope_dagger_4
         inputs:
           - { id: hope_dagger_3, qty: 1 }
@@ -4424,7 +4060,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: hope_dagger_5_r0
-        craft_time: 0.1
         main_output: hope_dagger_5
         inputs:
           - { id: hope_dagger_4, qty: 1 }
@@ -4438,7 +4073,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: esperanza_dagger_r0
-        craft_time: 0.1
         main_output: esperanza_dagger
         inputs:
           - { id: hope_dagger_5, qty: 1 }
@@ -4452,7 +4086,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: hope_hammer_4_r0
-        craft_time: 0.1
         main_output: hope_hammer_4
         inputs:
           - { id: hope_hammer_3, qty: 1 }
@@ -4465,7 +4098,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: hope_hammer_5_r0
-        craft_time: 0.1
         main_output: hope_hammer_5
         inputs:
           - { id: hope_hammer_4, qty: 1 }
@@ -4479,7 +4111,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: esperanza_hammer_r0
-        craft_time: 0.1
         main_output: esperanza_hammer
         inputs:
           - { id: hope_hammer_5, qty: 1 }
@@ -4493,7 +4124,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: hope_horn_4_r0
-        craft_time: 0.1
         main_output: hope_horn_4
         inputs:
           - { id: hope_horn_3, qty: 1 }
@@ -4506,7 +4136,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: hope_horn_5_r0
-        craft_time: 0.1
         main_output: hope_horn_5
         inputs:
           - { id: hope_horn_4, qty: 1 }
@@ -4520,7 +4149,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: esperanza_horn_r0
-        craft_time: 0.1
         main_output: esperanza_horn
         inputs:
           - { id: hope_horn_5, qty: 1 }
@@ -4534,7 +4162,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: hope_lance_4_r0
-        craft_time: 0.1
         main_output: hope_lance_4
         inputs:
           - { id: hope_lance_3, qty: 1 }
@@ -4547,7 +4174,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: hope_lance_5_r0
-        craft_time: 0.1
         main_output: hope_lance_5
         inputs:
           - { id: hope_lance_4, qty: 1 }
@@ -4561,7 +4187,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: esperanza_lance_r0
-        craft_time: 0.1
         main_output: esperanza_lance
         inputs:
           - { id: hope_lance_5, qty: 1 }
@@ -4575,7 +4200,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: hope_gunlance_4_r0
-        craft_time: 0.1
         main_output: hope_gunlance_4
         inputs:
           - { id: hope_gunlance_3, qty: 1 }
@@ -4588,7 +4212,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: hope_gunlance_5_r0
-        craft_time: 0.1
         main_output: hope_gunlance_5
         inputs:
           - { id: hope_gunlance_4, qty: 1 }
@@ -4602,7 +4225,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: esperanza_gunlance_r0
-        craft_time: 0.1
         main_output: esperanza_gunlance
         inputs:
           - { id: hope_gunlance_5, qty: 1 }
@@ -4616,7 +4238,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: hope_axe_4_r0
-        craft_time: 0.1
         main_output: hope_axe_4
         inputs:
           - { id: hope_axe_3, qty: 1 }
@@ -4629,7 +4250,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: hope_axe_5_r0
-        craft_time: 0.1
         main_output: hope_axe_5
         inputs:
           - { id: hope_axe_4, qty: 1 }
@@ -4643,7 +4263,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: esperanza_axe_r0
-        craft_time: 0.1
         main_output: esperanza_axe
         inputs:
           - { id: hope_axe_5, qty: 1 }
@@ -4657,7 +4276,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: hope_arms_4_r0
-        craft_time: 0.1
         main_output: hope_arms_4
         inputs:
           - { id: hope_arms_3, qty: 1 }
@@ -4670,7 +4288,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: hope_arms_5_r0
-        craft_time: 0.1
         main_output: hope_arms_5
         inputs:
           - { id: hope_arms_4, qty: 1 }
@@ -4684,7 +4301,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: esperanza_arms_r0
-        craft_time: 0.1
         main_output: esperanza_arms
         inputs:
           - { id: hope_arms_5, qty: 1 }
@@ -4698,7 +4314,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: hope_rod_4_r0
-        craft_time: 0.1
         main_output: hope_rod_4
         inputs:
           - { id: hope_rod_3, qty: 1 }
@@ -4711,7 +4326,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: hope_rod_5_r0
-        craft_time: 0.1
         main_output: hope_rod_5
         inputs:
           - { id: hope_rod_4, qty: 1 }
@@ -4725,7 +4339,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: esperanza_rod_r0
-        craft_time: 0.1
         main_output: esperanza_rod
         inputs:
           - { id: hope_rod_5, qty: 1 }
@@ -4739,7 +4352,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: hope_bullet_4_r0
-        craft_time: 0.1
         main_output: hope_bullet_4
         inputs:
           - { id: hope_bullet_3, qty: 1 }
@@ -4752,7 +4364,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: hope_bullet_5_r0
-        craft_time: 0.1
         main_output: hope_bullet_5
         inputs:
           - { id: hope_bullet_4, qty: 1 }
@@ -4766,7 +4377,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: esperanza_bullet_r0
-        craft_time: 0.1
         main_output: esperanza_bullet
         inputs:
           - { id: hope_bullet_5, qty: 1 }
@@ -4780,7 +4390,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: hope_cannon_4_r0
-        craft_time: 0.1
         main_output: hope_cannon_4
         inputs:
           - { id: hope_cannon_3, qty: 1 }
@@ -4793,7 +4402,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: hope_cannon_5_r0
-        craft_time: 0.1
         main_output: hope_cannon_5
         inputs:
           - { id: hope_cannon_4, qty: 1 }
@@ -4807,7 +4415,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: esperanza_cannon_r0
-        craft_time: 0.1
         main_output: esperanza_cannon
         inputs:
           - { id: hope_cannon_5, qty: 1 }
@@ -4821,7 +4428,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: hope_bow_4_r0
-        craft_time: 0.1
         main_output: hope_bow_4
         inputs:
           - { id: hope_bow_3, qty: 1 }
@@ -4834,7 +4440,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: hope_bow_5_r0
-        craft_time: 0.1
         main_output: hope_bow_5
         inputs:
           - { id: hope_bow_4, qty: 1 }
@@ -4848,7 +4453,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: esperanza_bow_r0
-        craft_time: 0.1
         main_output: esperanza_bow
         inputs:
           - { id: hope_bow_5, qty: 1 }
@@ -4863,7 +4467,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: bone_blade_3_r0
-        craft_time: 0.1
         main_output: bone_blade_3
         inputs:
           - { id: bone_blade_2, qty: 1 }
@@ -4876,7 +4479,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: bone_blade_4_r0
-        craft_time: 0.1
         main_output: bone_blade_4
         inputs:
           - { id: bone_blade_3, qty: 1 }
@@ -4890,7 +4492,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: bone_slasher_r0
-        craft_time: 0.1
         main_output: bone_slasher
         inputs:
           - { id: bone_blade_4, qty: 1 }
@@ -4907,7 +4508,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: quematrice_espada_3_r0
-        craft_time: 0.1
         main_output: quematrice_espada_3
         inputs:
           - { id: quematrice_espada_2, qty: 1 }
@@ -4922,7 +4522,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: quematrice_espada_4_r0
-        craft_time: 0.1
         main_output: quematrice_espada_4
         inputs:
           - { id: quematrice_espada_3, qty: 1 }
@@ -4938,7 +4537,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: quematrice_blazedel_r0
-        craft_time: 0.1
         main_output: quematrice_blazedel
         inputs:
           - { id: quematrice_espada_4, qty: 1 }
@@ -4954,7 +4552,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: chatacabra_club_2_r0
-        craft_time: 0.1
         main_output: chatacabra_club_2
         inputs:
           - { id: chatacabra_club_1, qty: 1 }
@@ -4968,7 +4565,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: chatacabra_club_3_r0
-        craft_time: 0.1
         main_output: chatacabra_club_3
         inputs:
           - { id: chatacabra_club_2, qty: 1 }
@@ -4983,7 +4579,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: chatacabra_club_4_r0
-        craft_time: 0.1
         main_output: chatacabra_club_4
         inputs:
           - { id: chatacabra_club_3, qty: 1 }
@@ -4998,7 +4593,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: chatacabra_kartatua_r0
-        craft_time: 0.1
         main_output: chatacabra_kartatua
         inputs:
           - { id: chatacabra_club_4, qty: 1 }
@@ -5014,7 +4608,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: chatacabra_hammer_1_r0
-        craft_time: 0.1
         main_output: chatacabra_hammer_1
         inputs:
           - { id: chatacabra_scale, qty: 3 }
@@ -5028,7 +4621,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: chatacabra_hammer_2_r0
-        craft_time: 0.1
         main_output: chatacabra_hammer_2
         inputs:
           - { id: chatacabra_hammer_1, qty: 1 }
@@ -5042,7 +4634,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: chatacabra_hammer_3_r0
-        craft_time: 0.1
         main_output: chatacabra_hammer_3
         inputs:
           - { id: chatacabra_hammer_2, qty: 1 }
@@ -5057,7 +4648,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: chatacabra_hammer_4_r0
-        craft_time: 0.1
         main_output: chatacabra_hammer_4
         inputs:
           - { id: chatacabra_hammer_3, qty: 1 }
@@ -5072,7 +4662,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: chatacabra_hashahaturi_r0
-        craft_time: 0.1
         main_output: chatacabra_hashahaturi
         inputs:
           - { id: chatacabra_hammer_4, qty: 1 }
@@ -5088,7 +4677,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: balahara_lance_1_r0
-        craft_time: 0.1
         main_output: balahara_lance_1
         inputs:
           - { id: balahara_scale, qty: 3 }
@@ -5102,7 +4690,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: balahara_lance_2_r0
-        craft_time: 0.1
         main_output: balahara_lance_2
         inputs:
           - { id: balahara_lance_1, qty: 1 }
@@ -5117,7 +4704,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: balahara_lance_3_r0
-        craft_time: 0.1
         main_output: balahara_lance_3
         inputs:
           - { id: balahara_lance_2, qty: 1 }
@@ -5133,7 +4719,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: balahara_lance_4_r0
-        craft_time: 0.1
         main_output: balahara_lance_4
         inputs:
           - { id: balahara_lance_3, qty: 1 }
@@ -5148,7 +4733,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: balahara_praha_r0
-        craft_time: 0.1
         main_output: balahara_praha
         inputs:
           - { id: balahara_lance_4, qty: 1 }
@@ -5164,7 +4748,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: leather_head_r0
-        craft_time: 0.1
         main_output: leather_head
         inputs: []
         outputs:
@@ -5175,7 +4758,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: leather_vest_r0
-        craft_time: 0.1
         main_output: leather_vest
         inputs: []
         outputs:
@@ -5186,7 +4768,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: leather_glove_r0
-        craft_time: 0.1
         main_output: leather_glove
         inputs: []
         outputs:
@@ -5197,7 +4778,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: leather_belt_r0
-        craft_time: 0.1
         main_output: leather_belt
         inputs: []
         outputs:
@@ -5208,7 +4788,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: leather_pants_r0
-        craft_time: 0.1
         main_output: leather_pants
         inputs: []
         outputs:
@@ -5220,7 +4799,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: leather_head_alpha_r0
-        craft_time: 0.1
         main_output: leather_head_alpha
         inputs:
           - { id: guardian_pelt, qty: 1 }
@@ -5232,7 +4810,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: leather_vest_alpha_r0
-        craft_time: 0.1
         main_output: leather_vest_alpha
         inputs:
           - { id: guardian_pelt, qty: 1 }
@@ -5245,7 +4822,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: leather_glove_alpha_r0
-        craft_time: 0.1
         main_output: leather_glove_alpha
         inputs:
           - { id: guardian_pelt, qty: 1 }
@@ -5258,7 +4834,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: leather_belt_alpha_r0
-        craft_time: 0.1
         main_output: leather_belt_alpha
         inputs:
           - { id: guardian_pelt, qty: 1 }
@@ -5270,7 +4845,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: leather_pants_alpha_r0
-        craft_time: 0.1
         main_output: leather_pants_alpha
         inputs:
           - { id: guardian_pelt, qty: 1 }
@@ -5284,7 +4858,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: chain_head_r0
-        craft_time: 0.1
         main_output: chain_head
         inputs: []
         outputs:
@@ -5295,7 +4868,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: chain_vest_r0
-        craft_time: 0.1
         main_output: chain_vest
         inputs: []
         outputs:
@@ -5306,7 +4878,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: chain_glove_r0
-        craft_time: 0.1
         main_output: chain_glove
         inputs: []
         outputs:
@@ -5317,7 +4888,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: chain_belt_r0
-        craft_time: 0.1
         main_output: chain_belt
         inputs: []
         outputs:
@@ -5328,7 +4898,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: chain_pants_r0
-        craft_time: 0.1
         main_output: chain_pants
         inputs: []
         outputs:
@@ -5340,7 +4909,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: chain_head_alpha_r0
-        craft_time: 0.1
         main_output: chain_head_alpha
         inputs:
           - { id: guardian_scale, qty: 1 }
@@ -5353,7 +4921,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: chain_vest_alpha_r0
-        craft_time: 0.1
         main_output: chain_vest_alpha
         inputs:
           - { id: guardian_scale, qty: 1 }
@@ -5365,7 +4932,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: chain_glove_alpha_r0
-        craft_time: 0.1
         main_output: chain_glove_alpha
         inputs:
           - { id: guardian_scale, qty: 1 }
@@ -5378,7 +4944,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: chain_belt_alpha_r0
-        craft_time: 0.1
         main_output: chain_belt_alpha
         inputs:
           - { id: guardian_scale, qty: 1 }
@@ -5390,7 +4955,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: chain_pants_alpha_r0
-        craft_time: 0.1
         main_output: chain_pants_alpha
         inputs:
           - { id: guardian_scale, qty: 1 }
@@ -5404,7 +4968,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: bone_helm_alpha_r0
-        craft_time: 0.1
         main_output: bone_helm_alpha
         inputs:
           - { id: quality_bone, qty: 1 }
@@ -5417,7 +4980,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: bone_mail_alpha_r0
-        craft_time: 0.1
         main_output: bone_mail_alpha
         inputs:
           - { id: quality_bone, qty: 1 }
@@ -5430,7 +4992,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: bone_arm_alpha_r0
-        craft_time: 0.1
         main_output: bone_arm_alpha
         inputs:
           - { id: quality_bone, qty: 1 }
@@ -5443,7 +5004,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: bone_coil_alpha_r0
-        craft_time: 0.1
         main_output: bone_coil_alpha
         inputs:
           - { id: quality_bone, qty: 1 }
@@ -5456,7 +5016,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: bone_greaves_alpha_r0
-        craft_time: 0.1
         main_output: bone_greaves_alpha
         inputs:
           - { id: quality_bone, qty: 1 }
@@ -5470,7 +5029,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: doshaguma_helm_r0
-        craft_time: 0.1
         main_output: doshaguma_helm
         inputs:
           - { id: doshaguma_fur, qty: 2 }
@@ -5485,7 +5043,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: doshaguma_mail_r0
-        craft_time: 0.1
         main_output: doshaguma_mail
         inputs:
           - { id: doshaguma_fur, qty: 2 }
@@ -5498,7 +5055,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: doshaguma_arm_r0
-        craft_time: 0.1
         main_output: doshaguma_arm
         inputs:
           - { id: doshaguma_hide, qty: 2 }
@@ -5511,7 +5067,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: doshaguma_coil_r0
-        craft_time: 0.1
         main_output: doshaguma_coil
         inputs:
           - { id: doshaguma_claw, qty: 1 }
@@ -5525,7 +5080,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: doshaguma_greaves_r0
-        craft_time: 0.1
         main_output: doshaguma_greaves
         inputs:
           - { id: doshaguma_certificate, qty: 1 }
@@ -5541,7 +5095,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: doshaguma_helm_alpha_beta_r0
-        craft_time: 0.1
         main_output: doshaguma_helm_alpha_beta
         inputs:
           - { id: doshaguma_certificate_s, qty: 2 }
@@ -5555,7 +5108,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: doshaguma_mail_alpha_beta_r0
-        craft_time: 0.1
         main_output: doshaguma_mail_alpha_beta
         inputs:
           - { id: doshaguma_certificate_s, qty: 1 }
@@ -5570,7 +5122,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: doshaguma_arm_alpha_beta_r0
-        craft_time: 0.1
         main_output: doshaguma_arm_alpha_beta
         inputs:
           - { id: doshaguma_fur_plus, qty: 3 }
@@ -5585,7 +5136,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: doshaguma_coil_alpha_beta_r0
-        craft_time: 0.1
         main_output: doshaguma_coil_alpha_beta
         inputs:
           - { id: doshaguma_certificate_s, qty: 1 }
@@ -5600,7 +5150,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: doshaguma_greaves_alpha_beta_r0
-        craft_time: 0.1
         main_output: doshaguma_greaves_alpha_beta
         inputs:
           - { id: doshaguma_fur_plus, qty: 3 }
@@ -5615,7 +5164,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: tris_helm_alpha_beta_r0
-        craft_time: 0.1
         main_output: tris_helm_alpha_beta
         inputs:
           - { id: quematrice_hide_plus, qty: 2 }
@@ -5630,7 +5178,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: tris_mail_alpha_beta_r0
-        craft_time: 0.1
         main_output: tris_mail_alpha_beta
         inputs:
           - { id: quematrice_tail, qty: 1 }
@@ -5645,7 +5192,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: tris_arm_alpha_beta_r0
-        craft_time: 0.1
         main_output: tris_arm_alpha_beta
         inputs:
           - { id: quematrice_scale_plus, qty: 3 }
@@ -5660,7 +5206,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: tris_coil_alpha_beta_r0
-        craft_time: 0.1
         main_output: tris_coil_alpha_beta
         inputs:
           - { id: quematrice_hide_plus, qty: 2 }
@@ -5674,7 +5219,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: tris_greaves_alpha_beta_r0
-        craft_time: 0.1
         main_output: tris_greaves_alpha_beta
         inputs:
           - { id: quematrice_scale_plus, qty: 3 }
@@ -5689,7 +5233,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: bara_helm_alpha_beta_r0
-        craft_time: 0.1
         main_output: bara_helm_alpha_beta
         inputs:
           - { id: balahara_shell_plus, qty: 2 }
@@ -5703,7 +5246,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: bara_mail_alpha_beta_r0
-        craft_time: 0.1
         main_output: bara_mail_alpha_beta
         inputs:
           - { id: monster_keenbone, qty: 1 }
@@ -5717,7 +5259,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: bara_arm_alpha_beta_r0
-        craft_time: 0.1
         main_output: bara_arm_alpha_beta
         inputs:
           - { id: balahara_tail, qty: 1 }
@@ -5732,7 +5273,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: bara_coil_alpha_beta_r0
-        craft_time: 0.1
         main_output: bara_coil_alpha_beta
         inputs:
           - { id: torrent_sac, qty: 1 }
@@ -5746,7 +5286,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: bara_greaves_alpha_beta_r0
-        craft_time: 0.1
         main_output: bara_greaves_alpha_beta
         inputs:
           - { id: balahara_black_pearl, qty: 1 }
@@ -5761,7 +5300,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: rathian_helm_alpha_beta_r0
-        craft_time: 0.1
         main_output: rathian_helm_alpha_beta
         inputs:
           - { id: rathian_scale_plus, qty: 2 }
@@ -5775,7 +5313,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: rathian_mail_alpha_beta_r0
-        craft_time: 0.1
         main_output: rathian_mail_alpha_beta
         inputs:
           - { id: rathian_certificate_s, qty: 1 }
@@ -5789,7 +5326,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: rathian_arm_alpha_beta_r0
-        craft_time: 0.1
         main_output: rathian_arm_alpha_beta
         inputs:
           - { id: rathian_scale_plus, qty: 3 }
@@ -5804,7 +5340,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: rathian_coil_alpha_beta_r0
-        craft_time: 0.1
         main_output: rathian_coil_alpha_beta
         inputs:
           - { id: rathian_certificate_s, qty: 1 }
@@ -5818,7 +5353,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: rathian_greaves_alpha_beta_r0
-        craft_time: 0.1
         main_output: rathian_greaves_alpha_beta
         inputs:
           - { id: rathian_certificate_s, qty: 1 }
@@ -5833,7 +5367,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: rathalos_helm_alpha_beta_r0
-        craft_time: 0.1
         main_output: rathalos_helm_alpha_beta
         inputs:
           - { id: rathalos_scale_plus, qty: 5 }
@@ -5847,7 +5380,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: rathalos_mail_alpha_beta_r0
-        craft_time: 0.1
         main_output: rathalos_mail_alpha_beta
         inputs:
           - { id: rathalos_scale_plus, qty: 6 }
@@ -5862,7 +5394,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: rathalos_arm_alpha_beta_r0
-        craft_time: 0.1
         main_output: rathalos_arm_alpha_beta
         inputs:
           - { id: rathalos_certificate_s, qty: 1 }
@@ -5877,7 +5408,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: rathalos_coil_alpha_beta_r0
-        craft_time: 0.1
         main_output: rathalos_coil_alpha_beta
         inputs:
           - { id: rathalos_certificate_s, qty: 2 }
@@ -5892,7 +5422,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: rathalos_greaves_alpha_beta_r0
-        craft_time: 0.1
         main_output: rathalos_greaves_alpha_beta
         inputs:
           - { id: rathalos_certificate_s, qty: 1 }
@@ -5907,7 +5436,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: reda_helm_alpha_beta_r0
-        craft_time: 0.1
         main_output: reda_helm_alpha_beta
         inputs:
           - { id: rey_dau_carapace, qty: 5 }
@@ -5922,7 +5450,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: reda_mail_alpha_beta_r0
-        craft_time: 0.1
         main_output: reda_mail_alpha_beta
         inputs:
           - { id: rey_dau_tail, qty: 2 }
@@ -5937,7 +5464,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: reda_arm_alpha_beta_r0
-        craft_time: 0.1
         main_output: reda_arm_alpha_beta
         inputs:
           - { id: rey_dau_scale_plus, qty: 3 }
@@ -5952,7 +5478,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: reda_coil_alpha_beta_r0
-        craft_time: 0.1
         main_output: reda_coil_alpha_beta
         inputs:
           - { id: rey_dau_scale_plus, qty: 5 }
@@ -5967,7 +5492,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: reda_greaves_alpha_beta_r0
-        craft_time: 0.1
         main_output: reda_greaves_alpha_beta
         inputs:
           - { id: rey_dau_scale_plus, qty: 6 }
@@ -5983,7 +5507,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: scylla_helm_alpha_beta_r0
-        craft_time: 0.1
         main_output: scylla_helm_alpha_beta
         inputs:
           - { id: nerscylla_carapace, qty: 2 }
@@ -5997,7 +5520,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: scylla_mail_alpha_beta_r0
-        craft_time: 0.1
         main_output: scylla_mail_alpha_beta
         inputs:
           - { id: nerscylla_certificate_s, qty: 1 }
@@ -6012,7 +5534,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: scylla_arm_alpha_beta_r0
-        craft_time: 0.1
         main_output: scylla_arm_alpha_beta
         inputs:
           - { id: nerscylla_carapace, qty: 3 }
@@ -6027,7 +5548,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: scylla_coil_alpha_beta_r0
-        craft_time: 0.1
         main_output: scylla_coil_alpha_beta
         inputs:
           - { id: nerscylla_certificate_s, qty: 1 }
@@ -6042,7 +5562,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: scylla_greaves_alpha_beta_r0
-        craft_time: 0.1
         main_output: scylla_greaves_alpha_beta
         inputs:
           - { id: nerscylla_certificate_s, qty: 1 }
@@ -6058,7 +5577,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: gypceros_helm_alpha_beta_r0
-        craft_time: 0.1
         main_output: gypceros_helm_alpha_beta
         inputs:
           - { id: gypceros_wing, qty: 2 }
@@ -6072,7 +5590,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: gypceros_mail_alpha_beta_r0
-        craft_time: 0.1
         main_output: gypceros_mail_alpha_beta
         inputs:
           - { id: rubber_hide_plus, qty: 2 }
@@ -6087,7 +5604,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: gypceros_arm_alpha_beta_r0
-        craft_time: 0.1
         main_output: gypceros_arm_alpha_beta
         inputs:
           - { id: rubber_hide_plus, qty: 2 }
@@ -6101,7 +5617,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: gypceros_coil_alpha_beta_r0
-        craft_time: 0.1
         main_output: gypceros_coil_alpha_beta
         inputs:
           - { id: rubber_hide_plus, qty: 2 }
@@ -6116,7 +5631,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: gypceros_greaves_alpha_beta_r0
-        craft_time: 0.1
         main_output: gypceros_greaves_alpha_beta
         inputs:
           - { id: gypceros_head, qty: 1 }
@@ -6131,7 +5645,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: lala_helm_alpha_beta_r0
-        craft_time: 0.1
         main_output: lala_helm_alpha_beta
         inputs:
           - { id: lala_carapace, qty: 3 }
@@ -6145,7 +5658,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: lala_mail_alpha_beta_r0
-        craft_time: 0.1
         main_output: lala_mail_alpha_beta
         inputs:
           - { id: lala_fluff_plus, qty: 2 }
@@ -6160,7 +5672,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: lala_arm_alpha_beta_r0
-        craft_time: 0.1
         main_output: lala_arm_alpha_beta
         inputs:
           - { id: lala_claw_plus, qty: 1 }
@@ -6175,7 +5686,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: lala_coil_alpha_beta_r0
-        craft_time: 0.1
         main_output: lala_coil_alpha_beta
         inputs:
           - { id: carbalite_ore, qty: 2 }
@@ -6189,7 +5699,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: lala_greaves_alpha_beta_r0
-        craft_time: 0.1
         main_output: lala_greaves_alpha_beta
         inputs:
           - { id: lala_fluff_plus, qty: 2 }
@@ -6205,7 +5714,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: dahad_helm_alpha_beta_r0
-        craft_time: 0.1
         main_output: dahad_helm_alpha_beta
         inputs:
           - { id: jin_certificate_s, qty: 2 }
@@ -6220,7 +5728,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: dahad_mail_alpha_beta_r0
-        craft_time: 0.1
         main_output: dahad_mail_alpha_beta
         inputs:
           - { id: jin_scale_plus, qty: 5 }
@@ -6235,7 +5742,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: dahad_arm_alpha_beta_r0
-        craft_time: 0.1
         main_output: dahad_arm_alpha_beta
         inputs:
           - { id: jin_certificate_s, qty: 1 }
@@ -6250,7 +5756,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: dahad_coil_alpha_beta_r0
-        craft_time: 0.1
         main_output: dahad_coil_alpha_beta
         inputs:
           - { id: jin_iceplate, qty: 2 }
@@ -6265,7 +5770,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: dahad_greaves_alpha_beta_r0
-        craft_time: 0.1
         main_output: dahad_greaves_alpha_beta
         inputs:
           - { id: jin_scale_plus, qty: 6 }
@@ -6281,7 +5785,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: gore_helm_alpha_beta_r0
-        craft_time: 0.1
         main_output: gore_helm_alpha_beta
         inputs:
           - { id: gore_certificate_s, qty: 2 }
@@ -6296,7 +5799,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: gore_mail_alpha_beta_r0
-        craft_time: 0.1
         main_output: gore_mail_alpha_beta
         inputs:
           - { id: gore_scale_plus, qty: 6 }
@@ -6311,7 +5813,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: gore_arm_alpha_beta_r0
-        craft_time: 0.1
         main_output: gore_arm_alpha_beta
         inputs:
           - { id: gore_certificate_s, qty: 2 }
@@ -6326,7 +5827,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: gore_coil_alpha_beta_r0
-        craft_time: 0.1
         main_output: gore_coil_alpha_beta
         inputs:
           - { id: gore_scale_plus, qty: 5 }
@@ -6341,7 +5841,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: gore_greaves_alpha_beta_r0
-        craft_time: 0.1
         main_output: gore_greaves_alpha_beta
         inputs:
           - { id: gore_certificate_s, qty: 1 }
@@ -6357,7 +5856,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: g_arkveld_helm_alpha_beta_r0
-        craft_time: 0.1
         main_output: g_arkveld_helm_alpha_beta
         inputs:
           - { id: hunter_symbol_3, qty: 1 }
@@ -6372,7 +5870,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: g_arkveld_mail_alpha_beta_r0
-        craft_time: 0.1
         main_output: g_arkveld_mail_alpha_beta
         inputs:
           - { id: hunter_symbol_3, qty: 1 }
@@ -6387,7 +5884,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: g_arkveld_arm_alpha_beta_r0
-        craft_time: 0.1
         main_output: g_arkveld_arm_alpha_beta
         inputs:
           - { id: hunter_symbol_3, qty: 1 }
@@ -6402,7 +5898,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: g_arkveld_coil_alpha_beta_r0
-        craft_time: 0.1
         main_output: g_arkveld_coil_alpha_beta
         inputs:
           - { id: hunter_symbol_3, qty: 1 }
@@ -6417,7 +5912,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: g_arkveld_greaves_alpha_beta_r0
-        craft_time: 0.1
         main_output: g_arkveld_greaves_alpha_beta
         inputs:
           - { id: hunter_symbol_3, qty: 1 }
@@ -6434,7 +5928,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: quematrice_lima_1_r0
-        craft_time: 0.1
         main_output: quematrice_lima_1
         inputs:
           - { id: quematrice_scale, qty: 3 }
@@ -6448,7 +5941,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: quematrice_lima_2_r0
-        craft_time: 0.1
         main_output: quematrice_lima_2
         inputs:
           - { id: quematrice_lima_1, qty: 1 }
@@ -6463,7 +5955,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: quematrice_lima_3_r0
-        craft_time: 0.1
         main_output: quematrice_lima_3
         inputs:
           - { id: quematrice_lima_2, qty: 1 }
@@ -6478,7 +5969,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: quematrice_lima_4_r0
-        craft_time: 0.1
         main_output: quematrice_lima_4
         inputs:
           - { id: quematrice_lima_3, qty: 1 }
@@ -6494,7 +5984,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: quematrice_ferrosera_r0
-        craft_time: 0.1
         main_output: quematrice_ferrosera
         inputs:
           - { id: quematrice_lima_4, qty: 1 }
@@ -6509,7 +5998,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: quematrice_cuchillo_1_r0
-        craft_time: 0.1
         main_output: quematrice_cuchillo_1
         inputs:
           - { id: quematrice_scale, qty: 3 }
@@ -6523,7 +6011,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: quematrice_cuchillo_2_r0
-        craft_time: 0.1
         main_output: quematrice_cuchillo_2
         inputs:
           - { id: quematrice_cuchillo_1, qty: 1 }
@@ -6538,7 +6025,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: quematrice_cuchillo_3_r0
-        craft_time: 0.1
         main_output: quematrice_cuchillo_3
         inputs:
           - { id: quematrice_cuchillo_2, qty: 1 }
@@ -6553,7 +6039,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: quematrice_cuchillo_4_r0
-        craft_time: 0.1
         main_output: quematrice_cuchillo_4
         inputs:
           - { id: quematrice_cuchillo_3, qty: 1 }
@@ -6569,7 +6054,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: quematrice_fornax_r0
-        craft_time: 0.1
         main_output: quematrice_fornax
         inputs:
           - { id: quematrice_cuchillo_4, qty: 1 }
@@ -6584,7 +6068,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: quematrice_silex_1_r0
-        craft_time: 0.1
         main_output: quematrice_silex_1
         inputs:
           - { id: quematrice_scale, qty: 3 }
@@ -6598,7 +6081,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: quematrice_silex_2_r0
-        craft_time: 0.1
         main_output: quematrice_silex_2
         inputs:
           - { id: quematrice_silex_1, qty: 1 }
@@ -6613,7 +6095,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: quematrice_silex_3_r0
-        craft_time: 0.1
         main_output: quematrice_silex_3
         inputs:
           - { id: quematrice_silex_2, qty: 1 }
@@ -6628,7 +6109,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: quematrice_silex_4_r0
-        craft_time: 0.1
         main_output: quematrice_silex_4
         inputs:
           - { id: quematrice_silex_3, qty: 1 }
@@ -6644,7 +6124,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: quematrice_magnesia_r0
-        craft_time: 0.1
         main_output: quematrice_magnesia
         inputs:
           - { id: quematrice_silex_4, qty: 1 }
@@ -6659,7 +6138,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: quematrice_lanza_1_r0
-        craft_time: 0.1
         main_output: quematrice_lanza_1
         inputs:
           - { id: quematrice_scale, qty: 3 }
@@ -6673,7 +6151,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: quematrice_lanza_2_r0
-        craft_time: 0.1
         main_output: quematrice_lanza_2
         inputs:
           - { id: quematrice_lanza_1, qty: 1 }
@@ -6688,7 +6165,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: quematrice_lanza_3_r0
-        craft_time: 0.1
         main_output: quematrice_lanza_3
         inputs:
           - { id: quematrice_lanza_2, qty: 1 }
@@ -6703,7 +6179,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: quematrice_lanza_4_r0
-        craft_time: 0.1
         main_output: quematrice_lanza_4
         inputs:
           - { id: quematrice_lanza_3, qty: 1 }
@@ -6719,7 +6194,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: quematrice_camineto_r0
-        craft_time: 0.1
         main_output: quematrice_camineto
         inputs:
           - { id: quematrice_lanza_4, qty: 1 }
@@ -6734,7 +6208,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: quematrice_canon_1_r0
-        craft_time: 0.1
         main_output: quematrice_canon_1
         inputs:
           - { id: quematrice_scale, qty: 3 }
@@ -6748,7 +6221,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: quematrice_canon_2_r0
-        craft_time: 0.1
         main_output: quematrice_canon_2
         inputs:
           - { id: quematrice_canon_1, qty: 1 }
@@ -6763,7 +6235,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: quematrice_canon_3_r0
-        craft_time: 0.1
         main_output: quematrice_canon_3
         inputs:
           - { id: quematrice_canon_2, qty: 1 }
@@ -6778,7 +6249,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: quematrice_canon_4_r0
-        craft_time: 0.1
         main_output: quematrice_canon_4
         inputs:
           - { id: quematrice_canon_3, qty: 1 }
@@ -6794,7 +6264,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: quematrice_quemadora_r0
-        craft_time: 0.1
         main_output: quematrice_quemadora
         inputs:
           - { id: quematrice_canon_4, qty: 1 }
@@ -6809,7 +6278,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: quematrice_arco_1_r0
-        craft_time: 0.1
         main_output: quematrice_arco_1
         inputs:
           - { id: quematrice_scale, qty: 3 }
@@ -6823,7 +6291,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: quematrice_arco_2_r0
-        craft_time: 0.1
         main_output: quematrice_arco_2
         inputs:
           - { id: quematrice_arco_1, qty: 1 }
@@ -6838,7 +6305,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: quematrice_arco_3_r0
-        craft_time: 0.1
         main_output: quematrice_arco_3
         inputs:
           - { id: quematrice_arco_2, qty: 1 }
@@ -6853,7 +6319,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: quematrice_arco_4_r0
-        craft_time: 0.1
         main_output: quematrice_arco_4
         inputs:
           - { id: quematrice_arco_3, qty: 1 }
@@ -6869,7 +6334,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: quematrice_liviora_r0
-        craft_time: 0.1
         main_output: quematrice_liviora
         inputs:
           - { id: quematrice_arco_4, qty: 1 }
@@ -6885,7 +6349,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: chatacabra_arms_1_r0
-        craft_time: 0.1
         main_output: chatacabra_arms_1
         inputs:
           - { id: chatacabra_scale, qty: 3 }
@@ -6899,7 +6362,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: chatacabra_arms_2_r0
-        craft_time: 0.1
         main_output: chatacabra_arms_2
         inputs:
           - { id: chatacabra_arms_1, qty: 1 }
@@ -6913,7 +6375,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: chatacabra_arms_3_r0
-        craft_time: 0.1
         main_output: chatacabra_arms_3
         inputs:
           - { id: chatacabra_arms_2, qty: 1 }
@@ -6928,7 +6389,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: chatacabra_arms_4_r0
-        craft_time: 0.1
         main_output: chatacabra_arms_4
         inputs:
           - { id: chatacabra_arms_3, qty: 1 }
@@ -6943,7 +6403,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: chatacabra_jamakaktal_r0
-        craft_time: 0.1
         main_output: chatacabra_jamakaktal
         inputs:
           - { id: chatacabra_arms_4, qty: 1 }
@@ -6958,7 +6417,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: chatacabra_rod_1_r0
-        craft_time: 0.1
         main_output: chatacabra_rod_1
         inputs:
           - { id: chatacabra_scale, qty: 3 }
@@ -6972,7 +6430,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: chatacabra_rod_2_r0
-        craft_time: 0.1
         main_output: chatacabra_rod_2
         inputs:
           - { id: chatacabra_rod_1, qty: 1 }
@@ -6986,7 +6443,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: chatacabra_rod_3_r0
-        craft_time: 0.1
         main_output: chatacabra_rod_3
         inputs:
           - { id: chatacabra_rod_2, qty: 1 }
@@ -7001,7 +6457,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: chatacabra_rod_4_r0
-        craft_time: 0.1
         main_output: chatacabra_rod_4
         inputs:
           - { id: chatacabra_rod_3, qty: 1 }
@@ -7016,7 +6471,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: chatacabra_rahupoka_r0
-        craft_time: 0.1
         main_output: chatacabra_rahupoka
         inputs:
           - { id: chatacabra_rod_4, qty: 1 }
@@ -7031,7 +6485,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: chatacabra_buster_1_r0
-        craft_time: 0.1
         main_output: chatacabra_buster_1
         inputs:
           - { id: chatacabra_scale, qty: 3 }
@@ -7045,7 +6498,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: chatacabra_buster_2_r0
-        craft_time: 0.1
         main_output: chatacabra_buster_2
         inputs:
           - { id: chatacabra_buster_1, qty: 1 }
@@ -7059,7 +6511,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: chatacabra_buster_3_r0
-        craft_time: 0.1
         main_output: chatacabra_buster_3
         inputs:
           - { id: chatacabra_buster_2, qty: 1 }
@@ -7074,7 +6525,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: chatacabra_buster_4_r0
-        craft_time: 0.1
         main_output: chatacabra_buster_4
         inputs:
           - { id: chatacabra_buster_3, qty: 1 }
@@ -7089,7 +6539,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: chatacabra_motticaman_r0
-        craft_time: 0.1
         main_output: chatacabra_motticaman
         inputs:
           - { id: chatacabra_buster_4, qty: 1 }
@@ -7105,7 +6554,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: bone_horn_1_r0
-        craft_time: 0.1
         main_output: bone_horn_1
         inputs:
           - { id: mystery_bone, qty: 2 }
@@ -7117,7 +6565,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: bone_horn_2_r0
-        craft_time: 0.1
         main_output: bone_horn_2
         inputs:
           - { id: bone_horn_1, qty: 1 }
@@ -7131,7 +6578,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: bone_horn_3_r0
-        craft_time: 0.1
         main_output: bone_horn_3
         inputs:
           - { id: bone_horn_2, qty: 1 }
@@ -7144,7 +6590,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: bone_horn_4_r0
-        craft_time: 0.1
         main_output: bone_horn_4
         inputs:
           - { id: bone_horn_3, qty: 1 }
@@ -7158,7 +6603,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: hard_bone_horn_r0
-        craft_time: 0.1
         main_output: hard_bone_horn
         inputs:
           - { id: bone_horn_4, qty: 1 }
@@ -7174,7 +6618,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: bone_axe_1_r0
-        craft_time: 0.1
         main_output: bone_axe_1
         inputs:
           - { id: mystery_bone, qty: 2 }
@@ -7186,7 +6629,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: bone_axe_2_r0
-        craft_time: 0.1
         main_output: bone_axe_2
         inputs:
           - { id: bone_axe_1, qty: 1 }
@@ -7200,7 +6642,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: bone_axe_3_r0
-        craft_time: 0.1
         main_output: bone_axe_3
         inputs:
           - { id: bone_axe_2, qty: 1 }
@@ -7213,7 +6654,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: bone_axe_4_r0
-        craft_time: 0.1
         main_output: bone_axe_4
         inputs:
           - { id: bone_axe_3, qty: 1 }
@@ -7227,7 +6667,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: bone_smasher_r0
-        craft_time: 0.1
         main_output: bone_smasher
         inputs:
           - { id: bone_axe_4, qty: 1 }
@@ -7244,7 +6683,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: balahara_horn_1_r0
-        craft_time: 0.1
         main_output: balahara_horn_1
         inputs:
           - { id: balahara_scale, qty: 3 }
@@ -7258,7 +6696,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: balahara_horn_2_r0
-        craft_time: 0.1
         main_output: balahara_horn_2
         inputs:
           - { id: balahara_horn_1, qty: 1 }
@@ -7273,7 +6710,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: balahara_horn_3_r0
-        craft_time: 0.1
         main_output: balahara_horn_3
         inputs:
           - { id: balahara_horn_2, qty: 1 }
@@ -7289,7 +6725,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: balahara_horn_4_r0
-        craft_time: 0.1
         main_output: balahara_horn_4
         inputs:
           - { id: balahara_horn_3, qty: 1 }
@@ -7304,7 +6739,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: balahara_gantovigi_r0
-        craft_time: 0.1
         main_output: balahara_gantovigi
         inputs:
           - { id: balahara_horn_4, qty: 1 }
@@ -7321,7 +6755,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: rey_dau_scale_r0
-        craft_time: 0.1
         main_output: rey_dau_scale
         inputs: []
         outputs:
@@ -7332,7 +6765,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: rey_dau_claw_lr_r0
-        craft_time: 0.1
         main_output: rey_dau_claw_lr
         inputs: []
         outputs:
@@ -7343,7 +6775,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: rey_dau_horn_lr_r0
-        craft_time: 0.1
         main_output: rey_dau_horn_lr
         inputs: []
         outputs:
@@ -7354,7 +6785,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: guardian_blood_lr_r0
-        craft_time: 0.1
         main_output: guardian_blood_lr
         inputs: []
         outputs:
@@ -7365,7 +6795,6 @@ items:
     facility: "採掘"
     recipes:
       - id: firecell_stone_r0
-        craft_time: 0.1
         main_output: firecell_stone
         inputs: []
         outputs:
@@ -7376,7 +6805,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: sleep_sac_r0
-        craft_time: 0.1
         main_output: sleep_sac
         inputs: []
         outputs:
@@ -7387,7 +6815,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: rubber_hide_r0
-        craft_time: 0.1
         main_output: rubber_hide
         inputs: []
         outputs:
@@ -7399,7 +6826,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: nerscylla_shell_r0
-        craft_time: 0.1
         main_output: nerscylla_shell
         inputs: []
         outputs:
@@ -7410,7 +6836,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: nerscylla_shearclaw_lr_r0
-        craft_time: 0.1
         main_output: nerscylla_shearclaw_lr
         inputs: []
         outputs:
@@ -7421,7 +6846,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: nerscylla_claw_r0
-        craft_time: 0.1
         main_output: nerscylla_claw
         inputs: []
         outputs:
@@ -7432,7 +6856,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: nerscylla_spike_r0
-        craft_time: 0.1
         main_output: nerscylla_spike
         inputs: []
         outputs:
@@ -7443,7 +6866,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: nerscylla_certificate_r0
-        craft_time: 0.1
         main_output: nerscylla_certificate
         inputs: []
         outputs:
@@ -7455,7 +6877,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: nu_udra_hide_plus_r0
-        craft_time: 0.1
         main_output: nu_udra_hide_plus
         inputs: []
         outputs:
@@ -7466,7 +6887,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: nu_udra_spike_plus_r0
-        craft_time: 0.1
         main_output: nu_udra_spike_plus
         inputs: []
         outputs:
@@ -7477,7 +6897,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: nu_udra_oil_r0
-        craft_time: 0.1
         main_output: nu_udra_oil
         inputs: []
         outputs:
@@ -7488,7 +6907,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: nu_udra_tentacle_r0
-        craft_time: 0.1
         main_output: nu_udra_tentacle
         inputs: []
         outputs:
@@ -7499,7 +6917,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: nu_udra_horn_r0
-        craft_time: 0.1
         main_output: nu_udra_horn
         inputs: []
         outputs:
@@ -7510,7 +6927,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: nu_udra_marrow_r0
-        craft_time: 0.1
         main_output: nu_udra_marrow
         inputs: []
         outputs:
@@ -7521,7 +6937,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: clano_carapace_r0
-        craft_time: 0.1
         main_output: clano_carapace
         inputs: []
         outputs:
@@ -7533,7 +6948,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: arkveld_horn_r0
-        craft_time: 0.1
         main_output: arkveld_horn
         inputs: []
         outputs:
@@ -7544,7 +6958,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: arkveld_tail_r0
-        craft_time: 0.1
         main_output: arkveld_tail
         inputs: []
         outputs:
@@ -7555,7 +6968,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: zoh_scale_r0
-        craft_time: 0.1
         main_output: zoh_scale
         inputs: []
         outputs:
@@ -7566,7 +6978,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: zoh_claw_r0
-        craft_time: 0.1
         main_output: zoh_claw
         inputs: []
         outputs:
@@ -7577,7 +6988,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: zoh_horn_r0
-        craft_time: 0.1
         main_output: zoh_horn
         inputs: []
         outputs:
@@ -7588,7 +6998,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: zoh_shell_r0
-        craft_time: 0.1
         main_output: zoh_shell
         inputs: []
         outputs:
@@ -7599,7 +7008,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: zoh_tumor_r0
-        craft_time: 0.1
         main_output: zoh_tumor
         inputs: []
         outputs:
@@ -7610,7 +7018,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: zoh_certificate_s_r0
-        craft_time: 0.1
         main_output: zoh_certificate_s
         inputs: []
         outputs:
@@ -7621,7 +7028,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: zoh_gem_r0
-        craft_time: 0.1
         main_output: zoh_gem
         inputs: []
         outputs:
@@ -7632,7 +7038,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: zoh_tail_r0
-        craft_time: 0.1
         main_output: zoh_tail
         inputs: []
         outputs:
@@ -7644,7 +7049,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: valkyrie_blade_1_r0
-        craft_time: 0.1
         main_output: valkyrie_blade_1
         inputs:
           - { id: rathian_certificate_s, qty: 1 }
@@ -7659,7 +7063,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: valkyrie_blade_2_r0
-        craft_time: 0.1
         main_output: valkyrie_blade_2
         inputs:
           - { id: valkyrie_blade_1, qty: 1 }
@@ -7675,7 +7078,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: sieglinde_r0
-        craft_time: 0.1
         main_output: sieglinde
         inputs:
           - { id: valkyrie_blade_2, qty: 1 }
@@ -7691,7 +7093,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: red_wing_1_r0
-        craft_time: 0.1
         main_output: red_wing_1
         inputs:
           - { id: rathalos_certificate_s, qty: 2 }
@@ -7706,7 +7107,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: rathalos_flame_blade_r0
-        craft_time: 0.1
         main_output: rathalos_flame_blade
         inputs:
           - { id: red_wing_1, qty: 1 }
@@ -7723,7 +7123,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: pride_of_shadow_1_r0
-        craft_time: 0.1
         main_output: pride_of_shadow_1
         inputs:
           - { id: frenzy_shard, qty: 5 }
@@ -7738,7 +7137,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: pride_of_dark_r0
-        craft_time: 0.1
         main_output: pride_of_dark
         inputs:
           - { id: pride_of_shadow_1, qty: 1 }
@@ -7755,7 +7153,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: doshaguma_gs_1_r0
-        craft_time: 0.1
         main_output: doshaguma_gs_1
         inputs:
           - { id: doshaguma_fur, qty: 3 }
@@ -7769,7 +7166,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: g_arkveld_gladio_1_r0
-        craft_time: 0.1
         main_output: g_arkveld_gladio_1
         inputs:
           - { id: guardian_scale, qty: 3 }
@@ -7784,7 +7180,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: g_arkveld_gladio_2_r0
-        craft_time: 0.1
         main_output: g_arkveld_gladio_2
         inputs:
           - { id: g_arkveld_gladio_1, qty: 1 }
@@ -7800,7 +7195,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: g_arkveld_garurak_r0
-        craft_time: 0.1
         main_output: g_arkveld_garurak
         inputs:
           - { id: g_arkveld_gladio_2, qty: 1 }
@@ -7816,7 +7210,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: arkveld_gladio_1_r0
-        craft_time: 0.1
         main_output: arkveld_gladio_1
         inputs:
           - { id: arkveld_certificate_s, qty: 3 }
@@ -7831,7 +7224,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: arkveld_ramorack_r0
-        craft_time: 0.1
         main_output: arkveld_ramorack
         inputs:
           - { id: arkveld_gladio_1, qty: 1 }
@@ -7848,7 +7240,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: rey_medorgish_1_r0
-        craft_time: 0.1
         main_output: rey_medorgish_1
         inputs:
           - { id: rey_dau_scale, qty: 3 }
@@ -7862,7 +7253,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: rey_medorgish_2_r0
-        craft_time: 0.1
         main_output: rey_medorgish_2
         inputs:
           - { id: rey_medorgish_1, qty: 1 }
@@ -7877,7 +7267,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: rey_medorgish_3_r0
-        craft_time: 0.1
         main_output: rey_medorgish_3
         inputs:
           - { id: rey_medorgish_2, qty: 1 }
@@ -7893,7 +7282,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: rey_medorgish_r0
-        craft_time: 0.1
         main_output: rey_medorgish
         inputs:
           - { id: rey_medorgish_3, qty: 1 }
@@ -7910,7 +7298,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: scylla_helm_r0
-        craft_time: 0.1
         main_output: scylla_helm
         inputs:
           - { id: nerscylla_certificate, qty: 1 }
@@ -7925,7 +7312,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: scylla_mail_r0
-        craft_time: 0.1
         main_output: scylla_mail
         inputs:
           - { id: nerscylla_claw, qty: 2 }
@@ -7938,7 +7324,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: scylla_arm_r0
-        craft_time: 0.1
         main_output: scylla_arm
         inputs:
           - { id: nerscylla_shell, qty: 2 }
@@ -7952,7 +7337,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: scylla_coil_r0
-        craft_time: 0.1
         main_output: scylla_coil
         inputs:
           - { id: nerscylla_shearclaw_lr, qty: 1 }
@@ -7966,7 +7350,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: scylla_greaves_r0
-        craft_time: 0.1
         main_output: scylla_greaves
         inputs:
           - { id: nerscylla_shell, qty: 2 }
@@ -7980,7 +7363,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: exodus_helm_alpha_beta_r0
-        craft_time: 0.1
         main_output: exodus_helm_alpha_beta
         inputs:
           - { id: nu_udra_hide_plus, qty: 6 }
@@ -7995,7 +7377,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: exodus_mail_alpha_beta_r0
-        craft_time: 0.1
         main_output: exodus_mail_alpha_beta
         inputs:
           - { id: nu_udra_certificate_s, qty: 2 }
@@ -8010,7 +7391,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: exodus_arm_alpha_beta_r0
-        craft_time: 0.1
         main_output: exodus_arm_alpha_beta
         inputs:
           - { id: nu_udra_certificate_s, qty: 2 }
@@ -8025,7 +7405,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: exodus_coil_alpha_beta_r0
-        craft_time: 0.1
         main_output: exodus_coil_alpha_beta
         inputs:
           - { id: nu_udra_hide_plus, qty: 5 }
@@ -8040,7 +7419,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: exodus_greaves_alpha_beta_r0
-        craft_time: 0.1
         main_output: exodus_greaves_alpha_beta
         inputs:
           - { id: nu_udra_certificate_s, qty: 1 }
@@ -8056,7 +7434,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: shubarka_helm_alpha_beta_r0
-        craft_time: 0.1
         main_output: shubarka_helm_alpha_beta
         inputs:
           - { id: arkveld_scale_plus, qty: 5 }
@@ -8071,7 +7448,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: shubarka_mail_alpha_beta_r0
-        craft_time: 0.1
         main_output: shubarka_mail_alpha_beta
         inputs:
           - { id: arkveld_certificate_s, qty: 2 }
@@ -8086,7 +7462,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: shubarka_arm_alpha_beta_r0
-        craft_time: 0.1
         main_output: shubarka_arm_alpha_beta
         inputs:
           - { id: arkveld_certificate_s, qty: 2 }
@@ -8101,7 +7476,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: shubarka_coil_alpha_beta_r0
-        craft_time: 0.1
         main_output: shubarka_coil_alpha_beta
         inputs:
           - { id: arkveld_certificate_s, qty: 1 }
@@ -8116,7 +7490,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: shubarka_greaves_alpha_beta_r0
-        craft_time: 0.1
         main_output: shubarka_greaves_alpha_beta
         inputs:
           - { id: arkveld_armor, qty: 6 }
@@ -8132,7 +7505,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: zoh_crown_alpha_beta_r0
-        craft_time: 0.1
         main_output: zoh_crown_alpha_beta
         inputs:
           - { id: zoh_scale, qty: 6 }
@@ -8147,7 +7519,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: zoh_mail_alpha_beta_r0
-        craft_time: 0.1
         main_output: zoh_mail_alpha_beta
         inputs:
           - { id: zoh_certificate_s, qty: 1 }
@@ -8162,7 +7533,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: zoh_arm_alpha_beta_r0
-        craft_time: 0.1
         main_output: zoh_arm_alpha_beta
         inputs:
           - { id: zoh_certificate_s, qty: 2 }
@@ -8177,7 +7547,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: zoh_coil_alpha_beta_r0
-        craft_time: 0.1
         main_output: zoh_coil_alpha_beta
         inputs:
           - { id: zoh_shell, qty: 6 }
@@ -8192,7 +7561,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: zoh_greaves_alpha_beta_r0
-        craft_time: 0.1
         main_output: zoh_greaves_alpha_beta
         inputs:
           - { id: zoh_scale, qty: 3 }
@@ -8208,7 +7576,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: artian_helm_alpha_r0
-        craft_time: 0.1
         main_output: artian_helm_alpha
         inputs:
           - { id: icium, qty: 5 }
@@ -8222,7 +7589,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: artian_mail_alpha_r0
-        craft_time: 0.1
         main_output: artian_mail_alpha
         inputs:
           - { id: icium, qty: 5 }
@@ -8236,7 +7602,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: artian_arm_alpha_r0
-        craft_time: 0.1
         main_output: artian_arm_alpha
         inputs:
           - { id: icium, qty: 5 }
@@ -8250,7 +7615,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: artian_coil_alpha_r0
-        craft_time: 0.1
         main_output: artian_coil_alpha
         inputs:
           - { id: icium, qty: 5 }
@@ -8264,7 +7628,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: artian_greaves_alpha_r0
-        craft_time: 0.1
         main_output: artian_greaves_alpha
         inputs:
           - { id: icium, qty: 5 }
@@ -8280,7 +7643,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: g_rathalos_certificate_r0
-        craft_time: 0.1
         main_output: g_rathalos_certificate
         inputs: []
         outputs:
@@ -8291,7 +7653,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: g_rathalos_scale_r0
-        craft_time: 0.1
         main_output: g_rathalos_scale
         inputs: []
         outputs:
@@ -8302,7 +7663,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: g_rathalos_shell_r0
-        craft_time: 0.1
         main_output: g_rathalos_shell
         inputs: []
         outputs:
@@ -8313,7 +7673,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: g_rathalos_plate_r0
-        craft_time: 0.1
         main_output: g_rathalos_plate
         inputs: []
         outputs:
@@ -8324,7 +7683,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: g_rathalos_webbing_r0
-        craft_time: 0.1
         main_output: g_rathalos_webbing
         inputs: []
         outputs:
@@ -8335,7 +7693,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: g_rathalos_tail_r0
-        craft_time: 0.1
         main_output: g_rathalos_tail
         inputs: []
         outputs:
@@ -8348,7 +7705,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: g_rathalos_certificate_s_r0
-        craft_time: 0.1
         main_output: g_rathalos_certificate_s
         inputs: []
         outputs:
@@ -8359,7 +7715,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: g_rathalos_scale_plus_r0
-        craft_time: 0.1
         main_output: g_rathalos_scale_plus
         inputs: []
         outputs:
@@ -8370,7 +7725,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: g_rathalos_carapace_r0
-        craft_time: 0.1
         main_output: g_rathalos_carapace
         inputs: []
         outputs:
@@ -8381,7 +7735,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: g_rathalos_wing_r0
-        craft_time: 0.1
         main_output: g_rathalos_wing
         inputs: []
         outputs:
@@ -8392,7 +7745,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: g_rathalos_ruby_r0
-        craft_time: 0.1
         main_output: g_rathalos_ruby
         inputs: []
         outputs:
@@ -8405,7 +7757,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: lala_fluff_r0
-        craft_time: 0.1
         main_output: lala_fluff
         inputs: []
         outputs:
@@ -8416,7 +7767,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: lala_mucus_r0
-        craft_time: 0.1
         main_output: lala_mucus
         inputs: []
         outputs:
@@ -8427,7 +7777,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: lala_claw_r0
-        craft_time: 0.1
         main_output: lala_claw
         inputs: []
         outputs:
@@ -8438,7 +7787,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: lala_spike_r0
-        craft_time: 0.1
         main_output: lala_spike
         inputs: []
         outputs:
@@ -8449,7 +7797,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: lala_certificate_r0
-        craft_time: 0.1
         main_output: lala_certificate
         inputs: []
         outputs:
@@ -8462,7 +7809,6 @@ items:
     facility: "狩猟"
     recipes:
       - id: arkveld_certificate_gamma_r0
-        craft_time: 0.1
         main_output: arkveld_certificate_gamma
         inputs: []
         outputs:
@@ -8475,7 +7821,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: g_rathalos_helm_r0
-        craft_time: 0.1
         main_output: g_rathalos_helm
         inputs:
           - { id: g_rathalos_certificate, qty: 1 }
@@ -8490,7 +7835,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: g_rathalos_mail_r0
-        craft_time: 0.1
         main_output: g_rathalos_mail
         inputs:
           - { id: g_rathalos_shell, qty: 2 }
@@ -8503,7 +7847,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: g_rathalos_arm_r0
-        craft_time: 0.1
         main_output: g_rathalos_arm
         inputs:
           - { id: g_rathalos_scale, qty: 2 }
@@ -8517,7 +7860,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: g_rathalos_coil_r0
-        craft_time: 0.1
         main_output: g_rathalos_coil
         inputs:
           - { id: g_rathalos_scale, qty: 2 }
@@ -8530,7 +7872,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: g_rathalos_greaves_r0
-        craft_time: 0.1
         main_output: g_rathalos_greaves
         inputs:
           - { id: g_rathalos_webbing, qty: 1 }
@@ -8546,7 +7887,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: g_rathalos_helm_alpha_beta_r0
-        craft_time: 0.1
         main_output: g_rathalos_helm_alpha_beta
         inputs:
           - { id: g_rathalos_certificate_s, qty: 1 }
@@ -8561,7 +7901,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: g_rathalos_mail_alpha_beta_r0
-        craft_time: 0.1
         main_output: g_rathalos_mail_alpha_beta
         inputs:
           - { id: g_rathalos_scale_plus, qty: 5 }
@@ -8575,7 +7914,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: g_rathalos_arm_alpha_beta_r0
-        craft_time: 0.1
         main_output: g_rathalos_arm_alpha_beta
         inputs:
           - { id: g_rathalos_certificate_s, qty: 1 }
@@ -8590,7 +7928,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: g_rathalos_coil_alpha_beta_r0
-        craft_time: 0.1
         main_output: g_rathalos_coil_alpha_beta
         inputs:
           - { id: g_rathalos_scale_plus, qty: 6 }
@@ -8605,7 +7942,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: g_rathalos_greaves_alpha_beta_r0
-        craft_time: 0.1
         main_output: g_rathalos_greaves_alpha_beta
         inputs:
           - { id: g_rathalos_certificate_s, qty: 2 }
@@ -8622,7 +7958,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: lala_helm_r0
-        craft_time: 0.1
         main_output: lala_helm
         inputs:
           - { id: lala_fluff, qty: 2 }
@@ -8635,7 +7970,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: lala_mail_r0
-        craft_time: 0.1
         main_output: lala_mail
         inputs:
           - { id: lala_fluff, qty: 2 }
@@ -8649,7 +7983,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: lala_arm_r0
-        craft_time: 0.1
         main_output: lala_arm
         inputs:
           - { id: lala_carapace, qty: 2 }
@@ -8662,7 +7995,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: lala_coil_r0
-        craft_time: 0.1
         main_output: lala_coil
         inputs:
           - { id: lala_mucus, qty: 1 }
@@ -8676,7 +8008,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: lala_greaves_r0
-        craft_time: 0.1
         main_output: lala_greaves
         inputs:
           - { id: lala_certificate, qty: 1 }
@@ -8693,7 +8024,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: shubarka_helm_gamma_r0
-        craft_time: 0.1
         main_output: shubarka_helm_gamma
         inputs:
           - { id: arkveld_certificate_gamma, qty: 1 }
@@ -8708,7 +8038,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: shubarka_mail_gamma_r0
-        craft_time: 0.1
         main_output: shubarka_mail_gamma
         inputs:
           - { id: arkveld_certificate_gamma, qty: 1 }
@@ -8723,7 +8052,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: shubarka_arm_gamma_r0
-        craft_time: 0.1
         main_output: shubarka_arm_gamma
         inputs:
           - { id: arkveld_certificate_gamma, qty: 1 }
@@ -8738,7 +8066,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: shubarka_coil_gamma_r0
-        craft_time: 0.1
         main_output: shubarka_coil_gamma
         inputs:
           - { id: arkveld_certificate_gamma, qty: 1 }
@@ -8753,7 +8080,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: shubarka_greaves_gamma_r0
-        craft_time: 0.1
         main_output: shubarka_greaves_gamma
         inputs:
           - { id: arkveld_certificate_gamma, qty: 1 }
@@ -8770,7 +8096,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: rey_tonitrua_1_r0
-        craft_time: 0.1
         main_output: rey_tonitrua_1
         inputs:
           - { id: rey_dau_scale, qty: 3 }
@@ -8784,7 +8109,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: rey_tonitrua_2_r0
-        craft_time: 0.1
         main_output: rey_tonitrua_2
         inputs:
           - { id: rey_tonitrua_1, qty: 1 }
@@ -8799,7 +8123,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: rey_tonitrua_3_r0
-        craft_time: 0.1
         main_output: rey_tonitrua_3
         inputs:
           - { id: rey_tonitrua_2, qty: 1 }
@@ -8815,7 +8138,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: rey_tonitrua_r0
-        craft_time: 0.1
         main_output: rey_tonitrua
         inputs:
           - { id: rey_tonitrua_3, qty: 1 }
@@ -8833,7 +8155,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: rey_gukultos_1_r0
-        craft_time: 0.1
         main_output: rey_gukultos_1
         inputs:
           - { id: rey_dau_scale, qty: 3 }
@@ -8847,7 +8168,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: rey_gukultos_2_r0
-        craft_time: 0.1
         main_output: rey_gukultos_2
         inputs:
           - { id: rey_gukultos_1, qty: 1 }
@@ -8862,7 +8182,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: rey_gukultos_3_r0
-        craft_time: 0.1
         main_output: rey_gukultos_3
         inputs:
           - { id: rey_gukultos_2, qty: 1 }
@@ -8878,7 +8197,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: rey_gukultos_r0
-        craft_time: 0.1
         main_output: rey_gukultos
         inputs:
           - { id: rey_gukultos_3, qty: 1 }
@@ -8896,7 +8214,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: rey_brisbizza_1_r0
-        craft_time: 0.1
         main_output: rey_brisbizza_1
         inputs:
           - { id: rey_dau_scale, qty: 3 }
@@ -8910,7 +8227,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: rey_brisbizza_2_r0
-        craft_time: 0.1
         main_output: rey_brisbizza_2
         inputs:
           - { id: rey_brisbizza_1, qty: 1 }
@@ -8925,7 +8241,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: rey_brisbizza_3_r0
-        craft_time: 0.1
         main_output: rey_brisbizza_3
         inputs:
           - { id: rey_brisbizza_2, qty: 1 }
@@ -8941,7 +8256,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: rey_brisbizza_r0
-        craft_time: 0.1
         main_output: rey_brisbizza
         inputs:
           - { id: rey_brisbizza_3, qty: 1 }
@@ -8959,7 +8273,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: rey_galgarahat_1_r0
-        craft_time: 0.1
         main_output: rey_galgarahat_1
         inputs:
           - { id: rey_dau_scale, qty: 3 }
@@ -8973,7 +8286,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: rey_galgarahat_2_r0
-        craft_time: 0.1
         main_output: rey_galgarahat_2
         inputs:
           - { id: rey_galgarahat_1, qty: 1 }
@@ -8988,7 +8300,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: rey_galgarahat_3_r0
-        craft_time: 0.1
         main_output: rey_galgarahat_3
         inputs:
           - { id: rey_galgarahat_2, qty: 1 }
@@ -9004,7 +8315,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: rey_galgarahat_r0
-        craft_time: 0.1
         main_output: rey_galgarahat
         inputs:
           - { id: rey_galgarahat_3, qty: 1 }
@@ -9022,7 +8332,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: rey_astrape_1_r0
-        craft_time: 0.1
         main_output: rey_astrape_1
         inputs:
           - { id: rey_dau_scale, qty: 3 }
@@ -9036,7 +8345,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: rey_astrape_2_r0
-        craft_time: 0.1
         main_output: rey_astrape_2
         inputs:
           - { id: rey_astrape_1, qty: 1 }
@@ -9051,7 +8359,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: rey_astrape_3_r0
-        craft_time: 0.1
         main_output: rey_astrape_3
         inputs:
           - { id: rey_astrape_2, qty: 1 }
@@ -9067,7 +8374,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: rey_astrape_r0
-        craft_time: 0.1
         main_output: rey_astrape
         inputs:
           - { id: rey_astrape_3, qty: 1 }
@@ -9085,7 +8391,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: rey_halilintar_1_r0
-        craft_time: 0.1
         main_output: rey_halilintar_1
         inputs:
           - { id: rey_dau_scale, qty: 3 }
@@ -9099,7 +8404,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: rey_halilintar_2_r0
-        craft_time: 0.1
         main_output: rey_halilintar_2
         inputs:
           - { id: rey_halilintar_1, qty: 1 }
@@ -9114,7 +8418,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: rey_halilintar_3_r0
-        craft_time: 0.1
         main_output: rey_halilintar_3
         inputs:
           - { id: rey_halilintar_2, qty: 1 }
@@ -9130,7 +8433,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: rey_halilintar_r0
-        craft_time: 0.1
         main_output: rey_halilintar
         inputs:
           - { id: rey_halilintar_3, qty: 1 }
@@ -9148,7 +8450,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: rey_perkunis_1_r0
-        craft_time: 0.1
         main_output: rey_perkunis_1
         inputs:
           - { id: rey_dau_scale, qty: 3 }
@@ -9162,7 +8463,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: rey_perkunis_2_r0
-        craft_time: 0.1
         main_output: rey_perkunis_2
         inputs:
           - { id: rey_perkunis_1, qty: 1 }
@@ -9177,7 +8477,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: rey_perkunis_3_r0
-        craft_time: 0.1
         main_output: rey_perkunis_3
         inputs:
           - { id: rey_perkunis_2, qty: 1 }
@@ -9193,7 +8492,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: rey_perkunis_r0
-        craft_time: 0.1
         main_output: rey_perkunis
         inputs:
           - { id: rey_perkunis_3, qty: 1 }
@@ -9211,7 +8509,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: wyvern_blade_vermilion_1_r0
-        craft_time: 0.1
         main_output: wyvern_blade_vermilion_1
         inputs:
           - { id: rathalos_certificate_s, qty: 2 }
@@ -9226,7 +8523,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: wyvern_blade_maple_r0
-        craft_time: 0.1
         main_output: wyvern_blade_maple
         inputs:
           - { id: wyvern_blade_vermilion_1, qty: 1 }
@@ -9244,7 +8540,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: heat_edge_1_r0
-        craft_time: 0.1
         main_output: heat_edge_1
         inputs:
           - { id: rathalos_certificate_s, qty: 2 }
@@ -9259,7 +8554,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: corona_r0
-        craft_time: 0.1
         main_output: corona
         inputs:
           - { id: heat_edge_1, qty: 1 }
@@ -9277,7 +8571,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: twin_flames_1_r0
-        craft_time: 0.1
         main_output: twin_flames_1
         inputs:
           - { id: rathalos_certificate_s, qty: 2 }
@@ -9292,7 +8585,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: ryu_no_tsugai_r0
-        craft_time: 0.1
         main_output: ryu_no_tsugai
         inputs:
           - { id: twin_flames_1, qty: 1 }
@@ -9310,7 +8602,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: red_beat_1_r0
-        craft_time: 0.1
         main_output: red_beat_1
         inputs:
           - { id: rathalos_certificate_s, qty: 2 }
@@ -9325,7 +8616,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: huracan_r0
-        craft_time: 0.1
         main_output: huracan
         inputs:
           - { id: red_beat_1, qty: 1 }
@@ -9343,7 +8633,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: flame_flap_1_r0
-        craft_time: 0.1
         main_output: flame_flap_1
         inputs:
           - { id: rathalos_certificate_s, qty: 2 }
@@ -9358,7 +8647,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: ambicion_r0
-        craft_time: 0.1
         main_output: ambicion
         inputs:
           - { id: flame_flap_1, qty: 1 }
@@ -9376,7 +8664,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: red_tail_1_r0
-        craft_time: 0.1
         main_output: red_tail_1
         inputs:
           - { id: rathalos_certificate_s, qty: 2 }
@@ -9391,7 +8678,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: prominence_pillar_r0
-        craft_time: 0.1
         main_output: prominence_pillar
         inputs:
           - { id: red_tail_1, qty: 1 }
@@ -9409,7 +8695,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: red_rook_1_r0
-        craft_time: 0.1
         main_output: red_rook_1
         inputs:
           - { id: rathalos_certificate_s, qty: 2 }
@@ -9424,7 +8709,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: crimson_rook_r0
-        craft_time: 0.1
         main_output: crimson_rook
         inputs:
           - { id: red_rook_1, qty: 1 }
@@ -9442,7 +8726,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: flame_axe_axerion_1_r0
-        craft_time: 0.1
         main_output: flame_axe_axerion_1
         inputs:
           - { id: rathalos_certificate_s, qty: 2 }
@@ -9457,7 +8740,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: flame_axe_uniorion_r0
-        craft_time: 0.1
         main_output: flame_axe_uniorion
         inputs:
           - { id: flame_axe_axerion_1, qty: 1 }
@@ -9475,7 +8757,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: flame_glaive_1_r0
-        craft_time: 0.1
         main_output: flame_glaive_1
         inputs:
           - { id: rathalos_certificate_s, qty: 2 }
@@ -9490,7 +8771,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: flame_glaive_r0
-        craft_time: 0.1
         main_output: flame_glaive
         inputs:
           - { id: flame_glaive_1, qty: 1 }
@@ -9508,7 +8788,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: flame_cannon_1_r0
-        craft_time: 0.1
         main_output: flame_cannon_1
         inputs:
           - { id: rathalos_certificate_s, qty: 2 }
@@ -9523,7 +8802,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: flame_cannon_r0
-        craft_time: 0.1
         main_output: flame_cannon
         inputs:
           - { id: flame_cannon_1, qty: 1 }
@@ -9541,7 +8819,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: prominence_bow_1_r0
-        craft_time: 0.1
         main_output: prominence_bow_1
         inputs:
           - { id: rathalos_certificate_s, qty: 2 }
@@ -9556,7 +8833,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: prominence_bow_r0
-        craft_time: 0.1
         main_output: prominence_bow
         inputs:
           - { id: prominence_bow_1, qty: 1 }
@@ -9574,7 +8850,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: wyvern_blade_emerald_1_r0
-        craft_time: 0.1
         main_output: wyvern_blade_emerald_1
         inputs:
           - { id: rathian_certificate_s, qty: 2 }
@@ -9589,7 +8864,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: wyvern_blade_holly_r0
-        craft_time: 0.1
         main_output: wyvern_blade_holly
         inputs:
           - { id: wyvern_blade_emerald_1, qty: 1 }
@@ -9607,7 +8881,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: princess_rapier_1_r0
-        craft_time: 0.1
         main_output: princess_rapier_1
         inputs:
           - { id: rathian_certificate_s, qty: 2 }
@@ -9622,7 +8895,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: queen_rapier_r0
-        craft_time: 0.1
         main_output: queen_rapier
         inputs:
           - { id: princess_rapier_1, qty: 1 }
@@ -9640,7 +8912,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: princess_burst_1_r0
-        craft_time: 0.1
         main_output: princess_burst_1
         inputs:
           - { id: rathian_certificate_s, qty: 2 }
@@ -9655,7 +8926,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: queen_burst_r0
-        craft_time: 0.1
         main_output: queen_burst
         inputs:
           - { id: princess_burst_1, qty: 1 }
@@ -9673,7 +8943,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: dear_lutemis_1_r0
-        craft_time: 0.1
         main_output: dear_lutemis_1
         inputs:
           - { id: rathian_certificate_s, qty: 2 }
@@ -9688,7 +8957,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: dear_lutemia_r0
-        craft_time: 0.1
         main_output: dear_lutemia
         inputs:
           - { id: dear_lutemis_1, qty: 1 }
@@ -9706,7 +8974,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: princess_bow_1_r0
-        craft_time: 0.1
         main_output: princess_bow_1
         inputs:
           - { id: rathian_certificate_s, qty: 2 }
@@ -9721,7 +8988,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: queen_blaster_r0
-        craft_time: 0.1
         main_output: queen_blaster
         inputs:
           - { id: princess_bow_1, qty: 1 }
@@ -9739,7 +9005,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: steal_of_fact_1_r0
-        craft_time: 0.1
         main_output: steal_of_fact_1
         inputs:
           - { id: frenzy_shard, qty: 5 }
@@ -9754,7 +9019,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: steal_of_law_r0
-        craft_time: 0.1
         main_output: steal_of_law
         inputs:
           - { id: steal_of_fact_1, qty: 1 }
@@ -9772,7 +9036,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: ankh_of_checker_1_r0
-        craft_time: 0.1
         main_output: ankh_of_checker_1
         inputs:
           - { id: frenzy_shard, qty: 5 }
@@ -9787,7 +9050,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: ankh_of_searcher_r0
-        craft_time: 0.1
         main_output: ankh_of_searcher
         inputs:
           - { id: ankh_of_checker_1, qty: 1 }
@@ -9805,7 +9067,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: crow_of_ripper_1_r0
-        craft_time: 0.1
         main_output: crow_of_ripper_1
         inputs:
           - { id: frenzy_shard, qty: 5 }
@@ -9820,7 +9081,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: crow_of_hunger_r0
-        craft_time: 0.1
         main_output: crow_of_hunger
         inputs:
           - { id: crow_of_ripper_1, qty: 1 }
@@ -9838,7 +9098,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: power_of_glare_1_r0
-        craft_time: 0.1
         main_output: power_of_glare_1
         inputs:
           - { id: frenzy_shard, qty: 5 }
@@ -9853,7 +9112,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: power_of_terror_r0
-        craft_time: 0.1
         main_output: power_of_terror
         inputs:
           - { id: power_of_glare_1, qty: 1 }
@@ -9871,7 +9129,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: sound_of_cry_1_r0
-        craft_time: 0.1
         main_output: sound_of_cry_1
         inputs:
           - { id: frenzy_shard, qty: 5 }
@@ -9886,7 +9143,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: sound_of_sorrow_r0
-        craft_time: 0.1
         main_output: sound_of_sorrow
         inputs:
           - { id: sound_of_cry_1, qty: 1 }
@@ -9904,7 +9160,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: shield_of_earnest_1_r0
-        craft_time: 0.1
         main_output: shield_of_earnest_1
         inputs:
           - { id: frenzy_shard, qty: 5 }
@@ -9919,7 +9174,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: shield_of_heat_r0
-        craft_time: 0.1
         main_output: shield_of_heat
         inputs:
           - { id: shield_of_earnest_1, qty: 1 }
@@ -9937,7 +9191,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: arm_of_tyrant_1_r0
-        craft_time: 0.1
         main_output: arm_of_tyrant_1
         inputs:
           - { id: frenzy_shard, qty: 5 }
@@ -9952,7 +9205,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: arm_of_treason_r0
-        craft_time: 0.1
         main_output: arm_of_treason
         inputs:
           - { id: arm_of_tyrant_1, qty: 1 }
@@ -9970,7 +9222,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: will_of_shape_1_r0
-        craft_time: 0.1
         main_output: will_of_shape_1
         inputs:
           - { id: frenzy_shard, qty: 5 }
@@ -9985,7 +9236,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: will_of_mind_r0
-        craft_time: 0.1
         main_output: will_of_mind
         inputs:
           - { id: will_of_shape_1, qty: 1 }
@@ -10003,7 +9253,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: force_of_fall_1_r0
-        craft_time: 0.1
         main_output: force_of_fall_1
         inputs:
           - { id: frenzy_shard, qty: 5 }
@@ -10018,7 +9267,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: force_of_ruin_r0
-        craft_time: 0.1
         main_output: force_of_ruin
         inputs:
           - { id: force_of_fall_1, qty: 1 }
@@ -10036,7 +9284,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: aim_of_trick_1_r0
-        craft_time: 0.1
         main_output: aim_of_trick_1
         inputs:
           - { id: frenzy_shard, qty: 5 }
@@ -10051,7 +9298,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: aim_of_illuse_r0
-        craft_time: 0.1
         main_output: aim_of_illuse
         inputs:
           - { id: aim_of_trick_1, qty: 1 }
@@ -10069,7 +9315,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: ray_of_vice_1_r0
-        craft_time: 0.1
         main_output: ray_of_vice_1
         inputs:
           - { id: frenzy_shard, qty: 5 }
@@ -10084,7 +9329,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: ray_of_insanity_r0
-        craft_time: 0.1
         main_output: ray_of_insanity
         inputs:
           - { id: ray_of_vice_1, qty: 1 }
@@ -10102,7 +9346,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: trigger_of_hazard_1_r0
-        craft_time: 0.1
         main_output: trigger_of_hazard_1
         inputs:
           - { id: frenzy_shard, qty: 5 }
@@ -10117,7 +9360,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: trigger_of_demise_r0
-        craft_time: 0.1
         main_output: trigger_of_demise
         inputs:
           - { id: trigger_of_hazard_1, qty: 1 }
@@ -10135,7 +9377,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: vision_of_lost_1_r0
-        craft_time: 0.1
         main_output: vision_of_lost_1
         inputs:
           - { id: frenzy_shard, qty: 5 }
@@ -10150,7 +9391,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: vision_of_despair_r0
-        craft_time: 0.1
         main_output: vision_of_despair
         inputs:
           - { id: vision_of_lost_1, qty: 1 }
@@ -10168,7 +9408,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: arkveld_ensis_1_r0
-        craft_time: 0.1
         main_output: arkveld_ensis_1
         inputs:
           - { id: arkveld_certificate_s, qty: 3 }
@@ -10183,7 +9422,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: arkveld_lancelot_r0
-        craft_time: 0.1
         main_output: arkveld_lancelot
         inputs:
           - { id: arkveld_ensis_1, qty: 1 }
@@ -10201,7 +9439,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: arkveld_mucro_1_r0
-        craft_time: 0.1
         main_output: arkveld_mucro_1
         inputs:
           - { id: arkveld_certificate_s, qty: 3 }
@@ -10216,7 +9453,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: arkveld_artorius_r0
-        craft_time: 0.1
         main_output: arkveld_artorius
         inputs:
           - { id: arkveld_mucro_1, qty: 1 }
@@ -10234,7 +9470,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: arkveld_halp_1_r0
-        craft_time: 0.1
         main_output: arkveld_halp_1
         inputs:
           - { id: arkveld_certificate_s, qty: 3 }
@@ -10249,7 +9484,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: arkveld_ywain_r0
-        craft_time: 0.1
         main_output: arkveld_ywain
         inputs:
           - { id: arkveld_halp_1, qty: 1 }
@@ -10267,7 +9501,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: arkveld_malleus_1_r0
-        craft_time: 0.1
         main_output: arkveld_malleus_1
         inputs:
           - { id: arkveld_certificate_s, qty: 3 }
@@ -10282,7 +9515,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: arkveld_bedivere_r0
-        craft_time: 0.1
         main_output: arkveld_bedivere
         inputs:
           - { id: arkveld_malleus_1, qty: 1 }
@@ -10300,7 +9532,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: arkveld_sibilos_1_r0
-        craft_time: 0.1
         main_output: arkveld_sibilos_1
         inputs:
           - { id: arkveld_certificate_s, qty: 3 }
@@ -10315,7 +9546,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: arkveld_galahad_r0
-        craft_time: 0.1
         main_output: arkveld_galahad
         inputs:
           - { id: arkveld_sibilos_1, qty: 1 }
@@ -10333,7 +9563,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: arkveld_lancea_1_r0
-        craft_time: 0.1
         main_output: arkveld_lancea_1
         inputs:
           - { id: arkveld_certificate_s, qty: 3 }
@@ -10348,7 +9577,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: arkveld_bohman_r0
-        craft_time: 0.1
         main_output: arkveld_bohman
         inputs:
           - { id: arkveld_lancea_1, qty: 1 }
@@ -10366,7 +9594,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: arkveld_hasta_1_r0
-        craft_time: 0.1
         main_output: arkveld_hasta_1
         inputs:
           - { id: arkveld_certificate_s, qty: 3 }
@@ -10381,7 +9608,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: arkveld_bohort_r0
-        craft_time: 0.1
         main_output: arkveld_bohort
         inputs:
           - { id: arkveld_hasta_1, qty: 1 }
@@ -10399,7 +9625,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: arkveld_securis_1_r0
-        craft_time: 0.1
         main_output: arkveld_securis_1
         inputs:
           - { id: arkveld_certificate_s, qty: 3 }
@@ -10414,7 +9639,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: arkveld_perceval_r0
-        craft_time: 0.1
         main_output: arkveld_perceval
         inputs:
           - { id: arkveld_securis_1, qty: 1 }
@@ -10432,7 +9656,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: arkveld_bladra_1_r0
-        craft_time: 0.1
         main_output: arkveld_bladra_1
         inputs:
           - { id: arkveld_certificate_s, qty: 3 }
@@ -10447,7 +9670,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: arkveld_gauvain_r0
-        craft_time: 0.1
         main_output: arkveld_gauvain
         inputs:
           - { id: arkveld_bladra_1, qty: 1 }
@@ -10465,7 +9687,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: arkveld_turdis_1_r0
-        craft_time: 0.1
         main_output: arkveld_turdis_1
         inputs:
           - { id: arkveld_certificate_s, qty: 3 }
@@ -10480,7 +9701,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: arkveld_tor_r0
-        craft_time: 0.1
         main_output: arkveld_tor
         inputs:
           - { id: arkveld_turdis_1, qty: 1 }
@@ -10498,7 +9718,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: arkveld_impetum_1_r0
-        craft_time: 0.1
         main_output: arkveld_impetum_1
         inputs:
           - { id: arkveld_certificate_s, qty: 3 }
@@ -10513,7 +9732,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: arkveld_caius_r0
-        craft_time: 0.1
         main_output: arkveld_caius
         inputs:
           - { id: arkveld_impetum_1, qty: 1 }
@@ -10531,7 +9749,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: arkveld_tormentum_1_r0
-        craft_time: 0.1
         main_output: arkveld_tormentum_1
         inputs:
           - { id: arkveld_certificate_s, qty: 3 }
@@ -10546,7 +9763,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: arkveld_palamedes_r0
-        craft_time: 0.1
         main_output: arkveld_palamedes
         inputs:
           - { id: arkveld_tormentum_1, qty: 1 }
@@ -10564,7 +9780,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: arkveld_arcum_1_r0
-        craft_time: 0.1
         main_output: arkveld_arcum_1
         inputs:
           - { id: arkveld_certificate_s, qty: 3 }
@@ -10579,7 +9794,6 @@ items:
     facility: "加工屋"
     recipes:
       - id: arkveld_tristram_r0
-        craft_time: 0.1
         main_output: arkveld_tristram
         inputs:
           - { id: arkveld_arcum_1, qty: 1 }

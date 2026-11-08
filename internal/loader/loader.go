@@ -7,6 +7,7 @@ import (
 	"math"
 	"os"
 	"path/filepath"
+	"reflect"
 	"sort"
 	"strconv"
 	"strings"
@@ -162,15 +163,28 @@ func loadFile(path, fileName string) (*model.GameData, []GameLoadError) {
 		}}
 	}
 
-	var doc rawGame
-	if err := yaml.Unmarshal(data, &doc); err != nil {
+	var root yaml.Node
+	if err := yaml.Unmarshal(data, &root); err != nil {
 		return nil, []GameLoadError{{
 			FileName: fileName,
 			Message:  "YAMLの構文が不正です: " + err.Error(),
 		}}
 	}
+	var doc rawGame
+	if err := decodeKnown(&root, &doc); err != nil {
+		return nil, []GameLoadError{{
+			FileName: fileName,
+			Message:  "未知のキー、または解釈できない項目があります: " + err.Error(),
+		}}
+	}
 
 	var errs []GameLoadError
+	if !mappingHas(mappingNode(&root), "items") {
+		errs = append(errs, GameLoadError{
+			FileName: fileName,
+			Message:  "items キーがありません",
+		})
+	}
 	if doc.Name == nil || strings.TrimSpace(*doc.Name) == "" {
 		errs = append(errs, GameLoadError{
 			FileName: fileName,
@@ -189,8 +203,6 @@ func loadFile(path, fileName string) (*model.GameData, []GameLoadError) {
 	errs = append(errs, duplicateRecipeErrors(fileName, items)...)
 	idSet := itemIDSet(items)
 	errs = append(errs, referenceErrors(fileName, items, idSet)...)
-	errs = append(errs, craftTimeErrors(fileName, doc.Items)...)
-	errs = append(errs, quantityErrors(fileName, doc.Items)...)
 	errs = append(errs, lengthAndCountErrors(fileName, items)...)
 
 	byID := itemsByID(items)
@@ -229,7 +241,7 @@ func gameIDFromFile(fileName string) string {
 
 func parseItem(fileName string, node yaml.Node) (parsedItem, []GameLoadError) {
 	var raw rawItem
-	if err := node.Decode(&raw); err != nil {
+	if err := decodeKnown(&node, &raw); err != nil {
 		id, _ := mappingScalar(&node, "id")
 		return parsedItem{}, []GameLoadError{{
 			FileName: fileName,
@@ -268,7 +280,7 @@ func parseItem(fileName string, node yaml.Node) (parsedItem, []GameLoadError) {
 
 func parseRecipe(fileName, itemID string, node yaml.Node) (model.Recipe, []GameLoadError) {
 	var raw rawRecipe
-	if err := node.Decode(&raw); err != nil {
+	if err := decodeKnown(&node, &raw); err != nil {
 		return model.Recipe{}, []GameLoadError{{
 			FileName: fileName,
 			ItemId:   itemID,
@@ -294,7 +306,9 @@ func parseRecipe(fileName, itemID string, node yaml.Node) (model.Recipe, []GameL
 		})
 	}
 
-	if craft, ok := parseCraftTime(raw.CraftTime.ptr()); ok {
+	if msg := craftTimeMessage(raw.CraftTime.ptr()); msg != "" {
+		errs = append(errs, GameLoadError{FileName: fileName, ItemId: itemID, Message: msg})
+	} else if craft, ok := parseCraftTime(raw.CraftTime.ptr()); ok {
 		recipe.CraftTime = craft
 	}
 
@@ -303,7 +317,9 @@ func parseRecipe(fileName, itemID string, node yaml.Node) (model.Recipe, []GameL
 		if in.ID == nil || ref.ItemId == "" {
 			errs = append(errs, GameLoadError{FileName: fileName, ItemId: itemID, Message: "必要素材の参照先IDが欠損しています"})
 		}
-		if qty, ok := parseQty(in.Qty.ptr()); ok {
+		if msg := qtyMessage(in.Qty.ptr(), "必要個数"); msg != "" {
+			errs = append(errs, GameLoadError{FileName: fileName, ItemId: itemID, Message: msg})
+		} else if qty, ok := parseQty(in.Qty.ptr()); ok {
 			ref.Quantity = qty
 		}
 		recipe.Inputs = append(recipe.Inputs, ref)
@@ -313,7 +329,9 @@ func parseRecipe(fileName, itemID string, node yaml.Node) (model.Recipe, []GameL
 		if out.ID == nil || ref.ItemId == "" {
 			errs = append(errs, GameLoadError{FileName: fileName, ItemId: itemID, Message: "産出物のIDが欠損しています"})
 		}
-		if qty, ok := parseQty(out.Qty.ptr()); ok {
+		if msg := qtyMessage(out.Qty.ptr(), "産出数"); msg != "" {
+			errs = append(errs, GameLoadError{FileName: fileName, ItemId: itemID, Message: msg})
+		} else if qty, ok := parseQty(out.Qty.ptr()); ok {
 			ref.Quantity = qty
 		}
 		recipe.Outputs = append(recipe.Outputs, ref)
@@ -420,30 +438,72 @@ func referenceErrors(fileName string, items []parsedItem, ids map[string]struct{
 	return errs
 }
 
-func craftTimeErrors(fileName string, nodes []yaml.Node) []GameLoadError {
-	var errs []GameLoadError
-	for _, node := range nodes {
-		var raw rawItem
-		if err := node.Decode(&raw); err != nil {
+// decodeKnown は node を out へ読む。out の yaml タグに無いキーはエラーにする。
+// 一部分を文字列に戻して読み直すと行番号がその部分の中で数え直されるため、キーは元のノードで確かめ、
+// ファイル上の行番号を出す。
+func decodeKnown(node *yaml.Node, out any) error {
+	if err := checkKnownKeys(mappingNode(node), reflect.TypeOf(out).Elem()); err != nil {
+		return err
+	}
+	return node.Decode(out)
+}
+
+var yamlNodeType = reflect.TypeOf(yaml.Node{})
+
+// checkKnownKeys は mapping のキーが構造体 t の yaml タグにあるか確かめる。
+// 構造体のスライス（inputs / outputs の各行）は中まで確かめる。yaml.Node の項目は後で個別に確かめる。
+func checkKnownKeys(n *yaml.Node, t reflect.Type) error {
+	if n == nil || n.Kind != yaml.MappingNode || t.Kind() != reflect.Struct {
+		return nil
+	}
+	fields := map[string]reflect.Type{}
+	for i := 0; i < t.NumField(); i++ {
+		name, _, _ := strings.Cut(t.Field(i).Tag.Get("yaml"), ",")
+		if name != "" && name != "-" {
+			fields[name] = t.Field(i).Type
+		}
+	}
+	for i := 0; i+1 < len(n.Content); i += 2 {
+		key, value := n.Content[i], n.Content[i+1]
+		ft, ok := fields[key.Value]
+		if !ok {
+			return fmt.Errorf("%d行目: 不明なキー %s があります", key.Line, key.Value)
+		}
+		if ft.Kind() != reflect.Slice || ft.Elem().Kind() != reflect.Struct || ft.Elem() == yamlNodeType || value.Kind != yaml.SequenceNode {
 			continue
 		}
-		itemID := deref(raw.ID)
-		for _, recipeNode := range raw.Recipes {
-			var recipe rawRecipe
-			if err := recipeNode.Decode(&recipe); err != nil {
-				continue
-			}
-			if msg := craftTimeMessage(recipe.CraftTime.ptr()); msg != "" {
-				errs = append(errs, GameLoadError{FileName: fileName, ItemId: itemID, Message: msg})
+		for _, elem := range value.Content {
+			if err := checkKnownKeys(elem, ft.Elem()); err != nil {
+				return err
 			}
 		}
 	}
-	return errs
+	return nil
+}
+
+func mappingNode(n *yaml.Node) *yaml.Node {
+	if n != nil && n.Kind == yaml.DocumentNode && len(n.Content) > 0 {
+		return n.Content[0]
+	}
+	return n
+}
+
+func mappingHas(n *yaml.Node, key string) bool {
+	if n == nil || n.Kind != yaml.MappingNode {
+		return false
+	}
+	for i := 0; i+1 < len(n.Content); i += 2 {
+		if n.Content[i].Value == key {
+			return true
+		}
+	}
+	return false
 }
 
 func craftTimeMessage(n *yaml.Node) string {
+	// 省略・null は未設定。公式の作業時間が無いゲームデータを読めるようにする。
 	if n == nil || n.Tag == "!!null" || n.Kind == 0 {
-		return "生産時間が欠損しています"
+		return ""
 	}
 	if n.Kind != yaml.ScalarNode || (n.Tag != "!!int" && n.Tag != "!!float") {
 		return "生産時間が数値ではありません"
@@ -459,6 +519,9 @@ func craftTimeMessage(n *yaml.Node) string {
 }
 
 func parseCraftTime(n *yaml.Node) (float64, bool) {
+	if n == nil || n.Tag == "!!null" || n.Kind == 0 {
+		return 0, true
+	}
 	if craftTimeMessage(n) != "" {
 		return 0, false
 	}
@@ -467,34 +530,6 @@ func parseCraftTime(n *yaml.Node) (float64, bool) {
 		return 0, false
 	}
 	return v, true
-}
-
-func quantityErrors(fileName string, nodes []yaml.Node) []GameLoadError {
-	var errs []GameLoadError
-	for _, node := range nodes {
-		var raw rawItem
-		if err := node.Decode(&raw); err != nil {
-			continue
-		}
-		itemID := deref(raw.ID)
-		for _, recipeNode := range raw.Recipes {
-			var recipe rawRecipe
-			if err := recipeNode.Decode(&recipe); err != nil {
-				continue
-			}
-			for _, in := range recipe.Inputs {
-				if msg := qtyMessage(in.Qty.ptr(), "必要個数"); msg != "" {
-					errs = append(errs, GameLoadError{FileName: fileName, ItemId: itemID, Message: msg})
-				}
-			}
-			for _, out := range recipe.Outputs {
-				if msg := qtyMessage(out.Qty.ptr(), "産出数"); msg != "" {
-					errs = append(errs, GameLoadError{FileName: fileName, ItemId: itemID, Message: msg})
-				}
-			}
-		}
-	}
-	return errs
 }
 
 func qtyMessage(n *yaml.Node, label string) string {

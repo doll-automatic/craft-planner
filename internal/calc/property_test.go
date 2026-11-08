@@ -175,7 +175,7 @@ func TestProperty6TreeIsFiniteDAG(t *testing.T) {
 }
 
 func TestProperty3MaterialSummaryIsAdditive(t *testing.T) {
-	// Feature: game-production-manager, Property 3: 必要素材集計は経路分解に対して加法的 — 各素材の必要個数合計は、その素材へ至る全経路の寄与（経路に沿った必要個数の積）の総和に等しく、同一素材は重複のない 1 行になる。
+	// Feature: game-production-manager, Property 3: 必要素材集計は経路分解に対して加法的 — 各素材の必要個数合計は、その素材へ至る全経路の寄与（経路に沿った「必要個数 ÷ 親の産出数」の積）の総和に等しく、同一素材は重複のない 1 行になる。
 	checkAtLeast100(t, func(t *rapid.T) {
 		g := drawGraph(t, true)
 		root := g.n - 1
@@ -184,12 +184,12 @@ func TestProperty3MaterialSummaryIsAdditive(t *testing.T) {
 			t.Fatal(err)
 		}
 		want := topoMaterials(g, root)
-		got := map[string]int{}
+		got := map[string]float64{}
 		for _, line := range lines {
 			if _, dup := got[line.ItemId]; dup {
 				t.Fatalf("重複行 %s", line.ItemId)
 			}
-			if line.Quantity < 1 || line.Name == "" {
+			if line.Quantity <= 0 || line.Name == "" {
 				t.Fatalf("行が不正 %+v", line)
 			}
 			got[line.ItemId] = line.Quantity
@@ -201,21 +201,21 @@ func TestProperty3MaterialSummaryIsAdditive(t *testing.T) {
 			t.Fatalf("got %v want %v", got, want)
 		}
 		for id, qty := range want {
-			if got[id] != qty {
-				t.Fatalf("%s got %d want %d", id, got[id], qty)
+			if math.Abs(got[id]-qty) > 1e-6 {
+				t.Fatalf("%s got %v want %v", id, got[id], qty)
 			}
 		}
 	})
 }
 
 func TestProperty1FacilityCountIsMinimal(t *testing.T) {
-	// Feature: game-production-manager, Property 1: Facility_Count は目標速度を満たす最小台数 — (Facility_Count−1)×Output_Rate < 必要生産速度 ≤ Facility_Count×Output_Rate を満たす 1 以上の整数である。
+	// Feature: game-production-manager, Property 1: Facility_Count は目標個数を1秒で作り切る最小台数 — (Facility_Count−1)×Output_Rate < 必要個数 ≤ Facility_Count×Output_Rate を満たす 1 以上の整数である。
 	checkAtLeast100(t, func(t *rapid.T) {
 		g := drawGraph(t, true)
 		root := g.n - 1
-		rates := []float64{1, 2, 4, 5}
-		target := rates[rapid.IntRange(0, len(rates)-1).Draw(t, "rate")]
-		res, err := ComputeFacilities(g.game(), nodeID(root), target)
+		quantities := []int{1, 2, 4, 5}
+		target := quantities[rapid.IntRange(0, len(quantities)-1).Draw(t, "quantity")]
+		res, err := ComputeFacilities(g.game(), nodeID(root), float64(target))
 		if err != nil {
 			t.Fatal(err)
 		}
@@ -231,44 +231,44 @@ func TestProperty1FacilityCountIsMinimal(t *testing.T) {
 			if math.Abs(it.OutputRate-wantOut) > 1e-9 {
 				t.Fatalf("output %v want %v", it.OutputRate, wantOut)
 			}
-			rate := it.RequiredRate
-			if it.ItemId == nodeID(root) && math.Abs(rate-target) > 1e-9 {
-				t.Fatalf("root rate %v want %v", rate, target)
+			quantity := it.RequiredQuantity
+			if it.ItemId == nodeID(root) && math.Abs(quantity-float64(target)) > 1e-9 {
+				t.Fatalf("root quantity %v want %v", quantity, target)
 			}
 			left := float64(it.FacilityCount-1) * it.OutputRate
 			right := float64(it.FacilityCount) * it.OutputRate
-			if !(left < rate+1e-9 && rate <= right+1e-9) {
-				t.Fatalf("最小台数ではない: count=%d rate=%v output=%v", it.FacilityCount, rate, it.OutputRate)
+			if !(left < quantity+1e-9 && quantity <= right+1e-9) {
+				t.Fatalf("最小台数ではない: count=%d quantity=%v output=%v", it.FacilityCount, quantity, it.OutputRate)
 			}
 		}
 	})
 }
 
 func TestProperty2RequiredRateIsPathSum(t *testing.T) {
-	// Feature: game-production-manager, Property 2: 必要生産速度の再帰展開は親速度と必要個数の積 — 各素材の必要生産速度は、全経路の「親の必要生産速度×1回あたり必要個数」の総和（理論値、切り上げを挟まない）に等しい。
+	// Feature: game-production-manager, Property 2: 必要個数の再帰展開は親の実行回数と1回あたり必要個数の積 — 各素材の必要個数は、全経路の「親の必要個数÷親の産出数×1回あたり必要個数」の総和（理論値、切り上げを挟まない）に等しい。
 	checkAtLeast100(t, func(t *rapid.T) {
 		g := drawGraph(t, true)
 		root := g.n - 1
-		rates := []float64{1, 2, 4, 5}
-		target := rates[rapid.IntRange(0, len(rates)-1).Draw(t, "rate")]
-		res, err := ComputeFacilities(g.game(), nodeID(root), target)
+		quantities := []int{1, 2, 4, 5}
+		target := quantities[rapid.IntRange(0, len(quantities)-1).Draw(t, "quantity")]
+		res, err := ComputeFacilities(g.game(), nodeID(root), float64(target))
 		if err != nil {
 			t.Fatal(err)
 		}
-		want := topoRates(g, root, target)
+		want := topoQuantities(g, root, target)
 		got := map[string]float64{}
 		for _, it := range res.Items {
 			if it.Uncomputable {
 				t.Fatalf("循環なしなのに算出不可 %+v", it)
 			}
-			got[it.ItemId] = it.RequiredRate
+			got[it.ItemId] = it.RequiredQuantity
 		}
 		if len(got) != len(want) {
 			t.Fatalf("got %v want %v", got, want)
 		}
-		for id, rate := range want {
-			if math.Abs(got[id]-rate) > 1e-6 {
-				t.Fatalf("%s got %v want %v", id, got[id], rate)
+		for id, quantity := range want {
+			if math.Abs(got[id]-quantity) > 1e-6 {
+				t.Fatalf("%s got %v want %v", id, got[id], quantity)
 			}
 		}
 	})
@@ -365,16 +365,16 @@ func reachableSet(g graph, root int) map[int]bool {
 	return seen
 }
 
-func topoMaterials(g graph, root int) map[string]int {
-	mult := make([]int, g.n)
+func topoMaterials(g graph, root int) map[string]float64 {
+	mult := make([]float64, g.n)
 	mult[root] = 1
-	summary := map[string]int{}
+	summary := map[string]float64{}
 	for i := g.n - 1; i >= 0; i-- {
 		if mult[i] == 0 {
 			continue
 		}
 		for k, to := range g.edges[i] {
-			contrib := mult[i] * g.qty[i][k]
+			contrib := mult[i] / float64(g.out[i]) * float64(g.qty[i][k])
 			summary[nodeID(to)] += contrib
 			mult[to] += contrib
 		}
@@ -382,9 +382,9 @@ func topoMaterials(g graph, root int) map[string]int {
 	return summary
 }
 
-func topoRates(g graph, root int, target float64) map[string]float64 {
+func topoQuantities(g graph, root int, target int) map[string]float64 {
 	mult := make([]float64, g.n)
-	mult[root] = target
+	mult[root] = float64(target)
 	out := map[string]float64{}
 	for i := g.n - 1; i >= 0; i-- {
 		if mult[i] == 0 {
@@ -392,7 +392,7 @@ func topoRates(g graph, root int, target float64) map[string]float64 {
 		}
 		out[nodeID(i)] = mult[i]
 		for k, to := range g.edges[i] {
-			mult[to] += mult[i] * float64(g.qty[i][k])
+			mult[to] += mult[i] / float64(g.out[i]) * float64(g.qty[i][k])
 		}
 	}
 	return out

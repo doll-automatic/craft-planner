@@ -73,18 +73,18 @@ func TestGearExampleFacilitiesAndMaterials(t *testing.T) {
 	}
 
 	gear, ok := facilityByID(res, "gear")
-	if !ok || gear.FacilityCount != 2 || gear.RequiredRate != 2 || gear.OutputRate != 1 {
+	if !ok || gear.FacilityCount != 2 || gear.RequiredQuantity != 2 || gear.OutputRate != 1 {
 		t.Fatalf("gear = %+v", gear)
 	}
 	plate, ok := facilityByID(res, "iron_plate")
-	if !ok || plate.FacilityCount != 13 || math.Abs(plate.RequiredRate-4) > 1e-9 {
+	if !ok || plate.FacilityCount != 13 || math.Abs(plate.RequiredQuantity-4) > 1e-9 {
 		t.Fatalf("plate = %+v", plate)
 	}
 	if math.Abs(plate.OutputRate-(1/3.2)) > 1e-9 {
 		t.Fatalf("plate output = %v", plate.OutputRate)
 	}
 	ore, ok := facilityByID(res, "iron_ore")
-	if !ok || ore.FacilityCount != 8 || math.Abs(ore.RequiredRate-4) > 1e-9 || ore.OutputRate != 0.5 {
+	if !ok || ore.FacilityCount != 8 || math.Abs(ore.RequiredQuantity-4) > 1e-9 || ore.OutputRate != 0.5 {
 		t.Fatalf("ore = %+v", ore)
 	}
 
@@ -92,7 +92,7 @@ func TestGearExampleFacilitiesAndMaterials(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	got := map[string]int{}
+	got := map[string]float64{}
 	primary := map[string]bool{}
 	for _, line := range lines {
 		got[line.ItemId] = line.Quantity
@@ -106,6 +106,20 @@ func TestGearExampleFacilitiesAndMaterials(t *testing.T) {
 	}
 	if primary["iron_plate"] || !primary["iron_ore"] {
 		t.Fatalf("isPrimary = %+v", lines)
+	}
+	scaled, err := ScaleMaterials(lines, 2)
+	if err != nil {
+		t.Fatal(err)
+	}
+	scaledQty := map[string]float64{}
+	for _, line := range scaled {
+		scaledQty[line.ItemId] = line.Quantity
+		if line.IsPrimary != primary[line.ItemId] {
+			t.Fatalf("倍率後に種別が変わった %+v", line)
+		}
+	}
+	if scaledQty["iron_plate"] != 4 || scaledQty["iron_ore"] != 4 {
+		t.Fatalf("scaled = %+v", scaled)
 	}
 
 	tree, err := BuildTree(g, "gear", 1000)
@@ -167,9 +181,9 @@ func TestRawMaterialIsSingleNode(t *testing.T) {
 	}
 }
 
-func TestTheoreticalRateIgnoresFacilityRounding(t *testing.T) {
-	// 親は 3 秒で 2 個。目標 1 個/秒だと施設数は ceil(1.5)=2 で実効速度は 4/3。
-	// 下流の必要速度は理論値 1 のままである。
+func TestTheoreticalQuantityIgnoresFacilityRounding(t *testing.T) {
+	// 親は 3 秒で 2 個。目標 1 個を 1 秒で作り切る施設数は ceil(1.5)=2。
+	// 1 回で 2 個できるので、下流の必要個数は切り上げ前の理論値 0.5 のままである。
 	parent := item("parent", "親", "中間素材", "組立機", 3, 2, []model.MaterialRef{{ItemId: "child", Quantity: 1}}, nil)
 	child := item("child", "子", "中間素材", "炉", 1, 1, nil, nil)
 	g := &model.GameData{Items: map[string]*model.Item{"parent": parent, "child": child}}
@@ -182,8 +196,52 @@ func TestTheoreticalRateIgnoresFacilityRounding(t *testing.T) {
 	if p.FacilityCount != 2 {
 		t.Fatalf("parent = %+v", p)
 	}
-	if math.Abs(c.RequiredRate-1) > 1e-9 {
-		t.Fatalf("child rate = %v, want 1 (not effective 4/3)", c.RequiredRate)
+	if math.Abs(c.RequiredQuantity-0.5) > 1e-9 {
+		t.Fatalf("child quantity = %v, want 0.5", c.RequiredQuantity)
+	}
+}
+
+// 銅線は銅板 1 枚から 2 本できる。電子回路 1 個に銅線 3 本なので、銅板は 1.5 枚で足りる。
+func TestOutputQuantityReducesUpstreamNeed(t *testing.T) {
+	plate := item("plate", "銅板", "中間素材", "炉", 3.2, 1, nil, nil)
+	cable := item("cable", "銅線", "中間素材", "組立機", 0.5, 2, []model.MaterialRef{{ItemId: "plate", Quantity: 1}}, nil)
+	circuit := item("circuit", "電子回路", "中間素材", "組立機", 0.5, 1, []model.MaterialRef{{ItemId: "cable", Quantity: 3}}, nil)
+	g := &model.GameData{Items: map[string]*model.Item{"plate": plate, "cable": cable, "circuit": circuit}}
+
+	lines, err := SummarizeMaterials(g, "circuit", 1000)
+	if err != nil {
+		t.Fatal(err)
+	}
+	got := map[string]float64{}
+	for _, line := range lines {
+		got[line.ItemId] = line.Quantity
+	}
+	if got["cable"] != 3 || got["plate"] != 1.5 {
+		t.Fatalf("materials = %+v", lines)
+	}
+	// 端数の 1.5 が消えずに倍率へ渡ること。
+	scaled, err := ScaleMaterials(lines, 2)
+	if err != nil {
+		t.Fatal(err)
+	}
+	for _, line := range scaled {
+		if line.ItemId == "plate" && line.Quantity != 3 {
+			t.Fatalf("scaled = %+v", scaled)
+		}
+	}
+
+	res, err := ComputeFacilities(g, "circuit", 2)
+	if err != nil {
+		t.Fatal(err)
+	}
+	c, _ := facilityByID(res, "cable")
+	p, _ := facilityByID(res, "plate")
+	if c.RequiredQuantity != 6 || p.RequiredQuantity != 3 {
+		t.Fatalf("facilities = %+v", res.Items)
+	}
+	// 銅板 3 枚 ÷ (1 枚 / 3.2 秒) = 9.6 → 10 台。
+	if p.FacilityCount != 10 {
+		t.Fatalf("plate = %+v", p)
 	}
 }
 
@@ -213,6 +271,24 @@ func TestCycleStopsFacilityComputation(t *testing.T) {
 	}
 	if ids["a"] != 1 || ids["b"] != 1 {
 		t.Fatalf("nodes re-expanded: %+v", tree.Nodes)
+	}
+}
+
+func TestFacilitySkipsItemsWithoutCraftTime(t *testing.T) {
+	herb := item("herb", "薬草", "素材", "調合", 0, 1, nil, nil)
+	potion := item("potion", "回復薬", "消耗品", "調合", 0, 1, []model.MaterialRef{{ItemId: "herb", Quantity: 1}}, nil)
+	g := &model.GameData{Items: map[string]*model.Item{"herb": herb, "potion": potion}}
+	res, err := ComputeFacilities(g, "potion", 1)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if len(res.Items) != 2 {
+		t.Fatalf("items = %+v", res.Items)
+	}
+	for _, it := range res.Items {
+		if !it.Uncomputable || it.FacilityCount != 0 || it.Reason == "" {
+			t.Fatalf("時間なしなのに算出されている: %+v", it)
+		}
 	}
 }
 
@@ -279,7 +355,20 @@ func TestNodeCardOmitsRateWithoutCraftTime(t *testing.T) {
 	}
 }
 
-func TestInvalidTargetRate(t *testing.T) {
+func TestFacilityCeilIgnoresBinaryDust(t *testing.T) {
+	// 1.3 秒で 1 個。目標 10 個/秒なら 10÷(1/1.3)=13 台。誤差で 14 台にしてはいけない。
+	slow := item("slow", "遅", "中間素材", "炉", 1.3, 1, nil, nil)
+	g := &model.GameData{Items: map[string]*model.Item{"slow": slow}}
+	res, err := ComputeFacilities(g, "slow", 10)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if res.Items[0].FacilityCount != 13 {
+		t.Fatalf("count = %+v", res.Items[0])
+	}
+}
+
+func TestInvalidTargetQuantity(t *testing.T) {
 	g := gearGame()
 	if _, err := ComputeFacilities(g, "gear", 0); err == nil {
 		t.Fatal("0 を受け付けた")
