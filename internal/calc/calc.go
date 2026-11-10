@@ -1,5 +1,5 @@
 // Package calc は生産ツリー構築・素材集計・施設数算出の純粋ロジックである。
-// 入力は Data_Loader が検証済みの GameData だけを想定する。
+// 入力は internal/loader が検証済みの GameData だけを想定する。
 // 複数 Recipe がある Item は常に先頭 Recipe を使う。
 package calc
 
@@ -76,7 +76,7 @@ func (b *treeBuilder) expand(id string) {
 	b.path = b.path[:len(b.path)-1]
 }
 
-// nodeCardData は Node_Card 用の表示項目を埋める。集計や施設数の算出は行わない。
+// nodeCardData はツリーのノードカード用の表示項目を埋める。集計や施設数の算出は行わない。
 // 産出速度は主産物の個数 ÷ 生産時間。生産時間が無いときは OutputRate を付けない。
 func nodeCardData(g *model.GameData, item *model.Item) model.CyNodeData {
 	data := model.CyNodeData{

@@ -182,8 +182,8 @@ func TestRawMaterialIsSingleNode(t *testing.T) {
 }
 
 func TestTheoreticalQuantityIgnoresFacilityRounding(t *testing.T) {
-	// 親は 3 秒で 2 個。目標 1 個を 1 秒で作り切る施設数は ceil(1.5)=2。
-	// 1 回で 2 個できるので、下流の必要個数は切り上げ前の理論値 0.5 のままである。
+	// 親は 3 秒で 2 個。目標 1 個/秒に要る施設数は ceil(1.5)=2。
+	// 1 回で 2 個できるので、下流の必要速度は切り上げ前の理論値 0.5 個/秒のままである。
 	parent := item("parent", "親", "中間素材", "組立機", 3, 2, []model.MaterialRef{{ItemId: "child", Quantity: 1}}, nil)
 	child := item("child", "子", "中間素材", "炉", 1, 1, nil, nil)
 	g := &model.GameData{Items: map[string]*model.Item{"parent": parent, "child": child}}

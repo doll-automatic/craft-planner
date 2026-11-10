@@ -1,5 +1,5 @@
-// Game_Production_Manager のエントリポイント。
-// ポート検証のあと YAML を読み、Listen に成功してからアクセス URL を 1 回だけ出力する。
+// 生産管理ツールのエントリポイント。
+// ポート検証のあと YAML を読み、Listen に成功してから、このPC用と LAN 用のアクセス URL を 1 回ずつ出力する。
 package main
 
 import (
@@ -32,7 +32,7 @@ func main() {
 	}
 }
 
-// Boot はポートを検証し、データを読み、Listen 後に URL を 1 回出力する。
+// Boot はポートを検証し、データを読み、Listen 後にアクセス URL を 1 回ずつ出力する。
 // ポートが不正、または bind に失敗した場合は URL を出さず終了コード 1 を返す。
 func Boot(args []string, stdout io.Writer) (*Runtime, int) {
 	portStr := "8080"

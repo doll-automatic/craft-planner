@@ -2,7 +2,7 @@
 package model
 
 // GameData は 1 ゲーム分の Item 定義集合である。
-// Items のキーは Item_Id。検証を通過したものだけを Production_Calculator へ渡す。
+// Items のキーは Item_Id。internal/loader の検証を通過したものだけを internal/calc へ渡す。
 type GameData struct {
 	GameId string           `json:"gameId" yaml:"-"`
 	Name   string           `json:"name" yaml:"name"`
@@ -67,14 +67,14 @@ type CyNode struct {
 	Data CyNodeData `json:"data"`
 }
 
-// CyInput は Node_Card 下段の前提素材（Item 名へ解決済み）である。
+// CyInput はツリーのノードカード下段に出す前提素材（Item 名へ解決済み）である。
 // Qty は 1 回の生産に必要な直接個数で、素材合計とは別である。
 type CyInput struct {
 	Name string `json:"name"`
 	Qty  int    `json:"qty"`
 }
 
-// CyNodeData は Node_Card の描画に必要な表示項目を持つ。
+// CyNodeData はツリーのノードカードの描画に必要な表示項目を持つ。
 // Output と OutputRate は生産レシピが無い、または生産時間が無いとき nil（JSON では省略）になる。
 type CyNodeData struct {
 	ID         string    `json:"id"`
@@ -109,7 +109,8 @@ type TreeResult struct {
 }
 
 // MaterialLine は素材名と必要個数の合計 1 行である。
-// Quantity は切り上げ前の理論値で、端数を持つことがある。整数への切り上げは表示時にだけ行う。
+// Quantity は、ツリー取得では root 1 個あたり、施設数の取得では目標速度での 1 秒あたりの個数を表す。
+// どちらも切り上げ前の理論値で、端数を持つことがある。整数への切り上げは表示時にだけ行う。
 // IsPrimary は先頭 Recipe の inputs が空の 1 次素材を示す。必要個数の合計とは独立した表示用フラグである。
 type MaterialLine struct {
 	ItemId    string  `json:"itemId"`
@@ -118,9 +119,9 @@ type MaterialLine struct {
 	IsPrimary bool    `json:"isPrimary"`
 }
 
-// FacilityItem は 1 つの Item の必要個数と施設数である。
-// RequiredQuantity は切り上げ前の理論値。FacilityCount はそれを 1 台あたり産出速度で割って切り上げた台数で、
-// 目標個数を 1 秒で作り切る場合と同じ数になる。
+// FacilityItem は 1 つの Item の必要速度と施設数である。
+// RequiredQuantity は必要速度（個/秒）の切り上げ前の理論値である（名前は個数だが、JSON の互換のため変えていない）。
+// FacilityCount はそれを 1 台あたり産出速度（OutputRate、個/秒）で割って切り上げた台数である。
 type FacilityItem struct {
 	ItemId           string  `json:"itemId"`
 	Name             string  `json:"name"`
@@ -131,7 +132,7 @@ type FacilityItem struct {
 	Reason           string  `json:"reason,omitempty"`
 }
 
-// FacilityResult は目標個数を素材方向へ展開した結果である。
+// FacilityResult は目標速度を素材方向へ展開した結果である。
 type FacilityResult struct {
 	Items []FacilityItem `json:"items"`
 }

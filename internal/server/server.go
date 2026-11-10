@@ -36,7 +36,7 @@ type Server struct {
 }
 
 // sharedState はホストとクライアントが共有する選択である。
-// 種類の絞り込み、表示切替、テーマ、全画面は含めない。
+// 種類と名称の絞り込み、表示切替、テーマ、拡大表示は含めない。
 type sharedState struct {
 	GameId   string `json:"gameId"`
 	ItemId   string `json:"itemId"`
@@ -76,7 +76,7 @@ type errorBody struct {
 	Error string `json:"error"`
 }
 
-// planResponse は目標個数に対する施設数と、同じ個数ぶんの素材合計である。
+// planResponse は目標速度（個/秒）に対する施設数と、その速度で 1 秒あたりに要る素材の合計である。
 type planResponse struct {
 	Items     []model.FacilityItem `json:"items"`
 	Materials []model.MaterialLine `json:"materials"`
@@ -189,7 +189,7 @@ func (s *Server) handleFacilities(w http.ResponseWriter, r *http.Request) {
 	itemID := r.URL.Query().Get("itemId")
 	quantity, err := parseTargetQuantity(r.URL.Query().Get("quantity"))
 	if err != nil {
-		writeJSON(w, http.StatusBadRequest, errorBody{Error: "目標個数が不正です"})
+		writeJSON(w, http.StatusBadRequest, errorBody{Error: "目標速度が不正です"})
 		return
 	}
 	result, err := calc.ComputeFacilities(g, itemID, quantity)

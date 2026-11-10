@@ -209,7 +209,7 @@ func TestProperty3MaterialSummaryIsAdditive(t *testing.T) {
 }
 
 func TestProperty1FacilityCountIsMinimal(t *testing.T) {
-	// Feature: game-production-manager, Property 1: Facility_Count は目標個数を1秒で作り切る最小台数 — (Facility_Count−1)×Output_Rate < 必要個数 ≤ Facility_Count×Output_Rate を満たす 1 以上の整数である。
+	// Feature: game-production-manager, Property 1: Facility_Count は目標速度を満たす最小台数 — (Facility_Count−1)×Output_Rate < 必要速度 ≤ Facility_Count×Output_Rate を満たす 1 以上の整数である。
 	checkAtLeast100(t, func(t *rapid.T) {
 		g := drawGraph(t, true)
 		root := g.n - 1
@@ -245,7 +245,7 @@ func TestProperty1FacilityCountIsMinimal(t *testing.T) {
 }
 
 func TestProperty2RequiredRateIsPathSum(t *testing.T) {
-	// Feature: game-production-manager, Property 2: 必要個数の再帰展開は親の実行回数と1回あたり必要個数の積 — 各素材の必要個数は、全経路の「親の必要個数÷親の産出数×1回あたり必要個数」の総和（理論値、切り上げを挟まない）に等しい。
+	// Feature: game-production-manager, Property 2: 必要速度の再帰展開は親の実行回数と1回あたり必要個数の積 — 各素材の必要速度は、全経路の「親の必要速度÷親の産出数×1回あたり必要個数」の総和（理論値、切り上げを挟まない）に等しい。
 	checkAtLeast100(t, func(t *rapid.T) {
 		g := drawGraph(t, true)
 		root := g.n - 1

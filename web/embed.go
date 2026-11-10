@@ -4,7 +4,7 @@ package web
 
 import "embed"
 
-// FS は HTML / JS / CSS と Cytoscape.js を含む。
+// FS は HTML / JS / CSS と、Cytoscape.js・QR コード生成ライブラリを含む。
 //
 //go:embed index.html app.js style.css vendor/cytoscape.min.js vendor/qrcode.js
 var FS embed.FS

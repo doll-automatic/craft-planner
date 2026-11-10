@@ -1,8 +1,8 @@
 // 画面はサーバの算出結果を描画するだけである。施設数や素材合計はここでは計算しない。
 const THEME_KEY = "gpm-theme";
 
-// 初期倍率の上限とホイール感度。要件の「40%〜100%」は目安。
-// ノードがカード化して大きくなったため、単一ノードでも fit が拡大しすぎないよう初期倍率は 1 で頭打ちにする。
+// ツリーのズーム設定。値は実機で見やすさを確かめて決めた。
+// ノードはカードで大きいため、単一ノードでも fit が拡大しすぎないよう初期倍率は 1 で頭打ちにする。
 const treeZoom = {
   wheelSensitivity: 0.2,
   minZoom: 0.05,
@@ -11,7 +11,7 @@ const treeZoom = {
   padding: 28,
 };
 
-// Node_Card のモデル寸法。CSS の padding・行高と揃える（ズーム前の px）。
+// ツリーのノードカードの寸法。CSS の padding・行高と揃える（ズーム前の px）。
 const cardMetrics = {
   width: 280,
   chrome: 66,
@@ -36,7 +36,7 @@ const ui = {
   planReq: 0,
   resultMode: "materials",
   role: "host",
-  // 未取得は -1。サーバの初期 revision 0 でも初回は適用する。
+  // 未取得は -1。サーバから最初に取った状態は必ず適用する。
   revision: -1,
   pulling: false,
   heldQuantity: null,
@@ -424,7 +424,7 @@ if (typeof ResizeObserver === "function") {
 }
 window.addEventListener("resize", scheduleFitTree);
 
-// 全画面は localStorage に載せない。同時に広げられるのは 1 つ。
+// 拡大表示（ブラウザ内での最大化）は localStorage に載せない。同時に広げられるのは 1 つ。
 const fullscreenButtons = {
   "tree-panel": "tree-fullscreen",
   "lists-panel": "lists-fullscreen",
@@ -435,7 +435,7 @@ function setFullscreen(panelId, on) {
   const button = $(fullscreenButtons[panelId]);
   panel.classList.toggle("is-fullscreen", on);
   button.setAttribute("aria-pressed", on ? "true" : "false");
-  button.textContent = on ? "全画面解除" : "全画面表示";
+  button.textContent = on ? "拡大を解除" : "拡大";
 }
 
 function toggleFullscreen(panelId) {
@@ -774,7 +774,7 @@ function writeStock(itemId, value) {
   }
 }
 
-// 現在数が、行に出している目標個数を超えたときだけ暗くする。
+// 現在数が、行に出している必要個数を超えたときだけ暗くする。
 function markStock(li, raw, targetText) {
   const current = Number(String(raw).trim());
   const target = Number(targetText);
@@ -795,7 +795,7 @@ function appendItemIcon(parent, itemId) {
   parent.appendChild(img);
 }
 
-// minimumUnit は先頭レシピが1回で出す主産物の個数。未定義や 0 以下は 1。
+// minimumUnit は先頭レシピが1回で出す主産物の個数。目標速度が空欄のときの速度に使う。未定義や 0 以下は 1。
 function minimumUnit(item) {
   const recipe = item && Array.isArray(item.recipes) ? item.recipes[0] : null;
   if (!recipe || !Array.isArray(recipe.outputs)) return 1;
